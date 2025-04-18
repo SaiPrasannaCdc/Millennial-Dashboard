@@ -1,0 +1,25 @@
+#map-container .block-shadow {
+    padding: 0 0 10px 0;
+}
+
+.map-header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.inline-map-container {
+    display: inline-block;
+}
+
+.compare-buttons button {
+    border: none;
+    margin-bottom: 10px;
+}
+
+.compare-buttons button.active {
+    text-decoration: underline;
+}
+
+#map-container text {
+    user-select: none;
+}

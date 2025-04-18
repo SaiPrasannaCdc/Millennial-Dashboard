@@ -1,0 +1,1305 @@
+@keyframes fadein-initial {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fillin {
+  0% {
+    transform: scale3d(1,0,1)
+  }
+  100% {
+    transform: scale3d(1,1,1)
+  }
+}
+
+.App svg *:focus {
+  outline: none;
+}
+
+.italics {
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.font-xxl {
+  font-size: 50px;
+}
+
+.section {
+  position: relative;
+  /* padding: 0.5em 1em; */
+  padding-top: 0.5em;
+  margin: 0 0;
+}
+
+.section:first-child {
+  margin-top: 0px;
+  padding-top: 0px;
+  /* padding-top: 1em; */
+}
+
+.section:first-child::before {
+  display: none;
+}
+
+.section.divider {
+  margin-top: 2em;
+}
+
+.section.divider::before {
+  content: ' ';
+  position: absolute;
+  display: inline-block;
+  width: 80%;
+  height: 3px;
+  background-color: #999999;
+  margin-left: calc(10% - 1em);
+  top: -0.25em;
+}
+
+.column {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+.column-left {
+  padding-right: 0.5em;
+}
+
+.column-right {
+  padding-left: 0.5em;
+}
+
+.waffle-column {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+}
+
+.waffle-column-left {
+  margin-right: 0.5em;
+}
+
+.waffle-column-right {
+  margin-left: 0.5em;
+}
+
+input[type="radio"] {
+  margin: 0 5px;
+}
+
+.subheader {
+  display: block;
+  color: #712177;
+  /* font-size: 1.25em; */
+  font-weight: 500;
+  /* font-family: "Merriweather", serif; */
+  margin: 0.5em 0;
+}
+
+.individual-header {
+  font-weight: bold;
+  /* font-family: 'Merriweather', serif; */
+  color: #712177;
+  /* font-size: large; */
+  margin-left: 1em;
+}
+
+.subsection {
+  margin-top: 1em;
+  position: relative;
+}
+
+.subsection.marked {
+  padding-left: 10px;
+}
+
+.subsection.marked::before {
+  content: '';
+  position: absolute;
+  top: 30;
+  left: 0;
+  width: 7px;
+  height: 70px;
+  background-color: #999999;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.chart-legend {
+  text-align: center;
+}
+
+.chart-legend span {
+  margin: 0.5em;
+}
+
+.chart-legend.side strong {
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+.indicator-container {
+  display: flex;
+}
+
+.indicator {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin: 0.25em;
+}
+
+.metric-selectors {
+  display: inline-block;
+  border: 1px solid black;
+  border-left: 7px solid #712177;
+  padding: 0.75em;
+  height: 52px;
+}
+
+.metric-selectors strong {
+  margin: 0 1em;
+}
+
+.metric-selectors div {
+  display: inline-block;
+}
+
+.metric-selectors label {
+  margin-bottom: 0;
+  margin-right: 1em;
+}
+
+.dropdown-selectors {
+  display: inline-block;
+  border: 1px solid black;
+  border-left: 7px solid #712177;
+  padding: 0.60em;
+  height: 52px;
+  margin-left: 0px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #767676;
+  color: white;
+}
+
+.header select {
+  height: 2em;
+}
+
+.header.margin {
+  margin: 1em 0;
+}
+
+.preheader-label {
+  display: inline-block;
+  margin: .5em;
+  font-size: 1.5em;
+  /* font-family: sans-serif; */
+  color: white;
+  font-weight: 550;
+}
+
+.preliminary-disclaimer {
+  background-color: rgb(200, 232, 253);
+  padding: .5em 1em;
+}
+
+.preliminary-disclaimer span::before {
+  color: rgb(37, 94, 164);
+}
+
+#footer .preheader-label {
+  /* margin: .25em; */
+  width: calc(100% - 100px);
+  text-align: left;
+}
+
+.header-sections-container, .stats-sections-container {
+  display: flex;
+}
+
+.stats-sections-container {
+  flex-direction: column;
+}
+
+.header-section {
+  display: flex;
+  vertical-align: middle;
+  width: calc(55% - 0.25em);
+  border: 1px solid rgba(0,0,0,.125);
+  border-left: 5px solid #b890bb;
+  border-radius: .25rem;
+  min-height: 100px;
+  padding: .5em;
+  transition: .25s box-shadow;
+}
+
+.stats-section {
+  border: 1px solid rgba(0,0,0,.125);
+  border-left: 5px solid #b890bb;
+  border-radius: .25rem;
+  transition: .25s box-shadow;
+  margin-bottom: 0.5em;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.stats-section-icon
+{
+  /* height: calc(100px - 1em - 2px); */
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.stats-section .stats-text {
+  width: 70%;
+  display: inline-block;
+  padding: 0.25em;
+}
+
+.stats-section .stat-number
+{
+  width: 100%;
+  text-align: center;
+  /* color: #00698e; */
+}
+
+.stats-section .stat-number-text
+{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  /* color: #00698e; */
+}
+
+.header-section:hover {
+  box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+}
+
+/* .header-section.first .header-text .header-text {
+  width: calc(100% - 100px);
+} */
+
+.header-section.middle {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.header-text {
+  display: inline-block;
+  /* width: calc(100% - 100px); */
+  flex-grow: 1;
+  vertical-align: middle;
+  align-self: center;
+}
+
+#annualView .header-text
+{
+  width: calc(100% - 150px);
+}
+
+.header-text.full {
+  width: 100%;
+  /* font-size: 1em; */
+}
+
+.inline-header-text {
+  display: inline-block;
+  max-width: calc(100% - 9em);
+  vertical-align: middle;
+}
+
+.inline-vertical-align {
+  display: inline-block;
+  height: calc(100px - 1em - 2px);
+  vertical-align: middle;
+}
+
+.vertical-middle {
+  vertical-align: middle;
+}
+
+.compare-buttons {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.compare-buttons input {
+  margin: 0.25em;
+}
+
+.compare-buttons input:first-child {
+  margin-left: 1em;
+}
+
+.compare-buttons label:nth-child(2) {
+  margin-right: 1em;
+}
+
+a[download] {
+  background-color: #712177;
+  color: white;
+  margin: 1em 0;
+}
+
+a[download]:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.enlarged {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 2em;
+  font-weight: 500;
+  color: #712177;
+  padding: 0 .5em 0 .1em;
+  /* font-family: "Merriweather",serif; */
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.margin-top {
+  margin-top: 1em;
+}
+
+.margin-bottom {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.margin-bottom-extra {
+  margin-bottom: 1.5em;
+}
+
+select {
+  margin: 1em;
+  /* font-size: medium; */
+  padding: 0.25em;
+}
+
+.scale-note {
+  margin-top: 1em;
+  /* font-size: small; */
+}
+
+table caption {
+  position: absolute;
+  left: -10000px;
+}
+
+.toggle-indicator {
+  float: right;
+  margin: .9em;
+  font-weight: bold;
+}
+
+.drug-select {
+  margin: 1em auto;
+  display: block;
+}
+
+.drug-tab-section {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 0.5em;
+}
+
+.drug-tab {
+  border: none;
+  width: 46%;
+  height: 60px;
+  padding: 0.25em 0;
+  margin: 0 2%;
+  background: none;
+  border-radius: 30px;
+  box-shadow: 0px 2px 5px lightgrey;
+  vertical-align: middle;
+}
+
+.drug-tab:hover {
+  box-shadow: 0px 2px 7px gray;
+}
+
+.drug-tab.active {
+  background-color: #712177;
+  color: white;
+}
+
+.drug-tab:focus {
+  outline: 3px solid #712177;
+}
+
+.bar {
+  outline: none;
+}
+
+.bar,
+.bar-label,
+.pie {
+  transition: transform 1s ease-in-out;
+}
+
+#month-chart > svg > g {
+  overflow:hidden;
+}
+
+#month-chart .visx-axis-bottom {
+  background-color: #fff;
+  z-index: 999;
+}
+
+.animated-bar {
+  transform: scale(0, 1);
+}
+
+.animated-bar.vertical {
+  transform: scale(1, 0);
+}
+
+.animated-bar.animated {
+  transform: scale(1);
+}
+
+.fadein-initial {
+  animation: fadein-initial 1s linear;
+  opacity: 1;
+}
+
+.fadein {
+  animation: fadein 1s ease;
+  opacity: 1;
+}
+
+/* .opioid-section .waffle-label {
+  font-weight: bold;
+} */
+
+.opioid-section .waffle-label.font-xxl {
+  color:#712177;
+}
+
+.opioid-section .column-left {
+  width: 33%;
+  margin-right: 2em;
+}
+
+.opioid-section .column-right {
+  width: calc(66% - 2em);
+}
+
+.circumstance-container {
+  display: inline-flex;
+  text-align: left;
+  width: 50%;
+  margin: 1.5em 0;
+}
+
+.circumstance-icon-container {
+  margin-right: 1em;
+}
+
+.circumstance-container:first-child .circumstance-icon-container span::before {
+  position: relative;
+  right: 10px;
+}
+
+.circumstance-icon-container span::before {
+  color: #999999 !important;
+}
+
+.circumstance-value {
+  display: block;
+  /* font-size: x-large; */
+  font-weight: bold;
+  color: #712177;
+}
+
+#footer .header {
+  appearance: none;
+  border: none;
+}
+
+#footer .header:focus {
+  outline: auto 3px rgba(255, 102, 1, 0.9);
+}
+
+.App.medium-vp .column,
+.App.accessible .opioid-section .column {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+.App.medium-vp .additional-circumstance-container {
+  text-align: left;
+}
+
+.App.medium-vp .circumstance-container {
+  margin: 2em 0;
+}
+
+.App.medium-vp .waffle-column {
+  width: calc(100% - 0.5em);
+}
+
+.App.medium-vp .waffle-column-left
+{
+  width: calc(100% - 0.5em);
+  text-align: center;
+
+}
+.App.medium-vp .waffle-column-left #waffle-chart-container
+{
+  width: calc(60% - 0.5em) !important;
+}
+
+.App.accessible .waffle-column-left {
+  width: 100%;
+}
+
+.App.medium-vp .column-left {
+  padding-right: 0;
+}
+
+.App.medium-vp .column-right {
+  padding-left: 0;
+}
+
+.App.medium-vp .header-sections-container {
+  display: block;
+}
+
+.App.medium-vp .header-section {
+  display: flex;
+  width: 100%;
+}
+
+.App.medium-vp .margin-top-small-viewport {
+  margin-top: 1em;
+}
+
+.App.medium-vp .header-section.middle {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.App.medium-vp .drug-tab-section {
+  display: block;
+  width: 100%;
+}
+
+.App.medium-vp .circumstance-container {
+  width: 100%;
+}
+
+.App.small-vp .header {
+  display: inline-block;
+}
+
+.App.accessible .chart-container {
+  height: auto !important;
+}
+
+.App.accessible .subsection {
+  padding: 0;
+}
+
+.App.accessible .individual-header {
+  margin-left: 1em;
+}
+
+.animated-pie text {
+  transform:translateX(0);
+}
+
+.tooltip {
+  max-width: 75%;
+}
+
+.tooltip,
+.animated-pie path,
+.animated-pie text {
+  transition: all .4s ease-in-out;
+  border: rgba(0,0,0,.3) 1px solid !important;
+  box-shadow: rgba(0,0,0,.1) 3px 3px 7px;
+  opacity: 1;
+  line-height: 1.4em;
+  font-size: 1em;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.animated-pie-intro {
+  transform: scale(0, 0);
+}
+
+.animated-pie-intro.animated {
+  transform: scale(1, 1);
+}
+
+.animated-pie .animated-pie-text {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  transition-delay: .4s;
+}
+
+.animated-pie .animated-pie-text.animated {
+  opacity: 1;
+}
+
+#map-container path {
+  transition: all .3s ease-in-out;
+}
+
+#map-container path.hex-tile {
+  opacity: .9;
+}
+
+#map-container path.faded {
+  opacity: .4;
+}
+
+#map-container path.data-available {
+  cursor: pointer;
+}
+
+#map-container path.data-available:hover {
+  opacity: 1;
+}
+
+.middle-drug-tab-section
+{
+  margin-left:25%;
+}
+
+.App.medium-vp .middle-drug-tab-section {
+  margin-left: 0 !important;
+}
+
+.x180 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.x180.icon-fw {
+  width: 150px;
+  text-align: center;
+}
+.App.small-vp .x180::before {
+  width: 100px !important;
+} 
+.App.medium-vp .x180::before {
+  width: 100px !important;
+} 
+
+.margintop20 {
+  margin-top: 20px !important;
+}
+
+.bold700
+{
+  font-weight: 700;
+}
+
+.margin0
+{
+  margin: 0px;
+}
+
+.App.small-vp  .circumstance-selector {
+  width: 100%;
+  white-space: pre-wrap;
+  height: 55px;
+  margin-left: 0;
+}
+
+.overallEmergingDrugsLable
+{
+  text-align: center;
+  font-weight: bold;
+}
+
+.App.small-vp  #sudors-map-container,
+.App.medium-vp  #sudors-map-container
+{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.App.small-vp #sudors-map-container aside,
+.App.small-vp #sudors-map-container svg#mapSVG,
+.App.medium-vp #sudors-map-container aside,
+.App.small-vp #sudors-map-container .overallEmergingDrugsLable
+{
+    margin-top: 1em;
+}
+
+.no-margin-top
+{
+  margin-top: 0;
+}
+.no-margin-bottom
+{
+margin-bottom: 0;
+}
+
+.flexSpaceFiller
+{
+  flex-grow: 1;
+}
+
+main .h2, main h2 {
+  border-bottom: 0px !important;
+}
+
+/* text, p, tspan {
+  font-size: 16px !important;
+}
+
+#opioid-stimulant-chart-legend span {
+  font-size: 17px !important;
+} */
+
+tspan {
+  font-size: 18px !important;
+}
+
+.btn-download:hover {
+  background-color: #712177 !important;
+}
+
+/* table {
+  font-size: 17px !important;
+}*/
+
+#opioid-stimulant-chart .visx-axis-tick tspan{
+  font-size: 15px !important;
+} 
+
+.App.small-vp .drugoverdosemetric
+{
+ margin-top: 20px;
+}
+
+.wrapbalance
+{
+  text-wrap: balance;
+}
+
+.__react_component_tooltip.show
+{
+  opacity: 1 !important;
+  /* background-color: #9d969e; */
+}
+
+.App.small-vp .preheader-label
+{
+  font-size: 1.4em !important;
+}
+
+#pageContentFilter
+{
+  background-color: lightgray;
+  padding-bottom: 1em;
+  /* padding-left: 1em;
+  padding-right: 1em; */
+  background: var(--colors-blue-vivid-5-40);
+  border: 1px solid var(--colors-blue-vivid-5);
+  border-radius: var(--borders-radius);
+  margin-bottom: 1em;
+}
+
+/* #pageContentFilter select
+{
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+} */
+
+#l3 input
+{
+  margin-left: 1em;
+}
+.selectrow
+{
+  display: flex;
+}
+.selectrow div.left{
+  margin-top: 0.6em;
+  width: 10%;
+}
+
+.years div.right select{
+  width: 5em;
+}
+
+/* .trendview-line-chart-container
+{
+  height: 495px !important;
+} */
+
+.grid-item select
+{
+   margin: 0em;
+   padding-top: 0em;
+}
+
+.grid-item
+{
+  height: 2.5em;
+  padding-top: 0.5em;
+}
+
+.grey-blue
+{
+  background-color: #bdd7ee;
+}
+
+.stats-note
+{
+  margin-top: .25em;
+  margin-bottom: .25em;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+.stat-number, .stat-number
+{
+  font-size: 2em;
+  font-weight: 500;
+  padding: 0em 0.1em;
+  display: inline-block;
+
+}
+
+#pageContentFilter .row 
+{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.trend-line-chart-container {
+  width: 100px;
+  height: calc(100px - 1em - 2px);
+  display: inline-block;
+  vertical-align: middle;
+  align-self: center;
+}
+.App.accessible .trend-line-chart-container {
+  width: 100%;
+}
+
+.purple
+{
+  color: #712177;
+}
+
+.disabledLabel {
+  color: #ccc;
+}
+
+.flex{
+  display: flex;
+}
+
+.stats-container
+{
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 25px;
+}
+
+.stats-container-section{
+  display: flex; 
+  align-items: center;
+  flex-direction: column;
+}
+
+legend { 
+  font-size: 17px; 
+}
+
+fieldset.border{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em;
+  margin: 0.5em;
+  line-height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.indicator-text
+{
+  width: 33%;
+}
+/* .indicator
+{
+  width: 15%;
+  height: 100px;
+} */
+
+.trendview-line-chart-container
+{
+  display: flex;
+  justify-content: center;
+}
+
+.clear-selection
+{
+  margin-left: 1em;
+  cursor: pointer;
+  color: #0056b3; 
+  text-decoration: underline; 
+  text-decoration-color: #0056b3; 
+  text-decoration-thickness: 1px; 
+  text-underline-offset: 2px;
+}
+
+.stats-item
+{
+  display: flex;
+  align-items: center;
+}
+
+.trendSummaryOverdoseDeaths
+{
+  width: 100%;
+  border: 0px;
+  border-radius: 10px;
+  background-color: rgb(209, 230, 239);
+  /* height: 100px; */
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.trendSummaryOverdoseDeathsLabel
+{
+  font-weight: 500;
+  font-size: 1.25em;
+  text-align: center;
+  white-space: pre-wrap;
+  color: black;
+  padding: 0.5em 4em;
+  margin: 0px;
+  width: 100%;
+}
+
+.transition-2s
+{
+  
+  transition: "all .2s";
+}
+
+.drug-select-option-button
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-bottom: 10px; */
+  width: auto;
+  height: 2.3em;
+}
+
+.drug-select-option-button svg
+{
+  max-width: 1.4em;
+}
+
+.circle-container
+{
+  vertical-align: middle;
+  margin:0px;
+  padding: 0px;
+
+  flex-shrink: 0; /* Prevent the circle container from shrinking */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure the SVG is displayed correctly */
+.circle-container svg {
+  width: 50px; /* Set a fixed width for the SVG */
+  height: 50px; /* Set a fixed height for the SVG */
+}
+
+/* Style for the label container */
+.label-container {margin-left: .5em;
+  /* margin-top: .5em; */
+  flex-grow: 1; /* Allow the label container to take up remaining space */
+  flex-shrink: 0; /* Prevent the label container from shrinking */
+}
+
+.drug-select-option-button label {
+  vertical-align: middle;
+}
+
+.thin-boarder
+{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+#di-rate-line-chart-container .row{
+  padding: 0px 5px
+}
+
+.heightlighted
+{
+  font-weight: 700;
+  color: rgb(0, 130, 176)
+}
+
+.tooltip
+{
+  background-color: rgb(209, 230, 239);
+}
+
+#footer button {
+  outline: none !important;
+}
+
+.quarterly-bar-chart .visx-axis-bottom tspan
+{
+  font-size: 14px !important;
+}
+
+.drug-selector-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.drug-selector-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 2em; /* Adjust the margin as needed */
+}
+
+
+.drug-selector-fieldset
+{
+  display: flex;
+  flex-direction: column !important;
+}
+
+.statText
+{
+  display: inline-block;
+  margin-left: 1em;
+  margin-bottom: .5em;
+  vertical-align: bottom;
+  /* font-size: 11px; */
+}
+
+
+
+.__react_component_tooltip.show.red
+{
+  background-color: #e71d1d;
+}
+
+.__react_component_tooltip.show.opioidsandstimulants-lighter {  background-color: rgb(219 224 234);}
+
+.__react_component_tooltip.show.opioidsandnostimulants-lighter{ background-color: rgb(214, 225, 233)}
+
+.__react_component_tooltip.show.stimulantsandnoopioids-lighter{ background-color: rgb(215, 229, 228)}
+
+.__react_component_tooltip.show.neitheropioidsnorstimulants-lighter {
+  background-color: rgb(212, 226, 223)
+}
+
+.__react_component_tooltip.show.all-lighter {
+  background-color: rgb(209, 223, 234)
+}
+
+.__react_component_tooltip.show.anyopioids-lighter
+{
+  background-color: rgb(211, 214, 234)
+}
+
+.__react_component_tooltip.show.opioid-lighter{
+  background-color: rgb(211, 214, 234)
+}
+
+.__react_component_tooltip.show.methamphetamine-lighter{
+  background-color: rgb(226, 220, 234)
+}
+
+.__react_component_tooltip.show.female-lighter{
+  background-color: rgb(192, 215, 200)
+}
+
+.__react_component_tooltip.show.heroin-lighter{background-color: rgb(225, 236, 241)}
+
+.__react_component_tooltip.show.prescriptionopioids-lighter{background-color: rgb(219, 237, 239)}
+
+.__react_component_tooltip.show.anystimulants-lighter{background-color: rgb(231, 215, 231)}
+
+.__react_component_tooltip.show.stimulant-lighter{background-color: rgb(231, 215, 231)}
+
+.__react_component_tooltip.show.cocaine-ligher{background-color: rgb(230, 222, 237)}
+
+.__react_component_tooltip.show.illegally-made-fentanyls-lighter{ background-color: rgb(216, 221, 234)}
+
+.__react_component_tooltip.show.any-non-opioid-sedatives-lighter{ background-color: rgb(228, 217, 221)}
+
+.__react_component_tooltip.show.benzodiazepines-lighter{ background-color: rgb(234, 215, 221)}
+
+.__react_component_tooltip.show.circumstances-lighter { background-color: rgb(178, 217, 231)}
+
+.__react_component_tooltip:before{
+  background-color: transparent !important;
+}
+.__react_component_tooltip:after {
+  background-color: white !important;
+  /* z-index: 10000!important; */
+  border: rgba(0, 0, 0, 0.3) 1px solid!important;
+  border-left: none!important;
+  border-bottom: none!important;
+}
+
+/* For tooltip pointer */
+
+.__react_component_tooltip.opioidsandstimulants-lighter:after {  background-color: rgb(219 224 234) !important;}
+
+.__react_component_tooltip.opioidsandnostimulants-lighter:after{ background-color: rgb(214, 225, 233) !important;}
+
+.__react_component_tooltip.stimulantsandnoopioids-lighter:after{ background-color: rgb(215, 229, 228) !important}
+
+.__react_component_tooltip.neitheropioidsnorstimulants-lighter:after {
+  background-color: rgb(212, 226, 223) !important
+}
+
+.__react_component_tooltip.all-lighter:after {
+  background-color: rgb(209, 223, 234) !important
+}
+
+.__react_component_tooltip.anyopioids-lighter:after
+{
+  background-color: rgb(211, 214, 234) !important
+}
+
+.__react_component_tooltip.opioid-lighter:after{
+  background-color: rgb(211, 214, 234) !important
+}
+
+.__react_component_tooltip.methamphetamine-lighter:after{
+  background-color: rgb(226, 220, 234) !important
+}
+
+.__react_component_tooltip.female-lighter:after{
+  background-color: rgb(192, 215, 200) !important
+}
+
+.__react_component_tooltip.heroin-lighter:after{background-color: rgb(225, 236, 241) !important}
+
+.__react_component_tooltip.prescriptionopioids-lighter:after{background-color: rgb(219, 237, 239) !important}
+
+.__react_component_tooltip.anystimulants-lighter:after{background-color: rgb(231, 215, 231) !important}
+
+.__react_component_tooltip.stimulant-lighter:after{background-color: rgb(231, 215, 231) !important}
+
+.__react_component_tooltip.cocaine-ligher:after{background-color: rgb(230, 222, 237) !important}
+
+.__react_component_tooltip.illegally-made-fentanyls-lighter:after{ background-color: rgb(216, 221, 234) !important}
+
+.__react_component_tooltip.any-non-opioid-sedatives-lighter:after{ background-color: rgb(228, 217, 221) !important}
+
+.__react_component_tooltip.benzodiazepines-lighter:after{ background-color: rgb(234, 215, 221) !important}
+
+.__react_component_tooltip.circumstances-lighter:after { background-color: rgb(178, 217, 231) !important;}
+
+.smaller {
+  font-weight: 500;
+  text-align: center;
+}
+.align-left {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .align-left {
+    justify-content: flex-start;
+  }
+}
+
+.toggle-wrap {
+  cursor: pointer;
+}
+
+.trend-detected-barchart-container
+{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.drug-select-option-button.disabled {
+  opacity: 0.5;
+  pointer-events: none; /* Prevent interaction */
+  cursor: not-allowed;
+}
+
+.mt-1-e
+{
+  margin-top: 1em;
+}
+
+.pt-12
+{
+  padding-top: 12px;
+}
+
+.single-line-chart
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}

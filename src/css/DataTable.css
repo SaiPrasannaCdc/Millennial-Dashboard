@@ -1,0 +1,78 @@
+.table-container {
+    width: 100%;
+    overflow-y: visible;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.table-container table {
+    min-width: calc(100% - 5px);
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table-container table th,
+.table-container table td {
+    padding: 0.25em 1em;
+    white-space: pre;
+    text-align: right;
+}
+
+.table-container thead th:first-child,
+.table-container tbody th:first-child {
+    text-align: left;
+}
+
+.table-container table thead th {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.table-container.demographics-table table thead th {
+    max-width: 165px;
+    min-width: 125px;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.table-container table tr.highlight th {
+    border-top: 3px solid rgb(113, 33, 119);
+    border-left: 3px solid rgb(113, 33, 119);
+    border-bottom: 3px solid rgb(113, 33, 119); 
+}
+
+.table-container table tr.highlight td {
+    border-top: 3px solid rgb(113, 33, 119);
+    border-bottom: 3px solid rgb(113, 33, 119);
+}
+
+.table-container table tr.highlight td:last-child {
+    border-right: 3px solid rgb(113, 33, 119);
+}
+
+.table-container table tbody th,
+.table-container table thead th:first-child {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    background-color: white;
+}
+
+.table-container.non-custom-background table tr:nth-child(odd),
+.table-container.non-custom-background table tbody tr:nth-child(odd) th,
+.table-container table tr.background,
+.table-container table tbody tr.background th {
+    background-color: rgb(230, 230, 230);
+}
+
+.table-container.non-custom-background table thead tr:nth-child(1) {
+    background-color: white;
+}
+
+.App.small-vp .table-container table tbody th,
+.App.small-vp .table-container table thead th:first-child {
+    max-width: 165px;
+    white-space: normal;
+}

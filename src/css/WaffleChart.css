@@ -1,0 +1,21 @@
+#header-waffle-chart-container {
+    width: 70px;
+    height: calc(100px - 1em - 2px);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    align-self: center;
+}
+
+#waffle-chart-container {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.App.accessible #waffle-chart-container {
+    margin: 0;
+}

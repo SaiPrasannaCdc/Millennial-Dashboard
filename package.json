@@ -1,0 +1,61 @@
+{
+  "name": "sudors-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "chroma-js": "^2.4.2",
+    "d3": "^7.0.0",
+    "d3-array": "^3.0.0",
+    "d3-geo": "^1.12.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
+    "react-tooltip": "^4.5.1",
+    "sass": "^1.66.1",
+    "scss": "^0.2.4",
+    "topojson-client": "^3.1.0",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@visx/axis": "^2.0.0",
+    "@visx/curve": "^2.0.0",
+    "@visx/geo": "^2.1.0",
+    "@visx/gradient": "^2.0.0",
+    "@visx/group": "^2.0.0",
+    "@visx/legend": "^2.1.0",
+    "@visx/marker": "^2.1.0",
+    "@visx/mock-data": "^2.0.0",
+    "@visx/scale": "^2.0.0",
+    "@visx/shape": "^2.0.0",
+    "@visx/tooltip": "^2.1.0",
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}

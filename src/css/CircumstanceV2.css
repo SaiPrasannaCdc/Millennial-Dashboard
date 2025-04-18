@@ -1,0 +1,35 @@
+.circumstance-trend-container {
+    display: grid;
+    grid-template-columns: 30% 70%; /* First column takes 60%, second column takes 40% */
+    grid-template-rows: auto; /* Rows adjust dynamically based on content */
+    gap: 10px; /* Spacing between grid items */
+    align-items: center; /* Align items vertically in the center */
+    width: 100%; /* Ensure the grid container does not exceed the parent width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.circumstance-label-container,
+.circumstance-chart-container {
+    grid-column: span 1; /* Each container spans 1 column */
+}
+
+.circumstance-label {
+    text-align: left;
+    white-space: nowrap; /* Prevent text wrapping */
+    /* overflow: hidden;  */
+    text-wrap: auto; /* Add ellipsis for long text */
+    cursor: pointer;
+}
+
+.circumstance-trend-chart {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 60px; /* Fixed height for charts */
+    overflow: hidden; /* Prevent content from overflowing */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+#circumstance-simple-line{
+    width: 100%;
+}
