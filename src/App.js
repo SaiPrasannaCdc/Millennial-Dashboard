@@ -1,7 +1,8 @@
-import { useEffect, useCallback, useRef, useState } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
-function App(params) {
+import FentanylPositiveChart from './components/FentanylPositiveChart.js';
 
+function App() {
   const viewportCutoffSmall = 550;
   const viewportCutoffMedium = 800;
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -22,10 +23,15 @@ function App(params) {
   }, []);
 
   return (
-    <div className={`App${dimensions.width < viewportCutoffSmall ? ' small-vp' : ''}${dimensions.width < viewportCutoffMedium ? ' medium-vp' : ''}${accessible ? ' accessible' : ''}`}
-      ref={outerContainerRef}>
-      <h1>To Do</h1>
-      <ReactTooltip html={true}
+    <div
+      className={`App${dimensions.width < viewportCutoffSmall ? ' small-vp' : ''}${dimensions.width < viewportCutoffMedium ? ' medium-vp' : ''}${accessible ? ' accessible' : ''}`}
+      ref={outerContainerRef}
+    >
+      <div style={{ padding: '20px' }}>
+        <FentanylPositiveChart />
+      </div>
+      <ReactTooltip
+        html={true}
         type="light"
         arrowColor="rgb(0, 0, 0)"
         place="top"
