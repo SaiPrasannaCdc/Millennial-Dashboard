@@ -1,6 +1,7 @@
 import { useEffect, useCallback, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import FentanylPositiveChart from './components/FentanylPositiveChart.js';
+import Positivefentanyl from './components/Positivefentanyl.js';
 
 function App() {
   const viewportCutoffSmall = 550;
@@ -29,6 +30,7 @@ function App() {
     >
       <div style={{ padding: '20px' }}>
         <FentanylPositiveChart />
+        <Positivefentanyl />
       </div>
       <ReactTooltip
         html={true}
