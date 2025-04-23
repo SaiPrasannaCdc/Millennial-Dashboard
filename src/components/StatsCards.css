@@ -1,0 +1,78 @@
+.stats-cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Match the background color */
+    width: 99%; /* Ensure the container takes full width */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.stats-card {
+    flex: 1 1 auto; /* Allow the cards to grow */
+    width:60%; /* Set a larger width for the boxes */
+    height: 150px; /* Decrease the height of the boxes */
+    display: flex; /* Use flexbox for two-column layout */
+    align-items: flex-start; /* Align content to the top */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-left: 5px solid rgb(50, 93, 125); /* Updated left border color */
+    border-radius: 8px;
+    padding: 15px; /* Adjust padding for better spacing */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.stats-card-number {
+    font-size: 2em; /* Updated font size for numbers */
+    color: #005b96; /* Blue color for numbers */
+    font-weight: normal; /* Remove bold styling */
+    margin-right: 20px; /* Add spacing between number and text */
+    flex-shrink: 0; /* Prevent the number from shrinking */
+    margin-top: -0px; /* Move the number slightly up */
+}
+
+.stats-card-content {
+    text-align: left; /* Align text to the left */
+    font-size: 0.85em; /* Updated font size for text */
+    line-height: 1.5; /* Set line height for better readability */
+}
+
+.stats-card-content .title {
+    font-size: 1em; /* Updated font size for titles */
+    font-weight: 700; /* Bold font weight */
+    line-height: 1.1; /* Adjusted line height */
+    margin: 0 0 0.1em; /* Reduced bottom margin */
+    text-align: left; /* Align text to the left */
+    color: rgb(50, 93, 125); /* Updated title color */
+}
+
+.stats-card-content p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate; /* Ensure text isolation */
+    font-size: 0.8rem; /* Standard font size for descriptions */
+    color: #333333; /* Dark gray for descriptions */
+    line-height: 1.5; /* Improve readability */
+}
+
+.stats-card-content p sup {
+    font-size: 0.8rem; /* Smaller font size for superscripts */
+}
+
+.line-one {
+    display: block; /* Ensure it occupies its own line */
+    font-size: 0.8rem; /* Adjust font size if needed */
+    color: #333333; /* Dark gray for consistency */
+}
+
+.line-two {
+    display: block; /* Ensure it occupies its own line */
+    font-size: 0.8rem; /* Adjust font size if needed */
+    color: #333333; /* Dark gray for consistency */
+    margin-top: 0.2em; /* Add slight spacing between lines */
+}
+
+
