@@ -2,6 +2,8 @@ import { useEffect, useCallback, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import FentanylPositiveChart from './components/FentanylPositiveChart.js';
 import Positivefentanyl from './components/Positivefentanyl.js';
+import Dropdowns from './dropdowns';
+import StatsCards from './components/StatsCards'; // Import the StatsCards component
 
 function App() {
   const viewportCutoffSmall = 550;
@@ -28,9 +30,13 @@ function App() {
       className={`App${dimensions.width < viewportCutoffSmall ? ' small-vp' : ''}${dimensions.width < viewportCutoffMedium ? ' medium-vp' : ''}${accessible ? ' accessible' : ''}`}
       ref={outerContainerRef}
     >
+       <Dropdowns />
+       <StatsCards />
       <div style={{ padding: '20px' }}>
+       
         <FentanylPositiveChart />
         <Positivefentanyl />
+        
       </div>
       <ReactTooltip
         html={true}
