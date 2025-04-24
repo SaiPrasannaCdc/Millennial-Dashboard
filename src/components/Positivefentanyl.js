@@ -1,56 +1,95 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { LinePath, curveMonotoneX } from '@visx/shape';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import { Group } from '@visx/group';
 import { AxisBottom, AxisLeft } from '@visx/axis';
 import { Positivity1Data } from './data/sampleData';
 import { TooltipWithBounds, useTooltip } from '@visx/tooltip';
-
+ 
 const margin = { top: 20, right: 20, bottom: 50, left: 50 };
 const width = 1090;
 const height = 500;
 const chartWidth = width - margin.left - margin.right;
 const chartHeight = height - margin.top - margin.bottom;
-
+ 
 const colors = {
   Heroin: '#FF5733',
   Cocaine: '#33FF57',
   Methamphetamine: '#3357FF',
 };
-
-function LineChart() {
-  const heroinData = Positivity1Data.filter(d => d.drug_name === 'Heroin');
-  const cocaineData = Positivity1Data.filter(d => d.drug_name === 'Cocaine');
-  const methData = Positivity1Data.filter(d => d.drug_name === 'Methamphetamine');
-
+ 
+function LineChart({ selectedPeriod }) {
+  const [aggregatedData, setAggregatedData] = useState([]);
+ 
+  useEffect(() => {
+    if (selectedPeriod === 'Quarterly') {
+      setAggregatedData(Positivity1Data);
+    } else if (selectedPeriod === 'Half Yearly') {
+      const halfYearlyData = Positivity1Data.reduce((acc, curr) => {
+        const year = curr.quarter.split(' ')[1];
+        const half = curr.quarter.includes('Q1') || curr.quarter.includes('Q2') ? 'H1' : 'H2';
+        const key = `${curr.drug_name} ${year} ${half}`;
+        if (!acc[key]) acc[key] = { ...curr, quarter: `${year} ${half}`, percent: 0 };
+        acc[key].percent += curr.percent;
+        return acc;
+      }, {});
+      const formattedData = Object.values(halfYearlyData).map(d => ({
+        ...d,
+        quarter: d.quarter.includes('H1') ? `JAN-JUN ${d.quarter.split(' ')[0]}` : `JUL-DEC ${d.quarter.split(' ')[0]}`,
+      }));
+      setAggregatedData(formattedData);
+    } else if (selectedPeriod === 'Yearly') {
+      const yearlyData = Positivity1Data.reduce((acc, curr) => {
+        const year = curr.quarter.split(' ')[1];
+        const key = `${curr.drug_name} ${year}`;
+        if (!acc[key]) acc[key] = { ...curr, quarter: year, percent: 0 };
+        acc[key].percent += curr.percent;
+        return acc;
+      }, {});
+      setAggregatedData(Object.values(yearlyData));
+    }
+  }, [selectedPeriod]);
+ 
+  const heroinData = aggregatedData.filter(d => d.drug_name === 'Heroin');
+  const cocaineData = aggregatedData.filter(d => d.drug_name === 'Cocaine');
+  const methData = aggregatedData.filter(d => d.drug_name === 'Methamphetamine');
+ 
   const allData = [...heroinData, ...cocaineData, ...methData];
   const quarters = [...new Set(allData.map(d => d.quarter))];
-
+ 
   const xScale = useMemo(() =>
     scaleBand({
       domain: quarters,
       range: [0, chartWidth],
       padding: 0.2,
     }), [quarters]);
-
+ 
   const yScale = useMemo(() =>
     scaleLinear({
       domain: [0, Math.max(...allData.map(d => d.percent)) + 10],
       range: [chartHeight, 0],
       nice: true,
     }), [allData]);
-
+ 
   const lineData = [
     { name: 'Heroin', data: heroinData },
     { name: 'Cocaine', data: cocaineData },
     { name: 'Methamphetamine', data: methData },
   ];
-
+ 
   const { showTooltip, hideTooltip, tooltipData, tooltipLeft, tooltipTop } = useTooltip();
-
+ 
   return (
     <div style={{ position: 'relative' }}>
       <svg width={width} height={height}>
+        <defs>
+          {Object.keys(colors).map((drug, index) => (
+            <linearGradient id={`gradient-${drug}`} key={index} x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stopColor={colors[drug]} stopOpacity={0.8} />
+              <stop offset="100%" stopColor={colors[drug]} stopOpacity={0.2} />
+            </linearGradient>
+          ))}
+        </defs>
         <Group top={margin.top} left={margin.left}>
           {/* Y-Axis */}
           <AxisLeft
@@ -86,8 +125,8 @@ function LineChart() {
                 data={line.data}
                 x={d => xScale(d.quarter) + xScale.bandwidth() / 2}
                 y={d => yScale(d.percent)}
-                stroke={colors[line.name]}
-                strokeWidth={2}
+                stroke={`url(#gradient-${line.name})`}
+                strokeWidth={3}
                 curve={curveMonotoneX}
               />
               {/* Dots */}
@@ -96,8 +135,9 @@ function LineChart() {
                   key={`dot-${index}-${i}`}
                   cx={xScale(d.quarter) + xScale.bandwidth() / 2}
                   cy={yScale(d.percent)}
-                  r={4}
+                  r={6}
                   fill={colors[line.name]}
+                  style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}
                   onMouseEnter={() => {
                     showTooltip({
                       tooltipData: { quarter: d.quarter, drug: line.name, percent: d.percent },
@@ -108,7 +148,6 @@ function LineChart() {
                   onMouseLeave={hideTooltip}
                 />
               ))}
-              {/* Removed Line Labels */}
             </React.Fragment>
           ))}
         </Group>
@@ -155,17 +194,18 @@ function LineChart() {
     </div>
   );
 }
-
-function Positivefentanyl() {
+ 
+function Positivefentanyl({ selectedPeriod }) {
   return (
     <div style={{ width: '100%' }}>
       <div style={{ fontFamily: 'Poppins, sans-serif', color: 'black', fontWeight: '550', fontSize: '1.5em', margin: '.5em', backgroundColor: 'rgb(113, 33, 119)', lineHeight: '1.4', padding: '15px', color: 'white' }}>
         Percent of positive fentanyl samples from people with substance use disorder that were also positive for heroin, cocaine, or methamphetamine: United States Q1 2023 – Q1 2025
       </div>
-      <LineChart />
+      <LineChart selectedPeriod={selectedPeriod} />
     </div>
   );
 }
 
 export default Positivefentanyl;
+
 

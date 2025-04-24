@@ -1,138 +1,165 @@
-import React, { useMemo } from 'react';
-import { Bar } from '@visx/shape';
-import { scaleBand, scaleLinear } from '@visx/scale';
+import React, { useMemo, useState, useEffect } from 'react';
+import { LinePath, curveMonotoneX } from '@visx/shape';
+import { scaleLinear, scaleBand } from '@visx/scale';
 import { Group } from '@visx/group';
 import { AxisBottom, AxisLeft } from '@visx/axis';
+import { TooltipWithBounds, useTooltip } from '@visx/tooltip';
 import { fentanylPositivityData } from './data/sampleData';
- 
-const margin = { top: 80, right: 30, bottom: 40, left: 50 }; // Further increased top margin
-const width = 1087; // Increase the width to make the chart span the full width
-const height = 390; // Default height
+
+const margin = { top: 20, right: 20, bottom: 50, left: 50 };
+const width = 1090;
+const height = 500;
 const chartWidth = width - margin.left - margin.right;
 const chartHeight = height - margin.top - margin.bottom;
- 
-const colorScale = [
-  '#D6EAF6', '#BFDFF1', '#A3D2EC', '#A3D2EC',
-  '#88C5E7', '#6EB8E1', '#379FD7', '#0F6DB4'
-];
- 
-function FentanylPositiveChart() {
+
+const color = '#005b96'; // Color for Fentanyl line
+
+function FentanylPositiveChart({ selectedPeriod }) {
+  const [filteredData, setFilteredData] = useState(fentanylPositivityData);
+
+  const { showTooltip, hideTooltip, tooltipData, tooltipLeft, tooltipTop } = useTooltip();
+
+  useEffect(() => {
+    if (selectedPeriod === 'Quarterly') {
+      setFilteredData(fentanylPositivityData);
+    } else if (selectedPeriod === 'Half Yearly') {
+      const halfYearlyData = fentanylPositivityData.reduce((acc, curr) => {
+        const year = curr.quarter.split(' ')[1];
+        const half = curr.quarter.includes('Q1') || curr.quarter.includes('Q2') ? 'H1' : 'H2';
+        const key = `${year} ${half}`;
+        if (!acc[key]) acc[key] = { ...curr, quarter: key, percent: 0 };
+        acc[key].percent += curr.percent;
+        return acc;
+      }, {});
+      const formattedData = Object.values(halfYearlyData).map(d => ({
+        ...d,
+        quarter: d.quarter.includes('H1') ? `JAN-JUN ${d.quarter.split(' ')[0]}` : `JUL-DEC ${d.quarter.split(' ')[0]}`,
+      }));
+      setFilteredData(formattedData);
+    } else if (selectedPeriod === 'Yearly') {
+      const yearlyData = fentanylPositivityData.reduce((acc, curr) => {
+        const year = curr.quarter.split(' ')[1];
+        const key = year;
+        if (!acc[key]) acc[key] = { ...curr, quarter: year, percent: 0 };
+        acc[key].percent += curr.percent;
+        return acc;
+      }, {});
+      setFilteredData(Object.values(yearlyData));
+    }
+  }, [selectedPeriod]);
+
+  const quarters = filteredData.map(d => d.quarter);
+
   const xScale = useMemo(() =>
     scaleBand({
-      domain: fentanylPositivityData?.map(d => d.quarter) || [],
-      padding: 0.1, // Reduce padding to make bars span the full width
-      range: [0, width - margin.left - margin.right], // Use the full width of the chart
-    }), [fentanylPositivityData, width, margin.left, margin.right]);
- 
+      domain: quarters,
+      range: [0, chartWidth],
+      padding: 0.2,
+    }), [quarters]);
+
   const yScale = useMemo(() =>
     scaleLinear({
-      domain: [0, 15],
-      nice: true,
+      domain: [0, Math.max(...filteredData.map(d => d.percent)) + 10],
       range: [chartHeight, 0],
-    }), []);
- 
-  if (!fentanylPositivityData || !Array.isArray(fentanylPositivityData)) {
-    return <div>Error: Data is unavailable.</div>;
-  }
- 
+      nice: true,
+    }), [filteredData]);
+
   return (
-    <div style={{ width: '100%' }}> {/* Set the container to full width */}
-      <div style={{ display: 'flex', fontFamily: 'Poppins, sans-serif', color: 'white', fontWeight: '550', fontSize: '1.5em', margin: '.5em', backgroundColor: 'rgb(113, 33, 119)', lineHeight: '1.4', borderBottom: '0px', letterSpacing: '-.03px', padding: '15px' }}>
-        <div> Percent of clinical urine drug samples from people with substance use disorder positive for fentanyl: United States Q1 2023 - Q1 2025</div>
+    <div style={{ position: 'relative' }}>
+      <div style={{ fontFamily: 'Poppins, sans-serif', color: 'black', fontWeight: '550', fontSize: '1.5em', margin: '.5em', backgroundColor: 'rgb(113, 33, 119)', lineHeight: '1.4', padding: '15px', color: 'white' }}>
+        Percent of clinical urine drug samples from people with substance use disorder positive for fentanyl: United States Q1 2023 - Q1 2025
       </div>
-      <svg width="100%" height={height}> {/* Make the SVG span the full width */}
+      <svg width={width} height={height}>
+        <defs>
+          <linearGradient id="gradient-fentanyl" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor={color} stopOpacity={0.8} />
+            <stop offset="100%" stopColor={color} stopOpacity={0.2} />
+          </linearGradient>
+        </defs>
         <Group top={margin.top} left={margin.left}>
-          {fentanylPositivityData.map((d, i) => {
-            const barHeight = chartHeight - yScale(d.percent) - 5; // Reduce space between bars and x-axis
-            const x = xScale(d.quarter);
-            const y = yScale(d.percent) - 5; // Move bars slightly closer to the x-axis
-            const barWidth = xScale.bandwidth();
-            return (
-              <React.Fragment key={`bar-${i}`}>
-                <Bar
-                  x={x}
-                  y={y}
-                  width={barWidth}
-                  height={barHeight}
-                  fill={colorScale[i % colorScale.length]}
-                  stroke="#333"        // dark gray/black border
-                  strokeWidth={0.5}    // thin, just like the wireframe
-                />
-                <text
-                  x={x + barWidth / 2}
-                  y={y + barHeight / 2 - 30} // Adjusted position for text
-                  textAnchor="middle"
-                  fontSize={12}
-                  fontWeight="bold"
-                  fill="black"
-                >
-                  {`${d.percent}%`}
-                </text>
-              </React.Fragment>
-            );
-          })}
           <AxisLeft
             scale={yScale}
-            tickValues={[0, 2, 4, 6, 8, 10, 12, 14]} // Static tick values
-            tickFormat={(value) => `${value}%`} // Add % sign beside each number
+            tickFormat={value => `${value}%`}
             tickLabelProps={() => ({
-              fontSize: 12,
-              fontWeight: "bold", // Make y-axis labels bold
-              fill: "black",
-              textAnchor: "end",
+              fontSize: 10,
+              fill: 'black',
+              textAnchor: 'end',
               dx: -5,
               dy: 4,
             })}
             stroke="#333"
             tickStroke="#333"
-            tickLength={5} // Shorten the tick strokes
           />
-          <text
-            x={-margin.left + 10} // Move closer to the Y-axis
-            y={chartHeight / 2 + 10} // Ensure proper vertical alignment
-            textAnchor="middle"
-            fontSize={12}
-            fontWeight="bold"
-            fill="black"
-            transform={`rotate(-90, ${-margin.left + 10}, ${chartHeight / 2 + 10})`} // Rotate the text vertically
-          >
-            % Positive
-          </text>
           <AxisBottom
             top={chartHeight}
             scale={xScale}
-            tickFormat={() => ''}
             tickLabelProps={() => ({
-              fontSize: 12,
-              fontWeight: "bold", // Make x-axis labels bold
-              fill:"black",
-              textAnchor: "end", // Align labels to the end
-              transform: "rotate(-40)", // Rotate labels to prevent overlap
-              dx: -5, // Adjust horizontal position
-              dy: 10, // Increase vertical position to prevent cutting
+              fontSize: 10,
+              fill: 'black',
+              textAnchor: 'middle',
+              dy: 10,
             })}
             stroke="#333"
             tickStroke="#333"
-            tickLength={5} // Shorten the tick strokes
           />
-          {xScale.domain().map((label) => (
-            <text
-              key={label}
-              x={xScale(label) + xScale.bandwidth() / 2}
-              y={chartHeight + margin.bottom / 1.5} // Adjusted to move titles further down
-              textAnchor="middle"
-              transform={`rotate(-40, ${xScale(label) + xScale.bandwidth() / 2}, ${chartHeight + margin.bottom / 1.5})`}
-              fontSize={12}
-              fontWeight="bold" // Make custom x-axis labels bold
-              fill="black"
-            >
-              {label}
-            </text>
+          <LinePath
+            data={filteredData}
+            x={d => xScale(d.quarter) + xScale.bandwidth() / 2}
+            y={d => yScale(d.percent)}
+            stroke="url(#gradient-fentanyl)"
+            strokeWidth={3}
+            curve={curveMonotoneX}
+          />
+          {/* Dots */}
+          {filteredData.map((d, i) => (
+            <circle
+              key={`dot-${i}`}
+              cx={xScale(d.quarter) + xScale.bandwidth() / 2}
+              cy={yScale(d.percent)}
+              r={6}
+              fill={color}
+              style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}
+              onMouseEnter={() => {
+                showTooltip({
+                  tooltipData: d,
+                  tooltipLeft: xScale(d.quarter) + xScale.bandwidth() / 2 + margin.left,
+                  tooltipTop: yScale(d.percent) + margin.top,
+                });
+              }}
+              onMouseLeave={hideTooltip}
+            />
           ))}
         </Group>
+        {tooltipData && (
+          <foreignObject
+            x={tooltipLeft - 50}
+            y={tooltipTop - 40}
+            width={100}
+            height={50}
+            style={{ pointerEvents: 'none' }}
+          >
+            <div
+              style={{
+                backgroundColor: 'white',
+                color: 'black',
+                padding: '5px',
+                borderRadius: '4px',
+                boxShadow: '0px 2px 6px rgba(0,0,0,0.2)',
+                fontSize: '10px',
+                lineHeight: '1.2',
+                textAlign: 'center',
+              }}
+            >
+              <div><strong>{tooltipData.quarter}</strong></div>
+              <div style={{ color: color }}>
+                Fentanyl: <strong>{tooltipData.percent}%</strong>
+              </div>
+            </div>
+          </foreignObject>
+        )}
       </svg>
     </div>
   );
 }
- 
+
 export default FentanylPositiveChart;
