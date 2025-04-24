@@ -82,6 +82,14 @@ function LineChart({ selectedPeriod }) {
   return (
     <div style={{ position: 'relative' }}>
       <svg width={width} height={height}>
+        <defs>
+          {Object.keys(colors).map((drug, index) => (
+            <linearGradient id={`gradient-${drug}`} key={index} x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stopColor={colors[drug]} stopOpacity={0.8} />
+              <stop offset="100%" stopColor={colors[drug]} stopOpacity={0.2} />
+            </linearGradient>
+          ))}
+        </defs>
         <Group top={margin.top} left={margin.left}>
           {/* Y-Axis */}
           <AxisLeft
@@ -117,8 +125,8 @@ function LineChart({ selectedPeriod }) {
                 data={line.data}
                 x={d => xScale(d.quarter) + xScale.bandwidth() / 2}
                 y={d => yScale(d.percent)}
-                stroke={colors[line.name]}
-                strokeWidth={2}
+                stroke={`url(#gradient-${line.name})`}
+                strokeWidth={3}
                 curve={curveMonotoneX}
               />
               {/* Dots */}
@@ -127,8 +135,9 @@ function LineChart({ selectedPeriod }) {
                   key={`dot-${index}-${i}`}
                   cx={xScale(d.quarter) + xScale.bandwidth() / 2}
                   cy={yScale(d.percent)}
-                  r={4}
+                  r={6}
                   fill={colors[line.name]}
+                  style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}
                   onMouseEnter={() => {
                     showTooltip({
                       tooltipData: { quarter: d.quarter, drug: line.name, percent: d.percent },
@@ -139,7 +148,6 @@ function LineChart({ selectedPeriod }) {
                   onMouseLeave={hideTooltip}
                 />
               ))}
-              {/* Removed Line Labels */}
             </React.Fragment>
           ))}
         </Group>

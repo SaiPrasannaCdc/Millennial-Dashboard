@@ -70,8 +70,13 @@ function FentanylPositiveChart({ selectedPeriod }) {
         Percent of clinical urine drug samples from people with substance use disorder positive for fentanyl: United States Q1 2023 - Q1 2025
       </div>
       <svg width={width} height={height}>
+        <defs>
+          <linearGradient id="gradient-fentanyl" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor={color} stopOpacity={0.8} />
+            <stop offset="100%" stopColor={color} stopOpacity={0.2} />
+          </linearGradient>
+        </defs>
         <Group top={margin.top} left={margin.left}>
-          {/* Y-Axis */}
           <AxisLeft
             scale={yScale}
             tickFormat={value => `${value}%`}
@@ -85,7 +90,6 @@ function FentanylPositiveChart({ selectedPeriod }) {
             stroke="#333"
             tickStroke="#333"
           />
-          {/* X-Axis */}
           <AxisBottom
             top={chartHeight}
             scale={xScale}
@@ -98,13 +102,12 @@ function FentanylPositiveChart({ selectedPeriod }) {
             stroke="#333"
             tickStroke="#333"
           />
-          {/* Line */}
           <LinePath
             data={filteredData}
             x={d => xScale(d.quarter) + xScale.bandwidth() / 2}
             y={d => yScale(d.percent)}
-            stroke={color}
-            strokeWidth={2}
+            stroke="url(#gradient-fentanyl)"
+            strokeWidth={3}
             curve={curveMonotoneX}
           />
           {/* Dots */}
@@ -113,8 +116,9 @@ function FentanylPositiveChart({ selectedPeriod }) {
               key={`dot-${i}`}
               cx={xScale(d.quarter) + xScale.bandwidth() / 2}
               cy={yScale(d.percent)}
-              r={4}
+              r={6}
               fill={color}
+              style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}
               onMouseEnter={() => {
                 showTooltip({
                   tooltipData: d,
@@ -126,7 +130,6 @@ function FentanylPositiveChart({ selectedPeriod }) {
             />
           ))}
         </Group>
-        {/* Tooltip */}
         {tooltipData && (
           <foreignObject
             x={tooltipLeft - 50}
