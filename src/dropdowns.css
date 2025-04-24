@@ -1,17 +1,24 @@
 .dropdown-container {
     display: flex;
-    gap: 20px;
-    margin: 20px;
+    gap: 20px; /* Add spacing between dropdowns */
+    align-items: center; /* Align dropdowns vertically */
+    justify-content: flex-start; /* Align dropdowns to the left */
+    margin-left: 20px; /* Move the dropdowns slightly to the right */
 }
+
 .dropdown {
     display: flex;
     flex-direction: column;
-width: 20%;
+    width: 20%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
+
 .dropdown label {
     margin-bottom: 5px;
     font-weight: bold;
 }
+
 select {
     padding: 5px;
     font-size: 14px;
