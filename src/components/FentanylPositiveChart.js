@@ -14,16 +14,23 @@ const chartHeight = height - margin.top - margin.bottom;
 
 const color = '#005b96'; // Color for Fentanyl line
 
-function FentanylPositiveChart({ selectedPeriod }) {
-  const [filteredData, setFilteredData] = useState(fentanylPositivityData);
+function FentanylPositiveChart(params) {
+  const { selectedPeriod, selectedRegion } = params; // Destructure props
+  //const [region, setRegion] = useState('National'); // Default to National
+  const [filteredData, setFilteredData] = useState(fentanylPositivityData[selectedRegion]);
 
   const { showTooltip, hideTooltip, tooltipData, tooltipLeft, tooltipTop } = useTooltip();
 
   useEffect(() => {
+    setFilteredData(fentanylPositivityData[selectedRegion]);
+  }, [selectedRegion]);
+
+  useEffect(() => {
+    let data = fentanylPositivityData[selectedRegion];
     if (selectedPeriod === 'Quarterly') {
-      setFilteredData(fentanylPositivityData);
+      setFilteredData(data);
     } else if (selectedPeriod === 'Half Yearly') {
-      const halfYearlyData = fentanylPositivityData.reduce((acc, curr) => {
+      const halfYearlyData = data.reduce((acc, curr) => {
         const year = curr.quarter.split(' ')[1];
         const half = curr.quarter.includes('Q1') || curr.quarter.includes('Q2') ? 'H1' : 'H2';
         const key = `${year} ${half}`;
@@ -37,7 +44,7 @@ function FentanylPositiveChart({ selectedPeriod }) {
       }));
       setFilteredData(formattedData);
     } else if (selectedPeriod === 'Yearly') {
-      const yearlyData = fentanylPositivityData.reduce((acc, curr) => {
+      const yearlyData = data.reduce((acc, curr) => {
         const year = curr.quarter.split(' ')[1];
         const key = year;
         if (!acc[key]) acc[key] = { ...curr, quarter: year, percent: 0 };
@@ -46,9 +53,10 @@ function FentanylPositiveChart({ selectedPeriod }) {
       }, {});
       setFilteredData(Object.values(yearlyData));
     }
-  }, [selectedPeriod]);
+  }, [selectedPeriod, selectedRegion]);
 
-  const quarters = filteredData.map(d => d.quarter);
+  console.log(filteredData)
+  const quarters = filteredData?.map(d => d.quarter) || [];
 
   const xScale = useMemo(() =>
     scaleBand({
@@ -59,13 +67,23 @@ function FentanylPositiveChart({ selectedPeriod }) {
 
   const yScale = useMemo(() =>
     scaleLinear({
-      domain: [0, Math.max(...filteredData.map(d => d.percent)) + 10],
+      domain: [0, Math.max(...filteredData?.map(d => d.percent)) + 10],
       range: [chartHeight, 0],
       nice: true,
     }), [filteredData]);
 
   return (
     <div style={{ position: 'relative' }}>
+      {/* <select
+        value={selectedRegion}
+        onChange={(e) => setselectedRegion(e.target.value)}
+        style={{ marginBottom: '10px', padding: '5px' }}
+      >
+        <option value="National">National</option>
+        <option value="MIDWEST">Midwest</option>
+        <option value="SOUTH">South</option>
+        <option value="WEST">West</option>
+      </select> */}
       <div style={{ fontFamily: 'Poppins, sans-serif', color: 'black', fontWeight: '550', fontSize: '1.5em', margin: '.5em', backgroundColor: 'rgb(113, 33, 119)', lineHeight: '1.4', padding: '15px', color: 'white' }}>
         Percent of clinical urine drug samples from people with substance use disorder positive for fentanyl: United States Q1 2023 - Q1 2025
       </div>
@@ -118,7 +136,7 @@ function FentanylPositiveChart({ selectedPeriod }) {
               cy={yScale(d.percent)}
               r={6}
               fill={color}
-              style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}
+              style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))', cursor: 'pointer' }}
               onMouseEnter={() => {
                 showTooltip({
                   tooltipData: d,
