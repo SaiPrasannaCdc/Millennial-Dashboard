@@ -11,6 +11,7 @@ function App() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const accessible = false;
   const [selectedPeriod, setSelectedPeriod] = useState('Quarterly');
+  const [selectedRegion, setSelectedRegion] = useState('National');
 
   const resizeObserver = new ResizeObserver(entries => {
     const { width, height } = entries[0].contentRect;
@@ -31,15 +32,18 @@ function App() {
       className={`App${dimensions.width < viewportCutoffSmall ? ' small-vp' : ''}${dimensions.width < viewportCutoffMedium ? ' medium-vp' : ''}${accessible ? ' accessible' : ''}`}
       ref={outerContainerRef}
     >
-       <Dropdowns selectedPeriod={selectedPeriod} onPeriodChange={setSelectedPeriod} />
+       <Dropdowns selectedPeriod={selectedPeriod} onPeriodChange={setSelectedPeriod} selectedRegion={selectedRegion} onRegionChange={setSelectedRegion} />
        <StatsCards />
       <div style={{ padding: '20px' }}>
         {/* Global Dropdown */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '10px' }}>
        
         </div>
-        <FentanylPositiveChart selectedPeriod={selectedPeriod} />
-        <Positivefentanyl selectedPeriod={selectedPeriod} />
+        <FentanylPositiveChart selectedPeriod={selectedPeriod} selectedRegion={selectedRegion} />
+        <Positivefentanyl 
+          selectedPeriod={selectedPeriod} 
+          selectedRegion={selectedRegion} 
+          />
       </div>
       <ReactTooltip
         html={true}

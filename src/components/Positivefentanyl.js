@@ -18,19 +18,20 @@ const colors = {
   Methamphetamine: '#3357FF',
 };
  
-function LineChart({ selectedPeriod }) {
+function LineChart({ selectedPeriod, selectedRegion }) {
   const [aggregatedData, setAggregatedData] = useState([]);
  
   useEffect(() => {
+    const regionFilteredData = Positivity1Data.filter(d => d.USregion === selectedRegion);
     if (selectedPeriod === 'Quarterly') {
-      setAggregatedData(Positivity1Data);
+      setAggregatedData(regionFilteredData);
     } else if (selectedPeriod === 'Half Yearly') {
-      const halfYearlyData = Positivity1Data.reduce((acc, curr) => {
+      const halfYearlyData = regionFilteredData.reduce((acc, curr) => {
         const year = curr.quarter.split(' ')[1];
         const half = curr.quarter.includes('Q1') || curr.quarter.includes('Q2') ? 'H1' : 'H2';
         const key = `${curr.drug_name} ${year} ${half}`;
-        if (!acc[key]) acc[key] = { ...curr, quarter: `${year} ${half}`, percent: 0 };
-        acc[key].percent += curr.percent;
+        if (!acc[key]) acc[key] = { ...curr, quarter: `${year} ${half}`, percent_pos: 0 };
+        acc[key].percent_pos += curr.percent_pos; // Fix field name
         return acc;
       }, {});
       const formattedData = Object.values(halfYearlyData).map(d => ({
@@ -39,16 +40,16 @@ function LineChart({ selectedPeriod }) {
       }));
       setAggregatedData(formattedData);
     } else if (selectedPeriod === 'Yearly') {
-      const yearlyData = Positivity1Data.reduce((acc, curr) => {
+      const yearlyData = regionFilteredData.reduce((acc, curr) => {
         const year = curr.quarter.split(' ')[1];
         const key = `${curr.drug_name} ${year}`;
-        if (!acc[key]) acc[key] = { ...curr, quarter: year, percent: 0 };
-        acc[key].percent += curr.percent;
+        if (!acc[key]) acc[key] = { ...curr, quarter: year, percent_pos: 0 };
+        acc[key].percent_pos += curr.percent_pos; // Fix field name
         return acc;
       }, {});
       setAggregatedData(Object.values(yearlyData));
     }
-  }, [selectedPeriod]);
+  }, [selectedPeriod, selectedRegion]);
  
   const heroinData = aggregatedData.filter(d => d.drug_name === 'Heroin');
   const cocaineData = aggregatedData.filter(d => d.drug_name === 'Cocaine');
@@ -66,7 +67,7 @@ function LineChart({ selectedPeriod }) {
  
   const yScale = useMemo(() =>
     scaleLinear({
-      domain: [0, Math.max(...allData.map(d => d.percent)) + 10],
+      domain: [0, Math.max(...allData.map(d => d.percent_pos)) + 10],
       range: [chartHeight, 0],
       nice: true,
     }), [allData]);
@@ -124,7 +125,7 @@ function LineChart({ selectedPeriod }) {
               <LinePath
                 data={line.data}
                 x={d => xScale(d.quarter) + xScale.bandwidth() / 2}
-                y={d => yScale(d.percent)}
+                y={d => yScale(d.percent_pos)}
                 stroke={`url(#gradient-${line.name})`}
                 strokeWidth={3}
                 curve={curveMonotoneX}
@@ -134,15 +135,15 @@ function LineChart({ selectedPeriod }) {
                 <circle
                   key={`dot-${index}-${i}`}
                   cx={xScale(d.quarter) + xScale.bandwidth() / 2}
-                  cy={yScale(d.percent)}
+                  cy={yScale(d.percent_pos)}
                   r={6}
                   fill={colors[line.name]}
-                  style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}
+                  style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))', cursor: 'pointer' }}
                   onMouseEnter={() => {
                     showTooltip({
-                      tooltipData: { quarter: d.quarter, drug: line.name, percent: d.percent },
+                      tooltipData: { quarter: d.quarter, drug: line.name, percent_pos: d.percent_pos },
                       tooltipLeft: xScale(d.quarter) + xScale.bandwidth() / 2 + margin.left,
-                      tooltipTop: yScale(d.percent) + margin.top - 20, // Adjusted to position tooltip higher than the dot
+                      tooltipTop: yScale(d.percent_pos) + margin.top - 20,
                     });
                   }}
                   onMouseLeave={hideTooltip}
@@ -175,7 +176,7 @@ function LineChart({ selectedPeriod }) {
               >
                 <div><strong>{tooltipData.quarter}</strong></div>
                 <div style={{ color: colors[tooltipData.drug] }}>
-                  {tooltipData.drug}: <strong>{tooltipData.percent}%</strong>
+                  {tooltipData.drug}: <strong>{tooltipData.percent_pos}%</strong>
                 </div>
               </div>
             </foreignObject>
@@ -195,13 +196,13 @@ function LineChart({ selectedPeriod }) {
   );
 }
  
-function Positivefentanyl({ selectedPeriod }) {
+function Positivefentanyl({ selectedPeriod, selectedRegion }) {
   return (
     <div style={{ width: '100%' }}>
       <div style={{ fontFamily: 'Poppins, sans-serif', color: 'black', fontWeight: '550', fontSize: '1.5em', margin: '.5em', backgroundColor: 'rgb(113, 33, 119)', lineHeight: '1.4', padding: '15px', color: 'white' }}>
         Percent of positive fentanyl samples from people with substance use disorder that were also positive for heroin, cocaine, or methamphetamine: United States Q1 2023 – Q1 2025
       </div>
-      <LineChart selectedPeriod={selectedPeriod} />
+      <LineChart selectedPeriod={selectedPeriod} selectedRegion={selectedRegion} />
     </div>
   );
 }

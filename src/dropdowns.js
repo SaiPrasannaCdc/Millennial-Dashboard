@@ -1,18 +1,22 @@
 import React from 'react';
 import './dropdowns.css'; // Import the CSS styles
 
-const Dropdowns = ({ selectedPeriod, onPeriodChange }) => {
+const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionChange }) => {
     return (
         <div className="dropdown-container">
             {/* Region Dropdown */}
             <div className="dropdown">
                 <label htmlFor="region">Region:</label>
-                <select id="region" name="region">
-                <option value="northeast">USA</option>
-                    <option value="northeast">Northeast</option>
-                    <option value="midwest">Midwest</option>
-                    <option value="south">South</option>
-                    <option value="west">West</option>
+                <select
+                    id="region"
+                    name="region"
+                    value={selectedRegion}
+                    onChange={(e) => onRegionChange(e.target.value)}
+                >
+                    <option value="National">National</option>
+                    <option value="MIDWEST">Midwest</option>
+                    <option value="SOUTH">South</option>
+                    <option value="WEST">West</option>
                 </select>
             </div>
 
@@ -21,7 +25,7 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange }) => {
                 <label htmlFor="drug">Drug:</label>
                 <select id="drug" name="drug">
                     <option value="fentanyl">Fentanyl</option>
-                    <option value="heroine">Heroine</option>
+                    <option value="heroine">Heroin</option>
                     <option value="cocaine">Cocaine</option>
                     <option value="methamphetamine">Methamphetamine</option>
                 </select>
@@ -37,8 +41,8 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange }) => {
                     onChange={(e) => onPeriodChange(e.target.value)}
                 >
                     <option value="Quarterly">Quarterly</option>
-                    <option value="Half Yearly">Half Yearly</option>
-                    <option value="Yearly">Yearly</option>
+                    <option value="Half Yearly">6 Months</option>
+                    {/* <option value="Yearly">Yearly</option> */}
                 </select>
             </div>
         </div>
