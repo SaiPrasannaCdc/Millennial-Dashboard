@@ -106,22 +106,22 @@ const LineChartWithToggles = ({ width = 1100, height = 450 }) => {
               data-tip={`<div style='text-align: left; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #fff;'>
                 <div style='display: flex; align-items: center; margin-bottom: 10px;'>
                   <svg width='20' height='20' style='margin-right: 10px;'>
-                    <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' />
+                    <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
                   </svg>
                   <div>
                     <strong>Yearly Change</strong><br/>
-                    ${yearlyChange !== null ? yearlyChange.toFixed(1) : 'N/A'}% (${yearlyChange > 0 ? 'Increased' : 'Decreased'})<br/>
-                    Fentanyl positivity ${yearlyChange > 0 ? 'increased' : 'decreased'} from ${prevYear?.toFixed(1)}% to ${curr.toFixed(1)}% in ${d.quarter}
+                    ${yearlyChange !== null ? yearlyChange.toFixed(1) : 'N/A'}% (${yearlyChange !== null && yearlyChange > 0 ? 'Increased' : 'Decreased'})<br/>
+                    Fentanyl positivity ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : 'decreased'} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${d.quarter}
                   </div>
                 </div>
                 <div style='display: flex; align-items: center;'>
                   <svg width='20' height='20' style='margin-right: 10px;'>
-                    <polygon points='10,20 20,10 15,10 15,0 5,0 5,10 0,10' fill='#6a0dad' />
+                    <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' transform='rotate(${quarterlyChange !== null && quarterlyChange > 0 ? 0 : 180}, 10, 10)' />
                   </svg>
                   <div>
                     <strong>Quarterly Change</strong><br/>
-                    ${quarterlyChange !== null ? quarterlyChange.toFixed(1) : 'N/A'}% (${quarterlyChange > 0 ? 'Increased' : 'Decreased'})<br/>
-                    Fentanyl positivity ${quarterlyChange > 0 ? 'increased' : 'decreased'} from ${prevQuarter?.toFixed(1)}% to ${curr.toFixed(1)}% in ${d.quarter}
+                    ${quarterlyChange !== null ? quarterlyChange.toFixed(1) : 'N/A'}% (${quarterlyChange !== null && quarterlyChange > 0 ? 'Increased' : 'Decreased'})<br/>
+                    Fentanyl positivity ${quarterlyChange !== null && quarterlyChange > 0 ? 'increased' : 'decreased'} from ${prevQuarter !== null ? prevQuarter.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${d.quarter}
                   </div>
                 </div>
               </div>`}
