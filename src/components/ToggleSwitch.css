@@ -16,7 +16,7 @@
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 70px;
+  width: 120px;
   height: 30px;
 }
 
@@ -43,7 +43,6 @@
   content: "";
   height: 24px;
   width: 24px;
-  left: 3px;
   bottom: 3px;
   background-color: white;
   transition: 0.4s;
@@ -59,7 +58,7 @@ input:checked + .slider.label-toggle {
 }
 
 input:checked + .slider:before {
-  transform: translateX(40px);
+  transform: translateX(96px); /* Adjusted to move the slider knob to the end */
 }
 
 .toggle-label {
