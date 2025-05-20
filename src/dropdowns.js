@@ -1,7 +1,7 @@
 import React from 'react';
 import './dropdowns.css'; // Import the CSS styles
 
-const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionChange }) => {
+const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionChange, selectedDrug, onDrugChange }) => {
     return (
         <div className="dropdown-container">
             {/* Region Dropdown */}
@@ -23,9 +23,9 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
             {/* Drug Dropdown */}
             <div className="dropdown">
                 <label htmlFor="drug">Drug:</label>
-                <select id="drug" name="drug">
+                <select id="drug" name="drug" value={selectedDrug} onChange={(e) => onDrugChange(e.target.value)}>
                     <option value="fentanyl">Fentanyl</option>
-                    <option value="heroine">Heroin</option>
+                    <option value="heroin">Heroin</option>
                     <option value="cocaine">Cocaine</option>
                     <option value="methamphetamine">Methamphetamine</option>
                 </select>
