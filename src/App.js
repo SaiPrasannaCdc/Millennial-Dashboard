@@ -16,6 +16,7 @@ function App() {
   const accessible = false;
   const [selectedPeriod, setSelectedPeriod] = useState('Quarterly');
   const [selectedRegion, setSelectedRegion] = useState('National');
+  const [selectedDrug, setSelectedDrug] = useState('fentanyl');
 
   const resizeObserver = new ResizeObserver(entries => {
     const { width, height } = entries[0].contentRect;
@@ -36,29 +37,41 @@ function App() {
       className={`App${dimensions.width < viewportCutoffSmall ? ' small-vp' : ''}${dimensions.width < viewportCutoffMedium ? ' medium-vp' : ''}${accessible ? ' accessible' : ''}`}
       ref={outerContainerRef}
     >
-      <Dropdowns selectedPeriod={selectedPeriod} onPeriodChange={setSelectedPeriod} selectedRegion={selectedRegion} onRegionChange={setSelectedRegion} />
+      <Dropdowns 
+        selectedPeriod={selectedPeriod} 
+        onPeriodChange={setSelectedPeriod} 
+        selectedRegion={selectedRegion} 
+        onRegionChange={setSelectedRegion}
+        selectedDrug={selectedDrug}
+        onDrugChange={setSelectedDrug}
+      />
       <StatsCards />
-      <div style={{ padding: '20px' }}>
-        {/* Global Dropdown */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '10px' }}>
-        </div>
-        
-        
-      </div>
-      <LineChartWithToggles />
-
-      <div style={{ padding: '20px' }}>
-        {/* Methamphetamine Line Chart */}
-        <MethamphetamineLineChart />
-      </div>
-      <div style={{ padding: '20px' }}>
-        {/* Cocaine Positive Chart */}
-        <PositiveCocaineChart />
-      </div>
-      <div style={{ padding: '20px' }}>
-        {/* Heroin Positive Chart */}
-        <PositiveHeroinChart />
-      </div>
+      {/* Only show two charts based on Region and Drug selection */}
+      {selectedRegion === 'National' && selectedDrug === 'fentanyl' && (
+        <>
+          <LineChartWithToggles period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+          <PositiveHeroinChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+        </>
+      )}
+      {selectedRegion === 'National' && selectedDrug === 'cocaine' && (
+        <>
+          <PositiveCocaineChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+          {/* Add another chart for cocaine if needed */}
+        </>
+      )}
+      {selectedRegion === 'National' && selectedDrug === 'heroin' && (
+        <>
+          <PositiveHeroinChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+          {/* Add another chart for heroin if needed */}
+        </>
+      )}
+      {selectedRegion === 'National' && selectedDrug === 'methamphetamine' && (
+        <>
+          <MethamphetamineLineChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+          <PositiveCocaineChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+        </>
+      )}
+      {/* Add logic for other regions if/when data is available */}
       <ReactTooltip
         html={true}
         type="light"

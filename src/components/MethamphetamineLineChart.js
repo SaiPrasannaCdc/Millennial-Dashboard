@@ -6,6 +6,7 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
+// Quarterly data
 const sampleData2 = [
   {
     name: 'Methamphetamine',
@@ -37,49 +38,126 @@ const sampleData2 = [
   },
 ];
 
-const MethamphetamineLineChart = ({ width = 1100, height = 450 }) => {
-  const [showLabels, setShowLabels] = useState(true);
+// 6-month aggregated data for Methamphetamine
+const sampleData2_6Months = [
+  {
+    name: 'Methamphetamine',
+    values: [
+      { period: 'H2 2022', percentage: '16.4' }, // (16.0 + 16.7) / 2
+      { period: 'H1 2023', percentage: '16.3' }, // (16.3 + 16.2) / 2
+      { period: 'H2 2023', percentage: '16.2' }, // (16.2 + 16.2) / 2
+      { period: 'H1 2024', percentage: '17.5' }, // (17.0 + 17.9) / 2
+      { period: 'H2 2024', percentage: '18.5' }  // Q4 2024 only
+    ]
+  },
+  {
+    name: 'Methamphetamine with no fentanyl or heroin',
+    values: [
+      { period: 'H2 2022', percentage: '7.6' }, // (7.3 + 7.8) / 2
+      { period: 'H1 2023', percentage: '7.1' }, // (6.9 + 7.2) / 2
+      { period: 'H2 2023', percentage: '7.7' }, // (7.5 + 7.8) / 2
+      { period: 'H1 2024', percentage: '8.6' }, // (8.2 + 8.9) / 2
+      { period: 'H2 2024', percentage: '9.7' }  // Q4 2024 only
+    ]
+  }
+];
+
+const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+  const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
-  const margin = { top: 60, right: 30, bottom: 50, left: 50 };
+  // Select data based on period
+  const adjustedData = period === 'Quarterly' ? sampleData2 : sampleData2_6Months;
+  const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
+  // Helper function to format half-year labels
+  const formatHalfYearLabel = (periodStr) => {
+    // Accepts formats like 'H1 2023', 'H2 2023', '2023 H1', '2023 H2', '2023-1', '2023-2', etc.
+    let year, half;
+    // Try to match 'H1 2023' or 'H2 2023'
+    let match = periodStr.match(/H([12])\s*([0-9]{4})/);
+    if (match) {
+      half = match[1];
+      year = match[2];
+      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
+    }
+    // Try to match '2023 H1' or '2023 H2'
+    match = periodStr.match(/([0-9]{4})\s*H([12])/);
+    if (match) {
+      year = match[1];
+      half = match[2];
+      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
+    }
+    // Try to match '2023-1' or '2023-2'
+    match = periodStr.match(/([0-9]{4})[- ]([12])/);
+    if (match) {
+      year = match[1];
+      half = match[2];
+      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
+    }
+    // Fallback: return as is
+    return periodStr;
+  };
+
+  // X domain and accessor based on period
+  const xDomain = period === 'Quarterly'
+    ? adjustedData[0].values.map(d => d.quarter)
+    : adjustedData[0].values.map(d => formatHalfYearLabel(d.period));
+  const xAccessor = period === 'Quarterly'
+    ? d => d.quarter
+    : d => formatHalfYearLabel(d.period);
+
   const xScale = scaleBand({
-    domain: sampleData2[0].values.map(d => d.quarter),
+    domain: xDomain,
     range: [0, adjustedWidth],
     padding: 0.2,
   });
 
   const yScale = scaleLinear({
-    domain: [0, Math.max(...sampleData2.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
+    domain: [0, Math.max(...adjustedData.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
     range: [adjustedHeight, 0],
     nice: true,
   });
 
-  const adjustedData = sampleData2; // Use the same data structure as LineChartWithToggles
+  // Helper function to get previous period's value (for both Quarterly and 6 Months)
+  const getPrevPeriodValue = (lineData, i, offset = 1) => {
+    if (i - offset >= 0) {
+      return parseFloat(lineData.values[i - offset].percentage);
+    }
+    return null;
+  };
 
-  const renderChangeIndicators = () => {
+  // Unified indicator and tooltip rendering for both periods
+  const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
 
     return adjustedData.map((lineData, index) => {
       return lineData.values.map((d, i) => {
         if (i === 0) return null;
 
-        const prevYear = i >= 4 ? parseFloat(lineData.values[i - 4].percentage) : null;
-        const prevQuarter = i > 0 ? parseFloat(lineData.values[i - 1].percentage) : null;
+        // For both periods, previous period is always i-1
+        const prevPeriod = getPrevPeriodValue(lineData, i, 1);
+        // For yearly, offset is 2 for 6 Months, 4 for Quarterly
+        const yearlyOffset = period === 'Quarterly' ? 4 : 2;
+        const prevYear = getPrevPeriodValue(lineData, i, yearlyOffset);
         const curr = parseFloat(d.percentage);
 
         const yearlyChange = prevYear !== null ? ((curr - prevYear) / prevYear) * 100 : null;
-        const quarterlyChange = prevQuarter !== null ? ((curr - prevQuarter) / prevQuarter) * 100 : null;
+        const periodChange = prevPeriod !== null ? ((curr - prevPeriod) / prevPeriod) * 100 : null;
 
-        const xPosition = xScale(d.quarter) + xScale.bandwidth() / 2;
+        // X label accessor
+        const xLabel = xAccessor(d);
+        const xPosition = xScale(xLabel) + xScale.bandwidth() / 2;
         const yPosition = yScale(curr);
+        if (isNaN(xPosition) || isNaN(yPosition)) return null;
 
-        if (isNaN(xPosition) || isNaN(yPosition)) return null; // Ensure valid positions
+        // Show yearly indicator for all except first N periods (N = yearlyOffset)
+        const showYearlyIndicator = i >= yearlyOffset;
 
         return (
-          <g key={`indicator-${index}-${i}`}>
+          <g key={`indicator-${index}-${i}`}> 
             <Circle
               cx={xPosition}
               cy={yPosition}
@@ -92,24 +170,24 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450 }) => {
                 ReactTooltip.hide(e.target);
               }}
               data-tip={`<div style='text-align: left; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #fff;'>
-                <div style='display: flex; align-items: center; margin-bottom: 10px;'>
+                ${showYearlyIndicator ? `<div style='display: flex; align-items: center; margin-bottom: 10px;'>
                   <svg width='20' height='20' style='margin-right: 10px;'>
                     <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
                   </svg>
                   <div>
                     <strong>Yearly Change</strong><br/>
                     ${yearlyChange !== null ? yearlyChange.toFixed(1) : 'N/A'}% (${yearlyChange !== null && yearlyChange > 0 ? 'Increased' : 'Decreased'})<br/>
-                    Fentanyl positivity ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : 'decreased'} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${d.quarter}
+                    Methamphetamine positivity ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : 'decreased'} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
                   </div>
-                </div>
+                </div>` : ''}
                 <div style='display: flex; align-items: center;'>
                   <svg width='20' height='20' style='margin-right: 10px;'>
-                    <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' transform='rotate(${quarterlyChange !== null && quarterlyChange > 0 ? 0 : 180}, 10, 10)' />
+                    <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' transform='rotate(${periodChange !== null && periodChange > 0 ? 0 : 180}, 10, 10)' />
                   </svg>
                   <div>
-                    <strong>Quarterly Change</strong><br/>
-                    ${quarterlyChange !== null ? quarterlyChange.toFixed(1) : 'N/A'}% (${quarterlyChange !== null && quarterlyChange > 0 ? 'Increased' : 'Decreased'})<br/>
-                    Fentanyl positivity ${quarterlyChange !== null && quarterlyChange > 0 ? 'increased' : 'decreased'} from ${prevQuarter !== null ? prevQuarter.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${d.quarter}
+                    <strong>${period === 'Quarterly' ? 'Quarterly' : '6 Months'} Change</strong><br/>
+                    ${periodChange !== null ? periodChange.toFixed(1) : 'N/A'}% (${periodChange !== null && periodChange > 0 ? 'Increased' : 'Decreased'})<br/>
+                    Methamphetamine positivity ${periodChange !== null && periodChange > 0 ? 'increased' : 'decreased'} from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
                   </div>
                 </div>
               </div>`}
@@ -126,16 +204,16 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450 }) => {
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
 
+  console.log('MethamphetamineLineChart period prop:', period); // Debug log for period prop
+
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
-            How often do people with a substance use disorder test positive for methamphetamine on urine drug tests: United States Q4 2022 - Q4 2024
+            How often do people with a substance use disorder test positive for methamphetamine on urine drug tests: United States Q4 2022 - Q4 2024. Millennium Health, United States Q4 2022 - Q4 2024
           </h3>
-          <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
-            Millennium Health, United States Q4 2022 - Q4 2024
-          </p>
+          
         </div>
       </div>
 
@@ -173,10 +251,28 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450 }) => {
 
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
+          {/* Y-axis label, two lines, semi-bold, and BEFORE AxisLeft for proper layering */}
+          <text
+            x={-adjustedHeight / 2}
+            y={-margin.left + 15}
+            transform={`rotate(-90)`}
+            textAnchor="middle"
+            fontSize={13}
+            fill="#222"
+            fontFamily="'Segoe UI', 'Arial', 'sans-serif'"
+            fontWeight="600"
+            style={{ letterSpacing: '0.01em' }}
+          >
+            % of people with substance use disorder
+            <tspan x={-adjustedHeight / 2} dy={15}>
+              with drug(s) detected
+            </tspan>
+          </text>
           <AxisLeft scale={yScale} tickFormat={value => `${value}%`} />
           <AxisBottom
             top={adjustedHeight}
             scale={xScale}
+            
             tickLabelProps={() => ({
               fontSize: 10,
               textAnchor: 'middle',
@@ -188,7 +284,7 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450 }) => {
             <React.Fragment key={index}>
               <LinePath
                 data={lineData.values}
-                x={d => xScale(d.quarter) + xScale.bandwidth() / 2}
+                x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                 y={d => yScale(parseFloat(d.percentage))}
                 stroke={index === 0 ? '#0073e6' : '#ff6600'}
                 strokeWidth={2}
@@ -198,23 +294,30 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450 }) => {
                 const percentage = parseFloat(d.percentage);
                 const lowerCI = (percentage - 0.5).toFixed(1);
                 const upperCI = (percentage + 0.5).toFixed(1);
-
+                const n = lineData.values.length;
+                // If showLabels is true, show all labels. If false, show only first, last, quarter before last, and middle.
+                const showLabel = showLabels || (
+                  i === 0 || // first
+                  i === n - 1 || // last
+                  i === n - 2 || // quarter before last
+                  i === Math.floor((n - 1) / 2) // middle
+                );
                 return (
                   <React.Fragment key={i}>
                     <Circle
-                      cx={xScale(d.quarter) + xScale.bandwidth() / 2}
+                      cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                       cy={yScale(percentage)}
                       r={4}
                       fill={index === 0 ? '#0073e6' : '#ff6600'}
                       data-tip={`<div style='text-align: left;'>
-                        <strong>${d.quarter}</strong><br/>
+                        <strong>${xAccessor(d)}</strong><br/>
                         Methamphetamine positivity: ${percentage}%<br/>
                         Confidence interval: ${lowerCI}% - ${upperCI}%
                       </div>`}
                     />
-                    {showLabels && (
+                    {showLabel && (
                       <text
-                        x={xScale(d.quarter) + xScale.bandwidth() / 2}
+                        x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                         y={yScale(percentage) - 10}
                         fontSize={10}
                         textAnchor="middle"
@@ -228,13 +331,14 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450 }) => {
               })}
             </React.Fragment>
           ))}
-          {renderChangeIndicators()}
+          {/* {renderChangeIndicators()} */}
+          {renderChangeIndicatorsUnified()}
         </Group>
       </svg>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
         {adjustedData.map((lineData, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
-            <div style={{ width: '12px', height: '12px', backgroundColor: index === 0 ? '#0073e6' : '#ff6600', marginRight: '5px' }}></div>
+            <div style={{ width: '30px', height: '2px', backgroundColor: index === 0 ? '#0073e6' : '#ff6600', marginRight: '5px' }}></div>
             <span style={{ fontSize: '12px', color: '#333' }}>{lineData.name}</span>
           </div>
         ))}
