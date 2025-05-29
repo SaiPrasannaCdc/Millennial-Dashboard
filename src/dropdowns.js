@@ -2,6 +2,8 @@ import React from 'react';
 import './dropdowns.css'; // Import the CSS styles
 
 const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionChange, selectedDrug, onDrugChange }) => {
+    // Determine if Northeast should be disabled (for Quarterly)
+    const isQuarterly = selectedPeriod === 'Quarterly';
     return (
         <div className="dropdown-container">
             {/* Region Dropdown */}
@@ -14,9 +16,10 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
                     onChange={(e) => onRegionChange(e.target.value)}
                 >
                     <option value="National">National</option>
-                    <option value="MIDWEST">Midwest</option>
-                    <option value="SOUTH">South</option>
-                    <option value="WEST">West</option>
+                    <option value="NORTH" disabled={isQuarterly} style={isQuarterly ? { color: '#bbb' } : {}}>Northeast Census Region{isQuarterly ? ' (Not displayed)' : ''}</option>
+                    <option value="MIDWEST">Midwest Census Region</option>
+                    <option value="SOUTH">Southern Census Region</option>
+                    <option value="WEST">Western Census Region</option>
                 </select>
             </div>
 
@@ -42,7 +45,6 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
                 >
                     <option value="Quarterly">Quarterly</option>
                     <option value="Half Yearly">6 Months</option>
-                    {/* <option value="Yearly">Yearly</option> */}
                 </select>
             </div>
         </div>

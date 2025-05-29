@@ -194,7 +194,7 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
                 data-tip={`<div style='text-align: left; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #fff;'>
                   ${showYearlyIndicator ? `<div style='display: flex; align-items: center; margin-bottom: 10px;'>
                     <svg width='20' height='20' style='margin-right: 10px;'>
-                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
+                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${yearlyChange !== null && yearlyChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
                     </svg>
                     <div>
                       <strong>Yearly Change</strong><br/>
@@ -204,7 +204,7 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
                   </div>` : ''}
                   <div style='display: flex; align-items: center;'>
                     <svg width='20' height='20' style='margin-right: 10px;'>
-                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='#6a0dad' transform='rotate(${periodChange !== null && periodChange > 0 ? 0 : 180}, 10, 10)' />
+                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${periodChange !== null && periodChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${periodChange !== null && periodChange > 0 ? 0 : 180}, 10, 10)' />
                     </svg>
                     <div>
                       <strong>${(period === 'Quarterly' || !period) ? 'Quarterly' : '6 Months'} Change</strong><br/>
@@ -328,9 +328,9 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
               checked={showPercentChange}
               onChange={() => setShowPercentChange(!showPercentChange)}
             />
-            <span className="slider percent-toggle"></span>
+            <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
           </label>
-          <span className="toggle-label">% Chg On</span>
+          <span className="toggle-label" style={{ color: showPercentChange ? '#fff' : '#333' }}>% Chg {showPercentChange ? 'On' : 'Off'}</span>
         </div>
         <div className="toggle-wrapper">
           <label className="toggle-switch">
@@ -339,42 +339,51 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
               checked={!showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
-            <span className="slider label-toggle"></span>
+            <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
           </label>
-          <span className="toggle-label">Labels Off</span>
+          <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
         </div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px', fontSize: '8px', color: '#666', lineHeight: '1.4', textAlign: 'right' }}>
-        <div style={{ maxWidth: '300px', fontWeight: 'bold' }}>
-          <p style={{ margin: 0 }}>When "% Chg" is on, hover over a data point</p>
-          <p style={{ margin: 0 }}>on the line chart to view percent change</p>
-          <p style={{ margin: 0 }}>for the selected year compared to the previous year.</p>
-        </div>
-      </div>
+      <label className="subLabel" style={{ display: 'block', textAlign: 'right', fontSize: '15px', color: '#111', fontWeight: 600, fontFamily: 'Arial, sans-serif', margin: '10px 0 0 0', maxWidth: '420px', float: 'right', lineHeight: 1.5 }}>
+        When "% Chg" is on, hover over the data point for<br />
+        the 5 most recent quarters to view percent change<br />
+        from the same quarter in the previous year and the previous quarter.<br />
+      </label>
 
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
           {/* Y-axis label: two lines, Segoe UI, semi-bold, fontSize 13, color #222, before AxisLeft */}
           <text
-            x={-60}
+            x={-70}
             y={adjustedHeight / 2}
             textAnchor="middle"
             fontFamily="Segoe UI, Arial, sans-serif"
             fontWeight={600}
-            fontSize={13}
+            fontSize={15}
             fill="#222"
             letterSpacing="0.01em"
-            transform={`rotate(-90, -60, ${adjustedHeight / 2})`}
+            transform={`rotate(-90, -70, ${adjustedHeight / 2})`}
           >
-            <tspan x={-60} dy={-6}>% of people with substance use disorder</tspan>
-            <tspan x={-60} dy={16}>with drug(s) detected</tspan>
+            <tspan x={-70} dy={-6}>% of people with substance use disorder</tspan>
+            <tspan x={-70} dy={16}>with drug(s) detected</tspan>
           </text>
-          <AxisLeft scale={yScale} tickFormat={value => `${value}%`} />
+          <AxisLeft 
+            scale={yScale} 
+            tickFormat={value => `${value}%`} 
+            tickLabelProps={() => ({
+              fontSize: 16,
+              fontFamily: 'Segoe UI, Arial, sans-serif',
+              fill: '#222',
+              textAnchor: 'end',
+              dx: -8,
+              dy: 3,
+            })}
+          />
           <AxisBottom
             top={adjustedHeight}
             scale={xScale}
             tickLabelProps={() => ({
-              fontSize: 10,
+              fontSize: 16,
               textAnchor: 'middle',
               dy: 10,
             })}
@@ -397,13 +406,17 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
                   const lowerCI = (percentage - 0.5).toFixed(1);
                   const upperCI = (percentage + 0.5).toFixed(1);
                   const n = lineData.values.length;
-                  // If showLabels is true, show all labels. If false, show only first, last, quarter before last, and middle.
-                  const showLabel = showLabels || (
-                    i === 0 || // first
-                    i === n - 1 || // last
-                    i === n - 2 || // quarter before last
-                    i === Math.floor((n - 1) / 2) // middle
-                  );
+                  let showLabel = false;
+                  if (period === 'Quarterly' || !period) {
+                    showLabel = showLabels || (
+                      i === 0 || // first
+                      i === n - 1 || // last
+                      i === n - 2 || // quarter before last
+                      i === Math.floor((n - 1) / 2) // middle
+                    );
+                  } else {
+                    showLabel = showLabels; // Only show if labels ON for 6 Months
+                  }
                   return (
                     <React.Fragment key={i}>
                       <Circle
@@ -416,8 +429,8 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
                       {showLabel && (
                         <text
                           x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                          y={yScale(percentage) - 10}
-                          fontSize={10}
+                          y={yScale(percentage) - 14}
+                          fontSize={12}
                           textAnchor="middle"
                           fill="#333"
                         >
@@ -437,7 +450,7 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
         {Object.entries(lineColors).map(([drug, color]) => (
           <div key={drug} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
             <div style={{ width: '30px', height: '2px', backgroundColor: color, marginRight: '5px' }}></div>
-            <span style={{ fontSize: '12px', color: '#333' }}>{drug}</span>
+            <span style={{ fontSize: '16px', color: '#333' }}>{drug}</span>
           </div>
         ))}
       </div>

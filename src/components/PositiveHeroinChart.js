@@ -328,9 +328,9 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
               checked={showPercentChange}
               onChange={() => setShowPercentChange(!showPercentChange)}
             />
-            <span className="slider percent-toggle"></span>
+            <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
           </label>
-          <span className="toggle-label">% Chg On</span>
+          <span className="toggle-label" style={{ color: showPercentChange ? '#fff' : '#333' }}>% Chg {showPercentChange ? 'On' : 'Off'}</span>
         </div>
         <div className="toggle-wrapper">
           <label className="toggle-switch">
@@ -339,18 +339,17 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
               checked={!showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
-            <span className="slider label-toggle"></span>
+            <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
           </label>
-          <span className="toggle-label">Labels Off</span>
+          <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
         </div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px', fontSize: '8px', color: '#666', lineHeight: '1.4', textAlign: 'right' }}>
-        <div style={{ maxWidth: '300px', fontWeight: 'bold' }}>
-          <p style={{ margin: 0 }}>When "% Chg" is on, hover over a data point</p>
-          <p style={{ margin: 0 }}>on the line chart to view percent change</p>
-          <p style={{ margin: 0 }}>for the selected year compared to the previous year.</p>
-        </div>
-      </div>
+      <label className="subLabel" style={{ display: 'block', textAlign: 'right', fontSize: '15px', color: '#111', lineHeight: 1.5, fontWeight: 600, fontFamily: 'Arial, sans-serif', margin: '10px 0 0 0', maxWidth: '420px', float: 'right' }}>
+        When "% Chg" is on, hover over the data point for<br />
+        the 5 most recent quarters to view percent change<br />
+        from the same quarter in the previous year and the<br />
+        previous quarter.
+      </label>
 
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
@@ -361,7 +360,7 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
             textAnchor="middle"
             fontFamily="Segoe UI, Arial, sans-serif"
             fontWeight={600}
-            fontSize={13}
+            fontSize={15}
             fill="#222"
             letterSpacing="0.01em"
             transform={`rotate(-90, -60, ${adjustedHeight / 2})`}
@@ -369,12 +368,16 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
             <tspan x={-60} dy={-6}>% of people with substance use disorder</tspan>
             <tspan x={-60} dy={16}>with drug(s) detected</tspan>
           </text>
-          <AxisLeft scale={yScale} tickFormat={value => `${value}%`} />
+          <AxisLeft 
+            scale={yScale} 
+            tickFormat={value => `${value}%`} 
+            tickLabelProps={() => ({ fontSize: 16, textAnchor: 'end', dx: -4, dy: 4, fontFamily: 'Segoe UI, Arial, sans-serif' })} 
+          />
           <AxisBottom
             top={adjustedHeight}
             scale={xScale}
             tickLabelProps={() => ({
-              fontSize: 10,
+              fontSize: 16,
               textAnchor: 'middle',
               dy: 10,
             })}
@@ -416,8 +419,8 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
                       {showLabel && (
                         <text
                           x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                          y={yScale(percentage) - 10}
-                          fontSize={10}
+                          y={yScale(percentage) - 14}
+                          fontSize={12}
                           textAnchor="middle"
                           fill="#333"
                         >
@@ -437,7 +440,7 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
         {Object.entries(lineColors).map(([drug, color]) => (
           <div key={drug} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
             <div style={{ width: '30px', height: '2px', backgroundColor: color, marginRight: '5px' }}></div>
-            <span style={{ fontSize: '12px', color: '#333' }}>{drug}</span>
+            <span style={{ fontSize: '16px', color: '#333' }}>{drug}</span>
           </div>
         ))}
       </div>

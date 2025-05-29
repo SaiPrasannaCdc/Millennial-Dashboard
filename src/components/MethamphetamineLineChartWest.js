@@ -6,108 +6,53 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-// Quarterly data
-const sampleData2 = [
+// Quarterly data for Western Census Region
+const sampleDataWestQuarterly = [
   {
-    name: 'Methamphetamine',
+    name: 'Methamphetamine (Western Region)',
     values: [
-      { quarter: 'Q4 2022', percentage: '16.0', ciLower: 15.6, ciUpper: 16.2 },
-      { quarter: 'Q1 2023', percentage: '16.7', ciLower: 16.3, ciUpper: 16.9 },
-      { quarter: 'Q2 2023', percentage: '16.3', ciLower: 16.0, ciUpper: 16.6 },
-      { quarter: 'Q3 2023', percentage: '16.2', ciLower: 15.8, ciUpper: 16.4 },
-      { quarter: 'Q4 2023', percentage: '16.2', ciLower: 15.8, ciUpper: 16.4 },
-      { quarter: 'Q1 2024', percentage: '16.2', ciLower: 16.6, ciUpper: 17.2 },
-      { quarter: 'Q2 2024', percentage: '17.0', ciLower: 17.5, ciUpper: 18.1 },
-      { quarter: 'Q3 2024', percentage: '17.9', ciLower: 18.2, ciUpper: 18.7 },
-      { quarter: 'Q4 2024', percentage: '18.5' }, // No CI provided for Q4 2024
-    ],
-  },
-  {
-    name: 'Methamphetamine with no fentanyl or heroin',
-    values: [
-      { quarter: 'Q4 2022', percentage: '7.3' },
-      { quarter: 'Q1 2023', percentage: '7.8' },
-      { quarter: 'Q2 2023', percentage: '6.9' },
-      { quarter: 'Q3 2023', percentage: '7.2' },
-      { quarter: 'Q4 2023', percentage: '7.5' },
-      { quarter: 'Q1 2024', percentage: '7.8' },
-      { quarter: 'Q2 2024', percentage: '8.2' },
-      { quarter: 'Q3 2024', percentage: '8.9' },
-      { quarter: 'Q4 2024', percentage: '9.7' },
+      { quarter: 'Q1 2023', percentage: '24.9', ciLower: 24.3, ciUpper: 25.3 },
+      { quarter: 'Q2 2023', percentage: '26.0', ciLower: 25.4, ciUpper: 26.5 },
+      { quarter: 'Q3 2023', percentage: '25.4', ciLower: 24.8, ciUpper: 25.9 },
+      { quarter: 'Q4 2023', percentage: '25.1', ciLower: 24.6, ciUpper: 25.6 },
+      { quarter: 'Q1 2024', percentage: '25.8', ciLower: 25.2, ciUpper: 26.2 },
+      { quarter: 'Q2 2024', percentage: '26.9', ciLower: 26.3, ciUpper: 27.3 },
+      { quarter: 'Q3 2024', percentage: '27.7', ciLower: 27.1, ciUpper: 28.1 },
+      { quarter: 'Q4 2024', percentage: '28.7', ciLower: 28.1, ciUpper: 29.1 },
     ],
   },
 ];
 
-// 6-month aggregated data for Methamphetamine
-const sampleData2_6Months = [
+// 6 Months data for Western Census Region (from your screenshot)
+const sampleDataWest6Months = [
   {
-    name: 'Methamphetamine',
+    name: 'Methamphetamine (Western Region)',
     values: [
-      { period: 'Jan - Jun 2023', percentage: '16.3', ciLower: 16.0, ciUpper: 16.4 },
-      { period: 'Jul - Dec 2023', percentage: '16.3', ciLower: 16.0, ciUpper: 16.4 },
-      { period: 'Jan - Jun 2024', percentage: '16.6', ciLower: 16.3, ciUpper: 16.7 },
-      { period: 'Jul - Dec 2024', percentage: '18.2', ciLower: 17.9, ciUpper: 18.3 },
-    ]
+      { period: 'Jan - Jun 2023', percentage: '25.4', ciLower: 25.2, ciUpper: 25.8 },
+      { period: 'Jul - Dec 2023', percentage: '25.3', ciLower: 25.8, ciUpper: 26.4 },
+      { period: 'Jan - Jun 2024', percentage: '26.3', ciLower: 26.3, ciUpper: 27.3 },
+      { period: 'Jul - Dec 2024', percentage: '28.2', ciLower: 28.1, ciUpper: 29.1 },
+    ],
   },
-  {
-    name: 'Methamphetamine with no fentanyl or heroin',
-    values: [
-      // Use original, static values only. Do not recalculate or update based on Methamphetamine line.
-      { period: 'Jan - Jun 2023', percentage: '7.6' },
-      { period: 'Jul - Dec 2023', percentage: '7.1' },
-      { period: 'Jan - Jun 2024', percentage: '7.7' },
-      { period: 'Jul - Dec 2024', percentage: '8.6' },
-      // If you have more static values, add them here. Do not recalculate from Methamphetamine line.
-    ]
-  }
 ];
 
-const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
   // Select data based on period
-  const adjustedData = period === 'Quarterly' ? sampleData2 : sampleData2_6Months;
+  const adjustedData = period === 'Quarterly' ? sampleDataWestQuarterly : sampleDataWest6Months;
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  // Helper function to format half-year labels
-  const formatHalfYearLabel = (periodStr) => {
-    // Accepts formats like 'H1 2023', 'H2 2023', '2023 H1', '2023 H2', '2023-1', '2023-2', etc.
-    let year, half;
-    // Try to match 'H1 2023' or 'H2 2023'
-    let match = periodStr.match(/H([12])\s*([0-9]{4})/);
-    if (match) {
-      half = match[1];
-      year = match[2];
-      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
-    }
-    // Try to match '2023 H1' or '2023 H2'
-    match = periodStr.match(/([0-9]{4})\s*H([12])/);
-    if (match) {
-      year = match[1];
-      half = match[2];
-      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
-    }
-    // Try to match '2023-1' or '2023-2'
-    match = periodStr.match(/([0-9]{4})[- ]([12])/);
-    if (match) {
-      year = match[1];
-      half = match[2];
-      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
-    }
-    // Fallback: return as is
-    return periodStr;
-  };
-
   // X domain and accessor based on period
   const xDomain = period === 'Quarterly'
     ? adjustedData[0].values.map(d => d.quarter)
-    : adjustedData[0].values.map(d => formatHalfYearLabel(d.period));
+    : adjustedData[0].values.map(d => d.period);
   const xAccessor = period === 'Quarterly'
     ? d => d.quarter
-    : d => formatHalfYearLabel(d.period);
+    : d => d.period;
 
   const xScale = scaleBand({
     domain: xDomain,
@@ -116,12 +61,12 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
   });
 
   const yScale = scaleLinear({
-    domain: [0, Math.max(...adjustedData.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
+    domain: [0, Math.max(...adjustedData[0].values.map(v => parseFloat(v.percentage)))],
     range: [adjustedHeight, 0],
     nice: true,
   });
 
-  // Helper function to get previous period's value (for both Quarterly and 6 Months)
+  // Helper function to get previous period's value
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
       return parseFloat(lineData.values[i - offset].percentage);
@@ -129,52 +74,37 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
     return null;
   };
 
-  // Unified indicator and tooltip rendering for both periods
+  // Unified indicator and tooltip rendering
   const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
-
     return adjustedData.map((lineData, index) => {
       return lineData.values.map((d, i) => {
         if (i === 0) return null;
-
-        // For both periods, previous period is always i-1
         const prevPeriod = getPrevPeriodValue(lineData, i, 1);
-        // For yearly, offset is 2 for 6 Months, 4 for Quarterly
-        const yearlyOffset = period === 'Quarterly' ? 4 : 2;
+        const yearlyOffset = 4;
         const prevYear = getPrevPeriodValue(lineData, i, yearlyOffset);
         const curr = parseFloat(d.percentage);
-
         const yearlyChange = prevYear !== null ? ((curr - prevYear) / prevYear) * 100 : null;
         const periodChange = prevPeriod !== null ? ((curr - prevPeriod) / prevPeriod) * 100 : null;
-
-        // X label accessor
         const xLabel = xAccessor(d);
         const xPosition = xScale(xLabel) + xScale.bandwidth() / 2;
         const yPosition = yScale(curr);
         if (isNaN(xPosition) || isNaN(yPosition)) return null;
-
-        // Show yearly indicator for all except first N periods (N = yearlyOffset)
         const showYearlyIndicator = i >= yearlyOffset;
-
-        // Arrow color logic: purple for increase, blue for decrease
+        // Arrow color logic
         const getArrowColor = (change) => {
-          if (change === null) return '#6a0dad';
-          return change > 0 ? '#6a0dad' : '#0073e6';
+          if (change === null) return '#6a0dad'; // default purple
+          return change > 0 ? '#6a0dad' : '#0073e6'; // purple for increase, blue for decrease
         };
-
         return (
-          <g key={`indicator-${index}-${i}`}> 
+          <g key={`indicator-west-${index}-${i}`}> 
             <Circle
               cx={xPosition}
               cy={yPosition}
               r={4}
-              fill={index === 0 ? '#0073e6' : '#ff6600'}
-              onMouseEnter={(e) => {
-                ReactTooltip.show(e.target);
-              }}
-              onMouseLeave={(e) => {
-                ReactTooltip.hide(e.target);
-              }}
+              fill={'#0073e6'}
+              onMouseEnter={e => ReactTooltip.show(e.target)}
+              onMouseLeave={e => ReactTooltip.hide(e.target)}
               data-tip={`<div style='text-align: left; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #fff;'>
                 ${showYearlyIndicator ? `<div style='display: flex; align-items: center; margin-bottom: 10px;'>
                   <svg width='20' height='20' style='margin-right: 10px;'>
@@ -205,24 +135,19 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
     });
   };
 
-  // Ensure ReactTooltip is re-initialized after rendering
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
-
-  console.log('MethamphetamineLineChart period prop:', period); // Debug log for period prop
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
-            How often do people with a substance use disorder test positive for methamphetamine on urine drug tests: United States Q4 2022 - Q4 2024. Millennium Health, United States Q4 2022 - Q4 2024
+            How often do people with a substance use disorder test positive for methamphetamine on urine drug tests: Western Census Region Q1 2023 - Q4 2024. Millennium Health, Western Census Region Q1 2023 - Q4 2024
           </h3>
-          
         </div>
       </div>
-
       <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
         <div className="toggle-wrapper">
           <label className="toggle-switch">
@@ -252,7 +177,6 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
         the 5 most recent quarters to view percent change<br />
         from the same quarter in the previous year and the previous quarter.<br />
       </label>
-
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
           {/* Y-axis label, two lines, semi-bold, and BEFORE AxisLeft for proper layering */}
@@ -284,29 +208,28 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
           <AxisBottom
             top={adjustedHeight}
             scale={xScale}
-            
             tickLabelProps={() => ({
               fontSize: 16,
               textAnchor: 'middle',
               dy: 10,
             })}
           />
-
           {adjustedData.map((lineData, index) => (
             <React.Fragment key={index}>
               <LinePath
                 data={lineData.values}
                 x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                 y={d => yScale(parseFloat(d.percentage))}
-                stroke={index === 0 ? '#0073e6' : '#ff6600'}
+                stroke={'#0073e6'}
                 strokeWidth={2}
                 curve={null}
               />
               {lineData.values.map((d, i) => {
                 const percentage = parseFloat(d.percentage);
-                let lowerCI = d.ciLower !== undefined ? d.ciLower : (percentage - 0.5).toFixed(1);
-                let upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
+                const lowerCI = d.ciLower !== undefined ? d.ciLower : (percentage - 0.5).toFixed(1);
+                const upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
                 const n = lineData.values.length;
+                // If showLabels is true, show all labels. If false, show only first, last, quarter before last, and middle for Quarterly; for 6 Months, show none if labels are off
                 let showLabel = false;
                 if (period === 'Quarterly') {
                   showLabel = showLabels || (
@@ -315,7 +238,7 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
                     i === n - 2 || // quarter before last
                     i === Math.floor((n - 1) / 2) // middle
                   );
-                } else {
+                } else if (period === '6 Months' || period === 'Half Yearly') {
                   showLabel = showLabels; // Only show if labels ON for 6 Months
                 }
                 return (
@@ -324,7 +247,7 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
                       cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                       cy={yScale(percentage)}
                       r={4}
-                      fill={index === 0 ? '#0073e6' : '#ff6600'}
+                      fill={'#0073e6'}
                       data-tip={`<div style='text-align: left;'>
                         <strong>${xAccessor(d)}</strong><br/>
                         Methamphetamine positivity: ${percentage}%<br/>
@@ -347,23 +270,21 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
               })}
             </React.Fragment>
           ))}
-          {/* {renderChangeIndicators()} */}
           {renderChangeIndicatorsUnified()}
         </Group>
       </svg>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
         {adjustedData.map((lineData, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
-            <div style={{ width: '30px', height: '2px', backgroundColor: index === 0 ? '#0073e6' : '#ff6600', marginRight: '5px' }}></div>
+            <div style={{ width: '30px', height: '2px', backgroundColor: '#0073e6', marginRight: '5px' }}></div>
             <span style={{ fontSize: '16px', color: '#333' }}>{lineData.name}</span>
           </div>
         ))}
       </div>
-      {/* Add extra space below the drug label legend */}
       <div style={{ height: '32px' }} />
       <ReactTooltip html={true} />
     </div>
   );
 };
 
-export default MethamphetamineLineChart;
+export default MethamphetamineLineChartWest;
