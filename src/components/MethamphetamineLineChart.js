@@ -6,7 +6,6 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-// Quarterly data
 const sampleData2 = [
   {
     name: 'Methamphetamine',
@@ -38,7 +37,6 @@ const sampleData2 = [
   },
 ];
 
-// 6-month aggregated data for Methamphetamine
 const sampleData2_6Months = [
   {
     name: 'Methamphetamine',
@@ -52,12 +50,10 @@ const sampleData2_6Months = [
   {
     name: 'Methamphetamine with no fentanyl or heroin',
     values: [
-      // Use original, static values only. Do not recalculate or update based on Methamphetamine line.
       { period: 'Jan - Jun 2023', percentage: '7.6' },
       { period: 'Jul - Dec 2023', percentage: '7.1' },
       { period: 'Jan - Jun 2024', percentage: '7.7' },
       { period: 'Jul - Dec 2024', percentage: '8.6' },
-      // If you have more static values, add them here. Do not recalculate from Methamphetamine line.
     ]
   }
 ];
@@ -72,36 +68,29 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  // Helper function to format half-year labels
   const formatHalfYearLabel = (periodStr) => {
-    // Accepts formats like 'H1 2023', 'H2 2023', '2023 H1', '2023 H2', '2023-1', '2023-2', etc.
     let year, half;
-    // Try to match 'H1 2023' or 'H2 2023'
     let match = periodStr.match(/H([12])\s*([0-9]{4})/);
     if (match) {
       half = match[1];
       year = match[2];
       return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
     }
-    // Try to match '2023 H1' or '2023 H2'
     match = periodStr.match(/([0-9]{4})\s*H([12])/);
     if (match) {
       year = match[1];
       half = match[2];
       return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
     }
-    // Try to match '2023-1' or '2023-2'
     match = periodStr.match(/([0-9]{4})[- ]([12])/);
     if (match) {
       year = match[1];
       half = match[2];
       return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
     }
-    // Fallback: return as is
     return periodStr;
   };
 
-  // X domain and accessor based on period
   const xDomain = period === 'Quarterly'
     ? adjustedData[0].values.map(d => d.quarter)
     : adjustedData[0].values.map(d => formatHalfYearLabel(d.period));
@@ -121,7 +110,6 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
     nice: true,
   });
 
-  // Helper function to get previous period's value (for both Quarterly and 6 Months)
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
       return parseFloat(lineData.values[i - offset].percentage);
@@ -129,7 +117,6 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
     return null;
   };
 
-  // Unified indicator and tooltip rendering for both periods
   const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
 
@@ -137,9 +124,7 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
       return lineData.values.map((d, i) => {
         if (i === 0) return null;
 
-        // For both periods, previous period is always i-1
         const prevPeriod = getPrevPeriodValue(lineData, i, 1);
-        // For yearly, offset is 2 for 6 Months, 4 for Quarterly
         const yearlyOffset = period === 'Quarterly' ? 4 : 2;
         const prevYear = getPrevPeriodValue(lineData, i, yearlyOffset);
         const curr = parseFloat(d.percentage);
@@ -147,16 +132,13 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
         const yearlyChange = prevYear !== null ? ((curr - prevYear) / prevYear) * 100 : null;
         const periodChange = prevPeriod !== null ? ((curr - prevPeriod) / prevPeriod) * 100 : null;
 
-        // X label accessor
         const xLabel = xAccessor(d);
         const xPosition = xScale(xLabel) + xScale.bandwidth() / 2;
         const yPosition = yScale(curr);
         if (isNaN(xPosition) || isNaN(yPosition)) return null;
 
-        // Show yearly indicator for all except first N periods (N = yearlyOffset)
         const showYearlyIndicator = i >= yearlyOffset;
 
-        // Arrow color logic: purple for increase, blue for decrease
         const getArrowColor = (change) => {
           if (change === null) return '#6a0dad';
           return change > 0 ? '#6a0dad' : '#0073e6';
@@ -205,12 +187,38 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
     });
   };
 
-  // Ensure ReactTooltip is re-initialized after rendering
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
 
   console.log('MethamphetamineLineChart period prop:', period); // Debug log for period prop
+
+  // Key finding helper (now inside the component to access 'period')
+  const getKeyFinding = (data) => {
+    if (!data || data.length === 0) return null;
+    // Use the first line for key finding (Methamphetamine)
+    const line = data[0];
+    if (!line || !line.values || line.values.length < 2) return null;
+    const lastIdx = line.values.length - 1;
+    const prevIdx = line.values.length - 2;
+    const last = line.values[lastIdx];
+    const prev = line.values[prevIdx];
+    if (!last || !prev) return null;
+    const lastVal = parseFloat(last.percentage);
+    const prevVal = parseFloat(prev.percentage);
+    const absChange = (lastVal - prevVal).toFixed(1);
+    const direction = absChange > 0 ? 'increased' : 'decreased';
+    return {
+      direction,
+      absChange: Math.abs(absChange),
+      prev: prevVal,
+      prevLabel: period === 'Quarterly' ? prev.quarter : prev.period,
+      last: lastVal,
+      lastLabel: period === 'Quarterly' ? last.quarter : last.period,
+    };
+  };
+
+  const keyFinding = getKeyFinding(adjustedData);
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
@@ -219,21 +227,93 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
           <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
             How often do people with a substance use disorder test positive for methamphetamine on urine drug tests: United States Q4 2022 - Q4 2024. Millennium Health, United States Q4 2022 - Q4 2024
           </h3>
-          
         </div>
+      </div>
+      <div style={{
+        background: '#4d194d',
+        color: '#fff',
+        borderRadius: '24px',
+        padding: '14px 24px',
+        margin: '18px auto 0 auto',
+        fontWeight: 700,
+        fontSize: '15px',
+        maxWidth: '1200px',
+        boxShadow: 'none',
+        border: 'none',
+        lineHeight: 1.2,
+        display: 'block',
+        fontFamily: 'Barlow, Arial, sans-serif',
+        letterSpacing: '0.01em',
+      }}>
+        {keyFinding ? (
+          <>
+            <span style={{ fontWeight: 700 }}>Key finding:</span> Methamphetamine positivity {keyFinding.direction} <span style={{fontWeight:800}}>{keyFinding.absChange}%</span> from <span style={{fontWeight:800}}>{keyFinding.prev}%</span> in {keyFinding.prevLabel} to <span style={{fontWeight:800}}>{keyFinding.last}%</span> in {keyFinding.lastLabel}. This may indicate {keyFinding.direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to methamphetamine among people with substance use disorders.
+          </>
+        ) : (
+          <>
+            <span style={{ fontWeight: 700 }}>Key finding:</span> Not enough data to calculate change.
+          </>
+        )}
       </div>
 
       <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
-        <div className="toggle-wrapper">
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={showPercentChange}
-              onChange={() => setShowPercentChange(!showPercentChange)}
-            />
-            <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
-          </label>
-          <span className="toggle-label" style={{ color: showPercentChange ? '#fff' : '#333' }}>% Chg {showPercentChange ? 'On' : 'Off'}</span>
+        <div className="toggle-wrapper" style={{ position: 'relative' }}>
+          {(() => {
+            const percentChgTooltip = `
+              <div style="
+                text-align: center;
+                padding: 16px 12px;
+                color: #222;
+                font-size: 15px;
+                max-width: 260px;
+                min-width: 220px;
+                margin: 0 auto;
+                border-radius: 14px;
+                background: #ededed;
+                box-shadow: 0 2px 12px #bbb3;
+              ">
+                <div style="margin-top: 8px;">
+                  When <b>% Chg</b> is on, hover over the data point for the 5 most recent quarters to view percent change from the same quarter in the previous year and the previous quarter.
+                </div>
+              </div>
+            `;
+            return (
+              <>
+                <label
+                  className="toggle-switch"
+                  data-tip={percentChgTooltip}
+                  data-for="percentChangeTooltip"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={showPercentChange}
+                    onChange={() => setShowPercentChange(!showPercentChange)}
+                  />
+                  <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
+                </label>
+                <span
+                  className="toggle-label"
+                  style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
+                  data-tip={percentChgTooltip}
+                  data-for="percentChangeTooltip"
+                >
+                  % Chg {showPercentChange ? 'On' : 'Off'}
+                </span>
+                <ReactTooltip
+                  id="percentChangeTooltip"
+                  place="top"
+                  effect="solid"
+                  backgroundColor="#ededed"
+                  border={true}
+                  borderColor="#bbb"
+                  className="simple-tooltip"
+                  html={true}
+                  textColor="#222"
+                />
+              </>
+            );
+          })()}
         </div>
         <div className="toggle-wrapper">
           <label className="toggle-switch">
@@ -247,15 +327,9 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
           <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
         </div>
       </div>
-      <label className="subLabel" style={{ display: 'block', textAlign: 'right', fontSize: '15px', color: '#111', fontWeight: 600, fontFamily: 'Arial, sans-serif', margin: '10px 0 0 0', maxWidth: '420px', float: 'right', lineHeight: 1.5 }}>
-        When "% Chg" is on, hover over the data point for<br />
-        the 5 most recent quarters to view percent change<br />
-        from the same quarter in the previous year and the previous quarter.<br />
-      </label>
 
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
-          {/* Y-axis label, two lines, semi-bold, and BEFORE AxisLeft for proper layering */}
           <text
             x={-adjustedHeight / 2}
             y={-margin.left + 15}
@@ -359,7 +433,6 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
           </div>
         ))}
       </div>
-      {/* Add extra space below the drug label legend */}
       <div style={{ height: '32px' }} />
       <ReactTooltip html={true} />
     </div>

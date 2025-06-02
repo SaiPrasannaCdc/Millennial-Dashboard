@@ -75,17 +75,34 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
-  // Filter data for selected region (case-insensitive for National)
   const regionKey = region.toUpperCase();
   let data = heroinQuarterlyData.filter(d => d.region === regionKey);
 
-  // If period is '6 Months' or 'Half Yearly', filter for semi-annual data only
   if (period === '6 Months' || period === 'Half Yearly') {
     data = data.filter(d => d.quarter.includes('Jan-Jun') || d.quarter.includes('Jul-Dec'));
   } else {
-    // Otherwise, filter out semi-annual data for quarterly view
     data = data.filter(d => d.quarter.startsWith('Q'));
   }
+
+  const getKeyFinding = () => {
+    if (!data || data.length < 2) return null;
+    const lastIdx = data.length - 1;
+    const prevIdx = data.length - 2;
+    const last = data[lastIdx];
+    const prev = data[prevIdx];
+    if (!last || !prev) return null;
+    const absChange = (last.percentage - prev.percentage).toFixed(1);
+    const direction = absChange > 0 ? 'increased' : 'decreased';
+    return {
+      direction,
+      absChange: Math.abs(absChange),
+      prev: prev.percentage,
+      prevLabel: prev.quarter,
+      last: last.percentage,
+      lastLabel: last.quarter,
+    };
+  };
+  const keyFinding = getKeyFinding();
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
@@ -103,7 +120,6 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
     nice: true,
   });
 
-  // Helper to get previous period's value
   const getPrevValue = (i, offset = 1) => {
     if (i - offset >= 0) {
       return data[i - offset].percentage;
@@ -111,12 +127,12 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
     return null;
   };
 
-  
-  // Render percent change indicators and tooltips
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
+    if (period === '6 Months' || period === 'Half Yearly') return null;
+    const n = data.length;
     return data.map((d, i) => {
-      if (i === 0) return null;
+      if (i < n - 5) return null;
       const prevPeriod = getPrevValue(i, 1);
       const prevYear = getPrevValue(i, 4);
       const curr = d.percentage;
@@ -125,19 +141,18 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
       const x = xScale(d.quarter) + xScale.bandwidth() / 2;
       const y = yScale(curr);
       const showYearly = i >= 4;
-      // Arrow color logic
       const getArrowColor = (change) => {
         if (change === null) return '#6a0dad';
         return change > 0 ? '#6a0dad' : '#0073e6';
       };
       return (
-        <g key={`indicator-heroin-${i}`}> 
-          <Circle
+        <g key={`indicator-heroin-${i}`}>
+          <circle
             cx={x}
             cy={y}
-            r={4}
-            fill={'#0073e6'}
-            data-tip={`<div style='text-align: left; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #fff;'>
+            r={12}
+            fill="transparent"
+            data-tip={`<div style='text-align: left; padding: 0;'>
               ${showYearly ? `<div style='display: flex; align-items: center; margin-bottom: 10px;'>
                 <svg width='20' height='20' style='margin-right: 10px;'>
                   <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${getArrowColor(yearlyChange)}' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
@@ -179,17 +194,90 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
           </h3>
         </div>
       </div>
+      <div style={{
+        background: '#4d194d',
+        color: '#fff',
+        borderRadius: '24px',
+        padding: '14px 24px',
+        margin: '18px auto 0 auto',
+        fontWeight: 700,
+        fontSize: '15px',
+        maxWidth: '1200px',
+        boxShadow: 'none',
+        border: 'none',
+        lineHeight: 1.2,
+        display: 'block',
+        fontFamily: 'Barlow, Arial, sans-serif',
+        letterSpacing: '0.01em',
+      }}>
+        {keyFinding ? (
+          <>
+            <span style={{ fontWeight: 700 }}>Key finding:</span> Heroin positivity {keyFinding.direction} <span style={{fontWeight:800}}>{keyFinding.absChange}%</span> from <span style={{fontWeight:800}}>{keyFinding.prev}%</span> in {keyFinding.prevLabel} to <span style={{fontWeight:800}}>{keyFinding.last}%</span> in {keyFinding.lastLabel}. This may indicate {keyFinding.direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to heroin among people with substance use disorders.
+          </>
+        ) : (
+          <>
+            <span style={{ fontWeight: 700 }}>Key finding:</span> Not enough data to calculate change.
+          </>
+        )}
+      </div>
       <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
         <div className="toggle-wrapper">
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={showPercentChange}
-              onChange={() => setShowPercentChange(!showPercentChange)}
-            />
-            <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
-          </label>
-          <span className="toggle-label" style={{ color: showPercentChange ? '#fff' : '#333' }}>% Chg {showPercentChange ? 'On' : 'Off'}</span>
+          {(() => {
+            const percentChgTooltip = `
+              <div style="
+                text-align: center;
+                padding: 16px 12px;
+                color: #222;
+                font-size: 15px;
+                max-width: 260px;
+                min-width: 220px;
+                margin: 0 auto;
+                border-radius: 14px;
+                background: #ededed;
+                box-shadow: 0 2px 12px #bbb3;
+              ">
+                <div style="margin-top: 8px;">
+                  When <b>% Chg</b> is on, hover over the data point for the 5 most recent quarters to view percent change from the same quarter in the previous year and the previous quarter.
+                </div>
+              </div>
+            `;
+            return (
+              <>
+                <label
+                  className="toggle-switch"
+                  data-tip={percentChgTooltip}
+                  data-for="percentChangeTooltip"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={showPercentChange}
+                    onChange={() => setShowPercentChange(!showPercentChange)}
+                  />
+                  <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
+                </label>
+                <span
+                  className="toggle-label"
+                  style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
+                  data-tip={percentChgTooltip}
+                  data-for="percentChangeTooltip"
+                >
+                  % Chg {showPercentChange ? 'On' : 'Off'}
+                </span>
+                <ReactTooltip
+                  id="percentChangeTooltip"
+                  place="top"
+                  effect="solid"
+                  backgroundColor="#ededed"
+                  border={true}
+                  borderColor="#bbb"
+                  className="simple-tooltip"
+                  html={true}
+                  textColor="#222"
+                />
+              </>
+            );
+          })()}
         </div>
         <div className="toggle-wrapper">
           <label className="toggle-switch">
@@ -203,11 +291,6 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
           <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
         </div>
       </div>
-      <label className="subLabel" style={{ display: 'block', textAlign: 'right', fontSize: '15px', color: '#111', fontWeight: 600, fontFamily: 'Arial, sans-serif', margin: '10px 0 0 0', maxWidth: '420px', float: 'right', lineHeight: 1.5 }}>
-        When "% Chg" is on, hover over the data point for<br />
-        the 5 most recent quarters to view percent change<br />
-        from the same quarter in the previous year and the previous quarter.<br />
-      </label>
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
           {/* Y-axis label */}
@@ -255,7 +338,6 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
           />
           {data.map((d, i) => {
             const n = data.length;
-            // Always use showLabels toggle for 6 Months period
             let showLabel = false;
             if (period === '6 Months' || period === 'Half Yearly') {
               showLabel = showLabels;
@@ -270,7 +352,7 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
                   cx={xScale(d.quarter) + xScale.bandwidth() / 2}
                   cy={yScale(d.percentage)}
                   r={4}
-                  fill={'#665191'}
+                  fill={'#665191'} // Always use the same color
                   data-tip={`<div style='text-align: left;'>
                     <strong>${d.quarter}</strong><br/>
                     Heroin positivity: ${d.percentage}%<br/>
@@ -301,7 +383,6 @@ const HeroinLineChartRegions = ({ width = 1100, height = 450, region = 'MIDWEST'
         </div>
       </div>
       <div style={{ height: '32px' }} />
-      <ReactTooltip html={true} />
     </div>
   );
 };

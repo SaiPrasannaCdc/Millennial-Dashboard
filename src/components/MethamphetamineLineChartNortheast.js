@@ -113,16 +113,63 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450 }) => {
         </div>
       </div>
       <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
-        <div className="toggle-wrapper">
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={showPercentChange}
-              onChange={() => setShowPercentChange(!showPercentChange)}
-            />
-            <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
-          </label>
-          <span className="toggle-label" style={{ color: showPercentChange ? '#fff' : '#333' }}>% Chg {showPercentChange ? 'On' : 'Off'}</span>
+        <div className="toggle-wrapper" style={{ position: 'relative' }}>
+          {(() => {
+            const percentChgTooltip = `
+              <div style="
+                text-align: center;
+                padding: 16px 12px;
+                color: #222;
+                font-size: 15px;
+                max-width: 260px;
+                min-width: 220px;
+                margin: 0 auto;
+                border-radius: 14px;
+                background: #ededed;
+                box-shadow: 0 2px 12px #bbb3;
+              ">
+                <div style="margin-top: 8px;">
+                  When <b>% Chg</b> is on, hover over the data point for the 3 most recent periods to view percent change from the same period in the previous year and the previous 6 months.
+                </div>
+              </div>
+            `;
+            return (
+              <>
+                <label
+                  className="toggle-switch"
+                  data-tip={percentChgTooltip}
+                  data-for="percentChangeTooltip"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={showPercentChange}
+                    onChange={() => setShowPercentChange(!showPercentChange)}
+                  />
+                  <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
+                </label>
+                <span
+                  className="toggle-label"
+                  style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
+                  data-tip={percentChgTooltip}
+                  data-for="percentChangeTooltip"
+                >
+                  % Chg {showPercentChange ? 'On' : 'Off'}
+                </span>
+                <ReactTooltip
+                  id="percentChangeTooltip"
+                  place="top"
+                  effect="solid"
+                  backgroundColor="#ededed"
+                  border={true}
+                  borderColor="#bbb"
+                  className="simple-tooltip"
+                  html={true}
+                  textColor="#222"
+                />
+              </>
+            );
+          })()}
         </div>
         <div className="toggle-wrapper">
           <label className="toggle-switch">
@@ -136,11 +183,6 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450 }) => {
           <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
         </div>
       </div>
-      <label className="subLabel" style={{ display: 'block', textAlign: 'right', fontSize: '15px', color: '#111', fontWeight: 600, fontFamily: 'Arial, sans-serif', margin: '10px 0 0 0', maxWidth: '420px', float: 'right', lineHeight: 1.5 }}>
-        When "% Chg" is on, hover over the data point for<br />
-        the 3 most recent periods to view percent change<br />
-        from the same period in the previous year and the previous 6 months.<br />
-      </label>
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
           {/* Y-axis label */}

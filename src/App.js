@@ -61,7 +61,6 @@ function App() {
         onDrugChange={setSelectedDrug}
       />
       <StatsCards />
-      {/* Only show two charts based on Region and Drug selection */}
       {selectedRegion === 'National' && selectedDrug === 'fentanyl' && (
         <>
           <LineChartWithToggles period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
@@ -137,13 +136,6 @@ function App() {
       {selectedRegion.toUpperCase() === 'NORTH' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
         <CocaineSixMonthsLineChart region="Northeast" />
       )}
-      {selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <FentanylLineChart6Months region="National" />
-          {console.log('Rendering FentanylLineChart6Months:', selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'))}
-          {console.log('Props passed to FentanylLineChart6Months:', { region: 'National' })}
-        </>
-      )}
       {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
         <>
           <FentanylLineChart6Months region="West" />
@@ -160,7 +152,6 @@ function App() {
       {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
         <FentanylLineChart6Months region="South" />
       )}
-      {/* Add logic for other regions if/when data is available */}
       <ReactTooltip
         html={true}
         type="light"
