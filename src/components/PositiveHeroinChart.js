@@ -8,59 +8,59 @@ import './ToggleSwitch.css';
 
 const sampleDataHeroin = [
   {
-    name: 'Cocaine or methamphetamine',
+    name: 'Heroin',
     values: [
-      { quarter: 'Q4 2022', percentage: '63.2' },
-      { quarter: 'Q1 2023', percentage: '67.0' },
-      { quarter: 'Q2 2023', percentage: '67.2' },
-      { quarter: 'Q3 2023', percentage: '69.1' },
-      { quarter: 'Q4 2023', percentage: '72.1' },
-      { quarter: 'Q1 2024', percentage: '74.0' },
-      { quarter: 'Q2 2024', percentage: '80.0' },
-      { quarter: 'Q3 2024', percentage: '85.4' },
-      { quarter: 'Q4 2024', percentage: '90.0' },
-    ],
-  },
-  {
-    name: 'Methamphetamine',
-    values: [
-      { quarter: 'Q4 2022', percentage: '52.1' },
-      { quarter: 'Q1 2023', percentage: '53.0' },
-      { quarter: 'Q2 2023', percentage: '54.7' },
-      { quarter: 'Q3 2023', percentage: '54.5' },
-      { quarter: 'Q4 2023', percentage: '54.8' },
-      { quarter: 'Q1 2024', percentage: '57.1' },
-      { quarter: 'Q2 2024', percentage: '60.8' },
-      { quarter: 'Q3 2024', percentage: '64.1' },
-      { quarter: 'Q4 2024', percentage: '68.4' },
+      { quarter: 'Q4 2022', percentage: '19.8', ciLower: '19.0', ciUpper: '20.7' },
+      { quarter: 'Q1 2023', percentage: '20.0', ciLower: '19.1', ciUpper: '20.8' },
+      { quarter: 'Q2 2023', percentage: '19.5', ciLower: '19.1', ciUpper: '21.3' },
+      { quarter: 'Q3 2023', percentage: '19.3', ciLower: '18.4', ciUpper: '20.6' },
+      { quarter: 'Q4 2023', percentage: '18.4', ciLower: '18.0', ciUpper: '20.6' },
+      { quarter: 'Q1 2024', percentage: '19.4', ciLower: '18.6', ciUpper: '20.7' },
+      { quarter: 'Q2 2024', percentage: '19.8', ciLower: '18.6', ciUpper: '26.7' },
+      { quarter: 'Q3 2024', percentage: '28.4', ciLower: '23.3', ciUpper: '35.9' },
+      { quarter: 'Q4 2024', percentage: '30.5', ciLower: '19.6', ciUpper: '52.3' },
     ],
   },
   {
     name: 'Cocaine',
     values: [
-      { quarter: 'Q4 2022', percentage: '40.5' },
-      { quarter: 'Q1 2023', percentage: '39.0' },
-      { quarter: 'Q2 2023', percentage: '39.6' },
-      { quarter: 'Q3 2023', percentage: '40.1' },
-      { quarter: 'Q4 2023', percentage: '39.1' },
-      { quarter: 'Q1 2024', percentage: '42.1' },
-      { quarter: 'Q2 2024', percentage: '40.0' },
-      { quarter: 'Q3 2024', percentage: '43.1' },
-      { quarter: 'Q4 2024', percentage: '44.7' },
+      { quarter: 'Q4 2022', percentage: '21.1', ciLower: '20.3', ciUpper: '22.0' },
+      { quarter: 'Q1 2023', percentage: '22.5', ciLower: '21.5', ciUpper: '24.2' },
+      { quarter: 'Q2 2023', percentage: '24.2', ciLower: '23.2', ciUpper: '25.0' },
+      { quarter: 'Q3 2023', percentage: '25.2', ciLower: '24.3', ciUpper: '25.5' },
+      { quarter: 'Q4 2023', percentage: '24.7', ciLower: '23.8', ciUpper: '25.5' },
+      { quarter: 'Q1 2024', percentage: '25.8', ciLower: '24.8', ciUpper: '26.6' },
+      { quarter: 'Q2 2024', percentage: '25.8', ciLower: '24.8', ciUpper: '26.6' },
+      { quarter: 'Q3 2024', percentage: '29.3', ciLower: '28.2', ciUpper: '30.0' },
+      { quarter: 'Q4 2024', percentage: '29.2', ciLower: '28.1', ciUpper: '30.0' },
     ],
   },
   {
-    name: 'Heroin',
+    name: 'Methamphetamine',
     values: [
-      { quarter: 'Q4 2022', percentage: '25.3' },
-      { quarter: 'Q1 2023', percentage: '23.1' },
-      { quarter: 'Q2 2023', percentage: '21.7' },
-      { quarter: 'Q3 2023', percentage: '19.4' },
-      { quarter: 'Q4 2023', percentage: '18.3' },
-      { quarter: 'Q1 2024', percentage: '16.4' },
-      { quarter: 'Q2 2024', percentage: '15.8' },
-      { quarter: 'Q3 2024', percentage: '16.9' },
-      { quarter: 'Q4 2024', percentage: '18.0' },
+      { quarter: 'Q4 2022', percentage: '52.5', ciLower: '51.5', ciUpper: '53.6' },
+      { quarter: 'Q1 2023', percentage: '53.3', ciLower: '51.6', ciUpper: '53.7' },
+      { quarter: 'Q2 2023', percentage: '54.7', ciLower: '53.3', ciUpper: '55.3' },
+      { quarter: 'Q3 2023', percentage: '54.5', ciLower: '53.3', ciUpper: '55.3' },
+      { quarter: 'Q4 2023', percentage: '54.8', ciLower: '53.3', ciUpper: '55.7' },
+      { quarter: 'Q1 2024', percentage: '57.1', ciLower: '55.8', ciUpper: '57.9' },
+      { quarter: 'Q2 2024', percentage: '60.8', ciLower: '59.4', ciUpper: '61.4' },
+      { quarter: 'Q3 2024', percentage: '64.1', ciLower: '62.8', ciUpper: '64.9' },
+      { quarter: 'Q4 2024', percentage: '68.4', ciLower: '67.1', ciUpper: '69.1' },
+    ],
+  },
+  {
+    name: 'Fentanyl and Stimulants',
+    values: [
+      { quarter: 'Q4 2022', percentage: '67.0', ciLower: '66.0', ciUpper: '67.9' },
+      { quarter: 'Q1 2023', percentage: '67.0', ciLower: '66.0', ciUpper: '67.9' },
+      { quarter: 'Q2 2023', percentage: '68.4', ciLower: '67.5', ciUpper: '69.4' },
+      { quarter: 'Q3 2023', percentage: '69.5', ciLower: '68.4', ciUpper: '70.3' },
+      { quarter: 'Q4 2023', percentage: '70.3', ciLower: '69.4', ciUpper: '71.0' },
+      { quarter: 'Q1 2024', percentage: '70.9', ciLower: '69.8', ciUpper: '71.5' },
+      { quarter: 'Q2 2024', percentage: '73.8', ciLower: '68.4', ciUpper: '74.7' },
+      { quarter: 'Q3 2024', percentage: '76.8', ciLower: '75.9', ciUpper: '77.6' },
+      { quarter: 'Q4 2024', percentage: '80.5', ciLower: '79.7', ciUpper: '81.3' },
     ],
   },
 ];
@@ -105,10 +105,11 @@ const sampleDataHeroin_6Months = [
 ];
 
 const lineColors = {
-  'Cocaine or methamphetamine': '#003f5c', // Dark Blue
+  // Removed 'Cocaine or methamphetamine' from selectable lines
   'Methamphetamine': '#ffa600', // Orange
   'Cocaine': '#2f4b7c', // Blue
   'Heroin': '#665191', // Purple
+  'Fentanyl and Stimulants': '#00bfae', // Teal
 };
 
 const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
