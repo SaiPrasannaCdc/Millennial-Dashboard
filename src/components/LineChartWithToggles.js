@@ -12,7 +12,7 @@ const LineChartWithToggles = ({ width = 1100, height = 450, period = 'Quarterly'
   const [showPercentChange, setShowPercentChange] = useState(false);
 
 
-  const adjustedData = (period === 'Quarterly' ? sampleData2 : sampleData2_6Months).slice(0, 1);
+  const adjustedData = (period === 'Quarterly' ? sampleData2 : sampleData2_6Months);
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
