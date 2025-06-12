@@ -60,11 +60,10 @@ function FentanylLineChartBase({
   legendLabels,
   width = 1100,
   height = 450, 
-  showDrugSelection = true, // New prop to control drug selection UI
+  showDrugSelection = true, 
 }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
-  // Fix: Add selectedLines state for custom radio/checkbox UI
   const [selectedLines, setSelectedLines] = useState(datasets.map(ds => ds.label));
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
@@ -204,7 +203,6 @@ function FentanylLineChartBase({
           {keyFinding}
         </div>
       )}
-      {/* Drug selection section below Key Finding - styled to match Midwest example */}
       {showDrugSelection && (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', margin: '10px 0 0 0' }}>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
@@ -217,9 +215,9 @@ function FentanylLineChartBase({
                   checked={selectedLines.length === datasets.length && datasets.every(ds => selectedLines.includes(ds.label))}
                   onChange={() => {
                     if (selectedLines.length === datasets.length && datasets.every(ds => selectedLines.includes(ds.label))) {
-                      setSelectedLines([]); // Clear all selections
+                      setSelectedLines([]); 
                     } else {
-                      setSelectedLines(datasets.map(ds => ds.label)); // Select all options
+                      setSelectedLines(datasets.map(ds => ds.label)); 
                     }
                   }}
                   style={{ accentColor: selectedLines.length === datasets.length ? '#222' : undefined }}
@@ -570,7 +568,6 @@ with drug(s) detected"
           { color: '#6a0dad', label: 'Fentanyl with Stimulants' },
           { color: '#e67e22', label: 'Fentanyl without Stimulants' },
         ]}
-        // Remove drug selection UI for this chart
         showDrugSelection={false}
       />
       <FentanylLineChartBase
@@ -587,7 +584,7 @@ with drug detected"
         ]}
         height={450}
         width={1100}
-        // Only show drug selection UI for this chart
+        
         showDrugSelection={true}
       />
     </div>

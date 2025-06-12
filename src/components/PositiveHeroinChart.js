@@ -105,7 +105,6 @@ const sampleDataHeroin_6Months = [
 ];
 
 const lineColors = {
-  // Removed 'Cocaine or methamphetamine' from selectable lines
   'Methamphetamine': '#ffa600', // Orange
   'Cocaine': '#2f4b7c', // Blue
   'Heroin': '#665191', // Purple
@@ -117,14 +116,12 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
 
-  const margin = { top: 60, right: 30, bottom: 50, left: 90 }; // Increased left margin for y-axis label
+  const margin = { top: 60, right: 30, bottom: 50, left: 90 }; 
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  // Select data based on period
   const adjustedData = period === 'Quarterly' || !period ? sampleDataHeroin : sampleDataHeroin_6Months;
 
-  // X domain and accessor based on period
   const xDomain = period === 'Quarterly' || !period
     ? adjustedData[0].values.map(d => d.quarter)
     : adjustedData[0].values.map(d => d.period.replace('Q2', 'Jan-Jun').replace('Q4', 'Jul-Dec'));
@@ -142,7 +139,6 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
     nice: true,
   });
 
-  // Helper function to get previous period's value (for both Quarterly and 6 Months)
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
       return parseFloat(lineData.values[i - offset].percentage);
@@ -150,7 +146,6 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
     return null;
   };
 
-  // Unified indicator and tooltip rendering for both periods
   const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
 
@@ -160,9 +155,7 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
         return lineData.values.map((d, i) => {
           if (i === 0) return null;
 
-          // For both periods, previous period is always i-1
           const prevPeriod = getPrevPeriodValue(lineData, i, 1);
-          // For yearly, offset is 2 for 6 Months, 4 for Quarterly
           const yearlyOffset = (period === 'Quarterly' || !period) ? 4 : 2;
           const prevYear = getPrevPeriodValue(lineData, i, yearlyOffset);
           const curr = parseFloat(d.percentage);
@@ -170,16 +163,15 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
           const yearlyChange = prevYear !== null ? ((curr - prevYear) / prevYear) * 100 : null;
           const periodChange = prevPeriod !== null ? ((curr - prevPeriod) / prevPeriod) * 100 : null;
 
-          // X label accessor
+          
           const xLabel = xAccessor(d);
           const xPosition = xScale(xLabel) + xScale.bandwidth() / 2;
           const yPosition = yScale(curr);
           if (isNaN(xPosition) || isNaN(yPosition)) return null;
 
-          // Show yearly indicator for all except first N periods (N = yearlyOffset)
           const showYearlyIndicator = i >= yearlyOffset;
 
-          // Arrow color logic
+          
           const getArrowColor = (change) => {
             if (change === null) return '#6a0dad'; // default purple
             return change > 0 ? '#6a0dad' : '#2196f3';
@@ -232,10 +224,8 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
 
-  // Add a debug log to print the value of the period prop on each render
   console.log('PositiveHeroinChart period prop:', period);
 
-  // Key finding logic (using "Methamphetamine" as the main line)
   const mainLine = adjustedData.find(line => line.name === "Methamphetamine");
   let keyFinding = null;
   if (mainLine && mainLine.values.length >= 2) {
@@ -299,9 +289,9 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
                 checked={selectedLines.length === Object.keys(lineColors).length && Object.keys(lineColors).every(line => selectedLines.includes(line))}
                 onChange={() => {
                   if (selectedLines.length === Object.keys(lineColors).length && Object.keys(lineColors).every(line => selectedLines.includes(line))) {
-                    setSelectedLines([]); // Clear all selections
+                    setSelectedLines([]); 
                   } else {
-                    setSelectedLines(Object.keys(lineColors)); // Select all options
+                    setSelectedLines(Object.keys(lineColors)); 
                   }
                 }}
                 style={{ accentColor: selectedLines.length === Object.keys(lineColors).length ? '#222' : undefined }}
@@ -313,7 +303,7 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
                 type="radio"
                 name="select-clear-heroin"
                 checked={selectedLines.length === 0}
-                onChange={() => setSelectedLines([])} // Clear all selections
+                onChange={() => setSelectedLines([])} 
                 style={{ accentColor: selectedLines.length === 0 ? '#222' : undefined }}
               />
               <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>
@@ -444,7 +434,6 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
 
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
-          {/* Y-axis label: two lines, Segoe UI, semi-bold, fontSize 13, color #222, before AxisLeft */}
           <text
             x={-60}
             y={adjustedHeight / 2}
@@ -491,7 +480,6 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
                   const lowerCI = (percentage - 0.5).toFixed(1);
                   const upperCI = (percentage + 0.5).toFixed(1);
                   const n = lineData.values.length;
-                  // If showLabels is true, show all labels. If false, show only first, last, quarter before last, and middle.
                   const showLabel = showLabels || (
                     i === 0 || // first
                     i === n - 1 || // last
@@ -523,7 +511,6 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
                 })}
               </React.Fragment>
             ))}
-          {/* {renderChangeIndicators()} */}
           {renderChangeIndicatorsUnified()}
         </Group>
       </svg>

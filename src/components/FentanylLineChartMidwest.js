@@ -590,9 +590,9 @@ function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
                 checked={selectedLines.length === midwestThreeDrugsDatasets.length && midwestThreeDrugsDatasets.every(ds => selectedLines.includes(ds.label))}
                 onChange={() => {
                   if (selectedLines.length === midwestThreeDrugsDatasets.length && midwestThreeDrugsDatasets.every(ds => selectedLines.includes(ds.label))) {
-                    setSelectedLines([]); // Clear all selections
+                    setSelectedLines([]); 
                   } else {
-                    setSelectedLines(midwestThreeDrugsDatasets.map(ds => ds.label)); // Select all options
+                    setSelectedLines(midwestThreeDrugsDatasets.map(ds => ds.label)); 
                   }
                 }}
                 style={{ accentColor: selectedLines.length === midwestThreeDrugsDatasets.length ? '#222' : undefined }}
@@ -604,7 +604,7 @@ function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
                 type="radio"
                 name="select-clear-midwest3"
                 checked={selectedLines.length === 0}
-                onChange={() => setSelectedLines([])} // Clear all selections
+                onChange={() => setSelectedLines([])} 
                 style={{ accentColor: selectedLines.length === 0 ? '#222' : undefined }}
               />
               <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>

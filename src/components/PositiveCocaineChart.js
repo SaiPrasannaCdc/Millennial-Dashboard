@@ -116,7 +116,7 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
 
-  const margin = { top: 60, right: 30, bottom: 50, left: 90 }; // Increased left margin for y-axis label
+  const margin = { top: 60, right: 30, bottom: 50, left: 90 }; 
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
@@ -141,7 +141,6 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
     nice: true,
   });
 
-  // Helper function to get previous period's value (for both Quarterly and 6 Months)
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
       return parseFloat(lineData.values[i - offset].percentage);
@@ -149,7 +148,6 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
     return null;
   };
 
-  // Unified indicator and tooltip rendering for both periods
   const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
 
@@ -159,9 +157,7 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
         return lineData.values.map((d, i) => {
           if (i === 0) return null;
 
-          // For both periods, previous period is always i-1
           const prevPeriod = getPrevPeriodValue(lineData, i, 1);
-          // For yearly, offset is 2 for 6 Months, 4 for Quarterly
           const yearlyOffset = (period === 'Quarterly' || !period) ? 4 : 2;
           const prevYear = getPrevPeriodValue(lineData, i, yearlyOffset);
           const curr = parseFloat(d.percentage);
@@ -169,13 +165,11 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
           const yearlyChange = prevYear !== null ? ((curr - prevYear) / prevYear) * 100 : null;
           const periodChange = prevPeriod !== null ? ((curr - prevPeriod) / prevPeriod) * 100 : null;
 
-          // X label accessor
           const xLabel = xAccessor(d);
           const xPosition = xScale(xLabel) + xScale.bandwidth() / 2;
           const yPosition = yScale(curr);
           if (isNaN(xPosition) || isNaN(yPosition)) return null;
 
-          // Show yearly indicator for all except first N periods (N = yearlyOffset)
           const showYearlyIndicator = i >= yearlyOffset;
 
           return (

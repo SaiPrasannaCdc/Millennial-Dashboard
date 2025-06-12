@@ -6,7 +6,6 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-// Quarterly data for Southern Census Region
 const southQuarterlyData = [
   { quarter: 'Q1 2023', percentage: 9.0, ciLower: 8.4, ciUpper: 9.3 },
   { quarter: 'Q2 2023', percentage: 9.4, ciLower: 8.8, ciUpper: 9.8 },
@@ -30,7 +29,6 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
-  // Select data based on period
   const is6Months = period === '6 Months' || period === 'Half Yearly';
   const data = is6Months ? south6MonthsData : southQuarterlyData;
 
@@ -50,7 +48,6 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
     nice: true,
   });
 
-  // Helper to get previous period's value
   const getPrevValue = (i, offset = 1) => {
     if (i - offset >= 0) {
       return data[i - offset].percentage;
@@ -58,7 +55,6 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
     return null;
   };
 
-  // Key finding calculation (must be after data is filtered)
   const getKeyFinding = () => {
     if (!data || data.length < 2) return null;
     const lastIdx = data.length - 1;
@@ -79,7 +75,7 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
   };
   const keyFinding = getKeyFinding();
 
-  // Render percent change indicators and tooltips
+  
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
     return data.map((d, i) => {
@@ -92,7 +88,7 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
       const x = xScale(is6Months ? d.period : d.quarter) + xScale.bandwidth() / 2;
       const y = yScale(curr);
       const showYearly = is6Months ? i >= 2 : i >= 4;
-      // Arrow color logic
+      
       const getArrowColor = (change) => {
         if (change === null) return '#6a0dad';
         return change > 0 ? '#6a0dad' : '#0073e6';
@@ -146,7 +142,6 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
           </h3>
         </div>
       </div>
-      {/* Key Finding Section - place directly below the title */}
       <div style={{
         background: '#4d194d',
         color: '#fff',

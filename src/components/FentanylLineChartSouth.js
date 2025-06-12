@@ -138,7 +138,7 @@ const seriesListSouthNew = [
 const FentanylLineChartSouth = ({ width = 1100, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
-  const [selectedLines, setSelectedLines] = useState(seriesList.map(s => s.name)); // Default to all selected
+  const [selectedLines, setSelectedLines] = useState(seriesList.map(s => s.name)); 
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
@@ -181,7 +181,7 @@ const FentanylLineChartSouth = ({ width = 1100, height = 450 }) => {
         const showYearly = i >= 4;
         const getArrowColor = (change) => {
           if (change === null) return series.color;
-          return change > 0 ? '#6a0dad' : '#0073e6'; // purple for increase, blue for decrease
+          return change > 0 ? '#6a0dad' : '#0073e6'; 
         };
         return (
           <g key={`indicator-south-${series.name}-${i}`}>
@@ -280,7 +280,6 @@ const FentanylLineChartSouth = ({ width = 1100, height = 450 }) => {
           </>
         )}
       </div>
-      {/* Removed radio buttons and checkboxes for line selection below Key Finding and above toggles for the first line chart only */}
       <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '8px', marginBottom: '0px' }}>
         <div className="toggle-wrapper" style={{ position: 'relative' }}>
           {(() => {
@@ -467,7 +466,7 @@ const FentanylLineChartSouth = ({ width = 1100, height = 450 }) => {
 const FentanylLineChartSouthNew = ({ width = 1100, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
-  const [selectedLines, setSelectedLines] = useState(seriesListSouthNew.map(s => s.name)); // Default to all selected
+  const [selectedLines, setSelectedLines] = useState(seriesListSouthNew.map(s => s.name)); 
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
@@ -607,7 +606,6 @@ const FentanylLineChartSouthNew = ({ width = 1100, height = 450 }) => {
           </>
         )}
       </div>
-      {/* Toggle switches for percent change and labels */}
       <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '8px', marginBottom: '0px' }}>
         <div className="toggle-wrapper" style={{ position: 'relative' }}>
           <label
@@ -655,7 +653,6 @@ const FentanylLineChartSouthNew = ({ width = 1100, height = 450 }) => {
           <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
         </div>
       </div>
-      {/* Keep radio buttons and checkboxes for line selection for the second line chart (FentanylLineChartSouthNew) */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', margin: '18px 0 0 0' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
           <span style={{ fontSize: '16px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
@@ -667,9 +664,9 @@ const FentanylLineChartSouthNew = ({ width = 1100, height = 450 }) => {
                 checked={selectedLines.length === seriesListSouthNew.length && seriesListSouthNew.every(s => selectedLines.includes(s.name))}
                 onChange={() => {
                   if (selectedLines.length === seriesListSouthNew.length && seriesListSouthNew.every(s => selectedLines.includes(s.name))) {
-                    setSelectedLines([]); // Clear all selections
+                    setSelectedLines([]); 
                   } else {
-                    setSelectedLines(seriesListSouthNew.map(s => s.name)); // Select all options
+                    setSelectedLines(seriesListSouthNew.map(s => s.name)); 
                   }
                 }}
                 style={{ accentColor: selectedLines.length === seriesListSouthNew.length ? '#222' : undefined }}
@@ -681,7 +678,7 @@ const FentanylLineChartSouthNew = ({ width = 1100, height = 450 }) => {
                 type="radio"
                 name="select-clear-south"
                 checked={selectedLines.length === 0}
-                onChange={() => setSelectedLines([])} // Clear all selections
+                onChange={() => setSelectedLines([])} 
                 style={{ accentColor: selectedLines.length === 0 ? '#222' : undefined }}
               />
               <span style={{ fontSize: '15px', color: '#222', fontWeight: 400 }}>Clear All</span>
@@ -789,9 +786,7 @@ const FentanylLineChartSouthNew = ({ width = 1100, height = 450 }) => {
                   const showLabel = showLabels || (
                     i === 0 || i === n - 1 || i === n - 2 || i === Math.floor((n - 1) / 2)
                   );
-                  // Place all labels directly above the data points
                   let labelYOffset = -22;
-                  // Optionally, you can also tweak labelXOffset if needed
                   const labelXOffset = 0;
                   return (
                     <React.Fragment key={i}>

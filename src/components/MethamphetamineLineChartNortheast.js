@@ -6,7 +6,6 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-// Northeast 6 Months data for Methamphetamine (from user screenshot)
 const northeast6MonthsData = [
   { period: 'Jan - Jun 2023', percentage: 3.2, ciLower: 2.9, ciUpper: 3.5 },
   { period: 'Jul - Dec 2023', percentage: 3.4, ciLower: 3.1, ciUpper: 3.7 },
@@ -37,7 +36,6 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450 }) => {
     nice: true,
   });
 
-  // Helper to get previous period's value
   const getPrevValue = (i, offset = 1) => {
     if (i - offset >= 0) {
       return data[i - offset].percentage;
@@ -45,7 +43,6 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450 }) => {
     return null;
   };
 
-  // Render percent change indicators and tooltips
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
     return data.map((d, i) => {
@@ -58,7 +55,6 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450 }) => {
       const x = xScale(d.period) + xScale.bandwidth() / 2;
       const y = yScale(curr);
       const showYearly = i >= 2;
-      // Arrow color logic: purple for increase, blue for decrease
       const getArrowColor = (change) => {
         if (change === null) return '#6a0dad';
         return change > 0 ? '#6a0dad' : '#0073e6';
@@ -230,7 +226,6 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450 }) => {
           />
           {data.map((d, i) => {
             const n = data.length;
-            // Only show labels if toggle is ON for 6 Months
             const showLabel = showLabels;
             return (
               <React.Fragment key={i}>

@@ -191,12 +191,10 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
 
-  console.log('MethamphetamineLineChart period prop:', period); // Debug log for period prop
+  console.log('MethamphetamineLineChart period prop:', period); 
 
-  // Key finding helper (now inside the component to access 'period')
   const getKeyFinding = (data) => {
     if (!data || data.length === 0) return null;
-    // Use the first line for key finding (Methamphetamine)
     const line = data[0];
     if (!line || !line.values || line.values.length < 2) return null;
     const lastIdx = line.values.length - 1;
@@ -390,7 +388,7 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
                     i === Math.floor((n - 1) / 2) // middle
                   );
                 } else {
-                  showLabel = showLabels; // Only show if labels ON for 6 Months
+                  showLabel = showLabels; 
                 }
                 return (
                   <React.Fragment key={i}>
@@ -421,7 +419,6 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
               })}
             </React.Fragment>
           ))}
-          {/* {renderChangeIndicators()} */}
           {renderChangeIndicatorsUnified()}
         </Group>
       </svg>
