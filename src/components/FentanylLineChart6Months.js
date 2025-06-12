@@ -87,7 +87,6 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
     nice: true,
   });
 
-  // Render percent change indicators (arrows and tooltips)
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
     return data.map((d, i) => {
@@ -147,7 +146,6 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
           </h3>
         </div>
       </div>
-      {/* Key Finding Section - place directly below the title */}
       <div style={{
         background: '#4d194d',
         color: '#fff',
@@ -165,7 +163,6 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
         letterSpacing: '0.01em',
       }}>
         {(() => {
-          // Key finding calculation for 6 months
           if (!data || data.length < 2) {
             return (
               <>

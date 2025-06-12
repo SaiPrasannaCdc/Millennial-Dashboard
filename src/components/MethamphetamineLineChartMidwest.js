@@ -238,7 +238,6 @@ const MethamphetamineLineChartMidwest = ({ width = 1100, height = 450, period = 
       </div>
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
-          {/* Y-axis label */}
           <text
             x={-adjustedHeight / 2}
             y={-margin.left + 15}

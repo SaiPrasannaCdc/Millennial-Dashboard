@@ -6,7 +6,6 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-// Quarterly data for Western Census Region
 const sampleDataWestQuarterly = [
   {
     name: 'Methamphetamine (Western Region)',
@@ -23,7 +22,6 @@ const sampleDataWestQuarterly = [
   },
 ];
 
-// 6 Months data for Western Census Region (from your screenshot)
 const sampleDataWest6Months = [
   {
     name: 'Methamphetamine (Western Region)',
@@ -40,13 +38,11 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
-  // Select data based on period
   const adjustedData = period === 'Quarterly' ? sampleDataWestQuarterly : sampleDataWest6Months;
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  // X domain and accessor based on period
   const xDomain = period === 'Quarterly'
     ? adjustedData[0].values.map(d => d.quarter)
     : adjustedData[0].values.map(d => d.period);
@@ -66,7 +62,6 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
     nice: true,
   });
 
-  // Helper function to get previous period's value
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
       return parseFloat(lineData.values[i - offset].percentage);
@@ -74,7 +69,6 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
     return null;
   };
 
-  // Unified indicator and tooltip rendering
   const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
     return adjustedData.map((lineData, index) => {
@@ -94,8 +88,8 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
 
         // Arrow color logic
         const getArrowColor = (change) => {
-          if (change === null) return '#6a0dad'; // default purple
-          return change > 0 ? '#6a0dad' : '#0073e6'; // purple for increase, blue for decrease
+          if (change === null) return '#6a0dad'; 
+          return change > 0 ? '#6a0dad' : '#0073e6'; 
         };
         return (
           <g key={`indicator-west-${index}-${i}`}> 
@@ -140,7 +134,6 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
 
-  // Compute dynamic key finding
   const values = adjustedData[0].values;
   const n = values.length;
   let keyFindingText = '';
@@ -166,7 +159,6 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
           </h3>
         </div>
       </div>
-      {/* Dynamic Key finding section */}
       <div
         style={{
           background: '#4d194d',
@@ -260,7 +252,6 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
       </div>
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
-          {/* Y-axis label, two lines, semi-bold, and BEFORE AxisLeft for proper layering */}
           <text
             x={-adjustedHeight / 2}
             y={-margin.left + 15}
@@ -310,7 +301,6 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
                 const lowerCI = d.ciLower !== undefined ? d.ciLower : (percentage - 0.5).toFixed(1);
                 const upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
                 const n = lineData.values.length;
-                // If showLabels is true, show all labels. If false, show only first, last, quarter before last, and middle for Quarterly; for 6 Months, show none if labels are off
                 let showLabel = false;
                 if (period === 'Quarterly') {
                   showLabel = showLabels || (
@@ -320,7 +310,7 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
                     i === Math.floor((n - 1) / 2) // middle
                   );
                 } else if (period === '6 Months' || period === 'Half Yearly') {
-                  showLabel = showLabels; // Only show if labels ON for 6 Months
+                  showLabel = showLabels; 
                 }
                 return (
                   <React.Fragment key={i}>

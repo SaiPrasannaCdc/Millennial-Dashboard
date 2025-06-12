@@ -180,7 +180,6 @@ const allQuarters = [
 ];
 
 function alignDataToQuarters(data, quarters) {
-  // For each drug, align to all quarters, fill null if missing
   const drugs = [...new Set(data.map(d => d.drug))];
   return drugs.map(drug => ({
     label: drug,
@@ -224,7 +223,6 @@ const HeroinSecondLineChart = ({ region = 'WEST', width = 1100, height = 450 }) 
     </div>
   `;
 
-  // --- Overlay logic for %Chg ON, matching HeroinLineChartRegions.js ---
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
     return datasets
@@ -233,7 +231,6 @@ const HeroinSecondLineChart = ({ region = 'WEST', width = 1100, height = 450 }) 
         const lineData = ds.data;
         const n = lineData.length;
         return lineData.map((d, i) => {
-          // Only show overlays for the most recent 5 quarters
           if (i < n - 5 || d.percentage === null) return null;
           const prevPeriod = i - 1 >= 0 ? lineData[i - 1].percentage : null;
           const prevYear = i - 4 >= 0 ? lineData[i - 4].percentage : null;
@@ -243,7 +240,6 @@ const HeroinSecondLineChart = ({ region = 'WEST', width = 1100, height = 450 }) 
           const x = xScale(d.quarter) + xScale.bandwidth() / 2;
           const y = yScale(curr);
           const showYearly = i >= 4;
-          // Arrow color: purple for increase, blue for decrease
           const getArrow = (change) => {
             if (change === null) return '';
             const color = change > 0 ? '#6a0dad' : '#2077b4';
@@ -363,9 +359,8 @@ const HeroinSecondLineChart = ({ region = 'WEST', width = 1100, height = 450 }) 
           Clear All
         </label>
         <div style={{ flex: 1 }} />
-        {/* Toggles */}
+        
         <div style={{ display: 'flex', gap: 24 }}>
-          {/* % Chg Toggle */}
           <div className="toggle-wrapper" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <label
               className="toggle-switch"
@@ -390,7 +385,6 @@ const HeroinSecondLineChart = ({ region = 'WEST', width = 1100, height = 450 }) 
             </span>
             <ReactTooltip id="percentChangeTooltip" place="top" effect="solid" backgroundColor="#ededed" border={true} borderColor="#bbb" className="simple-tooltip" html={true} textColor="#222" />
           </div>
-          {/* Labels Toggle */}
           <div className="toggle-wrapper" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <label className="toggle-switch">
               <input
@@ -498,7 +492,6 @@ const HeroinSecondLineChart = ({ region = 'WEST', width = 1100, height = 450 }) 
               })}
             </React.Fragment>
           ))}
-          {/* Render overlays/arrows for %Chg ON */}
           {renderChangeIndicators()}
         </Group>
       </svg>

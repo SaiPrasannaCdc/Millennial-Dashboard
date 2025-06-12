@@ -12,11 +12,10 @@ const height = 500;
 const chartWidth = width - margin.left - margin.right;
 const chartHeight = height - margin.top - margin.bottom;
 
-const color = '#005b96'; // Color for Fentanyl line
+const color = '#005b96'; 
 
 function FentanylPositiveChart(params) {
-  const { selectedPeriod, selectedRegion } = params; // Destructure props
-  //const [region, setRegion] = useState('National'); // Default to National
+  const { selectedPeriod, selectedRegion } = params; 
   const [filteredData, setFilteredData] = useState(fentanylPositivityData[selectedRegion]);
 
   const { showTooltip, hideTooltip, tooltipData, tooltipLeft, tooltipTop } = useTooltip();
