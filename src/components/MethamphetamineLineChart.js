@@ -5,34 +5,49 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import MethamphetamineLineChartsecondLineChart from './MethamphetamineLineChartsecondlinechart';
 
 const sampleData2 = [
   {
     name: 'Methamphetamine',
     values: [
-      { quarter: 'Q4 2022', percentage: '16.0', ciLower: 15.6, ciUpper: 16.2 },
-      { quarter: 'Q1 2023', percentage: '16.7', ciLower: 16.3, ciUpper: 16.9 },
-      { quarter: 'Q2 2023', percentage: '16.3', ciLower: 16.0, ciUpper: 16.6 },
-      { quarter: 'Q3 2023', percentage: '16.2', ciLower: 15.8, ciUpper: 16.4 },
-      { quarter: 'Q4 2023', percentage: '16.2', ciLower: 15.8, ciUpper: 16.4 },
-      { quarter: 'Q1 2024', percentage: '16.2', ciLower: 16.6, ciUpper: 17.2 },
-      { quarter: 'Q2 2024', percentage: '17.0', ciLower: 17.5, ciUpper: 18.1 },
-      { quarter: 'Q3 2024', percentage: '17.9', ciLower: 18.2, ciUpper: 18.7 },
-      { quarter: 'Q4 2024', percentage: '18.5' }, // No CI provided for Q4 2024
+      { quarter: 'Q4 2022', percentage: '16.1', ciLower: 15.8, ciUpper: 16.4 },
+      { quarter: 'Q1 2023', percentage: '15.9', ciLower: 15.6, ciUpper: 16.2 },
+      { quarter: 'Q2 2023', percentage: '16.6', ciLower: 16.3, ciUpper: 16.9 },
+      { quarter: 'Q3 2023', percentage: '16.3', ciLower: 16.0, ciUpper: 16.6 },
+      { quarter: 'Q4 2023', percentage: '16.1', ciLower: 15.8, ciUpper: 16.4 },
+      { quarter: 'Q1 2024', percentage: '16.1', ciLower: 15.8, ciUpper: 16.4 },
+      { quarter: 'Q2 2024', percentage: '16.9', ciLower: 16.6, ciUpper: 17.2 },
+      { quarter: 'Q3 2024', percentage: '17.8', ciLower: 17.5, ciUpper: 18.1 },
+      { quarter: 'Q4 2024', percentage: '18.4', ciLower: 18.2, ciUpper: 18.7 },
     ],
   },
   {
-    name: 'Methamphetamine with no fentanyl or heroin',
+    name: 'Methamphetamine with Opioids',
     values: [
-      { quarter: 'Q4 2022', percentage: '7.3' },
-      { quarter: 'Q1 2023', percentage: '7.8' },
-      { quarter: 'Q2 2023', percentage: '6.9' },
-      { quarter: 'Q3 2023', percentage: '7.2' },
-      { quarter: 'Q4 2023', percentage: '7.5' },
-      { quarter: 'Q1 2024', percentage: '7.8' },
-      { quarter: 'Q2 2024', percentage: '8.2' },
-      { quarter: 'Q3 2024', percentage: '8.9' },
-      { quarter: 'Q4 2024', percentage: '9.7' },
+      { quarter: 'Q4 2022', percentage: '8.3', ciLower: 8.0, ciUpper: 8.5 },
+      { quarter: 'Q1 2023', percentage: '7.5', ciLower: 7.3, ciUpper: 7.7 },
+      { quarter: 'Q2 2023', percentage: '8.1', ciLower: 7.8, ciUpper: 8.3 },
+      { quarter: 'Q3 2023', percentage: '8.1', ciLower: 7.9, ciUpper: 8.4 },
+      { quarter: 'Q4 2023', percentage: '8.2', ciLower: 7.9, ciUpper: 8.4 },
+      { quarter: 'Q1 2024', percentage: '7.9', ciLower: 7.7, ciUpper: 8.1 },
+      { quarter: 'Q2 2024', percentage: '8.5', ciLower: 8.3, ciUpper: 8.6 },
+      { quarter: 'Q3 2024', percentage: '8.8', ciLower: 8.6, ciUpper: 9.0 },
+      { quarter: 'Q4 2024', percentage: '9.0', ciLower: 8.8, ciUpper: 9.2 },
+    ],
+  },
+  {
+    name: 'Methamphetamine without Opioids',
+    values: [
+      { quarter: 'Q4 2022', percentage: '7.8', ciLower: 7.6, ciUpper: 8.0 },
+      { quarter: 'Q1 2023', percentage: '8.4', ciLower: 8.2, ciUpper: 8.6 },
+      { quarter: 'Q2 2023', percentage: '7.8', ciLower: 7.6, ciUpper: 8.0 },
+      { quarter: 'Q3 2023', percentage: '8.2', ciLower: 8.0, ciUpper: 8.4 },
+      { quarter: 'Q4 2023', percentage: '8.2', ciLower: 7.8, ciUpper: 8.2 },
+      { quarter: 'Q1 2024', percentage: '8.2', ciLower: 8.2, ciUpper: 8.2 },
+      { quarter: 'Q2 2024', percentage: '8.4', ciLower: 8.2, ciUpper: 8.8 },
+      { quarter: 'Q3 2024', percentage: '9.0', ciLower: 8.8, ciUpper: 9.2 },
+      { quarter: 'Q4 2024', percentage: '9.5', ciLower: 9.2, ciUpper: 9.7 },
     ],
   },
 ];
@@ -41,19 +56,31 @@ const sampleData2_6Months = [
   {
     name: 'Methamphetamine',
     values: [
-      { period: 'Jan - Jun 2023', percentage: '16.3', ciLower: 16.0, ciUpper: 16.4 },
-      { period: 'Jul - Dec 2023', percentage: '16.3', ciLower: 16.0, ciUpper: 16.4 },
-      { period: 'Jan - Jun 2024', percentage: '16.6', ciLower: 16.3, ciUpper: 16.7 },
-      { period: 'Jul - Dec 2024', percentage: '18.2', ciLower: 17.9, ciUpper: 18.3 },
+      { period: '2022 Jul-Dec', percentage: '16.1', ciLower: 15.8, ciUpper: 16.4 },
+      { period: '2023 Jan-Jun', percentage: '16.2', ciLower: 16.0, ciUpper: 16.4 },
+      { period: '2023 Jul-Dec', percentage: '16.0', ciLower: 16.0, ciUpper: 16.2 },
+      { period: '2024 Jan-Jun', percentage: '16.5', ciLower: 16.3, ciUpper: 16.7 },
+      { period: '2024 Jul-Dec', percentage: '18.1', ciLower: 17.9, ciUpper: 18.3 },
     ]
   },
   {
-    name: 'Methamphetamine with no fentanyl or heroin',
+    name: 'Methamphetamine with Opioids',
     values: [
-      { period: 'Jan - Jun 2023', percentage: '7.6' },
-      { period: 'Jul - Dec 2023', percentage: '7.1' },
-      { period: 'Jan - Jun 2024', percentage: '7.7' },
-      { period: 'Jul - Dec 2024', percentage: '8.6' },
+      { period: '2022 Jul-Dec', percentage: '8.3', ciLower: 8.0, ciUpper: 8.5 },
+      { period: '2023 Jan-Jun', percentage: '7.8', ciLower: 7.6, ciUpper: 7.9 },
+      { period: '2023 Jul-Dec', percentage: '8.1', ciLower: 7.8, ciUpper: 8.3 },
+      { period: '2024 Jan-Jun', percentage: '8.1', ciLower: 8.1, ciUpper: 8.4 },
+      { period: '2024 Jul-Dec', percentage: '8.9', ciLower: 8.8, ciUpper: 9.1 },
+    ]
+  },
+  {
+    name: 'Methamphetamine without Opioids',
+    values: [
+      { period: '2022 Jul-Dec', percentage: '7.8', ciLower: 7.6, ciUpper: 8.0 },
+      { period: '2023 Jan-Jun', percentage: '8.1', ciLower: 7.9, ciUpper: 8.2 },
+      { period: '2023 Jul-Dec', percentage: '8.4', ciLower: 8.1, ciUpper: 8.6 },
+      { period: '2024 Jan-Jun', percentage: '8.3', ciLower: 8.1, ciUpper: 8.4 },
+      { period: '2024 Jul-Dec', percentage: '9.2', ciLower: 9.1, ciUpper: 9.4 },
     ]
   }
 ];
@@ -370,7 +397,13 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
                 data={lineData.values}
                 x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                 y={d => yScale(parseFloat(d.percentage))}
-                stroke={index === 0 ? '#0073e6' : '#ff6600'}
+                stroke={
+                  index === 0
+                    ? '#0073e6'
+                    : index === 1
+                    ? '#ff6600'
+                    : '#2457a7'
+                }
                 strokeWidth={2}
                 curve={null}
               />
@@ -396,7 +429,13 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
                       cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                       cy={yScale(percentage)}
                       r={4}
-                      fill={index === 0 ? '#0073e6' : '#ff6600'}
+                      fill={
+                        index === 0
+                          ? '#0073e6'
+                          : index === 1
+                          ? '#ff6600'
+                          : '#2457a7'
+                      }
                       data-tip={`<div style='text-align: left;'>
                         <strong>${xAccessor(d)}</strong><br/>
                         Methamphetamine positivity: ${percentage}%<br/>
@@ -425,13 +464,27 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
         {adjustedData.map((lineData, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
-            <div style={{ width: '30px', height: '2px', backgroundColor: index === 0 ? '#0073e6' : '#ff6600', marginRight: '5px' }}></div>
+            <div
+              style={{
+                width: '30px',
+                height: '2px',
+                backgroundColor:
+                  index === 0
+                    ? '#0073e6'
+                    : index === 1
+                    ? '#ff6600'
+                    : '#2457a7',
+                marginRight: '5px'
+              }}
+            ></div>
             <span style={{ fontSize: '16px', color: '#333' }}>{lineData.name}</span>
           </div>
         ))}
       </div>
       <div style={{ height: '32px' }} />
       <ReactTooltip html={true} />
+
+      <MethamphetamineLineChartsecondLineChart width={width} height={350} period={period} />
     </div>
   );
 };
