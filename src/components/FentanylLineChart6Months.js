@@ -14,10 +14,11 @@ const fentanylSixMonthsData = {
     { period: 'Jul-Dec 2024', percentage: 13.1, ciLower: 12.9, ciUpper: 13.3 },
   ],
   West: [
-    { period: 'Jan-Jun 2023', percentage: 19.0, ciLower: 18.9, ciUpper: 19.5 },
-    { period: 'Jul-Dec 2023', percentage: 19.4, ciLower: 19.4, ciUpper: 19.9 },
-    { period: 'Jan-Jun 2024', percentage: 20.0, ciLower: 19.9, ciUpper: 20.8 },
-    { period: 'Jul-Dec 2024', percentage: 19.6, ciLower: 18.6, ciUpper: 19.5 },
+    { period: '2022 Jul-Dec', percentage: 21.7, ciLower: 21.2, ciUpper: 22.3 },
+    { period: '2023 Jan-Jun', percentage: 19.0, ciLower: 18.7, ciUpper: 19.3 },
+    { period: '2023 Jul-Dec', percentage: 19.4, ciLower: 19.0, ciUpper: 19.7 },
+    { period: '2024 Jan-Jun', percentage: 20.0, ciLower: 19.6, ciUpper: 20.3 },
+    { period: '2024 Jul-Dec', percentage: 19.9, ciLower: 19.3, ciUpper: 19.9 },
   ],
   Midwest: [
     { period: 'Jan-Jun 2023', percentage: 11.0, ciLower: 10.8, ciUpper: 11.2 },

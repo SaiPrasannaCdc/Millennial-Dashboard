@@ -6,7 +6,6 @@ import Dropdowns from './dropdowns';
 import StatsCards from './components/StatsCards'; // Import the StatsCards component
 import LineChartWithToggles from './components/LineChartWithToggles'; // Import the LineChartWithToggles component
 import MethamphetamineLineChart from './components/MethamphetamineLineChart'; // Import the new MethamphetamineLineChart component
-import PositiveCocaineChart from './components/PositiveCocaineChart'; // Import the PositiveCocaineChart component
 import PositiveHeroinChart from './components/PositiveHeroinChart'; 
 import MethamphetamineLineChartWest from './components/MethamphetamineLineChartWest'; 
 import MethamphetamineLineChartSouth from './components/MethamphetamineLineChartSouth'; 
@@ -100,11 +99,12 @@ function App() {
       {selectedRegion === 'National' && selectedDrug === 'methamphetamine' && (
         <>
           <MethamphetamineLineChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-          <PositiveCocaineChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
         </>
       )}
       {selectedRegion === 'WEST' && selectedDrug === 'methamphetamine' && (
-        <MethamphetamineLineChartWest period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+        <>
+          <MethamphetamineLineChartWest period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+        </>
       )}
       {selectedRegion === 'SOUTH' && selectedDrug === 'methamphetamine' && (
         <MethamphetamineLineChartSouth period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />

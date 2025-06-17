@@ -1,5 +1,4 @@
-// Copy the entire contents of CocaineNationalQuarterlyChart.js here.
-// ...existing code from CocaineNationalQuarterlyChart.js...
+
 import React from 'react';
 import { LinePath, Circle } from '@visx/shape';
 import { Group } from '@visx/group';
@@ -34,7 +33,6 @@ const allQuarters = [
 ];
 
 function alignDataToQuarters(data, quarters) {
-  // For each drug, align to all quarters, fill null if missing
   const drugs = [...new Set(data.map(d => d.drug))];
   return drugs.map(drug => ({
     label: drug,
@@ -69,7 +67,6 @@ const CocaineNationalQuarterlyChart = (props) => {
     nice: true,
   });
 
-  // Use region prop if passed, otherwise default to 'NATIONAL'
   const region = props.region ? props.region.toUpperCase() : 'NATIONAL';
 
   return (
@@ -157,7 +154,6 @@ const CocaineNationalQuarterlyChart = (props) => {
           ))}
         </Group>
       </svg>
-      {/* Render HeroinSecondLineChartBelowCocaine below the cocaine chart */}
       <HeroinSecondLineChartBelowCocaine region={region} width={1100} height={450} />
       <ReactTooltip html={true} />
     </div>
