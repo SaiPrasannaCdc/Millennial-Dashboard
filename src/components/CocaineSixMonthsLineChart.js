@@ -421,11 +421,14 @@ const getKeyFindingNew = (data) => {
   };
 };
 
-const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450 }) => {
+const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450, showMultiDrug = false }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
-  // If region is National or West, show all three drugs
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, [showPercentChange, region]);
+
   const isNational = region === 'National';
   const isWest = region === 'West';
   const isMidwest = region === 'Midwest';
@@ -448,7 +451,6 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450 }) => {
     data: cocaineSixMonthsData[drug.key] || [],
   }));
 
-  // For xDomain, use the union of all periods in the datasets
   const xDomain = Array.from(
     new Set(dataSets.flatMap(ds => ds.data.map(d => d.period)))
   );
@@ -461,17 +463,12 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450 }) => {
     range: [0, adjustedWidth],
     padding: 0.2,
   });
-  // For yScale, use the max across all datasets
   const yMax = Math.max(...dataSets.flatMap(ds => ds.data.map(d => d.percentage)));
   const yScale = scaleLinear({
     domain: [0, yMax],
     range: [adjustedHeight, 0],
     nice: true,
   });
-
-  useEffect(() => {
-    ReactTooltip.rebuild();
-  }, [showPercentChange, region]);
 
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
@@ -529,8 +526,11 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450 }) => {
   // For key finding, use the first dataset (Cocaine) as before
   const keyFinding = getKeyFinding(dataSets[0].data);
 
+  // --- Render cocaineSixMonthsData chart always ---
+  // --- Render newNationalDrugsData chart second if showMultiDrug is true ---
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
+      {/* CocaineSixMonthsData chart (always first) */}
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
@@ -722,9 +722,19 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450 }) => {
       </div>
       <div style={{ height: '32px' }} />
       <ReactTooltip html={true} />
+
+      {/* Render newNationalDrugsData chart second if showMultiDrug is true */}
+      {showMultiDrug && (
+        <div style={{ marginTop: 40 }}>
+          <NationalMultiDrugLineChart region={region} width={width} height={height} />
+        </div>
+      )}
     </div>
   );
 };
+
+// Add this function back above the export default if it was removed.
+// This is required for <NationalMultiDrugLineChart ... /> to work.
 
 const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
@@ -736,6 +746,10 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
     label: drug.label,
     data: newNationalDrugsData[drug.key] || [],
   }));
+
+  // --- Add state for selected lines ---
+  const regionLineKeys = drugsToShow.map(d => d.key);
+  const [selectedLines, setSelectedLines] = useState(regionLineKeys);
 
   const xDomain = Array.from(
     new Set(dataSets.flatMap(ds => ds.data.map(d => d.period)))
@@ -848,6 +862,88 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
             <span style={{ fontWeight: 700 }}>Key finding:</span> Not enough data to calculate change.
           </>
         )}
+      </div>
+      {/* Add selection controls below Keyfinding */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', marginTop: '18px' }}>
+          <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '15px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <input
+                type="radio"
+                name="select-clear-heroin"
+                checked={selectedLines.length === drugsToShow.length && drugsToShow.every(line => selectedLines.includes(line.key))}
+                onChange={() => {
+                  if (selectedLines.length === drugsToShow.length && drugsToShow.every(line => selectedLines.includes(line.key))) {
+                    setSelectedLines([]);
+                  } else {
+                    setSelectedLines(drugsToShow.map(line => line.key));
+                  }
+                }}
+                style={{ accentColor: selectedLines.length === drugsToShow.length ? '#222' : undefined }}
+              />
+              <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Select All</span>
+            </label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <input
+                type="radio"
+                name="select-clear-heroin"
+                checked={selectedLines.length === 0}
+                onChange={() => setSelectedLines([])}
+                style={{ accentColor: selectedLines.length === 0 ? '#222' : undefined }}
+              />
+              <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>
+            </label>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '10px', marginBottom: '20px' }}>
+          {drugsToShow.map(drug => (
+            <label key={drug.key} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                checked={selectedLines.includes(drug.key)}
+                onChange={() => {
+                  if (selectedLines.includes(drug.key)) {
+                    setSelectedLines(selectedLines.filter(line => line !== drug.key));
+                  } else {
+                    setSelectedLines([...selectedLines, drug.key]);
+                  }
+                }}
+                style={{ display: 'none' }}
+              />
+              <span
+                style={{
+                  display: 'inline-block',
+                  width: 16,
+                  height: 16,
+                  borderRadius: '50%',
+                  border: `2px solid #888`,
+                  background: '#fff',
+                  marginRight: 2,
+                  position: 'relative',
+                  transition: 'background 0.2s, border 0.2s',
+                }}
+              >
+                {selectedLines.includes(drug.key) && (
+                  <span
+                    style={{
+                      display: 'block',
+                      width: 10,
+                      height: 10,
+                      borderRadius: '50%',
+                      background: newNationalLineColors[drug.key] || lineColors[drug.key] || '#1f77b4',
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                    }}
+                  />
+                )}
+              </span>
+              <span style={{ fontSize: '14px', color: '#222' }}>{drug.label}</span>
+            </label>
+          ))}
+        </div>
       </div>
       <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
         <div className="toggle-wrapper" style={{ position: 'relative' }}>
@@ -1010,7 +1106,5 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
     </div>
   );
 };
-
-export { NationalMultiDrugLineChart };
 
 export default CocaineSixMonthsLineChart;
