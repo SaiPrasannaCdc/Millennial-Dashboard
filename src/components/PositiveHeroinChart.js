@@ -67,39 +67,43 @@ const sampleDataHeroin = [
 
 const sampleDataHeroin_6Months = [
   {
-    name: 'Cocaine or methamphetamine',
+    name: 'Heroin',
     values: [
-      { period: 'Q4 2022', percentage: '63.2' },
-      { period: 'Q2 2023', percentage: '67.2' },
-      { period: 'Q4 2023', percentage: '72.1' },
-      { period: 'Q2 2024', percentage: '80.0' },
-    ],
-  },
-  {
-    name: 'Methamphetamine',
-    values: [
-      { period: 'Q4 2022', percentage: '52.1' },
-      { period: 'Q2 2023', percentage: '54.7' },
-      { period: 'Q4 2023', percentage: '54.8' },
-      { period: 'Q2 2024', percentage: '60.8' },
+      { period: '2022 Jul-Dec', percentage: '19.8', ciLower: '19.0', ciUpper: '20.7' },
+      { period: '2023 Jan-Jun', percentage: '20.2', ciLower: '19.6', ciUpper: '20.8' },
+      { period: '2023 Jul-Dec', percentage: '19.5', ciLower: '18.9', ciUpper: '20.1' },
+      { period: '2024 Jan-Jun', percentage: '19.4', ciLower: '18.8', ciUpper: '20.0' },
+      { period: '2024 Jul-Dec', percentage: '27.5', ciLower: '26.9', ciUpper: '28.2' },
     ],
   },
   {
     name: 'Cocaine',
     values: [
-      { period: 'Q4 2022', percentage: '40.5' },
-      { period: 'Q2 2023', percentage: '39.6' },
-      { period: 'Q4 2023', percentage: '39.1' },
-      { period: 'Q2 2024', percentage: '40.0' },
+      { period: '2022 Jul-Dec', percentage: '21.1', ciLower: '20.3', ciUpper: '22.0' },
+      { period: '2023 Jan-Jun', percentage: '23.7', ciLower: '23.1', ciUpper: '24.4' },
+      { period: '2023 Jul-Dec', percentage: '24.8', ciLower: '24.2', ciUpper: '25.5' },
+      { period: '2024 Jan-Jun', percentage: '26.3', ciLower: '25.7', ciUpper: '27.0' },
+      { period: '2024 Jul-Dec', percentage: '29.1', ciLower: '28.4', ciUpper: '29.7' },
     ],
   },
   {
-    name: 'Heroin',
+    name: 'Methamphetamine',
     values: [
-      { period: 'Q4 2022', percentage: '25.3' },
-      { period: 'Q2 2023', percentage: '21.7' },
-      { period: 'Q4 2023', percentage: '18.3' },
-      { period: 'Q2 2024', percentage: '15.8' },
+      { period: '2022 Jul-Dec', percentage: '52.5', ciLower: '51.5', ciUpper: '53.6' },
+      { period: '2023 Jan-Jun', percentage: '53.6', ciLower: '52.9', ciUpper: '54.3' },
+      { period: '2023 Jul-Dec', percentage: '54.5', ciLower: '53.8', ciUpper: '55.2' },
+      { period: '2024 Jan-Jun', percentage: '58.7', ciLower: '57.8', ciUpper: '59.4' },
+      { period: '2024 Jul-Dec', percentage: '65.9', ciLower: '65.2', ciUpper: '66.4' },
+    ],
+  },
+  {
+    name: 'Fentanyl and Stimulants',
+    values: [
+      { period: '2022 Jul-Dec', percentage: '65.4', ciLower: '64.4', ciUpper: '66.4' },
+      { period: '2023 Jan-Jun', percentage: '67.7', ciLower: '67.0', ciUpper: '68.4' },
+      { period: '2023 Jul-Dec', percentage: '69.3', ciLower: '68.7', ciUpper: '70.0' },
+      { period: '2024 Jan-Jun', percentage: '72.2', ciLower: '71.6', ciUpper: '72.8' },
+      { period: '2024 Jul-Dec', percentage: '78.6', ciLower: '78.0', ciUpper: '79.2' },
     ],
   },
 ];
