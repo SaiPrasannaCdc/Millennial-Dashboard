@@ -1,0 +1,299 @@
+{
+    "National": {
+        "Fentanyl": {
+            // First Line chart
+            "Positivity": {
+                "Quarterly": [
+                    // Fentanyl
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q4 2022",
+                        "percentage": "14.9",
+                        "ciLower": "14.6",
+                        "ciUpper": "15.2"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q1 2023",
+                        "percentage": "13.7",
+                        "ciLower": "13.4",
+                        "ciUpper": "13.9"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q2 2023",
+                        "percentage": "14.2",
+                        "ciLower": "13.9",
+                        "ciUpper": "14.6"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q3 2023",
+                        "percentage": "14.4",
+                        "ciLower": "14.2",
+                        "ciUpper": "14.7"
+                    },
+                    {
+                        "quarter": "Q4 2023",
+                        "percentage": "14.5",
+                        "ciLower": "14.2",
+                        "ciUpper": "14.7"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q1 2024",
+                        "percentage": "13.7",
+                        "ciLower": "13.5",
+                        "ciUpper": "13.8"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q2 2024",
+                        "percentage": "13.7",
+                        "ciLower": "13.5",
+                        "ciUpper": "15.0"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q3 2024",
+                        "percentage": "13.4",
+                        "ciLower": "13.2",
+                        "ciUpper": "13.7"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "quarter": "Q4 2024",
+                        "percentage": "12.7",
+                        "ciLower": "12.5",
+                        "ciUpper": "13.0"
+                    }
+                    // Fentanyl with Stimulants
+                    ,
+                    {
+                        "drug_name": "Fentanyl with Stimulants",
+                        "quarter": "Q4 2022",
+                        "percentage": "14.9",
+                        "ciLower": "14.6",
+                        "ciUpper": "15.2"
+                    }
+                    // Fentanyl without Stimulants
+                    ,
+                    {
+                        "drug_name": "Fentanyl without Stimulants",
+                        "quarter": "Q4 2022",
+                        "percentage": "14.9",
+                        "ciLower": "14.6",
+                        "ciUpper": "15.2"
+                    }
+                ],
+                "HalfYearly": [
+                    {
+                        "drug_name": "Fentanyl",
+                        "period": "2022 Jul-Dec",
+                        "percentage": "14.9",
+                        "ciLower": "14.6",
+                        "ciUpper": "15.2"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "period": "2023 Jan-Jun",
+                        "percentage": "13.9",
+                        "ciLower": "13.8",
+                        "ciUpper": "14.1"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "period": "2023 Jul-Dec",
+                        "percentage": "14.4",
+                        "ciLower": "14.2",
+                        "ciUpper": "14.6"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "period": "2024 Jan-Jun",
+                        "percentage": "13.6",
+                        "ciLower": "13.4",
+                        "ciUpper": "13.8"
+                    },
+                    {
+                        "drug_name": "Fentanyl",
+                        "period": "2024 Jul-Dec",
+                        "percentage": "13.1",
+                        "ciLower": "12.9",
+                        "ciUpper": "13.3"
+                    }
+                ]
+            },
+            // Second Line chart
+            "CoPositive": {
+                "Quarterly": [
+                    {
+                        "quarter": "Q1 2023",
+                        "drug_name": "Heroin",
+                        "percent_pos": 20.0,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q2 2023",
+                        "drug_name": "Heroin",
+                        "percent_pos": 20.5,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q3 2023",
+                        "drug_name": "Heroin",
+                        "percent_pos": 19.8,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q4 2023",
+                        "drug_name": "Heroin",
+                        "percent_pos": 19.3,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q1 2024",
+                        "drug_name": "Heroin",
+                        "percent_pos": 19.5,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q2 2024",
+                        "drug_name": "Heroin",
+                        "percent_pos": 19.4,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q3 2024",
+                        "drug_name": "Heroin",
+                        "percent_pos": 25.9,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q4 2024",
+                        "drug_name": "Heroin",
+                        "percent_pos": 29.4,
+                        "class": 2
+                    },
+                    {
+                        "quarter": "Q1 2023",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 23.5,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q2 2023",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 24.2,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q3 2023",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 25.2,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q4 2023",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 24.7,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q1 2024",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 25.8,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q2 2024",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 27.1,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q3 2024",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 29.3,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q4 2024",
+                        "drug_name": "Cocaine",
+                        "percent_pos": 29.2,
+                        "class": 3
+                    },
+                    {
+                        "quarter": "Q1 2023",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 53.0,
+                        "class": 4
+                    },
+                    {
+                        "quarter": "Q2 2023",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 54.7,
+                        "class": 4
+                    },
+                    {
+                        "quarter": "Q3 2023",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 54.5,
+                        "class": 4
+                    },
+                    {
+                        "quarter": "Q4 2023",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 54.8,
+                        "class": 4
+                    },
+                    {
+                        "quarter": "Q1 2024",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 57.1,
+                        "class": 4
+                    },
+                    {
+                        "quarter": "Q2 2024",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 60.8,
+                        "class": 4
+                    },
+                    {
+                        "quarter": "Q3 2024",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 64.1,
+                        "class": 4
+                    },
+                    {
+                        "quarter": "Q4 2024",
+                        "drug_name": "Methamphetamine",
+                        "percent_pos": 68.4,
+                        "class": 4
+                    }
+                ],
+                "HalfYearly": []
+            }
+        },
+        "Heroin": {
+            "Positivity": {},
+            "CoPositive": []
+        },
+        "Cocaine": {},
+        "Methamphetamine": {}
+    },
+    "MidWest": {
+        "Fentanyl": {},
+        "Heroin": {},
+        "Cocaine": {},
+        "Methamphetamine": {}
+    },
+    "North": {},
+    "West": {},
+    "South": {}
+}
+
+// data[regionSelected][drugSelected]["Positivity"][timeRangeSelected] => all lines data
+
+
+//Ex - // data["National"]["Fentanyl"]["Positivity"]["Quarterly"] => Filter
