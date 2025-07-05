@@ -7,166 +7,11 @@ import ReactTooltip from 'react-tooltip';
 
 // 6 Months data for all regions
 const heroin6MonthsData = {
-  NORTHEAST: [
-    {
-      name: 'Heroin',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 2.9, ciLower: 2.3, ciUpper: 3.4 },
-        { period: '2023 Jan-Jun', percentage: 3.7, ciLower: 3.3, ciUpper: 4.1 },
-        { period: '2023 Jul-Dec', percentage: 3.9, ciLower: 3.5, ciUpper: 4.3 },
-        { period: '2024 Jan-Jun', percentage: 3.8, ciLower: 3.4, ciUpper: 4.2 },
-        { period: '2024 Jul-Dec', percentage: 3.7, ciLower: 3.3, ciUpper: 4.1 },
-      ]
-    },
-    {
-      name: 'Heroin with Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 0.6, ciLower: 0.3, ciUpper: 0.8 },
-        { period: '2023 Jan-Jun', percentage: 0.7, ciLower: 0.5, ciUpper: 0.9 },
-        { period: '2023 Jul-Dec', percentage: 0.6, ciLower: 0.5, ciUpper: 0.8 },
-        { period: '2024 Jan-Jun', percentage: 0.6, ciLower: 0.5, ciUpper: 0.8 },
-        { period: '2024 Jul-Dec', percentage: 0.6, ciLower: 0.5, ciUpper: 0.8 },
-      ]
-    },
-    {
-      name: 'Heroin without Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 2.7, ciLower: 2.2, ciUpper: 3.3 },
-        { period: '2023 Jan-Jun', percentage: 3.6, ciLower: 3.2, ciUpper: 4.2 },
-        { period: '2023 Jul-Dec', percentage: 3.6, ciLower: 3.3, ciUpper: 4.0 },
-        { period: '2024 Jan-Jun', percentage: 3.5, ciLower: 3.1, ciUpper: 3.9 },
-        { period: '2024 Jul-Dec', percentage: 3.5, ciLower: 3.1, ciUpper: 3.9 },
-      ]
-    }
-  ],
-  MIDWEST: [
-    {
-      name: 'Heroin',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 2.9, ciLower: 2.7, ciUpper: 3.1 },
-        { period: '2023 Jan-Jun', percentage: 3.3, ciLower: 3.2, ciUpper: 3.5 },
-        { period: '2023 Jul-Dec', percentage: 4.2, ciLower: 4.1, ciUpper: 4.4 },
-        { period: '2024 Jan-Jun', percentage: 3.9, ciLower: 3.7, ciUpper: 4.0 },
-        { period: '2024 Jul-Dec', percentage: 3.7, ciLower: 3.5, ciUpper: 3.9 },
-      ]
-    },
-    {
-      name: 'Heroin with Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 1.9, ciLower: 1.7, ciUpper: 2.1 },
-        { period: '2023 Jan-Jun', percentage: 2.2, ciLower: 2.1, ciUpper: 2.3 },
-        { period: '2023 Jul-Dec', percentage: 2.7, ciLower: 2.6, ciUpper: 2.9 },
-        { period: '2024 Jan-Jun', percentage: 2.7, ciLower: 2.5, ciUpper: 2.8 },
-        { period: '2024 Jul-Dec', percentage: 2.5, ciLower: 2.3, ciUpper: 2.7 },
-      ]
-    },
-    {
-      name: 'Heroin without Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 2.8, ciLower: 2.6, ciUpper: 3.0 },
-        { period: '2023 Jan-Jun', percentage: 2.8, ciLower: 2.6, ciUpper: 3.0 },
-        { period: '2023 Jul-Dec', percentage: 3.6, ciLower: 3.4, ciUpper: 3.7 },
-        { period: '2024 Jan-Jun', percentage: 3.2, ciLower: 3.0, ciUpper: 3.3 },
-        { period: '2024 Jul-Dec', percentage: 3.0, ciLower: 2.9, ciUpper: 3.2 },
-      ]
-    }
-  ],
-  SOUTH: [
-    {
-      name: 'Heroin',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 5.3, ciLower: 4.9, ciUpper: 5.7 },
-        { period: '2023 Jan-Jun', percentage: 5.0, ciLower: 4.8, ciUpper: 5.3 },
-        { period: '2023 Jul-Dec', percentage: 4.5, ciLower: 4.2, ciUpper: 4.7 },
-        { period: '2024 Jan-Jun', percentage: 4.7, ciLower: 4.4, ciUpper: 4.9 },
-        { period: '2024 Jul-Dec', percentage: 4.9, ciLower: 4.7, ciUpper: 5.1 },
-      ]
-    },
-    {
-      name: 'Heroin with Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 3.0, ciLower: 2.7, ciUpper: 3.3 },
-        { period: '2023 Jan-Jun', percentage: 2.8, ciLower: 2.6, ciUpper: 3.0 },
-        { period: '2023 Jul-Dec', percentage: 2.4, ciLower: 2.2, ciUpper: 2.6 },
-        { period: '2024 Jan-Jun', percentage: 2.9, ciLower: 2.7, ciUpper: 3.1 },
-        { period: '2024 Jul-Dec', percentage: 4.7, ciLower: 4.5, ciUpper: 4.9 },
-      ]
-    },
-    {
-      name: 'Heroin without Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 4.5, ciLower: 4.2, ciUpper: 4.7 },
-        { period: '2023 Jan-Jun', percentage: 4.0, ciLower: 3.7, ciUpper: 4.2 },
-        { period: '2023 Jul-Dec', percentage: 4.1, ciLower: 3.9, ciUpper: 4.4 },
-        { period: '2024 Jan-Jun', percentage: 4.1, ciLower: 3.9, ciUpper: 4.4 },
-        { period: '2024 Jul-Dec', percentage: 4.1, ciLower: 3.9, ciUpper: 4.4 },
-      ]
-    }
-  ],
-  NATIONAL: [
-    {
-      name: 'Heroin',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 3.6, ciLower: 3.6, ciUpper: 4.1 },
-        { period: '2023 Jan-Jun', percentage: 3.6, ciLower: 3.6, ciUpper: 4.1 },
-        { period: '2023 Jul-Dec', percentage: 3.8, ciLower: 3.8, ciUpper: 4.3 },
-        { period: '2024 Jan-Jun', percentage: 3.7, ciLower: 3.7, ciUpper: 4.2 },
-        { period: '2024 Jul-Dec', percentage: 3.7, ciLower: 3.7, ciUpper: 4.1 },
-      ]
-    },
-    {
-      name: 'Heroin with Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 2.8, ciLower: 2.7, ciUpper: 3.0 },
-        { period: '2023 Jan-Jun', percentage: 2.6, ciLower: 2.5, ciUpper: 2.7 },
-        { period: '2023 Jul-Dec', percentage: 2.5, ciLower: 2.4, ciUpper: 2.6 },
-        { period: '2024 Jan-Jun', percentage: 2.4, ciLower: 2.3, ciUpper: 2.5 },
-        { period: '2024 Jul-Dec', percentage: 2.4, ciLower: 2.3, ciUpper: 2.5 },
-      ]
-    },
-    {
-      name: 'Heroin without Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 3.8, ciLower: 3.6, ciUpper: 3.9 },
-        { period: '2023 Jan-Jun', percentage: 3.5, ciLower: 3.4, ciUpper: 3.6 },
-        { period: '2023 Jul-Dec', percentage: 3.3, ciLower: 3.2, ciUpper: 3.4 },
-        { period: '2024 Jan-Jun', percentage: 3.3, ciLower: 3.2, ciUpper: 3.4 },
-        { period: '2024 Jul-Dec', percentage: 3.9, ciLower: 3.8, ciUpper: 4.0 },
-      ]
-    }
-  ],
-  WEST: [
-    {
-      name: 'Heroin',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 5.1, ciLower: 4.8, ciUpper: 5.4 },
-        { period: '2023 Jan-Jun', percentage: 4.2, ciLower: 4.0, ciUpper: 4.4 },
-        { period: '2023 Jul-Dec', percentage: 3.7, ciLower: 3.5, ciUpper: 3.8 },
-        { period: '2024 Jan-Jun', percentage: 3.4, ciLower: 3.3, ciUpper: 3.6 },
-        { period: '2024 Jul-Dec', percentage: 5.6, ciLower: 5.5, ciUpper: 5.8 },
-      ]
-    },
-    {
-      name: 'Heroin with Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 3.9, ciLower: 3.7, ciUpper: 4.2 },
-        { period: '2023 Jan-Jun', percentage: 3.3, ciLower: 3.1, ciUpper: 3.4 },
-        { period: '2023 Jul-Dec', percentage: 2.7, ciLower: 2.6, ciUpper: 2.8 },
-        { period: '2024 Jan-Jun', percentage: 2.5, ciLower: 2.5, ciUpper: 2.6 },
-        { period: '2024 Jul-Dec', percentage: 4.7, ciLower: 4.5, ciUpper: 4.9 },
-      ]
-    },
-    {
-      name: 'Heroin without Stimulants',
-      values: [
-        { period: '2022 Jul-Dec', percentage: 4.6, ciLower: 4.3, ciUpper: 4.9 },
-        { period: '2023 Jan-Jun', percentage: 3.7, ciLower: 3.6, ciUpper: 3.9 },
-        { period: '2023 Jul-Dec', percentage: 3.2, ciLower: 3.1, ciUpper: 3.3 },
-        { period: '2024 Jan-Jun', percentage: 3.1, ciLower: 2.9, ciUpper: 3.2 },
-        { period: '2024 Jul-Dec', percentage: 4.5, ciLower: 4.3, ciUpper: 4.7 },
-      ]
-    }
-  ]
+ 
+ 
+  
+ 
+ 
 };
 
 const lineColors = {
@@ -204,6 +49,11 @@ function normalizeRegionKey(region) {
 const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height = 350, period = '6 Months' }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [heroinSouth6MData, setHeroinSouth6MData] = useState([]);
+  const [heroinWest6MData, setHeroinWest6MData] = useState([]); // NEW: state for West region
+  const [heroinNortheast6MData, setHeroinNortheast6MData] = useState([]); // NEW: state for Northeast region
+  const [heroinNational6MData, setHeroinNational6MData] = useState([]); // NEW: state for National region
+  const [heroinMidwest6MData, setHeroinMidwest6MData] = useState([]); // NEW: state for Midwest region
 
   const percentChgTooltip = `
     <div style="
@@ -227,7 +77,137 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
   // Fix regionKey normalization
   const regionKey = normalizeRegionKey(region);
 
-  const adjustedDataRaw = heroin6MonthsData[regionKey] || heroin6MonthsData['SOUTH'];
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+        const periods = [
+          '2022 Jul-Dec', '2023 Jan-Jun', '2023 Jul-Dec', '2024 Jan-Jun', '2024 Jul-Dec'
+        ];
+        const drugs = [
+          'Heroin',
+          'Heroin with Stimulants',
+          'Heroin without Stimulants',
+        ];
+        // SOUTH (now matches your provided data structure exactly)
+        const heroinSouth = drugs.map(drug => ({
+          name: drug,
+          values: periods.map(period => {
+            const arr = data?.South?.Heroin?.Positivity?.HalfYearly || [];
+            const d = arr.find(x => {
+              // South: drug_namr, USregion, period
+              const drugMatch = x.drug_namr === drug;
+              const regionMatch = x.USregion === 'SOUTH';
+              const periodMatch = x.period === period;
+              return drugMatch && regionMatch && periodMatch;
+            });
+            return d ? {
+              period: d.period,
+              percentage: d.percentage !== undefined ? parseFloat(d.percentage) : null,
+              ciLower: d.ciLower !== undefined ? parseFloat(d.ciLower) : null,
+              ciUpper: d.ciUpper !== undefined ? parseFloat(d.ciUpper) : null,
+              periodChange: d.Period || '',
+              yrChange: d['Yr change'] !== undefined ? d['Yr change'] : ''
+            } : { period, percentage: null, ciLower: null, ciUpper: null };
+          })
+        }));
+        setHeroinSouth6MData(heroinSouth);
+        // WEST (now matches your provided data structure exactly)
+        const heroinWest = drugs.map(drug => ({
+          name: drug,
+          values: periods.map(period => {
+            const arr = data?.West?.Heroin?.Positivity?.HalfYearly || [];
+            const d = arr.find(x => {
+              // West: drug_name, USregion, period
+              const drugMatch = x.drug_name === drug;
+              const regionMatch = x.USregion === 'WEST';
+              const periodMatch = x.period === period;
+              return drugMatch && regionMatch && periodMatch;
+            });
+            return d ? {
+              period: d.period,
+              percentage: d.percentage !== undefined ? parseFloat(d.percentage) : null,
+              ciLower: d.ciLower !== undefined ? parseFloat(d.ciLower) : null,
+              ciUpper: d.ciUpper !== undefined ? parseFloat(d.ciUpper) : null,
+              periodChange: d.Period || '',
+              yrChange: d['Yr change'] !== undefined ? d['Yr change'] : ''
+            } : { period, percentage: null, ciLower: null, ciUpper: null };
+          })
+        }));
+        setHeroinWest6MData(heroinWest);
+        // NORTHEAST
+        const heroinNortheast = drugs.map(drug => ({
+          name: drug,
+          values: periods.map(period => {
+            // Flexible period and drug name matching for Northeast
+            const d = (data?.Northeast?.Heroin?.Positivity?.HalfYearly || []).find(x => {
+              const drugMatch = (x.drug_namr === drug || x.drug_name === drug || x.drug_nam === drug);
+              const regionMatch = (x.USregion === 'NORTHEAST' || x.USregion === 'NORTH');
+              // Match by year and first 3 letters of month
+              const periodNorm = period.slice(0, 4) + period.slice(5, 8);
+              const qrtYearNorm = (x.qrt_year || '').slice(0, 4) + (x.qrt_year || '').slice(5, 8);
+              return drugMatch && regionMatch && periodNorm === qrtYearNorm;
+            });
+            return d ? {
+              period: d.qrt_year,
+              percentage: d.rcent_pos,
+              ciLower: d['CI lower'] || d['CI_lower'],
+              ciUpper: d['CI upper'] || d['CI_upper'],
+              periodChange: d['Period'],
+              yrChange: d['Yr change'] || d['Yr_change']
+            } : { period, percentage: null, ciLower: null, ciUpper: null };
+          })
+        }));
+        setHeroinNortheast6MData(heroinNortheast);
+        // NATIONAL
+        const heroinNational = drugs.map(drug => ({
+          name: drug,
+          values: periods.map(period => {
+            // National data: match by drug_name and period
+            const d = (data?.National?.Heroin?.Positivity?.HalfYearly || []).find(x => {
+              const drugMatch = (x.drug_namr === drug || x.drug_name === drug || x.drug_nam === drug);
+              // Accept both 'period' and 'qrt_year' keys for period
+              const periodMatch = (x.period === period || x.qrt_year === period);
+              return drugMatch && periodMatch;
+            });
+            return d ? {
+              period: d.period || d.qrt_year,
+              percentage: d.percentage ? parseFloat(d.percentage) : (d.rcent_pos ? parseFloat(d.rcent_pos) : null),
+              ciLower: d.ciLower ? parseFloat(d.ciLower) : (d['CI lower'] ? parseFloat(d['CI lower']) : null),
+              ciUpper: d.ciUpper ? parseFloat(d.ciUpper) : (d['CI upper'] ? parseFloat(d['CI upper']) : null),
+              periodChange: d['Period'] || '',
+              yrChange: d['yr_change'] || d['Yr change'] || d['Yr_change'] || ''
+            } : { period, percentage: null, ciLower: null, ciUpper: null };
+          })
+        }));
+        setHeroinNational6MData(heroinNational);
+        // MIDWEST (now matches your provided data structure exactly)
+        const heroinMidwest = drugs.map(drug => ({
+          name: drug,
+          values: periods.map(period => {
+            const arr = data?.Midwest?.Heroin?.Positivity?.HalfYearly || data?.MidWest?.Heroin?.Positivity?.HalfYearly || [];
+            const d = arr.find(x => {
+              // Midwest: drug_name, USregion, period
+              const drugMatch = x.drug_name === drug;
+              const regionMatch = x.USregion === 'MIDWEST';
+              const periodMatch = x.period === period;
+              return drugMatch && regionMatch && periodMatch;
+            });
+            return d ? {
+              period: d.period,
+              percentage: d.percentage !== undefined ? parseFloat(d.percentage) : null,
+              ciLower: d.ciLower !== undefined ? parseFloat(d.ciLower) : null,
+              ciUpper: d.ciUpper !== undefined ? parseFloat(d.ciUpper) : null,
+              periodChange: d.Period || '',
+              yrChange: d.Yr_change !== undefined ? d.Yr_change : ''
+            } : { period, percentage: null, ciLower: null, ciUpper: null };
+          })
+        }));
+        setHeroinMidwest6MData(heroinMidwest);
+      });
+  }, []);
+
+  const adjustedDataRaw = regionKey === 'SOUTH' ? heroinSouth6MData : regionKey === 'WEST' ? heroinWest6MData : regionKey === 'NORTHEAST' ? heroinNortheast6MData : regionKey === 'NATIONAL' ? heroinNational6MData : regionKey === 'MIDWEST' ? heroinMidwest6MData : (heroin6MonthsData[regionKey] || heroin6MonthsData['SOUTH']);
   const adjustedData = alignDataToPeriods(adjustedDataRaw);
 
   useEffect(() => {
