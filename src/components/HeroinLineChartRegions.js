@@ -6,120 +6,6 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-const heroinQuarterlyData = [
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q4 2022', percentage: 5.1, ciLower: 4.8, ciUpper: 5.4 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q1 2023', percentage: 4.2, ciLower: 4.0, ciUpper: 4.5 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q2 2023', percentage: 3.7, ciLower: 3.4, ciUpper: 3.9 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q3 2023', percentage: 3.5, ciLower: 3.1, ciUpper: 3.9 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q4 2023', percentage: 3.4, ciLower: 3.1, ciUpper: 3.7 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q1 2024', percentage: 3.2, ciLower: 3.0, ciUpper: 3.5 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q2 2024', percentage: 3.1, ciLower: 2.9, ciUpper: 3.5 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q3 2024', percentage: 5.2, ciLower: 4.5, ciUpper: 5.9 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q4 2024', percentage: 5.8, ciLower: 5.1, ciUpper: 6.5 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q4 2022', percentage: 3.9, ciLower: 3.7, ciUpper: 4.2 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q1 2023', percentage: 3.1, ciLower: 2.9, ciUpper: 3.3 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q2 2023', percentage: 3.2, ciLower: 3.0, ciUpper: 3.4 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q3 2023', percentage: 2.8, ciLower: 2.6, ciUpper: 3.0 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q4 2023', percentage: 2.6, ciLower: 2.4, ciUpper: 2.8 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q1 2024', percentage: 2.3, ciLower: 2.1, ciUpper: 2.7 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q2 2024', percentage: 2.5, ciLower: 2.3, ciUpper: 2.7 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q3 2024', percentage: 4.3, ciLower: 4.0, ciUpper: 4.5 },
-  { region: 'WEST', drug: 'Heroin with Stimulants', quarter: 'Q4 2024', percentage: 5.1, ciLower: 4.9, ciUpper: 5.4 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q4 2022', percentage: 4.6, ciLower: 4.3, ciUpper: 4.9 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q1 2023', percentage: 3.8, ciLower: 3.5, ciUpper: 4.0 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q2 2023', percentage: 3.7, ciLower: 3.5, ciUpper: 3.9 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q3 2023', percentage: 3.2, ciLower: 3.0, ciUpper: 3.4 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q4 2023', percentage: 3.1, ciLower: 2.9, ciUpper: 3.4 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q1 2024', percentage: 2.8, ciLower: 2.7, ciUpper: 3.1 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q2 2024', percentage: 2.9, ciLower: 2.7, ciUpper: 3.1 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q3 2024', percentage: 4.2, ciLower: 3.9, ciUpper: 4.4 },
-  { region: 'WEST', drug: 'Heroin without Stimulants', quarter: 'Q4 2024', percentage: 4.9, ciLower: 4.6, ciUpper: 5.1 },
-  
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q4 2022', percentage: 2.9, ciLower: 2.7, ciUpper: 3.1 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q1 2023', percentage: 3.0, ciLower: 2.8, ciUpper: 3.2 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q2 2023', percentage: 3.7, ciLower: 3.4, ciUpper: 3.9 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q3 2023', percentage: 4.2, ciLower: 3.9, ciUpper: 4.5 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q4 2023', percentage: 4.2, ciLower: 3.9, ciUpper: 4.4 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q1 2024', percentage: 3.9, ciLower: 3.6, ciUpper: 4.1 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q2 2024', percentage: 3.8, ciLower: 3.6, ciUpper: 4.1 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q3 2024', percentage: 3.6, ciLower: 3.4, ciUpper: 3.9 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q4 2024', percentage: 3.8, ciLower: 3.5, ciUpper: 4.0 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q4 2022', percentage: 1.9, ciLower: 1.7, ciUpper: 2.2 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q1 2023', percentage: 2.0, ciLower: 1.8, ciUpper: 2.2 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q2 2023', percentage: 2.4, ciLower: 2.2, ciUpper: 2.6 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q3 2023', percentage: 2.8, ciLower: 2.5, ciUpper: 3.0 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q4 2023', percentage: 2.7, ciLower: 2.5, ciUpper: 2.9 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q1 2024', percentage: 2.6, ciLower: 2.4, ciUpper: 2.8 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q2 2024', percentage: 2.6, ciLower: 2.4, ciUpper: 2.8 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q3 2024', percentage: 2.7, ciLower: 2.5, ciUpper: 2.9 },
-  { region: 'MIDWEST', drug: 'Heroin with Stimulants', quarter: 'Q4 2024', percentage: 2.7, ciLower: 2.5, ciUpper: 2.9 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q4 2022', percentage: 2.5, ciLower: 2.3, ciUpper: 2.7 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q1 2023', percentage: 2.6, ciLower: 2.4, ciUpper: 2.8 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q2 2023', percentage: 3.1, ciLower: 2.9, ciUpper: 3.3 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q3 2023', percentage: 3.5, ciLower: 3.2, ciUpper: 3.7 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q4 2023', percentage: 3.1, ciLower: 2.9, ciUpper: 3.3 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q1 2024', percentage: 3.5, ciLower: 3.2, ciUpper: 3.7 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q2 2024', percentage: 3.1, ciLower: 2.9, ciUpper: 3.3 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q3 2024', percentage: 3.2, ciLower: 3.0, ciUpper: 3.5 },
-  { region: 'MIDWEST', drug: 'Heroin without Stimulants', quarter: 'Q4 2024', percentage: 3.1, ciLower: 2.9, ciUpper: 3.3 },
-  
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q4 2022', percentage: 5.3, ciLower: 4.9, ciUpper: 5.7 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q1 2023', percentage: 5.1, ciLower: 4.7, ciUpper: 5.4 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q2 2023', percentage: 5.0, ciLower: 4.6, ciUpper: 5.4 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q3 2023', percentage: 4.4, ciLower: 4.1, ciUpper: 4.8 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q4 2023', percentage: 4.5, ciLower: 4.1, ciUpper: 4.9 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q1 2024', percentage: 4.4, ciLower: 4.1, ciUpper: 4.8 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q2 2024', percentage: 4.9, ciLower: 4.6, ciUpper: 5.3 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q3 2024', percentage: 5.0, ciLower: 4.7, ciUpper: 5.4 },
-  { region: 'SOUTH', drug: 'Heroin', quarter: 'Q4 2024', percentage: 5.0, ciLower: 4.7, ciUpper: 5.4 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q4 2022', percentage: 3.0, ciLower: 2.7, ciUpper: 3.3 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q1 2023', percentage: 2.8, ciLower: 2.5, ciUpper: 3.1 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q2 2023', percentage: 2.4, ciLower: 2.1, ciUpper: 2.6 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q3 2023', percentage: 2.5, ciLower: 2.2, ciUpper: 2.7 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q4 2023', percentage: 2.3, ciLower: 2.0, ciUpper: 2.5 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q1 2024', percentage: 2.7, ciLower: 2.4, ciUpper: 3.0 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q2 2024', percentage: 2.9, ciLower: 2.7, ciUpper: 3.2 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q3 2024', percentage: 2.8, ciLower: 2.5, ciUpper: 3.1 },
-  { region: 'SOUTH', drug: 'Heroin with Stimulants', quarter: 'Q4 2024', percentage: 2.5, ciLower: 2.1, ciUpper: 2.6 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q4 2022', percentage: 4.7, ciLower: 4.3, ciUpper: 5.1 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q1 2023', percentage: 4.4, ciLower: 4.1, ciUpper: 4.8 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q2 2023', percentage: 4.1, ciLower: 3.7, ciUpper: 4.3 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q3 2023', percentage: 4.3, ciLower: 4.0, ciUpper: 4.6 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q4 2023', percentage: 4.3, ciLower: 3.9, ciUpper: 4.6 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q1 2024', percentage: 4.2, ciLower: 3.9, ciUpper: 4.6 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q2 2024', percentage: 4.0, ciLower: 3.7, ciUpper: 4.4 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q3 2024', percentage: 4.0, ciLower: 3.7, ciUpper: 4.4 },
-  { region: 'SOUTH', drug: 'Heroin without Stimulants', quarter: 'Q4 2024', percentage: 4.0, ciLower: 3.7, ciUpper: 4.4 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q4 2022', percentage: 4.3, ciLower: 4.1, ciUpper: 4.4 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q1 2023', percentage: 3.8, ciLower: 3.8, ciUpper: 4.1 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q2 2023', percentage: 4.2, ciLower: 4.1, ciUpper: 4.4 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q3 2023', percentage: 4.1, ciLower: 3.9, ciUpper: 4.2 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q4 2023', percentage: 4.0, ciLower: 3.8, ciUpper: 4.1 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q1 2024', percentage: 3.9, ciLower: 3.7, ciUpper: 4.0 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q2 2024', percentage: 3.9, ciLower: 3.7, ciUpper: 4.7 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q3 2024', percentage: 4.6, ciLower: 4.4, ciUpper: 4.7 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q4 2024', percentage: 4.9, ciLower: 4.7, ciUpper: 5.0 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q4 2022', percentage: 2.8, ciLower: 2.7, ciUpper: 3.0 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q1 2023', percentage: 2.5, ciLower: 2.4, ciUpper: 2.6 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q2 2023', percentage: 2.7, ciLower: 2.5, ciUpper: 2.8 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q3 2023', percentage: 2.6, ciLower: 2.4, ciUpper: 2.7 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q4 2023', percentage: 2.5, ciLower: 2.4, ciUpper: 2.6 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q1 2024', percentage: 2.4, ciLower: 2.2, ciUpper: 2.5 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q2 2024', percentage: 2.4, ciLower: 2.2, ciUpper: 2.5 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q3 2024', percentage: 3.2, ciLower: 3.1, ciUpper: 3.4 },
-  { region: 'NATIONAL', drug: 'Heroin with Stimulants', quarter: 'Q4 2024', percentage: 3.6, ciLower: 3.4, ciUpper: 3.7 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q4 2022', percentage: 3.8, ciLower: 3.6, ciUpper: 3.9 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q1 2023', percentage: 3.5, ciLower: 3.3, ciUpper: 3.6 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q2 2023', percentage: 3.6, ciLower: 3.5, ciUpper: 3.8 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q3 2023', percentage: 3.5, ciLower: 3.4, ciUpper: 3.7 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q4 2023', percentage: 3.5, ciLower: 3.3, ciUpper: 3.6 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q1 2024', percentage: 3.2, ciLower: 3.4, ciUpper: 3.7 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q2 2024', percentage: 3.3, ciLower: 3.2, ciUpper: 3.4 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q3 2024', percentage: 3.8, ciLower: 3.6, ciUpper: 3.9 },
-  { region: 'NATIONAL', drug: 'Heroin without Stimulants', quarter: 'Q4 2024', percentage: 4.0, ciLower: 3.9, ciUpper: 4.2 },
-];
-
-
 const lineColors = {
   'Heroin': '#6a0dad',
   'Heroin with Stimulants': '#2077b4',
@@ -136,24 +22,6 @@ function alignDataToQuarters(data, quarters) {
   return quarters.map(q => map[q] || { quarter: q, percentage: null, ciLower: null, ciUpper: null });
 }
 
-const heroinNationalDatasets = [
-  {
-    label: 'Heroin',
-    color: '#6a0dad',
-    data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'NATIONAL' && d.drug === 'Heroin'), allQuarters)
-  },
-  {
-    label: 'Heroin with Stimulants',
-    color: '#2077b4',
-    data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'NATIONAL' && d.drug === 'Heroin with Stimulants'), allQuarters)
-  },
-  {
-    label: 'Heroin without Stimulants',
-    color: '#e67e22',
-    data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'NATIONAL' && d.drug === 'Heroin without Stimulants'), allQuarters)
-  }
-];
-
 const regionKeyFindings = {
   WEST: "Key finding: Heroin positivity decreased 1.0% from 5.2% in Q3 2024 to 4.2% in Q4 2024. This may indicate decreased exposure to heroin among people with substance use disorders.",
   MIDWEST: "Key finding: Heroin positivity increased 0.2% from 3.6% in Q3 2024 to 3.8% in Q4 2024. This may indicate increased exposure to heroin among people with substance use disorders.",
@@ -164,16 +32,92 @@ const regionKeyFindings = {
 function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST', period = 'Quarterly' }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [heroinSouthData, setHeroinSouthData] = useState([]);
+  const [heroinWestData, setHeroinWestData] = useState([]);
+  const [heroinNationalData, setHeroinNationalData] = useState([]);
+  const [heroinMidwestData, setHeroinMidwestData] = useState([]);
 
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange, region]);
 
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+        // Flatten and map the JSON for SOUTH region Heroin
+        const southHeroin = mapHeroinSouthData(
+          [].concat(
+            data?.South?.Heroin?.Positivity?.Quarterly || [],
+            data?.South?.Heroin?.Positivity?.HalfYearly || [],
+            data?.South?.Heroin?.CoPositive?.Quarterly || [],
+            data?.South?.Heroin?.CoPositive?.HalfYearly || []
+          )
+        );
+        setHeroinSouthData(southHeroin);
+        // Flatten and map the JSON for WEST region Heroin
+        const westHeroin = mapHeroinWestData(
+          [].concat(
+            data?.West?.Heroin?.Positivity?.Quarterly || [],
+            data?.West?.Heroin?.Positivity?.HalfYearly || [],
+            data?.West?.Heroin?.CoPositive?.Quarterly || [],
+            data?.West?.Heroin?.CoPositive?.HalfYearly || []
+          )
+        );
+        setHeroinWestData(westHeroin);
+        // Flatten and map the JSON for NATIONAL region Heroin
+        const nationalHeroin = mapHeroinNationalData(
+          [].concat(
+            data?.National?.Heroin?.Positivity?.Quarterly || [],
+            data?.National?.Heroin?.Positivity?.HalfYearly || [],
+            data?.National?.Heroin?.CoPositive?.Quarterly || [],
+            data?.National?.Heroin?.CoPositive?.HalfYearly || []
+          )
+        );
+        setHeroinNationalData(nationalHeroin);
+        // Fix: Use correct parent key and field names for Midwest
+        const midwestHeroin = mapHeroinMidwestData(
+          [].concat(
+            data?.MidWest?.Heroin?.Positivity?.Quarterly || [],
+            data?.MidWest?.Heroin?.Positivity?.HalfYearly || [],
+            data?.MidWest?.Heroin?.CoPositive?.Quarterly || [],
+            data?.MidWest?.Heroin?.CoPositive?.HalfYearly || []
+          )
+        );
+        setHeroinMidwestData(midwestHeroin);
+      });
+  }, []);
+
   const regionKey = region.toUpperCase();
   const keyFinding = regionKeyFindings[regionKey];
 
   if (regionKey === 'NATIONAL') {
-    const natDatasets = heroinNationalDatasets;
+    const nationalDrugs = [
+      'Heroin',
+      'Heroin with Stimulants',
+      'Heroin without Stimulants',
+    ];
+    const natDatasets = nationalDrugs.map(drug => ({
+      label: drug,
+      color: lineColors[drug],
+      data: alignDataToQuarters(
+        heroinNationalData.filter(d => {
+          const isDrug = (d.drug === drug || d.drug_name === drug);
+          // Only allow Heroin data with percentage in the expected range (e.g., 3-6%)
+          if (drug === 'Heroin') {
+            const pct = parseFloat(d.percentage);
+            return isDrug && pct < 10; // Only render if percentage is less than 10
+          }
+          return isDrug;
+        }).map(d => ({
+          ...d,
+          percentage: parseFloat(d.percentage),
+          ciLower: parseFloat(d.ciLower),
+          ciUpper: parseFloat(d.ciUpper)
+        })),
+        allQuarters
+      )
+    }));
     const natMargin = { top: 60, right: 30, bottom: 50, left: 90 };
     const natAdjustedWidth = width - natMargin.left - natMargin.right;
     const natAdjustedHeight = height - natMargin.top - natMargin.bottom;
@@ -456,7 +400,10 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
     const westDatasets = westDrugs.map(drug => ({
       label: drug,
       color: lineColors[drug],
-      data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'WEST' && d.drug === drug), allQuarters)
+      data: alignDataToQuarters(
+        heroinWestData.filter(d => d.drug === drug),
+        allQuarters
+      )
     }));
     const margin = { top: 60, right: 30, bottom: 50, left: 90 };
     const adjustedWidth = width - margin.left - margin.right;
@@ -730,23 +677,19 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
   }
 
   if (regionKey === 'MIDWEST') {
-    const midwestDatasets = [
-      {
-        label: 'Heroin',
-        color: lineColors['Heroin'],
-        data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'MIDWEST' && d.drug === 'Heroin'), allQuarters)
-      },
-      {
-        label: 'Heroin with Stimulants',
-        color: lineColors['Heroin with Stimulants'],
-        data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'MIDWEST' && d.drug === 'Heroin with Stimulants'), allQuarters)
-      },
-      {
-        label: 'Heroin without Stimulants',
-        color: lineColors['Heroin without Stimulants'],
-        data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'MIDWEST' && d.drug === 'Heroin without Stimulants'), allQuarters)
-      }
+    const midwestDrugs = [
+      'Heroin',
+      'Heroin with Stimulants',
+      'Heroin without Stimulants',
     ];
+    const midwestDatasets = midwestDrugs.map(drug => ({
+      label: drug,
+      color: lineColors[drug],
+      data: alignDataToQuarters(
+        heroinMidwestData.filter(d => d.drug === drug),
+        allQuarters
+      )
+    }));
     const margin = { top: 60, right: 30, bottom: 50, left: 90 };
     const adjustedWidth = width - margin.left - margin.right;
     const adjustedHeight = height - margin.top - margin.bottom;
@@ -1022,7 +965,10 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
     const southDatasets = southDrugs.map(drug => ({
       label: drug,
       color: lineColors[drug],
-      data: alignDataToQuarters(heroinQuarterlyData.filter(d => d.region === 'SOUTH' && d.drug === drug), allQuarters)
+      data: alignDataToQuarters(
+        heroinSouthData.filter(d => d.drug === drug),
+        allQuarters
+      )
     }));
     const margin = { top: 60, right: 30, bottom: 50, left: 90 };
     const adjustedWidth = width - margin.left - margin.right;
@@ -1294,3 +1240,88 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
 }
 
 export default HeroinLineChartRegions;
+
+// Utility to map JSON fields to chart fields
+function mapHeroinSouthData(jsonData) {
+  return jsonData
+    .filter(d => (
+      (d.USregion === 'SOUTH' || d.region === 'SOUTH') &&
+      (
+        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
+        d.drug === 'Heroin' || d.drug === 'Heroin with Stimulants' || d.drug === 'Heroin without Stimulants' ||
+        d.drug_namr === 'Heroin' || d.drug_namr === 'Heroin with Stimulants' || d.drug_namr === 'Heroin without Stimulants'
+      )
+    ))
+    .map(d => ({
+      region: d.USregion || d.region,
+      drug: d.drug_name || d.drug || d.drug_namr,
+      // Support period, quarter, and smon_yr for x-axis
+      quarter: d.period || d.quarter || d.smon_yr,
+      percentage: d.percentage !== undefined ? d.percentage : (d.pepercentage !== undefined ? d.pepercentage : null),
+      ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
+      ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
+      period: d.Period,
+      yrChange: d['Yr change'] || d.Yr_change
+    }))
+    .filter(d => d.percentage !== null && d.quarter !== undefined && d.drug !== undefined);
+}
+
+function mapHeroinWestData(jsonData) {
+  return jsonData
+    .filter(d => (
+      (d.USregion === 'WEST' || d.region === 'WEST') &&
+      (
+        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
+        d.drug === 'Heroin' || d.drug === 'Heroin with Stimulants' || d.drug === 'Heroin without Stimulants'
+      )
+    ))
+    .map(d => ({
+      region: d.USregion || d.region,
+      drug: d.drug_name || d.drug,
+      quarter: d.period || d.quarter,
+      percentage: d.percentage !== undefined ? d.percentage : (d.pepercentage !== undefined ? d.pepercentage : null),
+      ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
+      ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
+      period: d.Period,
+      yrChange: d['Yr change'] || d.Yr_change
+    }))
+    .filter(d => d.percentage !== null && d.quarter !== undefined && d.drug !== undefined);
+}
+
+function mapHeroinNationalData(jsonData) {
+  return jsonData
+    .filter(d => (d.drug_namr === 'Heroin' || d.drug_namr === 'Heroin with Stimulants' || d.drug_namr === 'Heroin without Stimulants' ||
+      d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'))
+    .map(d => ({
+      region: d.USregion || 'NATIONAL',
+      drug: d.drug_namr || d.drug_name,
+      quarter: d.qrt_year || d.quarter,
+      percentage: d.rcent_pos || d.percentage,
+      ciLower: d['CI lower'] || d.ciLower,
+      ciUpper: d['CI upper'] || d.ciUpper,
+      period: d['Period'] || d.period,
+      yrChange: d['Yr change'] || d.yr_change
+    }));
+}
+
+function mapHeroinMidwestData(jsonData) {
+  return jsonData
+    .filter(d => (
+      (d.USregion === 'MIDWEST' || d.region === 'MIDWEST') &&
+      (
+        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
+        d.drug === 'Heroin' || d.drug === 'Heroin with Stimulants' || d.drug === 'Heroin without Stimulants'
+      )
+    ))
+    .map(d => ({
+      region: d.USregion || d.region,
+      drug: d.drug_name || d.drug,
+      quarter: d.period || d.quarter,
+      percentage: d.percentage !== undefined ? d.percentage : (d.pepercentage !== undefined ? d.pepercentage : null),
+      ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
+      ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
+      period: d.Period,
+      yrChange: d['Yr change'] || d.Yr_change
+    }))
+    .filter(d => d.percentage !== null && d.quarter !== undefined && d.drug !== undefined);
+}
