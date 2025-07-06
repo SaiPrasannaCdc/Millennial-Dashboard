@@ -7,110 +7,67 @@ import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 import MethamphetamineSouthsecondlinechart from './MethamphetamineLineChartSouthsecondlinechart';
 
-const southQuarterlyData = [
-  {
-    name: 'Methamphetamine',
-    values: [
-      { quarter: 'Q4 2022', percentage: 9.3, ciLower: 8.8, ciUpper: 9.9 },
-      { quarter: 'Q1 2023', percentage: 8.9, ciLower: 8.4, ciUpper: 9.3 },
-      { quarter: 'Q2 2023', percentage: 9.3, ciLower: 8.8, ciUpper: 9.8 },
-      { quarter: 'Q3 2023', percentage: 9.2, ciLower: 8.7, ciUpper: 9.7 },
-      { quarter: 'Q4 2023', percentage: 9.7, ciLower: 9.2, ciUpper: 10.2 },
-      { quarter: 'Q1 2024', percentage: 9.4, ciLower: 8.9, ciUpper: 9.8 },
-      { quarter: 'Q2 2024', percentage: 9.7, ciLower: 9.2, ciUpper: 10.2 },
-      { quarter: 'Q3 2024', percentage: 11.4, ciLower: 10.9, ciUpper: 11.9 },
-      { quarter: 'Q4 2024', percentage: 11.2, ciLower: 10.7, ciUpper: 11.8 },
-    ]
-  },
-  {
-    name: 'Methamphetamine with Opioids',
-    values: [
-      { quarter: 'Q4 2022', percentage: 3.7, ciLower: 3.4, ciUpper: 4.1 },
-      { quarter: 'Q1 2023', percentage: 3.5, ciLower: 3.2, ciUpper: 3.8 },
-      { quarter: 'Q2 2023', percentage: 3.2, ciLower: 2.9, ciUpper: 3.5 },
-      { quarter: 'Q3 2023', percentage: 3.1, ciLower: 2.8, ciUpper: 3.4 },
-      { quarter: 'Q4 2023', percentage: 3.4, ciLower: 3.1, ciUpper: 3.7 },
-      { quarter: 'Q1 2024', percentage: 2.9, ciLower: 2.6, ciUpper: 3.1 },
-      { quarter: 'Q2 2024', percentage: 3.2, ciLower: 2.9, ciUpper: 3.4 },
-      { quarter: 'Q3 2024', percentage: 3.6, ciLower: 3.3, ciUpper: 3.9 },
-      { quarter: 'Q4 2024', percentage: 3.1, ciLower: 2.8, ciUpper: 3.4 },
-    ]
-  },
-  {
-    name: 'Methamphetamine without Opioids',
-    values: [
-      { quarter: 'Q4 2022', percentage: 5.6, ciLower: 5.2, ciUpper: 6.1 },
-      { quarter: 'Q1 2023', percentage: 5.3, ciLower: 5.0, ciUpper: 5.7 },
-      { quarter: 'Q2 2023', percentage: 5.1, ciLower: 4.7, ciUpper: 5.6 },
-      { quarter: 'Q3 2023', percentage: 5.1, ciLower: 4.7, ciUpper: 5.6 },
-      { quarter: 'Q4 2023', percentage: 5.5, ciLower: 5.1, ciUpper: 6.0 },
-      { quarter: 'Q1 2024', percentage: 6.6, ciLower: 6.2, ciUpper: 7.1 },
-      { quarter: 'Q2 2024', percentage: 6.7, ciLower: 6.3, ciUpper: 7.2 },
-      { quarter: 'Q3 2024', percentage: 7.7, ciLower: 7.3, ciUpper: 8.2 },
-      { quarter: 'Q4 2024', percentage: 8.1, ciLower: 7.7, ciUpper: 8.6 },
-    ]
-  }
-];
-
-// 6 Months data for Southern Census Region
-const south6MonthsData = [
-  {
-    name: 'Methamphetamine',
-    values: [
-      { period: '2022 Jul-Dec', percentage: 9.3, ciLower: 8.8, ciUpper: 9.9 },
-      { period: '2023 Jan-Jun', percentage: 9.1, ciLower: 8.7, ciUpper: 9.7 },
-      { period: '2023 Jul-Dec', percentage: 9.4, ciLower: 9.1, ciUpper: 9.8 },
-      { period: '2024 Jan-Jun', percentage: 9.5, ciLower: 9.2, ciUpper: 9.9 },
-      { period: '2024 Jul-Dec', percentage: 11.3, ciLower: 10.9, ciUpper: 11.7 },
-    ]
-  },
-  {
-    name: 'Methamphetamine with Opioids',
-    values: [
-      { period: '2022 Jul-Dec', percentage: 3.8, ciLower: 3.4, ciUpper: 4.1 },
-      { period: '2023 Jan-Jun', percentage: 3.4, ciLower: 3.2, ciUpper: 3.6 },
-      { period: '2023 Jul-Dec', percentage: 3.3, ciLower: 3.1, ciUpper: 3.5 },
-      { period: '2024 Jan-Jun', percentage: 2.7, ciLower: 2.5, ciUpper: 3.1 },
-      { period: '2024 Jul-Dec', percentage: 3.4, ciLower: 3.2, ciUpper: 3.6 },
-    ]
-  },
-  {
-    name: 'Methamphetamine without Opioids',
-    values: [
-      { period: '2022 Jul-Dec', percentage: 5.6, ciLower: 5.2, ciUpper: 6.1 },
-      { period: '2023 Jan-Jun', percentage: 5.7, ciLower: 5.4, ciUpper: 5.9 },
-      { period: '2023 Jul-Dec', percentage: 6.2, ciLower: 5.9, ciUpper: 6.5 },
-      { period: '2024 Jan-Jun', percentage: 6.6, ciLower: 6.3, ciUpper: 6.9 },
-      { period: '2024 Jul-Dec', percentage: 7.9, ciLower: 7.6, ciUpper: 8.2 },
-    ]
-  }
-];
+// Helper to group by drug_name for multi-line chart (Positivity)
+function getGroupedMethSeries(millenialData, periodType) {
+  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
+  const arr = millenialData?.South?.Methamphetamine?.Positivity?.[periodKey] || [];
+  // Group by drug_name for SOUTH and correct period key
+  const drugs = ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids'];
+  return drugs.map(name => ({
+    name,
+    data: arr.filter(d => d.drug_name === name && d.USregion === 'SOUTH').map(d => ({
+      period: d.period, // Use 'period' for x-axis
+      percentage: parseFloat(d.percentage),
+      ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+      ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+      periodChange: d.Period || d.periodChange || '',
+    }))
+  })).filter(line => line.data.length > 0);
+}
 
 const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [millenialData, setMillenialData] = useState(null);
+  const [periodType, setPeriodType] = useState(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  const [seriesList, setSeriesList] = useState([]);
+  const [allQuarters, setAllQuarters] = useState([]);
 
-  const is6Months = period === '6 Months' || period === 'Half Yearly';
-  const adjustedData = is6Months ? south6MonthsData : southQuarterlyData;
+  useEffect(() => {
+    setPeriodType(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  }, [period]);
+
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+        setMillenialData(data);
+        const grouped = getGroupedMethSeries(data, periodType);
+        setSeriesList(grouped);
+        setAllQuarters(grouped[0] ? grouped[0].data.map(d => d.period) : []);
+      });
+  }, [periodType]);
+
+  const is6Months = periodType === 'HalfYearly';
+  const adjustedData = seriesList;
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  const xDomain = is6Months
-    ? adjustedData[0].values.map(d => d.period)
-    : adjustedData[0].values.map(d => d.quarter);
-  const xAccessor = is6Months
-    ? d => d.period
-    : d => d.quarter;
-
+  const xDomain = allQuarters;
+  const xAccessor = d => d.period; // Use 'period' for x-axis
   const xScale = scaleBand({
     domain: xDomain,
     range: [0, adjustedWidth],
     padding: 0.2,
   });
-
+  // Defensive: check for valid data
+  const hasValidData = adjustedData && adjustedData.length > 0 && adjustedData.some(line => line.data && line.data.length > 0);
+  // Defensive: avoid NaN/Infinity in yMax
+  const yMax = hasValidData ? Math.max(0, ...adjustedData.flatMap(d => d.data.map(v => isFinite(v.percentage) ? v.percentage : 0))) : 0;
   const yScale = scaleLinear({
-    domain: [0, Math.max(...adjustedData.flatMap(d => d.values.map(v => v.percentage)))],
+    domain: [0, yMax],
     range: [adjustedHeight, 0],
     nice: true,
   });
@@ -249,204 +206,205 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
           </>
         )}
       </div>
-      <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
-        <div className="toggle-wrapper" style={{ position: 'relative' }}>
-          {(() => {
-            const percentChgTooltip = `
-              <div style="
-                text-align: center;
-                padding: 16px 12px;
-                color: #222;
-                font-size: 15px;
-                max-width: 260px;
-                min-width: 220px;
-                margin: 0 auto;
-                border-radius: 14px;
-                background: #ededed;
-                box-shadow: 0 2px 12px #bbb3;
-              ">
-                <div style="margin-top: 8px;">
-                  When <b>% Chg</b> is on, hover over the data point for the ${is6Months ? '3 most recent periods' : '5 most recent quarters'} to view percent change from the same period in the previous year and the previous ${is6Months ? '6 months' : 'quarter'}.
+      <>
+        <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
+          <div className="toggle-wrapper" style={{ position: 'relative' }}>
+            {(() => {
+              const percentChgTooltip = `
+                <div style="
+                  text-align: center;
+                  padding: 16px 12px;
+                  color: #222;
+                  font-size: 15px;
+                  max-width: 260px;
+                  min-width: 220px;
+                  margin: 0 auto;
+                  border-radius: 14px;
+                  background: #ededed;
+                  box-shadow: 0 2px 12px #bbb3;
+                ">
+                  <div style="margin-top: 8px;">
+                    When <b>% Chg</b> is on, hover over the data point for the ${is6Months ? '3 most recent periods' : '5 most recent quarters'} to view percent change from the same period in the previous year and the previous ${is6Months ? '6 months' : 'quarter'}.
+                  </div>
                 </div>
-              </div>
-            `;
-            return (
-              <>
-                <label
-                  className="toggle-switch"
-                  data-tip={percentChgTooltip}
-                  data-for="percentChangeTooltip"
-                  style={{ cursor: 'pointer' }}
-                >
-                  <input
-                    type="checkbox"
-                    checked={showPercentChange}
-                    onChange={() => setShowPercentChange(!showPercentChange)}
-                  />
-                  <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
-                </label>
-                <span
-                  className="toggle-label"
-                  style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
-                  data-tip={percentChgTooltip}
-                  data-for="percentChangeTooltip"
-                >
-                  % Chg {showPercentChange ? 'On' : 'Off'}
-                </span>
-                <ReactTooltip
-                  id="percentChangeTooltip"
-                  place="top"
-                  effect="solid"
-                  backgroundColor="#ededed"
-                  border={true}
-                  borderColor="#bbb"
-                  className="simple-tooltip"
-                  html={true}
-                  textColor="#222"
-                />
-              </>
-            );
-          })()}
-        </div>
-        <div className="toggle-wrapper">
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={!showLabels}
-              onChange={() => setShowLabels(!showLabels)}
-            />
-            <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
-          </label>
-          <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
-        </div>
-      </div>
-      <svg width={width} height={height}>
-        <Group left={margin.left} top={margin.top}>
-          {/* Y-axis label */}
-          <text
-            x={-adjustedHeight / 2}
-            y={-margin.left + 15}
-            transform={`rotate(-90)`}
-            textAnchor="middle"
-            fontSize={15}
-            fill="#222"
-            fontFamily="'Segoe UI', 'Arial', 'sans-serif'"
-            fontWeight="600"
-            style={{ letterSpacing: '0.01em' }}
-          >
-            % of people with substance use disorder
-            <tspan x={-adjustedHeight / 2} dy={15}>
-              with drug(s) detected
-            </tspan>
-          </text>
-          <AxisLeft scale={yScale} tickFormat={value => `${value}%`} 
-            tickLabelProps={() => ({
-              fontSize: 16,
-              textAnchor: 'end',
-              dx: -6,
-              dy: 3,
-              fill: '#222',
-            })}
-          />
-          <AxisBottom
-            top={adjustedHeight}
-            scale={xScale}
-            tickLabelProps={() => ({
-              fontSize: 16,
-              textAnchor: 'middle',
-              dy: 10,
-            })}
-          />
-          {adjustedData.map((lineData, index) => (
-            <React.Fragment key={index}>
-              <LinePath
-                data={lineData.values}
-                x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                y={d => yScale(d.percentage)}
-                stroke={
-                  index === 0
-                    ? '#0073e6'
-                    : index === 1
-                    ? '#ff6600'
-                    : '#2457a7'
-                }
-                strokeWidth={2}
-                curve={null}
-              />
-              {lineData.values.map((d, i) => {
-                const percentage = d.percentage;
-                const lowerCI = d.ciLower !== undefined ? d.ciLower : (percentage - 0.5).toFixed(1);
-                const upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
-                const n = lineData.values.length;
-                let showLabel = false;
-                if (!is6Months) {
-                  showLabel = showLabels || (
-                    i === 0 || i === n - 1 || i === n - 2 || i === Math.floor((n - 1) / 2)
-                  );
-                } else {
-                  showLabel = showLabels;
-                }
-                return (
-                  <React.Fragment key={i}>
-                    <Circle
-                      cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                      cy={yScale(percentage)}
-                      r={4}
-                      fill={
-                        index === 0
-                          ? '#0073e6'
-                          : index === 1
-                          ? '#ff6600'
-                          : '#2457a7'
-                      }
-                      data-tip={`<div style='text-align: left;'>
-                        <strong>${xAccessor(d)}</strong><br/>
-                        Methamphetamine positivity: ${percentage}%<br/>
-                        Confidence interval: ${lowerCI}% - ${upperCI}%
-                      </div>`}
+              `;
+              return (
+                <>
+                  <label
+                    className="toggle-switch"
+                    data-tip={percentChgTooltip}
+                    data-for="percentChangeTooltip"
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={showPercentChange}
+                      onChange={() => setShowPercentChange(!showPercentChange)}
                     />
-                    {showLabel && (
-                      <text
-                        x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                        y={yScale(percentage) - 14}
-                        fontSize={12}
-                        textAnchor="middle"
-                        fill="#333"
-                      >
-                        {percentage}%
-                      </text>
-                    )}
-                  </React.Fragment>
-                );
-              })}
-            </React.Fragment>
-          ))}
-          {renderChangeIndicatorsUnified()}
-        </Group>
-      </svg>
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-        {adjustedData.map((lineData, index) => (
-          <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
-            <div
-              style={{
-                width: '30px',
-                height: '2px',
-                backgroundColor:
-                  index === 0
-                    ? '#0073e6'
-                    : index === 1
-                    ? '#ff6600'
-                    : '#2457a7',
-                marginRight: '5px'
-              }}
-            ></div>
-            <span style={{ fontSize: '16px', color: '#333' }}>{lineData.name}</span>
+                    <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
+                  </label>
+                  <span
+                    className="toggle-label"
+                    style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
+                    data-tip={percentChgTooltip}
+                    data-for="percentChangeTooltip"
+                  >
+                    % Chg {showPercentChange ? 'On' : 'Off'}
+                  </span>
+                  <ReactTooltip
+                    id="percentChangeTooltip"
+                    place="top"
+                    effect="solid"
+                    backgroundColor="#ededed"
+                    border={true}
+                    borderColor="#bbb"
+                    className="simple-tooltip"
+                    html={true}
+                    textColor="#222"
+                  />
+                </>
+              );
+            })()}
           </div>
-        ))}
-      </div>
-      <div style={{ height: '32px' }} />
-      <ReactTooltip html={true} />
-
+          <div className="toggle-wrapper">
+            <label className="toggle-switch">
+              <input
+                type="checkbox"
+                checked={!showLabels}
+                onChange={() => setShowLabels(!showLabels)}
+              />
+              <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
+            </label>
+            <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
+          </div>
+        </div>
+        <svg width={width} height={height}>
+          <Group left={margin.left} top={margin.top}>
+            {/* Y-axis label */}
+            <text
+              x={-adjustedHeight / 2}
+              y={-margin.left + 15}
+              transform={`rotate(-90)`}
+              textAnchor="middle"
+              fontSize={15}
+              fill="#222"
+              fontFamily="'Segoe UI', 'Arial', 'sans-serif'"
+              fontWeight="600"
+              style={{ letterSpacing: '0.01em' }}
+            >
+              % of people with substance use disorder
+              <tspan x={-adjustedHeight / 2} dy={15}>
+                with drug(s) detected
+              </tspan>
+            </text>
+            <AxisLeft scale={yScale} tickFormat={value => `${value}%`} 
+              tickLabelProps={() => ({
+                fontSize: 16,
+                textAnchor: 'end',
+                dx: -6,
+                dy: 3,
+                fill: '#222',
+              })}
+            />
+            <AxisBottom
+              top={adjustedHeight}
+              scale={xScale}
+              tickLabelProps={() => ({
+                fontSize: 16,
+                textAnchor: 'middle',
+                dy: 10,
+              })}
+            />
+            {adjustedData.map((lineData, index) => (
+              <React.Fragment key={index}>
+                <LinePath
+                  data={lineData.data}
+                  x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                  y={d => yScale(d.percentage)}
+                  stroke={
+                    index === 0
+                      ? '#0073e6'
+                      : index === 1
+                      ? '#ff6600'
+                      : '#2457a7'
+                  }
+                  strokeWidth={2}
+                  curve={null}
+                />
+                {lineData.data.map((d, i) => {
+                  const percentage = d.percentage;
+                  const lowerCI = d.ciLower !== undefined ? d.ciLower : (percentage - 0.5).toFixed(1);
+                  const upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
+                  const n = lineData.data.length;
+                  let showLabel = false;
+                  if (!is6Months) {
+                    showLabel = showLabels || (
+                      i === 0 || i === n - 1 || i === n - 2 || i === Math.floor((n - 1) / 2)
+                    );
+                  } else {
+                    showLabel = showLabels;
+                  }
+                  return (
+                    <React.Fragment key={i}>
+                      <Circle
+                        cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                        cy={yScale(percentage)}
+                        r={4}
+                        fill={
+                          index === 0
+                            ? '#0073e6'
+                            : index === 1
+                            ? '#ff6600'
+                            : '#2457a7'
+                        }
+                        data-tip={`<div style='text-align: left;'>
+                          <strong>${xAccessor(d)}</strong><br/>
+                          Methamphetamine positivity: ${percentage}%<br/>
+                          Confidence interval: ${lowerCI}% - ${upperCI}%
+                        </div>`}
+                      />
+                      {showLabel && (
+                        <text
+                          x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                          y={yScale(percentage) - 14}
+                          fontSize={12}
+                          textAnchor="middle"
+                          fill="#333"
+                        >
+                          {percentage}%
+                        </text>
+                      )}
+                    </React.Fragment>
+                  );
+                })}
+              </React.Fragment>
+            ))}
+            {renderChangeIndicatorsUnified()}
+          </Group>
+        </svg>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+          {adjustedData.map((lineData, index) => (
+            <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
+              <div
+                style={{
+                  width: '30px',
+                  height: '2px',
+                  backgroundColor:
+                    index === 0
+                      ? '#0073e6'
+                      : index === 1
+                      ? '#ff6600'
+                      : '#2457a7',
+                  marginRight: '5px'
+                }}
+              ></div>
+              <span style={{ fontSize: '16px', color: '#333' }}>{lineData.name}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{ height: '32px' }} />
+        <ReactTooltip html={true} />
+      </>
       {/* --- Render the new MethamphetamineSouthsecondlinechart below --- */}
       <MethamphetamineSouthsecondlinechart width={width} height={350} period={period} />
     </div>

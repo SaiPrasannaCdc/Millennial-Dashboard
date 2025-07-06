@@ -5,77 +5,10 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 
-// Quarterly data for WEST
-const methWestSecondData = [
-  // Fentanyl
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 56.3, ciLower: 55.1, ciUpper: 57.6 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 52.1, ciLower: 50.9, ciUpper: 53.4 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 54.1, ciLower: 52.8, ciUpper: 55.5 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 56.8, ciLower: 55.2, ciUpper: 57.7 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 56.3, ciLower: 55.1, ciUpper: 57.6 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 58.6, ciLower: 57.5, ciUpper: 59.7 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 58.6, ciLower: 57.5, ciUpper: 59.7 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 56.8, ciLower: 55.7, ciUpper: 57.9 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 56.6, ciLower: 55.5, ciUpper: 57.7 },
-  // Heroin
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q4 2022', percentage: 14.8, ciLower: 11.2, ciUpper: 18.2 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q1 2023', percentage: 12, ciLower: 11.2, ciUpper: 12.8 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q2 2023', percentage: 11.9, ciLower: 11.1, ciUpper: 12.7 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q3 2023', percentage: 11.1, ciLower: 10.4, ciUpper: 11.8 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q4 2023', percentage: 9.8, ciLower: 8.4, ciUpper: 9.8 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q1 2024', percentage: 8.8, ciLower: 8.1, ciUpper: 9.8 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q2 2024', percentage: 8.8, ciLower: 8.1, ciUpper: 9.8 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q3 2024', percentage: 15.3, ciLower: 14.4, ciUpper: 16.4 },
-  { region: 'WEST', drug: 'Heroin', quarter: 'Q4 2024', percentage: 17.2, ciLower: 16.4, ciUpper: 18.1 },
-  // Opioids
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q4 2022', percentage: 60.2, ciLower: 58.9, ciUpper: 61.4 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q1 2023', percentage: 55.3, ciLower: 53.8, ciUpper: 56.8 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q2 2023', percentage: 56.9, ciLower: 55.7, ciUpper: 58.1 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q3 2023', percentage: 58.3, ciLower: 57.0, ciUpper: 59.6 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q4 2023', percentage: 59, ciLower: 57.8, ciUpper: 60.2 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q1 2024', percentage: 58.4, ciLower: 57.2, ciUpper: 59.6 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q2 2024', percentage: 60.5, ciLower: 59.4, ciUpper: 61.6 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q3 2024', percentage: 63, ciLower: 59.2, ciUpper: 64.1 },
-  { region: 'WEST', drug: 'Opioids', quarter: 'Q4 2024', percentage: 59, ciLower: 58.1, ciUpper: 60.1 },
-  // Cocaine
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 8.2, ciLower: 7.5, ciUpper: 8.9 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 8.8, ciLower: 8.1, ciUpper: 9.5 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 9.8, ciLower: 9.1, ciUpper: 10.5 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 9.2, ciLower: 8.5, ciUpper: 9.9 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 9.8, ciLower: 9.1, ciUpper: 10.5 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 12.4, ciLower: 11.6, ciUpper: 13.1 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 12.4, ciLower: 11.6, ciUpper: 13.1 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 14.4, ciLower: 13.7, ciUpper: 15.2 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 14.5, ciLower: 13.7, ciUpper: 15.2 },
-];
+const methWestSecondData = [];
 
 // 6 Months data for WEST 
-const methWestSecondData6Months = [
-  // Fentanyl
-  { region: 'WEST', drug: 'Fentanyl', period: '2022 Jul-Dec', percentage: 56.3, ciLower: 55, ciUpper: 57.6 },
-  { region: 'WEST', drug: 'Fentanyl', period: '2023 Jan-Jun', percentage: 53.2, ciLower: 52.3, ciUpper: 54 },
-  { region: 'WEST', drug: 'Fentanyl', period: '2023 Jul-Dec', percentage: 56.6, ciLower: 55.7, ciUpper: 57.5 },
-  { region: 'WEST', drug: 'Fentanyl', period: '2024 Jan-Jun', percentage: 57.6, ciLower: 56.8, ciUpper: 58.5 },
-  { region: 'WEST', drug: 'Fentanyl', period: '2024 Jul-Dec', percentage: 57.4, ciLower: 56.7, ciUpper: 58.2 },
-  // Heroin
-  { region: 'WEST', drug: 'Heroin', period: '2022 Jul-Dec', percentage: 14.8, ciLower: 13.9, ciUpper: 15.7 },
-  { region: 'WEST', drug: 'Heroin', period: '2023 Jan-Jun', percentage: 12, ciLower: 11.4, ciUpper: 12.5 },
-  { region: 'WEST', drug: 'Heroin', period: '2023 Jul-Dec', percentage: 10.1, ciLower: 9.6, ciUpper: 10.6 },
-  { region: 'WEST', drug: 'Heroin', period: '2024 Jan-Jun', percentage: 9, ciLower: 8.5, ciUpper: 9.4 },
-  { region: 'WEST', drug: 'Heroin', period: '2024 Jul-Dec', percentage: 16.2, ciLower: 15.6, ciUpper: 16.7 },
-  // Opioids
-  { region: 'WEST', drug: 'Opioids', period: '2022 Jul-Dec', percentage: 60.2, ciLower: 58.9, ciUpper: 61.4 },
-  { region: 'WEST', drug: 'Opioids', period: '2023 Jan-Jun', percentage: 56, ciLower: 55.2, ciUpper: 56.9 },
-  { region: 'WEST', drug: 'Opioids', period: '2023 Jul-Dec', percentage: 58.7, ciLower: 57.8, ciUpper: 59.5 },
-  { region: 'WEST', drug: 'Opioids', period: '2024 Jan-Jun', percentage: 59.5, ciLower: 58.7, ciUpper: 60.4 },
-  { region: 'WEST', drug: 'Opioids', period: '2024 Jul-Dec', percentage: 59.7, ciLower: 58.9, ciUpper: 60.4 },
-  // Cocaine
-  { region: 'WEST', drug: 'Cocaine', period: '2022 Jul-Dec', percentage: 8.2, ciLower: 7.5, ciUpper: 8.9 },
-  { region: 'WEST', drug: 'Cocaine', period: '2023 Jan-Jun', percentage: 8.5, ciLower: 8.1, ciUpper: 9 },
-  { region: 'WEST', drug: 'Cocaine', period: '2023 Jul-Dec', percentage: 9.7, ciLower: 9.1, ciUpper: 10.2 },
-  { region: 'WEST', drug: 'Cocaine', period: '2024 Jan-Jun', percentage: 12, ciLower: 11.4, ciUpper: 12.5 },
-  { region: 'WEST', drug: 'Cocaine', period: '2024 Jul-Dec', percentage: 14.8, ciLower: 14.3, ciUpper: 15.4 },
-];
+const methWestSecondData6Months = [];
 
 const lineColors = {
   'Fentanyl': '#27ae60',
@@ -83,6 +16,38 @@ const lineColors = {
   'Opioids': '#2980b9',
   'Cocaine': '#d35400',
 };
+
+function getGroupedCoPosSeriesWest(millenialData, periodType) {
+  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
+  const arr = millenialData?.West?.Methamphetamine?.CoPositive?.[periodKey] || [];
+  const drugs = ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine'];
+  return drugs.map(name => ({
+    label: name,
+    color: lineColors[name] || '#0073e6',
+    data: arr.filter(d => (d.drug_nam === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
+      quarter: d.period, // Use 'period' for x-axis for quarterly
+      period: d.smon_yr || d.period, // Use 'smon_yr' for halfyearly, fallback to 'period'
+      percentage: parseFloat(d.percentage),
+      ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
+      ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),
+    }))
+  })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesWestHalfYearly(millenialData) {
+  const arr = millenialData?.West?.Methamphetamine?.CoPositive?.HalfYearly || [];
+  const drugs = ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine'];
+  return drugs.map(name => ({
+    label: name,
+    color: lineColors[name] || '#0073e6',
+    data: arr.filter(d => (d.drug_nam === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
+      period: d.smon_yr,
+      percentage: parseFloat(d.percentage),
+      ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
+      ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),
+    }))
+  })).filter(line => line.data.length > 0);
+}
 
 const allQuarters = [
   'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
@@ -92,50 +57,68 @@ const allPeriods6M = [
   '2022 Jul-Dec', '2023 Jan-Jun', '2023 Jul-Dec', '2024 Jan-Jun', '2024 Jul-Dec'
 ];
 
-function alignDataToQuarters(data, quarters, labelField = 'quarter') {
-  const drugs = [...new Set(data.map(d => d.drug))];
-  return drugs.map(drug => ({
-    label: drug,
-    color: lineColors[drug] || '#0073e6',
-    data: quarters.map(q => {
-      const found = data.find(d => d.drug === drug && d[labelField] === q);
-      return found ? found : { [labelField]: q, percentage: null, ciLower: null, ciUpper: null };
-    })
-  }));
-}
-
 const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period = 'Quarterly' }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
+  const [millenialData, setMillenialData] = useState(null);
+  const [periodType, setPeriodType] = useState(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  const [seriesList, setSeriesList] = useState([]);
+  const [allPeriods, setAllPeriods] = useState([]);
   const allLineKeys = Object.keys(lineColors);
 
-  const margin = { top: 60, right: 30, bottom: 50, left: 90 };
-  const adjustedWidth = width - margin.left - margin.right;
-  const adjustedHeight = height - margin.top - margin.bottom;
+  useEffect(() => {
+    setPeriodType(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  }, [period]);
 
-  const is6M = period === '6 Months' || period === 'Half Yearly';
-  const regionData = is6M
-    ? methWestSecondData6Months.filter(d => d.region === 'WEST')
-    : methWestSecondData.filter(d => d.region === 'WEST');
-  const xDomain = is6M ? allPeriods6M : allQuarters;
-  const xLabelField = is6M ? 'period' : 'quarter';
-  const datasets = alignDataToQuarters(regionData, xDomain, xLabelField);
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+        setMillenialData(data);
+        let grouped;
+        if (periodType === 'HalfYearly') {
+          grouped = getGroupedCoPosSeriesWestHalfYearly(data);
+          setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.period) : []);
+        } else {
+          grouped = getGroupedCoPosSeriesWest(data, periodType);
+          setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.quarter) : []);
+        }
+        setSeriesList(grouped);
+      });
+  }, [periodType]);
 
+  // Place xScale after xDomain and before any render logic that uses it
   const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
+    domain: allPeriods,
+    range: [0, width - 90 - 30],
     padding: 0.2,
   });
-  const yMax = Math.max(...datasets.flatMap(ds => ds.data.map(d => d.percentage || 0)), 100);
+
+  // Filter and align data for the selected period
+  const alignedDatasets = seriesList.map(ds => ({
+    ...ds,
+    data: (period === '6 Months' || period === 'Half Yearly'
+      ? allPeriods6M.map(q => ds.data.find(d => d.period === q) || { period: q, percentage: null, ciLower: null, ciUpper: null })
+      : allQuarters.map(q => ds.data.find(d => d.quarter === q) || { quarter: q, percentage: null, ciLower: null, ciUpper: null })
+    )
+  }));
+
+  // Use the correct yMax for 6 months and quarterly
+  const yMax = Math.max(...alignedDatasets.flatMap(ds => ds.data.map(d => d.percentage || 0)), 100);
   const yScale = scaleLinear({
     domain: [0, yMax > 100 ? yMax : 100],
-    range: [adjustedHeight, 0],
+    range: [height - 60 - 30, 0],
     nice: true,
   });
 
+  const is6M = periodType === 'HalfYearly';
+  const xDomain = allPeriods;
+  const xLabelField = is6M ? 'period' : 'quarter';
+  const datasets = seriesList;
+
   const mainLineLabel = "Fentanyl";
-  const mainLine = datasets.find(line => line.label === mainLineLabel);
+  const mainLine = alignedDatasets.find(line => line.label === mainLineLabel);
   let keyFinding = null;
   if (mainLine) {
     const validPoints = mainLine.data.filter(
@@ -182,7 +165,7 @@ const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period
 
   const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
-    return datasets
+    return alignedDatasets
       .filter(ds => selectedLines.includes(ds.label))
       .map((ds, dsIdx) => {
         const lineData = ds.data;
@@ -237,12 +220,16 @@ const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period
       });
   };
 
+  const margin = { top: 60, right: 30, bottom: 50, left: 90 };
+  const adjustedWidth = width - margin.left - margin.right;
+  const adjustedHeight = height - margin.top - margin.bottom;
+
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', marginBottom: 40 }}>
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
-            {is6M
+            {period === '6 Months' || period === 'Half Yearly'
               ? 'How often do people with a substance use disorder test positive for fentanyl, heroin, opioids, or cocaine: Western Census Region Jul 2022 – Dec 2024. Millennium Health, Western Census Region Jul 2022 – Dec 2024'
               : 'How often do people with a substance use disorder test positive for fentanyl, heroin, opioids, or cocaine: Western Census Region Q4 2022 – Q4 2024. Millennium Health, Western Census Region Q4 2022 – Q4 2024'}
           </h3>
@@ -392,7 +379,7 @@ const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period
         ))}
       </div>
       <svg width={width} height={height}>
-        <Group left={margin.left} top={margin.top}>
+        <Group left={90} top={60}>
           <text
             x={-70}
             y={adjustedHeight / 2}
@@ -428,7 +415,7 @@ const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period
               dy: 10,
             })}
           />
-          {datasets
+          {alignedDatasets
             .filter(ds => selectedLines.includes(ds.label))
             .map((ds, idx) => (
               <React.Fragment key={ds.label}>
