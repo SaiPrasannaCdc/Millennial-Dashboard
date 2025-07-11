@@ -1,7 +1,5 @@
 import { useEffect, useCallback, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
-import FentanylPositiveChart from './components/FentanylPositiveChart.js';
-import Positivefentanyl from './components/Positivefentanyl.js';
 import Dropdowns from './dropdowns';
 import StatsCards from './components/StatsCards'; // Import the StatsCards component
 import LineChartWithToggles from './components/LineChartWithToggles'; // Import the LineChartWithToggles component

@@ -1,9 +1,0 @@
-#drug-combination-chart-container {
-  width: 100%;
-  height: 425px;
-  position: relative;
-}
-
-.App.small-vp #drug-combination-chart-container {
-  height: 500px;
-}
