@@ -1,7 +1,10 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useMemo, useRef } from 'react';
 import ReactTooltip from 'react-tooltip';
 import Dropdowns from './dropdowns';
 import StatsCards from './components/StatsCards'; // Import the StatsCards component
+import debounce from 'lodash.debounce';
+import LineChartOne from './components/LineChartOne';
+
 import LineChartWithToggles from './components/LineChartWithToggles'; // Import the LineChartWithToggles component
 import MethamphetamineLineChart from './components/MethamphetamineLineChart'; // Import the new MethamphetamineLineChart component
 import PositiveHeroinChart from './components/PositiveHeroinChart'; 
@@ -19,8 +22,10 @@ import CocaineSixMonthsLineChart from './components/CocaineSixMonthsLineChart'; 
 import FentanylLineChart6Months from './components/FentanylLineChart6Months';
 import HeroinSecondLineChart from './components/HeroinSecondLineChart';
 import HeroinSecondLineChartBelowCocaine from './components/HeroinSecondLineChartBelowCocaine';
-import { NationalMultiDrugLineChart } from './components/Fentanyl6monthsecondlinechart';
+import { NationalMultiDrugLineChart } from './components/NationalMultiDrugLineChart';
 import Heroin6Monthssecondlinechart from './components/Heroin6Monthssecondlinechart';
+
+
 
 function App() {
   const viewportCutoffSmall = 550;
@@ -31,23 +36,80 @@ function App() {
   const [selectedRegion, setSelectedRegion] = useState('National');
   const [selectedDrug, setSelectedDrug] = useState('fentanyl');
 
-  const resizeObserver = new ResizeObserver(entries => {
-    const { width, height } = entries[0].contentRect;
+  const [width, setWidth] = useState(0);
 
-    if (width !== dimensions.width || height !== dimensions.height) {
-      setDimensions({ width, height });
+  const isSmallViewport = width < 500;
+
+  const lineChartRef = useRef();
+
+  const debouncedSetWidth = useMemo(
+    () => debounce(setWidth, 300)
+    , []);
+
+  const resizeObserver = new ResizeObserver(entries => {
+    const { width: newWidth } = entries[0].contentRect;
+
+    if (newWidth !== width) {
+      debouncedSetWidth(newWidth);
     }
   });
 
   const outerContainerRef = useCallback(node => {
     if (node !== null) {
       resizeObserver.observe(node);
-    }
+    } // eslint-disable-next-line
   }, []);
 
-  console.log('Selected Region:', selectedRegion);
-  console.log('Selected Drug:', selectedDrug);
-  console.log('Selected Period:', selectedPeriod);
+  const getRegionDesc = (reg) => {
+    var desc = ''
+    switch (reg) {
+            case 'National':
+              desc = 'United States Region'
+              break;
+            case 'NORTH':
+              desc = 'Northeast Census Region'
+              break; 
+            case 'MIDWEST':
+              desc = 'Midwest Census Region'
+              break; 
+            case 'SOUTH':
+              desc = 'Southern Census Region'
+              break; 
+            case 'WEST':
+              desc = 'Western Census Region'
+              break; 
+            default:
+              desc = '';
+        }
+
+    return desc;
+  };
+
+  const lineChartMemo = useMemo(() =>
+  <>
+    <table style={{width: '100%'}}>
+      <tr>
+        <td>
+          <div class="containerLC">
+            <div class={"chartDivAll"} ref={lineChartRef}>
+              <LineChartOne 
+              data={''}
+              currentDrug={selectedDrug}
+              region={selectedRegion}
+              width={width}
+              height={450}
+              el={lineChartRef}
+              period={selectedPeriod}
+              />
+            </div>
+          </div>
+        </td>
+      </tr>
+    
+    </table>
+  </>,
+  [selectedDrug, width, selectedRegion, selectedPeriod]);
+
 
   return (
     <div
@@ -63,6 +125,20 @@ function App() {
         onDrugChange={setSelectedDrug}
       />
       <StatsCards />
+
+      <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
+        <div style={{ textAlign: 'center' }}>
+          <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
+            How often do people with a substance use disorder test positive for {selectedDrug} on urine drug tests:
+          </h3>
+          <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
+            Millennium Health, {getRegionDesc(selectedRegion)} {selectedPeriod == 'Quarterly' ? 'Q4 2022 - Q4 2024' : 'Jan 2023 - Dec 2024 (6 Months)'}
+          </p>
+        </div>
+      </div>
+
+      {lineChartMemo}
+
       {selectedRegion === 'National' && selectedDrug === 'fentanyl' && (
         <>
           <LineChartWithToggles period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
