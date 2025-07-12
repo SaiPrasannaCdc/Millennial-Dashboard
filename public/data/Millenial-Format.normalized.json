@@ -8640,7 +8640,7 @@
           {
             "USregion": "NORTH",
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 2,
             "ciLower": 1.5,
             "ciUpper": 2.4,
@@ -8650,7 +8650,7 @@
           {
             "USregion": "NORTH",
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 2.1,
             "ciLower": 1.8,
             "ciUpper": 2.5,
@@ -8660,7 +8660,7 @@
           {
             "USregion": "NORTH",
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 1.7,
             "ciLower": 1.5,
             "ciUpper": 2,
@@ -8670,7 +8670,7 @@
           {
             "USregion": "NORTH",
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 1.8,
             "ciLower": 1.5,
             "ciUpper": 2.1,
@@ -8680,7 +8680,7 @@
           {
             "USregion": "NORTH",
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 2,
             "ciLower": 1.7,
             "ciUpper": 2.3,
@@ -8700,7 +8700,7 @@
           {
             "USregion": "NORTH",
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 4.5,
             "ciLower": 4,
             "ciUpper": 5.1,
@@ -8710,7 +8710,7 @@
           {
             "USregion": "NORTH",
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 5.4,
             "ciLower": 4.9,
             "ciUpper": 5.9,
@@ -8720,7 +8720,7 @@
           {
             "USregion": "NORTH",
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 5.5,
             "ciLower": 5,
             "ciUpper": 5.9,
@@ -8730,7 +8730,7 @@
           {
             "USregion": "NORTH",
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 6,
             "ciLower": 5.5,
             "ciUpper": 6.5,
