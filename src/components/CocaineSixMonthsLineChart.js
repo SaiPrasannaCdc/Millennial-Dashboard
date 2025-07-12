@@ -435,7 +435,6 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450, showMul
       data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
         period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
         percentage: parseFloat(d.percentage),
-        percentage: parseFloat(d.percentage),
         ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
         ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
         annual: d.Annual || d['Yr_change'] || d.yr_change || '',
@@ -470,7 +469,6 @@ function getGroupedCoPosSeriesMidwest(millenialData) {
       data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
         period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
         percentage: parseFloat(d.percentage),
-        percentage: parseFloat(d.percentage),
         ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
         ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
         annual: d.Annual || d['Yr_change'] || d.yr_change || '',
@@ -488,7 +486,6 @@ function getGroupedCoPosSeriesSouth(millenialData) {
       data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
         period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
         percentage: parseFloat(d.percentage),
-        percentage: parseFloat(d.percentage),
         ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
         ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
         annual: d.Annual || d['Yr_change'] || d.yr_change || '',
@@ -505,7 +502,6 @@ function getGroupedCoPosSeriesNorth(millenialData) {
       label: name,
       data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
         period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
-        percentage: parseFloat(d.percentage),
         percentage: parseFloat(d.percentage),
         ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
         ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),

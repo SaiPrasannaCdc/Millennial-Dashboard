@@ -34,7 +34,7 @@ function getGroupedSeries(millenialData, periodType, metric) {
   const colorMap = {
     'Fentanyl': '#0073e6',
     'Fentanyl with Stimulants': '#e4572e',
-    'Fentanyl without stimulants': '#2e86ab',
+    'Fentanyl without Stimulants': '#2e86ab',
     'Heroin': '#8e44ad',
     'Cocaine': '#d35400',
     'Methamphetamine': '#2980b9',
@@ -43,7 +43,7 @@ function getGroupedSeries(millenialData, periodType, metric) {
   const legendMap = {
     'Fentanyl': 'Fentanyl (All)',
     'Fentanyl with Stimulants': 'Fentanyl with Stimulants',
-    'Fentanyl without stimulants': 'Fentanyl without Stimulants',
+    'Fentanyl without Stimulants': 'Fentanyl without Stimulants',
     'Heroin': 'Heroin',
     'Cocaine': 'Cocaine',
     'Methamphetamine': 'Methamphetamine',

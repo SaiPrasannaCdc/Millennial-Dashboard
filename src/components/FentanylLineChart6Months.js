@@ -28,7 +28,7 @@ const fentanylSixMonthsData = {
       { period: '2024 Jan-Jun', percentage: 19.1, ciLower: 18.6, ciUpper: 19.5 },
       { period: '2024 Jul-Dec', percentage: 15.2, ciLower: 14.7, ciUpper: 15.7 },
     ],
-    "Fentanyl without stimulants": [
+    "Fentanyl without Stimulants": [
       { period: '2022 Jul-Dec', percentage: 6.5, ciLower: 6.2, ciUpper: 6.8 },
       { period: '2023 Jan-Jun', percentage: 5.0, ciLower: 4.8, ciUpper: 5.2 },
       { period: '2023 Jul-Dec', percentage: 4.5, ciLower: 4.3, ciUpper: 4.7 },
@@ -51,7 +51,7 @@ const fentanylSixMonthsData = {
       { period: '2024 Jan-Jun', percentage: 9.0, ciLower: 8.7, ciUpper: 9.4 },
       { period: '2024 Jul-Dec', percentage: 6.5, ciLower: 6.2, ciUpper: 6.8 },
     ],
-    "Fentanyl without stimulants": [
+    "Fentanyl without Stimulants": [
       { period: '2022 Jul-Dec', percentage: 4.4, ciLower: 4.1, ciUpper: 4.7 },
       { period: '2023 Jan-Jun', percentage: 4.1, ciLower: 3.9, ciUpper: 4.3 },
       { period: '2023 Jul-Dec', percentage: 4.8, ciLower: 4.6, ciUpper: 5.0 },
@@ -72,7 +72,7 @@ const fentanylSixMonthsData = {
       { period: '2023 Jul-Dec', percentage: 3.8, ciLower: 3.4, ciUpper: 4.2 },
       { period: '2024 Jan-Jun', percentage: 3.2, ciLower: 2.9, ciUpper: 3.6 },
     ],
-    "Fentanyl without stimulants": [
+    "Fentanyl without Stimulants": [
       { period: '2022 Jul-Dec', percentage: 2.9, ciLower: 2.6, ciUpper: 3.2 },
       { period: '2023 Jan-Jun', percentage: 2.5, ciLower: 2.3, ciUpper: 2.8 },
       { period: '2023 Jul-Dec', percentage: 2.4, ciLower: 2.2, ciUpper: 2.6 },
@@ -94,7 +94,7 @@ const fentanylSixMonthsData = {
       { period: '2024 Jan-Jun', percentage: 8.5, ciLower: 8.0, ciUpper: 8.9 },
       { period: '2024 Jul-Dec', percentage: 7.0, ciLower: 6.5, ciUpper: 7.4 },
     ],
-    "Fentanyl without stimulants": [
+    "Fentanyl without Stimulants": [
       { period: '2022 Jul-Dec', percentage: 4.6, ciLower: 4.2, ciUpper: 5.2 },
       { period: '2023 Jan-Jun', percentage: 4.9, ciLower: 4.6, ciUpper: 5.2 },
       { period: '2023 Jul-Dec', percentage: 4.3, ciLower: 4.1, ciUpper: 4.6 },
@@ -107,12 +107,13 @@ const fentanylSixMonthsData = {
 const COLORS = {
   "Fentanyl": "#1f77b4",
   "Fentanyl with Stimulants": "#e15759",
-  "Fentanyl without stimulants": "#4daf4a"
+  "Fentanyl without Stimulants": "#4daf4a"
 };
 
 const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [fentanylSixMonthsData, setFentanylSixMonthsData] = useState([]);
 
   const getshowLabels = (len, i) =>
   {
@@ -137,32 +138,10 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
   const regionKey = normalizeRegion(region);
 
   // Generalize all logic for multi-drug regions
-  const data = fentanylSixMonthsData[regionKey] || [];
-  const isMultiDrugRegion = data && !Array.isArray(data);
-  const drugKeys = isMultiDrugRegion ? Object.keys(data) : null;
-  const xDomain = isMultiDrugRegion
-    ? data[drugKeys[0]].map(d => d.period)
-    : data.map(d => d.period);
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
-
-  const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
-    padding: 0.2,
-  });
-
-  const yMax = isMultiDrugRegion
-    ? Math.max(...drugKeys.flatMap(drug => data[drug].map(d => d.percentage)))
-    : Math.max(...data.map(d => d.percentage));
-
-  const yScale = scaleLinear({
-    domain: [0, yMax],
-    range: [adjustedHeight, 0],
-    nice: true,
-  });
 
   // Helper for rendering lines and points for multi-drug regions
   const renderMultiDrugLines = () => {
@@ -307,6 +286,122 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange, regionKey]);
+
+  
+function getGroupedCoPosSeriesWest(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.West?.Fentanyl?.Positivity?.[periodKey] || [];
+    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesMidwest(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.MidWest?.Fentanyl?.Positivity?.[periodKey] || [];
+    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesSouth(millenialData) {
+
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.South?.Fentanyl?.Positivity?.[periodKey] || [];
+    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesNorth(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.North?.Fentanyl?.Positivity?.[periodKey] || [];
+    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+} 
+
+   useEffect(() => {
+        fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+          .then(res => res.json())
+          .then(data => {
+
+        const wData = getGroupedCoPosSeriesWest(data);
+        const mwData = getGroupedCoPosSeriesMidwest(data);
+        const sData = getGroupedCoPosSeriesSouth(data);
+        const neData = getGroupedCoPosSeriesNorth(data);
+
+        var sixMData = {};
+
+        sixMData['West'] = {'Fentanyl' : wData[0].data, 'Fentanyl with Stimulants' : wData[1].data, 'Fentanyl without Stimulants' : wData[2].data};
+        sixMData['Midwest'] = {'Fentanyl' : mwData[0].data, 'Fentanyl with Stimulants' : mwData[1].data, 'Fentanyl without Stimulants' : mwData[2].data};
+        sixMData['South'] = {'Fentanyl' : sData[0].data, 'Fentanyl with Stimulants' : sData[1].data, 'Fentanyl without Stimulants' : sData[2].data};
+        sixMData['Northeast'] = {'Fentanyl' : neData[0].data, 'Fentanyl with Stimulants' : neData[1].data, 'Fentanyl without Stimulants' : neData[2].data};;
+        
+        setFentanylSixMonthsData(sixMData);
+
+          });
+      }, []); 
+
+  const data = fentanylSixMonthsData[regionKey] || [];
+  const isMultiDrugRegion = data && !Array.isArray(data);
+  const drugKeys = isMultiDrugRegion ? Object.keys(data) : null;
+
+  const xDomain = isMultiDrugRegion
+    ? data[drugKeys[0]].map(d => d.period)
+    : data.map(d => d.period);
+    
+  const xScale = scaleBand({
+    domain: xDomain,
+    range: [0, adjustedWidth],
+    padding: 0.2,
+  });
+
+  const yMax = isMultiDrugRegion
+    ? Math.max(...drugKeys.flatMap(drug => data[drug].map(d => d.percentage)))
+    : Math.max(...data.map(d => d.percentage));
+
+  const yScale = scaleLinear({
+    domain: [0, yMax],
+    range: [adjustedHeight, 0],
+    nice: true,
+  });
 
   if ((regionKey === "West" && !data) || (regionKey !== "West" && data.length === 0)) {
     return (
@@ -518,7 +613,7 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
         </Group>
       </svg>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-        {regionKey === "West" ? (
+        {(regionKey === "West" && drugKeys != null) ? (
           <div style={{ display: 'flex', gap: '24px' }}>
             {drugKeys.map(drug => (
               <div key={drug} style={{ display: 'flex', alignItems: 'center' }}>
