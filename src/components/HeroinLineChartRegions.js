@@ -1295,7 +1295,7 @@ function mapHeroinNationalData(jsonData) {
     .map(d => ({
       region: d.USregion || 'NATIONAL',
       drug: d.drug_name || d.drug_name,
-      quarter: d.qrt_year || d.quarter,
+      quarter: d.quarter,
       percentage: d.rcent_pos || d.percentage,
       ciLower: d['CI lower'] || d.ciLower,
       ciUpper: d['CI upper'] || d.ciUpper,

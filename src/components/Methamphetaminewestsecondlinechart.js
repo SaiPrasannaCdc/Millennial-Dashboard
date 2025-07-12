@@ -24,7 +24,7 @@ function getGroupedCoPosSeriesWest(millenialData, periodType) {
   return drugs.map(name => ({
     label: name,
     color: lineColors[name] || '#0073e6',
-    data: arr.filter(d => (d.drug_nam === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
+    data: arr.filter(d => (d.drug_name === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
       quarter: d.period, // Use 'period' for x-axis for quarterly
       period: d.smon_yr || d.period, // Use 'smon_yr' for halfyearly, fallback to 'period'
       percentage: parseFloat(d.percentage),
@@ -40,7 +40,7 @@ function getGroupedCoPosSeriesWestHalfYearly(millenialData) {
   return drugs.map(name => ({
     label: name,
     color: lineColors[name] || '#0073e6',
-    data: arr.filter(d => (d.drug_nam === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
+    data: arr.filter(d => (d.drug_name === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
       period: d.smon_yr,
       percentage: parseFloat(d.percentage),
       ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),

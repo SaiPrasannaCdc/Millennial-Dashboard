@@ -7,7 +7,7 @@ import ReactTooltip from 'react-tooltip';
 
 // 6 Months data for all regions
 const heroin6MonthsData2 = {
-  NORTHEAST: [
+  NORTH: [
     {
       name: 'Fentanyl',
       values: [
@@ -244,7 +244,7 @@ function alignDataToPeriods(drugData) {
 // Add this function before your component
 function normalizeRegionKey(region) {
   const key = (region || '').toUpperCase().trim();
-  if (key.includes('NORTHEAST')) return 'NORTHEAST';
+  if (key.includes('NORTH')) return 'NORTH';
   if (key.includes('MIDWEST')) return 'MIDWEST';
   if (key.includes('SOUTH')) return 'SOUTH';
   if (key.includes('WEST')) return 'WEST';

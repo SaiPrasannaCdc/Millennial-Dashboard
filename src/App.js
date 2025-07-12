@@ -141,18 +141,18 @@ function App() {
             </>
           )
       )}
-      {selectedRegion.toUpperCase() === 'NORTHEAST' && selectedDrug === 'heroin' && (
+      {selectedRegion.toUpperCase() === 'NORTH' && selectedDrug === 'heroin' && (
         selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
           ? (
             <>
               <HeroinLineChartRegions6months region="Northeast" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="NORTHEAST" width={1100} height={450} />
+              <Heroin6Monthssecondlinechart region="NORTH" width={1100} height={450} />
             </>
           )
           : (
             <>
               <HeroinLineChartRegions region="Northeast" period={selectedPeriod} />
-              <HeroinSecondLineChart region="NORTHEAST" width={1100} height={450} />
+              <HeroinSecondLineChart region="NORTH" width={1100} height={450} />
             </>
           )
       )}
@@ -205,7 +205,7 @@ function App() {
           <CocaineSixMonthsLineChart region="South" showMultiDrug={true} />
         </>
       )}
-      {(selectedRegion.toUpperCase() === 'NORTHEAST' || selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {(selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
         <>
           <CocaineSixMonthsLineChart region="Northeast" showMultiDrug={true} />
         </>
@@ -222,7 +222,7 @@ function App() {
           <NationalMultiDrugLineChart region="Midwest" />
         </>
       )}
-      {(selectedRegion.toUpperCase() === 'NORTHEAST' || selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {(selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
         <>
           <FentanylLineChart6Months region="Northeast" />
           <NationalMultiDrugLineChart region="Northeast" />

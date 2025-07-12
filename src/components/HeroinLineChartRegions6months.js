@@ -38,7 +38,7 @@ function alignDataToPeriods(drugData) {
 // Add this function before your component
 function normalizeRegionKey(region) {
   const key = (region || '').toUpperCase().trim();
-  if (key.includes('NORTHEAST')) return 'NORTHEAST';
+  if (key.includes('NORTH')) return 'NORTH';
   if (key.includes('MIDWEST')) return 'MIDWEST';
   if (key.includes('SOUTH')) return 'SOUTH';
   if (key.includes('WEST')) return 'WEST';
@@ -81,6 +81,7 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
     fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
       .then(res => res.json())
       .then(data => {
+
         const periods = [
           '2022 Jul-Dec', '2023 Jan-Jun', '2023 Jul-Dec', '2024 Jan-Jun', '2024 Jul-Dec'
         ];
@@ -135,43 +136,43 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
           })
         }));
         setHeroinWest6MData(heroinWest);
+
         // NORTHEAST
         const heroinNortheast = drugs.map(drug => ({
           name: drug,
           values: periods.map(period => {
             // Flexible period and drug name matching for Northeast
-            const d = (data?.Northeast?.Heroin?.Positivity?.HalfYearly || []).find(x => {
-              const drugMatch = (x.drug_name === drug || x.drug_name === drug || x.drug_nam === drug);
-              const regionMatch = (x.USregion === 'NORTHEAST' || x.USregion === 'NORTH');
-              // Match by year and first 3 letters of month
-              const periodNorm = period.slice(0, 4) + period.slice(5, 8);
-              const qrtYearNorm = (x.qrt_year || '').slice(0, 4) + (x.qrt_year || '').slice(5, 8);
-              return drugMatch && regionMatch && periodNorm === qrtYearNorm;
+            const arr = data?.North?.Heroin?.Positivity?.HalfYearly || [];
+            const d = arr.find(x => {
+              const drugMatch = (x.drug_name === drug);
+              const regionMatch = (x.USregion === 'NORTH');
+              const periodMatch = x.period === period;
+              return drugMatch && regionMatch && periodMatch;
             });
             return d ? {
-              period: d.qrt_year,
-              percentage: d.rcent_pos,
-              ciLower: d['CI lower'] || d['CI_lower'],
-              ciUpper: d['CI upper'] || d['CI_upper'],
-              periodChange: d['Period'],
-              yrChange: d['Yr change'] || d['Yr_change']
+              period: d.period,
+              percentage: d.percentage !== undefined ? parseFloat(d.percentage) : null,
+              ciLower: d.ciLower !== undefined ? parseFloat(d.ciLower) : null,
+              ciUpper: d.ciUpper !== undefined ? parseFloat(d.ciUpper) : null,
+              periodChange: d.Period || '',
+              yrChange: d['Yr change'] !== undefined ? d['Yr change'] : ''
             } : { period, percentage: null, ciLower: null, ciUpper: null };
           })
         }));
         setHeroinNortheast6MData(heroinNortheast);
+
         // NATIONAL
         const heroinNational = drugs.map(drug => ({
           name: drug,
           values: periods.map(period => {
             // National data: match by drug_name and period
             const d = (data?.National?.Heroin?.Positivity?.HalfYearly || []).find(x => {
-              const drugMatch = (x.drug_name === drug || x.drug_name === drug || x.drug_nam === drug);
-              // Accept both 'period' and 'qrt_year' keys for period
-              const periodMatch = (x.period === period || x.qrt_year === period);
+              const drugMatch = (x.drug_name === drug || x.drug_name === drug || x.drug_name === drug);
+              const periodMatch = (x.period === period);
               return drugMatch && periodMatch;
             });
             return d ? {
-              period: d.period || d.qrt_year,
+              period: d.period,
               percentage: d.percentage ? parseFloat(d.percentage) : (d.rcent_pos ? parseFloat(d.rcent_pos) : null),
               ciLower: d.ciLower ? parseFloat(d.ciLower) : (d['CI lower'] ? parseFloat(d['CI lower']) : null),
               ciUpper: d.ciUpper ? parseFloat(d.ciUpper) : (d['CI upper'] ? parseFloat(d['CI upper']) : null),
@@ -207,7 +208,7 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
       });
   }, []);
 
-  const adjustedDataRaw = regionKey === 'SOUTH' ? heroinSouth6MData : regionKey === 'WEST' ? heroinWest6MData : regionKey === 'NORTHEAST' ? heroinNortheast6MData : regionKey === 'NATIONAL' ? heroinNational6MData : regionKey === 'MIDWEST' ? heroinMidwest6MData : (heroin6MonthsData[regionKey] || heroin6MonthsData['SOUTH']);
+  const adjustedDataRaw = regionKey === 'SOUTH' ? heroinSouth6MData : regionKey === 'WEST' ? heroinWest6MData : regionKey === 'NORTH' ? heroinNortheast6MData : regionKey === 'NATIONAL' ? heroinNational6MData : regionKey === 'MIDWEST' ? heroinMidwest6MData : (heroin6MonthsData[regionKey] || heroin6MonthsData['SOUTH']);
   const adjustedData = alignDataToPeriods(adjustedDataRaw);
 
   useEffect(() => {

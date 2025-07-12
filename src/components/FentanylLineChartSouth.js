@@ -6,25 +6,6 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-// Helper to normalize keys for both Quarterly and HalfYearly
-function getSouthFentanylData(millenialData, metric, period) {
-  let data = [];
-  if (
-    millenialData?.South?.Fentanyl?.[metric]?.[period] &&
-    Array.isArray(millenialData.South.Fentanyl[metric][period])
-  ) {
-    data = millenialData.South.Fentanyl[metric][period].map(d => ({
-      quarter: d.qrt_year || d.smon_yr || d.quarter || d.period,
-      percentage: parseFloat(d.rcent_pos || d.percent_pos || d.percentage),
-      ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
-      ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),
-      period: d.Period || d.period,
-      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-    })).filter(d => !isNaN(d.percentage));
-  }
-  return data;
-}
-
 // Helper to group by drug_name for multi-line chart (Positivity or CoPositive)
 function getGroupedSeries(millenialData, periodType, metric) {
   const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
@@ -41,7 +22,7 @@ function getGroupedSeries(millenialData, periodType, metric) {
     const name = d.drug_name;
     if (!groups[name]) groups[name] = [];
     groups[name].push({
-      quarter: d.qrt_year || d.smon_yr || d.quarter || d.period,
+      quarter: d.smon_yr || d.quarter || d.period,
       percentage: parseFloat(d.percentage),
       ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
       ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),

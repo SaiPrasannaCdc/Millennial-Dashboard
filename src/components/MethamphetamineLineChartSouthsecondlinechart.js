@@ -19,7 +19,7 @@ function getGroupedCoPosSeries(millenialData, periodType) {
   return drugs.map(name => ({
     label: name,
     color: lineColors[name] || '#0073e6',
-    data: arr.filter(d => (d.drug_nam === name || d.drug_name === name) && d.USregion === 'SOUTH').map(d => ({
+    data: arr.filter(d => (d.drug_name === name || d.drug_name === name) && d.USregion === 'SOUTH').map(d => ({
       period: d.period, // Use 'period' for x-axis
       percentage: parseFloat(d.percentage),
       ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
