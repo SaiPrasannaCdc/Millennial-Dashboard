@@ -172,8 +172,8 @@ function App() {
       {selectedRegion === 'MIDWEST' && selectedDrug === 'methamphetamine' && (
         <MethamphetamineLineChartMidwest period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
       )}
-      {selectedRegion === 'NORTH' && selectedDrug === 'methamphetamine' && (selectedPeriod === 'Half Yearly' || selectedPeriod === '6 Months') && (
-        <MethamphetamineLineChartNortheast />
+      {selectedRegion === 'NORTH' && selectedDrug === 'methamphetamine' && (
+        <MethamphetamineLineChartNortheast period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod}/>
       )}
       {selectedRegion === 'WEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
         <FentanylLineChartWest />
