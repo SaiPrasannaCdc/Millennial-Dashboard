@@ -237,9 +237,6 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
     };
   }
 
-  // Add a debug log to print the value of the period prop on each render
-  console.log('PositiveCocaineChart period prop:', period);
-
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
@@ -420,7 +417,7 @@ const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
           <label className="toggle-switch">
             <input
               type="checkbox"
-              checked={!showLabels}
+              checked={showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
             <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>

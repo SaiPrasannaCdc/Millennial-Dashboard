@@ -111,7 +111,6 @@ const COLORS = {
 };
 
 const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 450 }) => {
-  console.log('FentanylLineChart6Months received region prop:', region);
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
@@ -127,7 +126,6 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
     return 'National';
   };
   const regionKey = normalizeRegion(region);
-  console.log('Normalized regionKey:', regionKey);
 
   // Generalize all logic for multi-drug regions
   const data = fentanylSixMonthsData[regionKey] || [];

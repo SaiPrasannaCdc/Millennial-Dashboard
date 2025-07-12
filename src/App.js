@@ -182,7 +182,7 @@ function App() {
         <FentanylLineChartMidwest />
       )}
       {selectedRegion === 'SOUTH' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
-        <FentanylLineChartSouth />
+        {/* <FentanylLineChartSouth /> */}
       )}
      
       {selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
@@ -214,8 +214,6 @@ function App() {
         <>
           <FentanylLineChart6Months region="West" />
           <NationalMultiDrugLineChart region="West" />
-          {console.log('Rendering FentanylLineChart6Months:', selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'))}
-          {console.log('Props passed to FentanylLineChart6Months:', { region: 'West' })}
         </>
       )}
       {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (

@@ -372,7 +372,7 @@ const CocaineNationalQuarterlyChart = ({ width = 1100, height = 450 }) => {
           <label className="toggle-switch">
             <input
               type="checkbox"
-              checked={!showLabels}
+              checked={showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
             <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
@@ -682,7 +682,7 @@ function CocaineWestQuarterlyChart({ width = 1100, height = 450 }) {
           <label className="toggle-switch">
             <input
               type="checkbox"
-              checked={!showLabels}
+              checked={showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
             <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
@@ -957,7 +957,7 @@ function CocaineMidwestQuarterlyChart({ width = 1100, height = 450 }) {
           <label className="toggle-switch">
             <input
               type="checkbox"
-              checked={!showLabels}
+              checked={showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
             <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
@@ -1168,7 +1168,7 @@ function CocaineSouthQuarterlyChart({ width = 1100, height = 450 }) {
           <label className="toggle-switch">
             <input
               type="checkbox"
-              checked={!showLabels}
+              checked={showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
             <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>

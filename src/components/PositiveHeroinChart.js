@@ -228,8 +228,6 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
 
-  console.log('PositiveHeroinChart period prop:', period);
-
   const mainLine = adjustedData.find(line => line.name === "Methamphetamine");
   let keyFinding = null;
   if (mainLine && mainLine.values.length >= 2) {
@@ -427,7 +425,7 @@ const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
           <label className="toggle-switch">
             <input
               type="checkbox"
-              checked={!showLabels}
+              checked={showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
             <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>

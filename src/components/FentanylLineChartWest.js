@@ -349,7 +349,7 @@ function FentanylLineChartBase({
           <label className="toggle-switch">
             <input
               type="checkbox"
-              checked={!showLabels}
+              checked={showLabels}
               onChange={() => setShowLabels(!showLabels)}
             />
             <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>

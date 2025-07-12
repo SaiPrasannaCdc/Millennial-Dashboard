@@ -279,7 +279,7 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
             <label className="toggle-switch">
               <input
                 type="checkbox"
-                checked={!showLabels}
+                checked={showLabels}
                 onChange={() => setShowLabels(!showLabels)}
               />
               <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
@@ -564,7 +564,7 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
             <label className="toggle-switch">
               <input
                 type="checkbox"
-                checked={!showLabels}
+                checked={showLabels}
                 onChange={() => setShowLabels(!showLabels)}
               />
               <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
@@ -844,7 +844,7 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
             <label className="toggle-switch">
               <input
                 type="checkbox"
-                checked={!showLabels}
+                checked={showLabels}
                 onChange={() => setShowLabels(!showLabels)}
               />
               <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
@@ -1124,7 +1124,7 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
             <label className="toggle-switch">
               <input
                 type="checkbox"
-                checked={!showLabels}
+                checked={showLabels}
                 onChange={() => setShowLabels(!showLabels)}
               />
               <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
