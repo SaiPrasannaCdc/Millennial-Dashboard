@@ -3,7 +3,6 @@ import ReactTooltip from 'react-tooltip';
 import Dropdowns from './dropdowns';
 import StatsCards from './components/StatsCards'; // Import the StatsCards component
 import debounce from 'lodash.debounce';
-import LineChartOne from './components/LineChartOne';
 
 import LineChartWithToggles from './components/LineChartWithToggles'; // Import the LineChartWithToggles component
 import MethamphetamineLineChart from './components/MethamphetamineLineChart'; // Import the new MethamphetamineLineChart component
@@ -85,32 +84,6 @@ function App() {
     return desc;
   };
 
-  const lineChartMemo = useMemo(() =>
-  <>
-    <table style={{width: '100%'}}>
-      <tr>
-        <td>
-          <div class="containerLC">
-            <div class={"chartDivAll"} ref={lineChartRef}>
-              <LineChartOne 
-              data={''}
-              currentDrug={selectedDrug}
-              region={selectedRegion}
-              width={width}
-              height={450}
-              el={lineChartRef}
-              period={selectedPeriod}
-              />
-            </div>
-          </div>
-        </td>
-      </tr>
-    
-    </table>
-  </>,
-  [selectedDrug, width, selectedRegion, selectedPeriod]);
-
-
   return (
     <div
       className={`App${dimensions.width < viewportCutoffSmall ? ' small-vp' : ''}${dimensions.width < viewportCutoffMedium ? ' medium-vp' : ''}${accessible ? ' accessible' : ''}`}
@@ -125,19 +98,6 @@ function App() {
         onDrugChange={setSelectedDrug}
       />
       <StatsCards />
-
-      <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
-        <div style={{ textAlign: 'center' }}>
-          <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
-            How often do people with a substance use disorder test positive for {selectedDrug} on urine drug tests:
-          </h3>
-          <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
-            Millennium Health, {getRegionDesc(selectedRegion)} {selectedPeriod == 'Quarterly' ? 'Q4 2022 - Q4 2024' : 'Jan 2023 - Dec 2024 (6 Months)'}
-          </p>
-        </div>
-      </div>
-
-      {lineChartMemo}
 
       {selectedRegion === 'National' && selectedDrug === 'fentanyl' && (
         <>
