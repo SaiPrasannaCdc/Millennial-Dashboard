@@ -4296,7 +4296,7 @@
           {
             "USregion": "WEST",
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine with Op",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 2.2,
             "ciLower": 2,
             "ciUpper": 2.4,
@@ -4306,7 +4306,7 @@
           {
             "USregion": "WEST",
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with Op",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 2.2,
             "ciLower": 2.1,
             "ciUpper": 2.3,
@@ -4316,7 +4316,7 @@
           {
             "USregion": "WEST",
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with Op",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 2.5,
             "ciLower": 2.4,
             "ciUpper": 2.7,
@@ -4326,7 +4326,7 @@
           {
             "USregion": "WEST",
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with Op",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 3.2,
             "ciLower": 3,
             "ciUpper": 3.3,
@@ -4336,7 +4336,7 @@
           {
             "USregion": "WEST",
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with Op",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 4,
             "ciLower": 3.9,
             "ciUpper": 4.2,
@@ -4346,7 +4346,7 @@
           {
             "USregion": "WEST",
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine without Op",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 1.7,
             "ciLower": 1.5,
             "ciUpper": 1.8,
@@ -4356,7 +4356,7 @@
           {
             "USregion": "WEST",
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine without Op",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 1.8,
             "ciLower": 1.7,
             "ciUpper": 1.9,
@@ -4366,7 +4366,7 @@
           {
             "USregion": "WEST",
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine without Op",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 2,
             "ciLower": 1.9,
             "ciUpper": 2.1,
@@ -4376,7 +4376,7 @@
           {
             "USregion": "WEST",
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine without Op",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 2.1,
             "ciLower": 2,
             "ciUpper": 2.2,
@@ -4386,7 +4386,7 @@
           {
             "USregion": "WEST",
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine without Op",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 2.4,
             "ciLower": 2.3,
             "ciUpper": 2.6,
@@ -4669,7 +4669,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 51,
             "ciLower": 47.8,
@@ -4679,7 +4679,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 54.2,
             "ciLower": 51.3,
@@ -4689,7 +4689,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 54.2,
             "ciLower": 51.3,
@@ -4699,7 +4699,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 52.9,
             "ciLower": 50.1,
@@ -4709,7 +4709,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 58.3,
             "ciLower": 55.7,
@@ -4719,7 +4719,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 60.1,
             "ciLower": 57.6,
@@ -4729,7 +4729,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 64.2,
             "ciLower": 62.0,
@@ -4739,7 +4739,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 64.6,
             "ciLower": 62.5,
@@ -7495,7 +7495,7 @@
           {
             "USregion": "WEST",
             "period": "Q1 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 68.6,
             "ciLower": 65.5,
             "ciUpper": 68.1,
@@ -7505,7 +7505,7 @@
           {
             "USregion": "WEST",
             "period": "Q2 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 69.3,
             "ciLower": 68,
             "ciUpper": 70.7,
@@ -7515,7 +7515,7 @@
           {
             "USregion": "WEST",
             "period": "Q3 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 73.8,
             "ciLower": 72.5,
             "ciUpper": 73.8,
@@ -7525,7 +7525,7 @@
           {
             "USregion": "WEST",
             "period": "Q4 2023",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 73.8,
             "ciLower": 72.5,
             "ciUpper": 75,
@@ -7535,7 +7535,7 @@
           {
             "USregion": "WEST",
             "period": "Q1 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 74.5,
             "ciLower": 73.3,
             "ciUpper": 75.6,
@@ -7545,7 +7545,7 @@
           {
             "USregion": "WEST",
             "period": "Q2 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 77,
             "ciLower": 75.9,
             "ciUpper": 78.1,
@@ -7555,7 +7555,7 @@
           {
             "USregion": "WEST",
             "period": "Q3 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 80.2,
             "ciLower": 78.9,
             "ciUpper": 82.6,
@@ -7565,7 +7565,7 @@
           {
             "USregion": "WEST",
             "period": "Q4 2024",
-            "drug_name": "Methamp",
+            "drug_name": "Methamphetamine",
             "percentage": 84.8,
             "ciLower": 83.9,
             "ciUpper": 85.8,
