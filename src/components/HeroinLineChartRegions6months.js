@@ -95,8 +95,8 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
           values: periods.map(period => {
             const arr = data?.South?.Heroin?.Positivity?.HalfYearly || [];
             const d = arr.find(x => {
-              // South: drug_namr, USregion, period
-              const drugMatch = x.drug_namr === drug;
+              // South: drug_name, USregion, period
+              const drugMatch = x.drug_name === drug;
               const regionMatch = x.USregion === 'SOUTH';
               const periodMatch = x.period === period;
               return drugMatch && regionMatch && periodMatch;
@@ -141,7 +141,7 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
           values: periods.map(period => {
             // Flexible period and drug name matching for Northeast
             const d = (data?.Northeast?.Heroin?.Positivity?.HalfYearly || []).find(x => {
-              const drugMatch = (x.drug_namr === drug || x.drug_name === drug || x.drug_nam === drug);
+              const drugMatch = (x.drug_name === drug || x.drug_name === drug || x.drug_nam === drug);
               const regionMatch = (x.USregion === 'NORTHEAST' || x.USregion === 'NORTH');
               // Match by year and first 3 letters of month
               const periodNorm = period.slice(0, 4) + period.slice(5, 8);
@@ -165,7 +165,7 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
           values: periods.map(period => {
             // National data: match by drug_name and period
             const d = (data?.National?.Heroin?.Positivity?.HalfYearly || []).find(x => {
-              const drugMatch = (x.drug_namr === drug || x.drug_name === drug || x.drug_nam === drug);
+              const drugMatch = (x.drug_name === drug || x.drug_name === drug || x.drug_nam === drug);
               // Accept both 'period' and 'qrt_year' keys for period
               const periodMatch = (x.period === period || x.qrt_year === period);
               return drugMatch && periodMatch;

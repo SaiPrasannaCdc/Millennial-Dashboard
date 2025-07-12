@@ -1249,12 +1249,12 @@ function mapHeroinSouthData(jsonData) {
       (
         d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
         d.drug === 'Heroin' || d.drug === 'Heroin with Stimulants' || d.drug === 'Heroin without Stimulants' ||
-        d.drug_namr === 'Heroin' || d.drug_namr === 'Heroin with Stimulants' || d.drug_namr === 'Heroin without Stimulants'
+        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'
       )
     ))
     .map(d => ({
       region: d.USregion || d.region,
-      drug: d.drug_name || d.drug || d.drug_namr,
+      drug: d.drug_name || d.drug || d.drug_name,
       // Support period, quarter, and smon_yr for x-axis
       quarter: d.period || d.quarter || d.smon_yr,
       percentage: d.percentage !== undefined ? d.percentage : (d.pepercentage !== undefined ? d.pepercentage : null),
@@ -1290,11 +1290,11 @@ function mapHeroinWestData(jsonData) {
 
 function mapHeroinNationalData(jsonData) {
   return jsonData
-    .filter(d => (d.drug_namr === 'Heroin' || d.drug_namr === 'Heroin with Stimulants' || d.drug_namr === 'Heroin without Stimulants' ||
+    .filter(d => (d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
       d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'))
     .map(d => ({
       region: d.USregion || 'NATIONAL',
-      drug: d.drug_namr || d.drug_name,
+      drug: d.drug_name || d.drug_name,
       quarter: d.qrt_year || d.quarter,
       percentage: d.rcent_pos || d.percentage,
       ciLower: d['CI lower'] || d.ciLower,

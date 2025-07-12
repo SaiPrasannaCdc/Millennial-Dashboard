@@ -1984,7 +1984,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2022",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 5.3,
             "ciLower": 4.9,
             "ciUpper": 5.7,
@@ -1994,7 +1994,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 5.1,
             "ciLower": 4.7,
             "ciUpper": 5.4,
@@ -2004,7 +2004,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 5.0,
             "ciLower": 4.6,
             "ciUpper": 5.4,
@@ -2014,7 +2014,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -2024,7 +2024,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.5,
             "ciLower": 4.1,
             "ciUpper": 4.9,
@@ -2034,7 +2034,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -2044,7 +2044,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.3,
@@ -2054,7 +2054,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 5.0,
             "ciLower": 4.7,
             "ciUpper": 5.4,
@@ -2064,7 +2064,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.8,
             "ciLower": 4.4,
             "ciUpper": 5.1,
@@ -2074,7 +2074,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2022",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 3.0,
             "ciLower": 2.7,
             "ciUpper": 3.3,
@@ -2084,7 +2084,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2023",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.1,
@@ -2094,7 +2094,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2023",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.1,
@@ -2104,7 +2104,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2023",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.4,
             "ciLower": 2.1,
             "ciUpper": 2.6,
@@ -2114,7 +2114,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2023",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.5,
             "ciLower": 2.2,
             "ciUpper": 2.7,
@@ -2124,7 +2124,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2024",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.3,
             "ciLower": 2.0,
             "ciUpper": 2.5,
@@ -2134,7 +2134,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2024",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.7,
             "ciLower": 2.4,
             "ciUpper": 3.0,
@@ -2144,7 +2144,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2024",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.2,
@@ -2154,7 +2154,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2024",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.1,
@@ -2164,7 +2164,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2022",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.7,
             "ciLower": 4.3,
             "ciUpper": 5.1,
@@ -2174,7 +2174,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2023",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.5,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -2184,7 +2184,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2023",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -2194,7 +2194,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2023",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.7,
             "ciLower": 3.4,
             "ciUpper": 4.1,
@@ -2204,7 +2204,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2023",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.0,
             "ciLower": 3.6,
             "ciUpper": 4.3,
@@ -2214,7 +2214,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2024",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.3,
@@ -2224,7 +2224,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2024",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.3,
             "ciLower": 4.0,
             "ciUpper": 4.6,
@@ -2234,7 +2234,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2024",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.6,
@@ -2244,7 +2244,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2024",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.4,
@@ -2256,7 +2256,7 @@
           {
             "USregion": "SOUTH",
             "period": "2022 Jul-Dec",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 5.3,
             "ciLower": 4.9,
             "ciUpper": 5.7,
@@ -2266,7 +2266,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jan-Jun",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 5.0,
             "ciLower": 4.8,
             "ciUpper": 5.3,
@@ -2276,7 +2276,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jul-Dec",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.5,
             "ciLower": 4.2,
             "ciUpper": 4.7,
@@ -2286,7 +2286,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jan-Jun",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.7,
             "ciLower": 4.4,
             "ciUpper": 4.9,
@@ -2296,7 +2296,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jul-Dec",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": 4.9,
             "ciLower": 4.7,
             "ciUpper": 5.2,
@@ -2306,7 +2306,7 @@
           {
             "USregion": "SOUTH",
             "period": "2022 Jul-Dec",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 3.0,
             "ciLower": 2.7,
             "ciUpper": 3.3,
@@ -2316,7 +2316,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jan-Jun",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.8,
             "ciLower": 2.6,
             "ciUpper": 3.0,
@@ -2326,7 +2326,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jul-Dec",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.4,
             "ciLower": 2.2,
             "ciUpper": 2.6,
@@ -2336,7 +2336,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jan-Jun",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -2346,7 +2346,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jul-Dec",
-            "drug_namr": "Heroin with Stimulants",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.3,
@@ -2356,7 +2356,7 @@
           {
             "USregion": "SOUTH",
             "period": "2022 Jul-Dec",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.7,
             "ciLower": 4.3,
             "ciUpper": 5.1,
@@ -2366,7 +2366,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jan-Jun",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.5,
             "ciLower": 4.2,
             "ciUpper": 4.7,
@@ -2376,7 +2376,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jul-Dec",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.2,
@@ -2386,7 +2386,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jan-Jun",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.1,
             "ciLower": 3.9,
             "ciUpper": 4.4,
@@ -2396,7 +2396,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jul-Dec",
-            "drug_namr": "Heroin without Stimulants",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 4.1,
             "ciLower": 3.9,
             "ciUpper": 4.4,
@@ -3250,7 +3250,7 @@
           {
             "USregion": "SOUTH",
             "period": "2022 Jul-Dec",
-            "drug_namr": "Cocaine",
+            "drug_name": "Cocaine",
             "percentage": 8.7,
             "ciLower": 8.2,
             "ciUpper": 9.2,
@@ -3260,7 +3260,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jan-Jun",
-            "drug_namr": "Cocaine",
+            "drug_name": "Cocaine",
             "percentage": 9.5,
             "ciLower": 9.1,
             "ciUpper": 9.8,
@@ -3270,7 +3270,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jul-Dec",
-            "drug_namr": "Cocaine",
+            "drug_name": "Cocaine",
             "percentage": 9.4,
             "ciLower": 9.1,
             "ciUpper": 9.8,
@@ -3280,7 +3280,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jan-Jun",
-            "drug_namr": "Cocaine",
+            "drug_name": "Cocaine",
             "percentage": 9.2,
             "ciLower": 8.8,
             "ciUpper": 9.5,
@@ -3290,7 +3290,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jul-Dec",
-            "drug_namr": "Cocaine",
+            "drug_name": "Cocaine",
             "percentage": 10.3,
             "ciLower": 9.9,
             "ciUpper": 10.6,
@@ -3300,7 +3300,7 @@
           {
             "USregion": "SOUTH",
             "period": "2022 Jul-Dec",
-            "drug_namr": "Cocaine with Opioids",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 4.6,
             "ciLower": 4.2,
             "ciUpper": 4.9,
@@ -3310,7 +3310,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jan-Jun",
-            "drug_namr": "Cocaine with Opioids",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 5.1,
             "ciLower": 4.8,
             "ciUpper": 5.3,
@@ -3320,7 +3320,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jul-Dec",
-            "drug_namr": "Cocaine with Opioids",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 4.7,
             "ciLower": 4.4,
             "ciUpper": 5.1,
@@ -3330,7 +3330,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jan-Jun",
-            "drug_namr": "Cocaine with Opioids",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 4.5,
             "ciLower": 4.1,
             "ciUpper": 4.5,
@@ -3340,7 +3340,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jul-Dec",
-            "drug_namr": "Cocaine with Opioids",
+            "drug_name": "Cocaine with Opioids",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.6,
@@ -3350,7 +3350,7 @@
           {
             "USregion": "SOUTH",
             "period": "2022 Jul-Dec",
-            "drug_namr": "Cocaine without Opioids",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.5,
@@ -3360,7 +3360,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jan-Jun",
-            "drug_namr": "Cocaine without Opioids",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 4.4,
             "ciLower": 4.2,
             "ciUpper": 4.7,
@@ -3370,7 +3370,7 @@
           {
             "USregion": "SOUTH",
             "period": "2023 Jul-Dec",
-            "drug_namr": "Cocaine without Opioids",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 4.8,
             "ciLower": 4.5,
             "ciUpper": 5,
@@ -3380,7 +3380,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jan-Jun",
-            "drug_namr": "Cocaine without Opioids",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.1,
@@ -3390,7 +3390,7 @@
           {
             "USregion": "SOUTH",
             "period": "2024 Jul-Dec",
-            "drug_namr": "Cocaine without Opioids",
+            "drug_name": "Cocaine without Opioids",
             "percentage": 5.9,
             "ciLower": 5.6,
             "ciUpper": 6.2,
@@ -3404,7 +3404,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2022",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 51.9,
             "ciLower": 48.9,
             "ciUpper": 54.9,
@@ -3414,7 +3414,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2023",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 53.3,
             "ciLower": 50.5,
             "ciUpper": 56.1,
@@ -3424,7 +3424,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2023",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 52.2,
             "ciLower": 49.5,
             "ciUpper": 54.9,
@@ -3434,7 +3434,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2023",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 48.9,
             "ciLower": 46.1,
             "ciUpper": 51.7,
@@ -3444,7 +3444,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2023",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 48.8,
             "ciLower": 46,
             "ciUpper": 51.5,
@@ -3454,7 +3454,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2024",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 47.6,
             "ciLower": 44.9,
             "ciUpper": 50.4,
@@ -3464,7 +3464,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2024",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 44.1,
             "ciLower": 41.5,
             "ciUpper": 46.7,
@@ -3474,7 +3474,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2024",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 42.9,
             "ciLower": 40.4,
             "ciUpper": 45.3,
@@ -3484,7 +3484,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2024",
-            "drug_namr": "Fentanyl",
+            "drug_name": "Fentanyl",
             "percentage": 42,
             "ciLower": 39.7,
             "ciUpper": 44.2,
@@ -3494,7 +3494,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2022",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3504,7 +3504,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3514,7 +3514,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3524,7 +3524,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3534,7 +3534,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2023",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3544,7 +3544,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3554,7 +3554,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3564,7 +3564,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3574,7 +3574,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2024",
-            "drug_namr": "Heroin",
+            "drug_name": "Heroin",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3584,7 +3584,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2022",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3594,7 +3594,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2023",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3604,7 +3604,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2023",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3614,7 +3614,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2023",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3624,7 +3624,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2023",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3634,7 +3634,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2024",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3644,7 +3644,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2024",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3654,7 +3654,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2024",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3664,7 +3664,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2024",
-            "drug_namr": "Opioids",
+            "drug_name": "Opioids",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3674,7 +3674,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2022",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3684,7 +3684,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2023",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3694,7 +3694,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2023",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3704,7 +3704,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2023",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3714,7 +3714,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2023",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3724,7 +3724,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q1 2024",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3734,7 +3734,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q2 2024",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3744,7 +3744,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q3 2024",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
@@ -3754,7 +3754,7 @@
           {
             "USregion": "SOUTH",
             "period": "Q4 2024",
-            "drug_namr": "Methamphetamine",
+            "drug_name": "Methamphetamine",
             "percentage": null,
             "ciLower": null,
             "ciUpper": null,
