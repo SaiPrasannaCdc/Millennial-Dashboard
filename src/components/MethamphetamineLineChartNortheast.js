@@ -301,6 +301,9 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450 }) => {
                 const upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
                 const n = lineData.values.length;
                 let showLabel = showLabels;
+                showLabel = showLabels || (
+                  i === 0 || i === n - 1 || i === n - 2 || i === Math.floor((n - 1) / 2)
+                );
                 return (
                   <React.Fragment key={i}>
                     <Circle

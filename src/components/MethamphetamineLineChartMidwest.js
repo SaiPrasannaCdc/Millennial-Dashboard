@@ -377,13 +377,9 @@ const MethamphetamineLineChartMidwest = ({ width = 1100, height = 450, period = 
                 const upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
                 const n = lineData.values.length;
                 let showLabel = false;
-                if (!is6Months) {
-                  showLabel = showLabels || (
+                showLabel = showLabels || (
                     i === 0 || i === n - 1 || i === n - 2 || i === Math.floor((n - 1) / 2)
-                  );
-                } else {
-                  showLabel = showLabels;
-                }
+                );
                 return (
                   <React.Fragment key={i}>
                     <Circle

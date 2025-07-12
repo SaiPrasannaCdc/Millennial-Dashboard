@@ -114,6 +114,15 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
+  const getshowLabels = (len, i) =>
+  {
+    let showLabel = false;
+    showLabel = showLabels || (
+      i === 0 || i === len - 1 || i === len - 2 || i === Math.floor((len - 1) / 2)
+    );
+    return showLabel;
+  }
+
   // Improved normalization to handle more cases
   const normalizeRegion = (r) => {
     if (!r) return 'National';
@@ -180,10 +189,10 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
                 Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
               </div>`}
             />
-            {showLabels && (
+            {getshowLabels(data[drug].length, i) && (
               <text
                 x={xScale(d.period) + xScale.bandwidth() / 2}
-                y={yScale(d.percentage) - 14 - idx * 14}
+                y={yScale(d.percentage) - 14}
                 fontSize={12}
                 textAnchor="middle"
                 fill="#333"
@@ -490,7 +499,7 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
                       Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
                     </div>`}
                   />
-                  {showLabels && (
+                  {getshowLabels(data.length, i) && (
                     <text
                       x={xScale(d.period) + xScale.bandwidth() / 2}
                       y={yScale(d.percentage) - 14}

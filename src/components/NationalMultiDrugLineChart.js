@@ -404,6 +404,15 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
 
   const keyFinding = getKeyFindingNew(dataSets[0].data);
 
+  const getshowLabels = (len, i) =>
+  {
+    let showLabel = false;
+    showLabel = showLabels || (
+      i === 0 || i === len - 1 || i === len - 2 || i === Math.floor((len - 1) / 2)
+    );
+    return showLabel;
+  }
+  
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
@@ -655,7 +664,7 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
                         Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
                       </div>`}
                     />
-                    {showLabels && (
+                    {getshowLabels(ds.data.length, i) && (
                       <text
                         x={xScale(d.period) + xScale.bandwidth() / 2}
                         y={yScale(d.percentage) - 14}

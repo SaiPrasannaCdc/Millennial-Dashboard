@@ -182,7 +182,7 @@ function App() {
         <FentanylLineChartMidwest />
       )}
       {selectedRegion === 'SOUTH' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
-        {/* <FentanylLineChartSouth /> */}
+        <FentanylLineChartSouth />
       )}
      
       {selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (

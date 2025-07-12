@@ -390,16 +390,13 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
                 let upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
                 const n = lineData.values.length;
                 let showLabel = false;
-                if (period === 'Quarterly') {
-                  showLabel = showLabels || (
+                showLabel = showLabels || (
                     i === 0 || // first
                     i === n - 1 || // last
                     i === n - 2 || // quarter before last
                     i === Math.floor((n - 1) / 2) // middle
-                  );
-                } else {
-                  showLabel = showLabels; 
-                }
+                );
+                
                 return (
                   <React.Fragment key={i}>
                     <Circle

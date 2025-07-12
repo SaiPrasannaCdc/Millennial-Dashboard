@@ -470,6 +470,15 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450, showMul
     nice: true,
   });
 
+  const getshowLabels = (len, i) =>
+  {
+    let showLabel = false;
+    showLabel = showLabels || (
+      i === 0 || i === len - 1 || i === len - 2 || i === Math.floor((len - 1) / 2)
+    );
+    return showLabel;
+  }
+
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
     // Show for all datasets if National, else just one
@@ -694,7 +703,7 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450, showMul
                       Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
                     </div>`}
                   />
-                  {showLabels && (
+                  {getshowLabels(ds.data.length, i) && (
                     <text
                       x={xScale(d.period) + xScale.bandwidth() / 2}
                       y={yScale(d.percentage) - 14}
@@ -774,6 +783,16 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
     ReactTooltip.rebuild();
   }, [showPercentChange]);
 
+
+  const getshowLabels = (len, i) =>
+  {
+    let showLabel = false;
+    showLabel = showLabels || (
+      i === 0 || i === len - 1 || i === len - 2 || i === Math.floor((len - 1) / 2)
+    );
+    return showLabel;
+  }
+
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
     return dataSets.map(ds =>
@@ -825,6 +844,7 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
       })
     );
   };
+
 
   const keyFinding = getKeyFindingNew(dataSets[0].data);
 
@@ -1075,7 +1095,7 @@ const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height 
                       Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
                     </div>`}
                   />
-                  {showLabels && (
+                  {getshowLabels(ds.data.length, i) && (
                     <text
                       x={xScale(d.period) + xScale.bandwidth() / 2}
                       y={yScale(d.percentage) - 14}
