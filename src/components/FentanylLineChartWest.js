@@ -6,56 +6,14 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-const westQuarterlyData = [
-  { quarter: 'Q4 2022', percentage: 21.7, ciLower: 21.2, ciUpper: 22.3, periodChange: null, yearlyChange: null },
-  { quarter: 'Q1 2023', percentage: 18.6, ciLower: 18.2, ciUpper: 19.1, periodChange: -14.3, yearlyChange: null },
-  { quarter: 'Q2 2023', percentage: 19.4, ciLower: 18.9, ciUpper: 19.8, periodChange: 4.3, yearlyChange: null },
-  { quarter: 'Q3 2023', percentage: 19.4, ciLower: 19.0, ciUpper: 19.9, periodChange: 0.0, yearlyChange: null },
-  { quarter: 'Q4 2023', percentage: 19.4, ciLower: 18.9, ciUpper: 19.9, periodChange: 0.0, yearlyChange: -10.6 },
-  { quarter: 'Q1 2024', percentage: 19.5, ciLower: 19.1, ciUpper: 20.0, periodChange: 0.5, yearlyChange: 4.8 },
-  { quarter: 'Q2 2024', percentage: 20.4, ciLower: 19.9, ciUpper: 20.8, periodChange: 4.6, yearlyChange: 5.2 },
-  { quarter: 'Q3 2024', percentage: 20.1, ciLower: 19.6, ciUpper: 20.5, periodChange: -1.5, yearlyChange: 3.6 },
-  { quarter: 'Q4 2024', percentage: 19.1, ciLower: 18.6, ciUpper: 19.5, periodChange: -5.0, yearlyChange: -1.5 },
-];
-
-const westWithStimulantsQuarterly = [
-  { quarter: 'Q4 2022', percentage: 15.2, ciLower: 14.7, ciUpper: 15.7, periodChange: null, yearlyChange: null },
-  { quarter: 'Q1 2023', percentage: 13.5, ciLower: 13.1, ciUpper: 14.0, periodChange: -11.2, yearlyChange: null },
-  { quarter: 'Q2 2023', percentage: 14.5, ciLower: 14.1, ciUpper: 14.9, periodChange: 7.4, yearlyChange: null },
-  { quarter: 'Q3 2023', percentage: 14.9, ciLower: 14.4, ciUpper: 15.3, periodChange: 2.8, yearlyChange: null },
-  { quarter: 'Q4 2023', percentage: 14.9, ciLower: 14.5, ciUpper: 15.3, periodChange: 0.0, yearlyChange: -2.0 },
-  { quarter: 'Q1 2024', percentage: 15.2, ciLower: 14.7, ciUpper: 15.6, periodChange: 2.0, yearlyChange: 12.6 },
-  { quarter: 'Q2 2024', percentage: 16.3, ciLower: 15.8, ciUpper: 16.7, periodChange: 7.2, yearlyChange: 12.4 },
-  { quarter: 'Q3 2024', percentage: 16.7, ciLower: 16.3, ciUpper: 17.1, periodChange: 2.5, yearlyChange: 12.1 },
-  { quarter: 'Q4 2024', percentage: 16.7, ciLower: 16.3, ciUpper: 17.1, periodChange: 0.0, yearlyChange: 12.1 },
-];
-
-const westWithoutStimulantsQuarterly = [
-  { quarter: 'Q4 2022', percentage: 6.5, ciLower: 6.2, ciUpper: 6.8, periodChange: null, yearlyChange: null },
-  { quarter: 'Q1 2023', percentage: 5.1, ciLower: 4.8, ciUpper: 5.4, periodChange: -21.5, yearlyChange: null },
-  { quarter: 'Q2 2023', percentage: 4.9, ciLower: 4.6, ciUpper: 5.1, periodChange: -3.9, yearlyChange: null },
-  { quarter: 'Q3 2023', percentage: 4.5, ciLower: 4.2, ciUpper: 4.7, periodChange: -8.2, yearlyChange: null },
-  { quarter: 'Q4 2023', percentage: 4.5, ciLower: 4.2, ciUpper: 4.8, periodChange: 0.0, yearlyChange: -30.8 },
-  { quarter: 'Q1 2024', percentage: 4.4, ciLower: 4.1, ciUpper: 4.6, periodChange: -2.2, yearlyChange: -13.7 },
-  { quarter: 'Q2 2024', percentage: 4.1, ciLower: 3.9, ciUpper: 4.3, periodChange: -6.8, yearlyChange: -16.3 },
-  { quarter: 'Q3 2024', percentage: 3.4, ciLower: 3.2, ciUpper: 3.6, periodChange: -17.1, yearlyChange: -24.4 },
-  { quarter: 'Q4 2024', percentage: 2.4, ciLower: 2.2, ciUpper: 2.6, periodChange: -29.4, yearlyChange: -46.7 },
-];
-
 const allQuarters = [
   'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
   'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'
 ];
 
-function alignDataToQuarters(data, quarters) {
-  const map = Object.fromEntries(data.map(d => [d.quarter, d]));
-  return quarters.map(q => map[q] || { quarter: q, percentage: null, ciLower: null, ciUpper: null });
-}
-
 function FentanylLineChartBase({
-  datasets,
+  chartNum,
   title,
-  keyFinding,
   yLabel,
   legendLabels,
   width = 1100,
@@ -64,27 +22,19 @@ function FentanylLineChartBase({
 }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
-  const [selectedLines, setSelectedLines] = useState(datasets.map(ds => ds.label));
+  const [westQuarterlyData, setWestQuarterlyData] = useState([]);
+  const [westWithStimulantsQuarterly, setWestWithStimulantsQuarterly] = useState([]);
+  const [westWithoutStimulantsQuarterly, setWestWithoutStimulantsQuarterly] = useState([]);
+
+  const [methamphetamineWestData, setMethamphetamineWestData] = useState([]);
+  const [cocaineWestData, setCocaineWestData] = useState([]);
+  const [heroinWestData, setHeroinWestData] = useState([]);
+  const [fentanylAndStimulantsData, setFentanylAndStimulantsData] = useState([]);
+  
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
-
-  const xDomain = allQuarters;
-  const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
-    padding: 0.2,
-  });
-
-  const yMax = Math.max(
-    ...datasets.flatMap(ds => ds.data.map(d => d.percentage || 0))
-  );
-  const yScale = scaleLinear({
-    domain: [0, yMax],
-    range: [adjustedHeight, 0],
-    nice: true,
-  });
 
   function getPrevValueForDataset(data, i, offset = 1) {
     let idx = i - 1, found = 0;
@@ -157,22 +107,176 @@ function FentanylLineChartBase({
     );
   };
 
+  function getGroupedCoPosSeries(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.West?.Fentanyl?.Positivity?.[periodKey] || [];
+    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+        yearlyChange: d.yr_change || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesMethamphetamine(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.West?.Methamphetamine?.Positivity?.[periodKey] || [];
+    const drugs = ['Methamphetamine'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+        yearlyChange: d.yr_change || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesHeroin(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.West?.Heroin?.Positivity?.[periodKey] || [];
+    const drugs = ['Heroin'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+        yearlyChange: d.yr_change || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesCocaine(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.West?.Cocaine?.Positivity?.[periodKey] || [];
+    const drugs = ['Cocaine'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+        yearlyChange: d.yr_change || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange]);
 
-  // Drug selection options
-  const drugOptions = [
-    { label: 'Fentanyl', value: 'fentanyl', color: '#0073e6' },
-    { label: 'Fentanyl + Stimulants', value: 'fentanyl_stimulants', color: '#6a0dad' },
-    { label: 'Fentanyl w/o Stimulants', value: 'fentanyl_no_stimulants', color: '#e67e22' },
-    { label: 'Methamphetamine', value: 'methamphetamine', color: '#3e92cc' },
-    { label: 'Cocaine', value: 'cocaine', color: '#fbb13c' },
-    { label: 'Heroin', value: 'heroin', color: '#d7263d' },
-  ];
+  useEffect(() => {
+        fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+          .then(res => res.json())
+          .then(data => {
+  
+        const fData = getGroupedCoPosSeries(data);
+
+        const mData = getGroupedCoPosSeriesMethamphetamine(data);
+        const hData = getGroupedCoPosSeriesHeroin(data);
+        const cData = getGroupedCoPosSeriesCocaine(data);
+
+        setWestQuarterlyData(fData[0].data);
+        setWestWithStimulantsQuarterly(fData[1].data);
+        setWestWithoutStimulantsQuarterly(fData[2].data);
+
+        setFentanylAndStimulantsData(fData[1].data);
+
+        setMethamphetamineWestData(mData[0].data);
+        setCocaineWestData(hData[0].data);
+        setHeroinWestData(cData[0].data);
+ 
+          });
+    }, []); 
+
+  const alignedDatasets = [
+  { data: westQuarterlyData, color: '#0073e6', label: 'Fentanyl' },
+  { data: westWithStimulantsQuarterly, color: '#6a0dad', label: 'Fentanyl + Stimulants' },
+  { data: westWithoutStimulantsQuarterly, color: '#e67e22', label: 'Fentanyl w/o Stimulants' },
+];
+
+const westThreeDrugsDatasets = [
+  { data: methamphetamineWestData, color: '#3e92cc', label: 'Methamphetamine' },
+  { data: cocaineWestData, color: '#fbb13c', label: 'Cocaine' },
+  { data: heroinWestData, color: '#d7263d', label: 'Heroin' },
+  { data: fentanylAndStimulantsData, color: '#1b9e77', label: 'Fentanyl and Stimulants' },
+];
+
+  const datasets = chartNum == 1 ? alignedDatasets : westThreeDrugsDatasets;
+
+  const xDomain = allQuarters;
+  const xScale = scaleBand({
+    domain: xDomain,
+    range: [0, adjustedWidth],
+    padding: 0.2,
+  });
+
+  const yMax = Math.max(
+    ...datasets.flatMap(ds => ds.data.map(d => d.percentage || 0))
+  );
+  const yScale = scaleLinear({
+    domain: [0, yMax],
+    range: [adjustedHeight, 0],
+    nice: true,
+  });
+
+  const [selectedLines, setSelectedLines] = useState(datasets.map(ds => ds.label));
 
   // Filter datasets based on selected drugs
   const filteredDatasets = datasets.filter(ds => selectedLines.includes(ds.label));
+
+  function getKeyFindingForThreeDrugs() {
+    if (!methamphetamineWestData || methamphetamineWestData.length < 2) return null;
+    const lastIdx = methamphetamineWestData.length - 1;
+    const prevIdx = methamphetamineWestData.length - 2;
+    const last = methamphetamineWestData[lastIdx];
+    const prev = methamphetamineWestData[prevIdx];
+    if (!last || !prev) return null;
+    const absChange = (last.percentage - prev.percentage).toFixed(1);
+    const direction = absChange > 0 ? 'increased' : 'decreased';
+    return (
+      <>
+        <span style={{ fontWeight: 700 }}>Key finding:</span> Methamphetamine positivity {direction} <span style={{fontWeight:800}}>{Math.abs(absChange)}%</span> from <span style={{fontWeight:800}}>{prev.percentage}%</span> in {prev.quarter} to <span style={{fontWeight:800}}>{last.percentage}%</span> in {last.quarter}.
+      </>
+  );
+  }
+
+  function getKeyFinding() {
+  if (!westQuarterlyData || westQuarterlyData.length < 2) return null;
+  const lastIdx = westQuarterlyData.length - 1;
+  const prevIdx = westQuarterlyData.length - 2;
+  const last = westQuarterlyData[lastIdx];
+  const prev = westQuarterlyData[prevIdx];
+  if (!last || !prev) return null;
+  const absChange = (last.percentage - prev.percentage).toFixed(1);
+  const direction = absChange > 0 ? 'increased' : 'decreased';
+  return (
+    <>
+      <span style={{ fontWeight: 700 }}>Key finding:</span> Fentanyl positivity {direction} <span style={{fontWeight:800}}>{Math.abs(absChange)}%</span> from <span style={{fontWeight:800}}>{prev.percentage}%</span> in {prev.quarter} to <span style={{fontWeight:800}}>{last.percentage}%</span> in {last.quarter}. This may indicate {direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to fentanyl among people with substance use disorders.
+    </>
+  );
+}
+
+  const keyFinding = chartNum == 1 ? getKeyFinding() : getKeyFindingForThreeDrugs();
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', marginBottom: 40 }}>
@@ -461,106 +565,12 @@ function FentanylLineChartBase({
   );
 }
 
-const alignedDatasets = [
-  { data: alignDataToQuarters(westQuarterlyData, allQuarters), color: '#0073e6', label: 'Fentanyl' },
-  { data: alignDataToQuarters(westWithStimulantsQuarterly, allQuarters), color: '#6a0dad', label: 'Fentanyl + Stimulants' },
-  { data: alignDataToQuarters(westWithoutStimulantsQuarterly, allQuarters), color: '#e67e22', label: 'Fentanyl w/o Stimulants' },
-];
-
-const heroinWestData = [
-  { quarter: 'Q4 2022', percentage: 14.7, ciLower: 13.7, ciUpper: 15.7, periodChange: null, yearlyChange: null },
-  { quarter: 'Q1 2023', percentage: 14.1, ciLower: 13.1, ciUpper: 15.1, periodChange: -4.8, yearlyChange: null },
-  { quarter: 'Q2 2023', percentage: 13.4, ciLower: 12.3, ciUpper: 14.5, periodChange: -5.0, yearlyChange: null },
-  { quarter: 'Q3 2023', percentage: 12.3, ciLower: 11.3, ciUpper: 13.2, periodChange: -10.9, yearlyChange: null },
-  { quarter: 'Q4 2023', percentage: 11.0, ciLower: 9.8, ciUpper: 12.1, periodChange: -10.6, yearlyChange: -25.2 },
-  { quarter: 'Q1 2024', percentage: 10.9, ciLower: 9.8, ciUpper: 11.9, periodChange: -0.9, yearlyChange: -22.6 },
-  { quarter: 'Q2 2024', percentage: 10.8, ciLower: 9.8, ciUpper: 11.8, periodChange: -0.9, yearlyChange: -19.4 },
-  { quarter: 'Q3 2024', percentage: 24.1, ciLower: 22.5, ciUpper: 25.8, periodChange: 123.1, yearlyChange: 96.0 },
-  { quarter: 'Q4 2024', percentage: 30.5, ciLower: 28.1, ciUpper: 32.8, periodChange: 21.7, yearlyChange: 119.1 },
-];
-
-const cocaineWestData = [
-  { quarter: 'Q4 2022', percentage: 10.2, ciLower: 9.3, ciUpper: 11.1, periodChange: null, yearlyChange: null },
-  { quarter: 'Q1 2023', percentage: 10.3, ciLower: 9.4, ciUpper: 11.2, periodChange: 1.0, yearlyChange: null },
-  { quarter: 'Q2 2023', percentage: 11.2, ciLower: 10.2, ciUpper: 12.1, periodChange: 8.7, yearlyChange: null },
-  { quarter: 'Q3 2023', percentage: 12.1, ciLower: 11.1, ciUpper: 13.1, periodChange: 8.0, yearlyChange: null },
-  { quarter: 'Q4 2023', percentage: 13.5, ciLower: 12.3, ciUpper: 14.7, periodChange: 11.6, yearlyChange: 32.6 },
-  { quarter: 'Q1 2024', percentage: 14.8, ciLower: 13.6, ciUpper: 16.0, periodChange: 9.6, yearlyChange: 43.7 },
-  { quarter: 'Q2 2024', percentage: 15.8, ciLower: 14.6, ciUpper: 17.0, periodChange: 6.8, yearlyChange: 46.1 },
-  { quarter: 'Q3 2024', percentage: 19.0, ciLower: 17.7, ciUpper: 20.3, periodChange: 20.3, yearlyChange: 57.9 },
-  { quarter: 'Q4 2024', percentage: 19.5, ciLower: 18.5, ciUpper: 20.6, periodChange: 2.6, yearlyChange: 62.0 },
-];
-
-const methamphetamineWestData = [
-  { quarter: 'Q4 2022', percentage: 66.8, ciLower: 65.0, ciUpper: 68.7, periodChange: null, yearlyChange: null },
-  { quarter: 'Q1 2023', percentage: 67.2, ciLower: 65.3, ciUpper: 69.1, periodChange: 0.6, yearlyChange: null },
-  { quarter: 'Q2 2023', percentage: 73.4, ciLower: 71.3, ciUpper: 75.5, periodChange: 9.3, yearlyChange: null },
-  { quarter: 'Q3 2023', percentage: 77.2, ciLower: 75.1, ciUpper: 79.3, periodChange: 5.2, yearlyChange: null },
-  { quarter: 'Q4 2023', percentage: 80.4, ciLower: 78.3, ciUpper: 82.5, periodChange: 4.1, yearlyChange: 20.4 },
-  { quarter: 'Q1 2024', percentage: 85.0, ciLower: 83.1, ciUpper: 86.9, periodChange: 5.7, yearlyChange: 26.4 },
-  { quarter: 'Q2 2024', percentage: 85.8, ciLower: 83.9, ciUpper: 87.8, periodChange: 0.9, yearlyChange: 17.0 },
-  { quarter: 'Q3 2024', percentage: 85.9, ciLower: 83.9, ciUpper: 87.8, periodChange: 0.1, yearlyChange: 11.3 },
-  { quarter: 'Q4 2024', percentage: 85.8, ciLower: 83.9, ciUpper: 87.8, periodChange: -0.1, yearlyChange: 15.8 },
-];
-
-const fentanylAndStimulantsData = [
-  { quarter: 'Q4 2022', percentage: 10.1, ciLower: 9.6, ciUpper: 10.7, periodChange: null, yearlyChange: null },
-  { quarter: 'Q1 2023', percentage: 7.6, ciLower: 7.2, ciUpper: 8.1, periodChange: -24.8, yearlyChange: null },
-  { quarter: 'Q2 2023', percentage: 7.6, ciLower: 7.2, ciUpper: 8.1, periodChange: 0.0, yearlyChange: null },
-  { quarter: 'Q3 2023', percentage: 7.8, ciLower: 7.3, ciUpper: 8.2, periodChange: 2.6, yearlyChange: null },
-  { quarter: 'Q4 2023', percentage: 7.8, ciLower: 7.3, ciUpper: 8.2, periodChange: 0.0, yearlyChange: -22.8 },
-  { quarter: 'Q1 2024', percentage: 8.0, ciLower: 7.6, ciUpper: 8.4, periodChange: 2.6, yearlyChange: 5.3 },
-  { quarter: 'Q2 2024', percentage: 8.2, ciLower: 7.8, ciUpper: 8.6, periodChange: 2.5, yearlyChange: 7.9 },
-  { quarter: 'Q3 2024', percentage: 8.3, ciLower: 7.9, ciUpper: 8.7, periodChange: 1.2, yearlyChange: 6.4 },
-  { quarter: 'Q4 2024', percentage: 8.9, ciLower: 8.3, ciUpper: 9.5, periodChange: 7.7, yearlyChange: 14.1 },
-];
-
-const westThreeDrugsDatasets = [
-  { data: alignDataToQuarters(methamphetamineWestData, allQuarters), color: '#3e92cc', label: 'Methamphetamine' },
-  { data: alignDataToQuarters(cocaineWestData, allQuarters), color: '#fbb13c', label: 'Cocaine' },
-  { data: alignDataToQuarters(heroinWestData, allQuarters), color: '#d7263d', label: 'Heroin' },
-  { data: alignDataToQuarters(fentanylAndStimulantsData, allQuarters), color: '#1b9e77', label: 'Fentanyl and Stimulants' },
-];
-
-function getKeyFinding() {
-  if (!westQuarterlyData || westQuarterlyData.length < 2) return null;
-  const lastIdx = westQuarterlyData.length - 1;
-  const prevIdx = westQuarterlyData.length - 2;
-  const last = westQuarterlyData[lastIdx];
-  const prev = westQuarterlyData[prevIdx];
-  if (!last || !prev) return null;
-  const absChange = (last.percentage - prev.percentage).toFixed(1);
-  const direction = absChange > 0 ? 'increased' : 'decreased';
-  return (
-    <>
-      <span style={{ fontWeight: 700 }}>Key finding:</span> Fentanyl positivity {direction} <span style={{fontWeight:800}}>{Math.abs(absChange)}%</span> from <span style={{fontWeight:800}}>{prev.percentage}%</span> in {prev.quarter} to <span style={{fontWeight:800}}>{last.percentage}%</span> in {last.quarter}. This may indicate {direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to fentanyl among people with substance use disorders.
-    </>
-  );
-}
-
-function getKeyFindingForThreeDrugs() {
-  if (!methamphetamineWestData || methamphetamineWestData.length < 2) return null;
-  const lastIdx = methamphetamineWestData.length - 1;
-  const prevIdx = methamphetamineWestData.length - 2;
-  const last = methamphetamineWestData[lastIdx];
-  const prev = methamphetamineWestData[prevIdx];
-  if (!last || !prev) return null;
-  const absChange = (last.percentage - prev.percentage).toFixed(1);
-  const direction = absChange > 0 ? 'increased' : 'decreased';
-  return (
-    <>
-      <span style={{ fontWeight: 700 }}>Key finding:</span> Methamphetamine positivity {direction} <span style={{fontWeight:800}}>{Math.abs(absChange)}%</span> from <span style={{fontWeight:800}}>{prev.percentage}%</span> in {prev.quarter} to <span style={{fontWeight:800}}>{last.percentage}%</span> in {last.quarter}.
-    </>
-  );
-}
-
 const FentanylLineChartWest = () => {
   return (
     <div>
       <FentanylLineChartBase
-        datasets={alignedDatasets}
+        chartNum={1}
         title="How often do people with a substance use disorder test positive for fentanyl on urine drug tests: Western Census Region Q1 2023 - Q4 2024. Millennium Health, Western Census Region Q1 2023 - Q4 2024"
-        keyFinding={getKeyFinding()}
         yLabel="% of people with substance use disorder
 with drug(s) detected"
         legendLabels={[
@@ -571,9 +581,8 @@ with drug(s) detected"
         showDrugSelection={false}
       />
       <FentanylLineChartBase
-        datasets={westThreeDrugsDatasets}
+        chartNum={2}
         title="How often do people with a substance use disorder test positive for methamphetamine, cocaine, Fentanyl and Stimulants or heroin on urine drug tests: Western Census Region Q1 2023 - Q4 2024"
-        keyFinding={getKeyFindingForThreeDrugs()}
         yLabel="% of people with substance use disorder
 with drug detected"
         legendLabels={[
