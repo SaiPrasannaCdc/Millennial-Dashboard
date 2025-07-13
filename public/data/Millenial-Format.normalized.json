@@ -10148,8 +10148,8 @@
         "Quarterly": [
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2022",
-            "drug": "Heroin",
+            "period": "Q4 2022",
+            "drug_name": "Heroin",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.1
@@ -10157,8 +10157,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q1 2023",
-            "drug": "Heroin",
+            "period": "Q1 2023",
+            "drug_name": "Heroin",
             "percentage": 3.0,
             "ciLower": 2.8,
             "ciUpper": 3.2
@@ -10166,8 +10166,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q2 2023",
-            "drug": "Heroin",
+            "period": "Q2 2023",
+            "drug_name": "Heroin",
             "percentage": 3.7,
             "ciLower": 3.4,
             "ciUpper": 3.9
@@ -10175,8 +10175,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q3 2023",
-            "drug": "Heroin",
+            "period": "Q3 2023",
+            "drug_name": "Heroin",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.5
@@ -10184,8 +10184,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2023",
-            "drug": "Heroin",
+            "period": "Q4 2023",
+            "drug_name": "Heroin",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.4
@@ -10193,8 +10193,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q1 2024",
-            "drug": "Heroin",
+            "period": "Q1 2024",
+            "drug_name": "Heroin",
             "percentage": 3.9,
             "ciLower": 3.6,
             "ciUpper": 4.1
@@ -10202,8 +10202,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q2 2024",
-            "drug": "Heroin",
+            "period": "Q2 2024",
+            "drug_name": "Heroin",
             "percentage": 3.8,
             "ciLower": 3.6,
             "ciUpper": 4.1
@@ -10211,8 +10211,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q3 2024",
-            "drug": "Heroin",
+            "period": "Q3 2024",
+            "drug_name": "Heroin",
             "percentage": 3.6,
             "ciLower": 3.4,
             "ciUpper": 3.9
@@ -10220,8 +10220,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2024",
-            "drug": "Heroin",
+            "period": "Q4 2024",
+            "drug_name": "Heroin",
             "percentage": 3.8,
             "ciLower": 3.5,
             "ciUpper": 4.0
@@ -10229,8 +10229,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2022",
-            "drug": "Heroin with Stimulants",
+            "period": "Q4 2022",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 1.9,
             "ciLower": 1.7,
             "ciUpper": 2.2
@@ -10238,8 +10238,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q1 2023",
-            "drug": "Heroin with Stimulants",
+            "period": "Q1 2023",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.0,
             "ciLower": 1.8,
             "ciUpper": 2.2
@@ -10247,8 +10247,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q2 2023",
-            "drug": "Heroin with Stimulants",
+            "period": "Q2 2023",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.4,
             "ciLower": 2.2,
             "ciUpper": 2.6
@@ -10256,8 +10256,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q3 2023",
-            "drug": "Heroin with Stimulants",
+            "period": "Q3 2023",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.0
@@ -10265,8 +10265,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2023",
-            "drug": "Heroin with Stimulants",
+            "period": "Q4 2023",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.9
@@ -10274,8 +10274,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q1 2024",
-            "drug": "Heroin with Stimulants",
+            "period": "Q1 2024",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.6,
             "ciLower": 2.4,
             "ciUpper": 2.8
@@ -10283,8 +10283,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q2 2024",
-            "drug": "Heroin with Stimulants",
+            "period": "Q2 2024",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.9
@@ -10292,8 +10292,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q3 2024",
-            "drug": "Heroin with Stimulants",
+            "period": "Q3 2024",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.6,
             "ciLower": 2.4,
             "ciUpper": 2.8
@@ -10301,8 +10301,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2024",
-            "drug": "Heroin with Stimulants",
+            "period": "Q4 2024",
+            "drug_name": "Heroin with Stimulants",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.9
@@ -10310,8 +10310,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2022",
-            "drug": "Heroin without Stimulants",
+            "period": "Q4 2022",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7
@@ -10319,8 +10319,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q1 2023",
-            "drug": "Heroin without Stimulants",
+            "period": "Q1 2023",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7
@@ -10328,8 +10328,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q2 2023",
-            "drug": "Heroin without Stimulants",
+            "period": "Q2 2023",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.1,
             "ciLower": 2.9,
             "ciUpper": 3.3
@@ -10337,8 +10337,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q3 2023",
-            "drug": "Heroin without Stimulants",
+            "period": "Q3 2023",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.5,
             "ciLower": 3.3,
             "ciUpper": 3.8
@@ -10346,8 +10346,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2023",
-            "drug": "Heroin without Stimulants",
+            "period": "Q4 2023",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.6,
             "ciLower": 3.3,
             "ciUpper": 3.8
@@ -10355,8 +10355,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q1 2024",
-            "drug": "Heroin without Stimulants",
+            "period": "Q1 2024",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.4
@@ -10364,8 +10364,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q2 2024",
-            "drug": "Heroin without Stimulants",
+            "period": "Q2 2024",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.2,
             "ciLower": 2.9,
             "ciUpper": 3.4
@@ -10373,8 +10373,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q3 2024",
-            "drug": "Heroin without Stimulants",
+            "period": "Q3 2024",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.0,
             "ciLower": 2.8,
             "ciUpper": 3.2
@@ -10382,8 +10382,8 @@
           },
           {
             "region": "MIDWEST",
-            "quarter": "Q4 2024",
-            "drug": "Heroin without Stimulants",
+            "period": "Q4 2024",
+            "drug_name": "Heroin without Stimulants",
             "percentage": 3.1,
             "ciLower": 2.9,
             "ciUpper": 3.3
@@ -13024,7 +13024,7 @@
         "Quarterly": [
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "percentage": "14.9",
             "ciLower": "14.6",
             "ciUpper": "15.2",
@@ -13033,7 +13033,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "percentage": "13.7",
             "ciLower": "13.4",
             "ciUpper": "13.9",
@@ -13042,7 +13042,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "percentage": "14.2",
             "ciLower": "13.9",
             "ciUpper": "14.5",
@@ -13051,7 +13051,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "percentage": "14.4",
             "ciLower": "14.2",
             "ciUpper": "14.7",
@@ -13060,7 +13060,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "percentage": "14.5",
             "ciLower": "14.2",
             "ciUpper": "14.7",
@@ -13069,7 +13069,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "percentage": "13.5",
             "ciLower": "13.3",
             "ciUpper": "13.8",
@@ -13078,7 +13078,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "percentage": "13.7",
             "ciLower": "13.5",
             "ciUpper": "15.0",
@@ -13087,7 +13087,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "percentage": "13.4",
             "ciLower": "13.2",
             "ciUpper": "13.7",
@@ -13096,7 +13096,7 @@
           },
           {
             "drug_name": "Fentanyl",
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "percentage": "12.7",
             "ciLower": "12.5",
             "ciUpper": "13.0",
@@ -13105,7 +13105,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "percentage": "9.7",
             "ciLower": "9.5",
             "ciUpper": "10.0",
@@ -13114,7 +13114,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "percentage": "9.2",
             "ciLower": "8.9",
             "ciUpper": "9.4",
@@ -13123,7 +13123,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "percentage": "9.7",
             "ciLower": "9.5",
             "ciUpper": "10.0",
@@ -13132,7 +13132,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "percentage": "10.0",
             "ciLower": "9.8",
             "ciUpper": "10.2",
@@ -13141,7 +13141,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "percentage": "10.0",
             "ciLower": "9.8",
             "ciUpper": "10.2",
@@ -13150,7 +13150,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "percentage": "9.5",
             "ciLower": "9.3",
             "ciUpper": "9.8",
@@ -13159,7 +13159,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "percentage": "10.1",
             "ciLower": "9.9",
             "ciUpper": "10.4",
@@ -13168,7 +13168,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "percentage": "10.3",
             "ciLower": "10.1",
             "ciUpper": "10.6",
@@ -13177,7 +13177,7 @@
           },
           {
             "drug_name": "Fentanyl with Stimulants",
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "percentage": "10.2",
             "ciLower": "10.0",
             "ciUpper": "10.5",
@@ -13186,7 +13186,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "percentage": "5.2",
             "ciLower": "5.0",
             "ciUpper": "5.4",
@@ -13195,7 +13195,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "percentage": "4.5",
             "ciLower": "4.4",
             "ciUpper": "4.7",
@@ -13204,7 +13204,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "percentage": "4.5",
             "ciLower": "4.4",
             "ciUpper": "4.6",
@@ -13213,7 +13213,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "percentage": "4.4",
             "ciLower": "4.3",
             "ciUpper": "4.6",
@@ -13222,7 +13222,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "percentage": "4.4",
             "ciLower": "4.3",
             "ciUpper": "4.6",
@@ -13231,7 +13231,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "percentage": "3.8",
             "ciLower": "3.6",
             "ciUpper": "4.1",
@@ -13240,7 +13240,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "percentage": "3.1",
             "ciLower": "3.0",
             "ciUpper": "3.3",
@@ -13249,7 +13249,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "percentage": "2.5",
             "ciLower": "2.4",
             "ciUpper": "2.6",
@@ -13258,7 +13258,7 @@
           },
           {
             "drug_name": "Fentanyl without Stimulants",
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "percentage": "2.5",
             "ciLower": "2.4",
             "ciUpper": "2.6",
@@ -13392,7 +13392,7 @@
       "CoPositive": {
         "Quarterly": [
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin",
             "percentage": 19.8,
             "ciLower": 19.0,
@@ -13401,7 +13401,7 @@
             "annual": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin",
             "percentage": 20.0,
             "ciLower": 19.1,
@@ -13410,7 +13410,7 @@
             "annual": "1.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin",
             "percentage": 20.4,
             "ciLower": 19.6,
@@ -13419,7 +13419,7 @@
             "annual": "2.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin",
             "percentage": 19.8,
             "ciLower": 19.0,
@@ -13428,7 +13428,7 @@
             "annual": "-3.0%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin",
             "percentage": 19.2,
             "ciLower": 18.4,
@@ -13437,7 +13437,7 @@
             "annual": "-3.0%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin",
             "percentage": 19.3,
             "ciLower": 18.6,
@@ -13446,7 +13446,7 @@
             "annual": "-1.0%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin",
             "percentage": 19.3,
             "ciLower": 18.6,
@@ -13455,7 +13455,7 @@
             "annual": "-5.4%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin",
             "percentage": 25.8,
             "ciLower": 25.0,
@@ -13464,7 +13464,7 @@
             "annual": "30.3%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Heroin",
             "percentage": 28.3,
             "ciLower": 28.4,
@@ -13473,7 +13473,7 @@
             "annual": "52.6%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Cocaine",
             "percentage": 21.1,
             "ciLower": 20.3,
@@ -13482,7 +13482,7 @@
             "annual": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Cocaine",
             "percentage": 23.3,
             "ciLower": 22.5,
@@ -13491,7 +13491,7 @@
             "annual": "10.4%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Cocaine",
             "percentage": 24.1,
             "ciLower": 23.2,
@@ -13500,7 +13500,7 @@
             "annual": "3.4%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Cocaine",
             "percentage": 25.4,
             "ciLower": 24.2,
@@ -13509,7 +13509,7 @@
             "annual": "5.2%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Cocaine",
             "percentage": 24.7,
             "ciLower": 23.8,
@@ -13518,7 +13518,7 @@
             "annual": "-1.2%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Cocaine",
             "percentage": 25.7,
             "ciLower": 24.8,
@@ -13527,7 +13527,7 @@
             "annual": "4.0%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Cocaine",
             "percentage": 26.7,
             "ciLower": 25.8,
@@ -13536,7 +13536,7 @@
             "annual": "3.9%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Cocaine",
             "percentage": 29.1,
             "ciLower": 28.2,
@@ -13545,7 +13545,7 @@
             "annual": "16.4%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Cocaine",
             "percentage": 29.6,
             "ciLower": 28.7,
@@ -13554,7 +13554,7 @@
             "annual": "17.8%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Methamphetamine",
             "percentage": 52.5,
             "ciLower": 51.5,
@@ -13563,7 +13563,7 @@
             "annual": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Methamphetamine",
             "percentage": 52.7,
             "ciLower": 51.6,
@@ -13572,7 +13572,7 @@
             "annual": "0.4%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Methamphetamine",
             "percentage": 54.5,
             "ciLower": 53.5,
@@ -13581,7 +13581,7 @@
             "annual": "3.4%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Methamphetamine",
             "percentage": 54.3,
             "ciLower": 53.3,
@@ -13590,7 +13590,7 @@
             "annual": "-0.4%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Methamphetamine",
             "percentage": 54.7,
             "ciLower": 53.6,
@@ -13599,7 +13599,7 @@
             "annual": "0.7%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Methamphetamine",
             "percentage": 56.8,
             "ciLower": 55.8,
@@ -13608,7 +13608,7 @@
             "annual": "3.8%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Methamphetamine",
             "percentage": 61.4,
             "ciLower": 60.4,
@@ -13617,7 +13617,7 @@
             "annual": "10.8%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Methamphetamine",
             "percentage": 63.8,
             "ciLower": 62.8,
@@ -13626,7 +13626,7 @@
             "annual": "5.6%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Methamphetamine",
             "percentage": 68.1,
             "ciLower": 67.1,
@@ -13635,7 +13635,7 @@
             "annual": "24.5%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 67.0,
             "ciLower": 66.0,
@@ -13644,7 +13644,7 @@
             "annual": "2.4%"
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 67.0,
             "ciLower": 67.0,
@@ -13653,7 +13653,7 @@
             "annual": "0.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 69.4,
             "ciLower": 68.4,
@@ -13662,7 +13662,7 @@
             "annual": "3.6%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 69.3,
             "ciLower": 68.4,
@@ -13671,7 +13671,7 @@
             "annual": "1.7%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 73.8,
             "ciLower": 73.0,
@@ -13680,7 +13680,7 @@
             "annual": "7.9%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 73.8,
             "ciLower": 73.0,
@@ -13689,7 +13689,7 @@
             "annual": "6.6%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 76.6,
             "ciLower": 75.9,
@@ -13698,7 +13698,7 @@
             "annual": "9.7%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Fentanyl and Stimulant",
             "percentage": 80.5,
             "ciLower": 79.7,
@@ -13875,7 +13875,7 @@
       "Positivity": {
         "Quarterly": [
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin",
             "percentage": "4.3",
             "ciLower": "4.1",
@@ -13884,7 +13884,7 @@
             "yr_change": "-7.0%"
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin",
             "percentage": "4.0",
             "ciLower": "3.8",
@@ -13893,7 +13893,7 @@
             "yr_change": "-7.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin",
             "percentage": "4.2",
             "ciLower": "4.0",
@@ -13902,7 +13902,7 @@
             "yr_change": "-2.4%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin",
             "percentage": "4.1",
             "ciLower": "3.9",
@@ -13911,7 +13911,7 @@
             "yr_change": "-2.4%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin",
             "percentage": "4.0",
             "ciLower": "3.8",
@@ -13920,7 +13920,7 @@
             "yr_change": "-7.0%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin",
             "percentage": "3.9",
             "ciLower": "3.7",
@@ -13929,7 +13929,7 @@
             "yr_change": "-7.1%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin",
             "percentage": "3.9",
             "ciLower": "3.7",
@@ -13938,7 +13938,7 @@
             "yr_change": "-5.6%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin",
             "percentage": "4.6",
             "ciLower": "4.4",
@@ -13947,7 +13947,7 @@
             "yr_change": "12.2%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Heroin",
             "percentage": "4.9",
             "ciLower": "4.7",
@@ -13956,7 +13956,7 @@
             "yr_change": "22.5%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin with Stimulants",
             "percentage": "2.8",
             "ciLower": "2.7",
@@ -13965,7 +13965,7 @@
             "yr_change": "-10.7%"
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin with Stimulants",
             "percentage": "2.5",
             "ciLower": "2.4",
@@ -13974,7 +13974,7 @@
             "yr_change": "-10.7%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin with Stimulants",
             "percentage": "2.7",
             "ciLower": "2.5",
@@ -13983,7 +13983,7 @@
             "yr_change": "8.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin with Stimulants",
             "percentage": "2.6",
             "ciLower": "2.4",
@@ -13992,7 +13992,7 @@
             "yr_change": "-3.8%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin with Stimulants",
             "percentage": "2.5",
             "ciLower": "2.4",
@@ -14001,7 +14001,7 @@
             "yr_change": "-4.0%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin with Stimulants",
             "percentage": "2.4",
             "ciLower": "2.2",
@@ -14010,7 +14010,7 @@
             "yr_change": "-4.0%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin with Stimulants",
             "percentage": "2.5",
             "ciLower": "2.4",
@@ -14019,7 +14019,7 @@
             "yr_change": "4.2%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin with Stimulants",
             "percentage": "3.2",
             "ciLower": "3.1",
@@ -14028,7 +14028,7 @@
             "yr_change": "28.0%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Heroin with Stimulants",
             "percentage": "3.6",
             "ciLower": "3.4",
@@ -14037,7 +14037,7 @@
             "yr_change": "44.0%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin without Stimulants",
             "percentage": "3.8",
             "ciLower": "3.6",
@@ -14046,7 +14046,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin without Stimulants",
             "percentage": "3.5",
             "ciLower": "3.3",
@@ -14055,7 +14055,7 @@
             "yr_change": "-7.9%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin without Stimulants",
             "percentage": "3.6",
             "ciLower": "3.5",
@@ -14064,7 +14064,7 @@
             "yr_change": "2.9%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin without Stimulants",
             "percentage": "3.5",
             "ciLower": "3.4",
@@ -14073,7 +14073,7 @@
             "yr_change": "-2.8%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin without Stimulants",
             "percentage": "3.4",
             "ciLower": "3.2",
@@ -14082,7 +14082,7 @@
             "yr_change": "-5.7%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin without Stimulants",
             "percentage": "3.2",
             "ciLower": "3.0",
@@ -14091,7 +14091,7 @@
             "yr_change": "-8.3%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin without Stimulants",
             "percentage": "3.8",
             "ciLower": "3.6",
@@ -14100,7 +14100,7 @@
             "yr_change": "8.6%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin without Stimulants",
             "percentage": "4.0",
             "ciLower": "3.9",
@@ -14109,7 +14109,7 @@
             "yr_change": "14.3%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Heroin without Stimulants",
             "percentage": "4.0",
             "ciLower": "3.9",
@@ -14244,7 +14244,7 @@
       "CoPositive": {
         "Quarterly": [
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Fentanyl",
             "percentage": "69.3",
             "ciLower": "67.5",
@@ -14253,7 +14253,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Fentanyl",
             "percentage": "69.0",
             "ciLower": "67.2",
@@ -14262,7 +14262,7 @@
             "yr_change": "-0.4%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Fentanyl",
             "percentage": "69.7",
             "ciLower": "68.0",
@@ -14271,7 +14271,7 @@
             "yr_change": "1.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Fentanyl",
             "percentage": "70.3",
             "ciLower": "68.6",
@@ -14280,7 +14280,7 @@
             "yr_change": "0.9%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Fentanyl",
             "percentage": "69.7",
             "ciLower": "68.0",
@@ -14289,7 +14289,7 @@
             "yr_change": "-0.9%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Fentanyl",
             "percentage": "68.5",
             "ciLower": "66.7",
@@ -14298,7 +14298,7 @@
             "yr_change": "-1.7%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Fentanyl",
             "percentage": "68.5",
             "ciLower": "66.7",
@@ -14307,7 +14307,7 @@
             "yr_change": "-1.7%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Fentanyl",
             "percentage": "75.7",
             "ciLower": "74.2",
@@ -14316,7 +14316,7 @@
             "yr_change": "10.5%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Fentanyl",
             "percentage": "76.3",
             "ciLower": "74.9",
@@ -14325,7 +14325,7 @@
             "yr_change": "9.5%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Cocaine",
             "percentage": "25.0",
             "ciLower": "23.3",
@@ -14334,7 +14334,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Cocaine",
             "percentage": "28.7",
             "ciLower": "26.9",
@@ -14343,7 +14343,7 @@
             "yr_change": "14.8%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Cocaine",
             "percentage": "28.0",
             "ciLower": "26.3",
@@ -14352,7 +14352,7 @@
             "yr_change": "-2.4%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Cocaine",
             "percentage": "31.2",
             "ciLower": "29.4",
@@ -14361,7 +14361,7 @@
             "yr_change": "11.4%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Cocaine",
             "percentage": "32.1",
             "ciLower": "30.3",
@@ -14370,7 +14370,7 @@
             "yr_change": "2.9%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Cocaine",
             "percentage": "32.2",
             "ciLower": "30.4",
@@ -14379,7 +14379,7 @@
             "yr_change": "12.2%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Cocaine",
             "percentage": "33.6",
             "ciLower": "31.8",
@@ -14388,7 +14388,7 @@
             "yr_change": "4.3%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Cocaine",
             "percentage": "34.4",
             "ciLower": "32.8",
@@ -14397,7 +14397,7 @@
             "yr_change": "10.3%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Cocaine",
             "percentage": "33.4",
             "ciLower": "31.8",
@@ -14406,7 +14406,7 @@
             "yr_change": "-2.9%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin",
             "percentage": "52.5",
             "ciLower": "50.5",
@@ -14415,7 +14415,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin",
             "percentage": "47.3",
             "ciLower": "45.3",
@@ -14424,7 +14424,7 @@
             "yr_change": "-9.9%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin",
             "percentage": "48.3",
             "ciLower": "46.4",
@@ -14433,7 +14433,7 @@
             "yr_change": "2.1%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin",
             "percentage": "44.3",
             "ciLower": "42.4",
@@ -14442,7 +14442,7 @@
             "yr_change": "-8.3%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin",
             "percentage": "42.5",
             "ciLower": "40.6",
@@ -14451,7 +14451,7 @@
             "yr_change": "-4.1%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin",
             "percentage": "42.8",
             "ciLower": "40.9",
@@ -14460,7 +14460,7 @@
             "yr_change": "0.7%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin",
             "percentage": "45.1",
             "ciLower": "43.3",
@@ -14469,7 +14469,7 @@
             "yr_change": "5.4%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin",
             "percentage": "54.0",
             "ciLower": "52.3",
@@ -14478,7 +14478,7 @@
             "yr_change": "19.7%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Heroin",
             "percentage": "57.7",
             "ciLower": "56.1",
@@ -14487,7 +14487,7 @@
             "yr_change": "6.9%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin and Stimulants",
             "percentage": "55.0",
             "ciLower": "53.0",
@@ -14496,7 +14496,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin and Stimulants",
             "percentage": "54.4",
             "ciLower": "52.4",
@@ -14505,7 +14505,7 @@
             "yr_change": "-1.1%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin and Stimulants",
             "percentage": "54.4",
             "ciLower": "52.4",
@@ -14514,7 +14514,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin and Stimulants",
             "percentage": "55.5",
             "ciLower": "53.6",
@@ -14523,7 +14523,7 @@
             "yr_change": "2.0%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin and Stimulants",
             "percentage": "53.7",
             "ciLower": "51.8",
@@ -14532,7 +14532,7 @@
             "yr_change": "-3.2%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin and Stimulants",
             "percentage": "54.0",
             "ciLower": "52.1",
@@ -14541,7 +14541,7 @@
             "yr_change": "0.6%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin and Stimulants",
             "percentage": "56.1",
             "ciLower": "54.2",
@@ -14550,7 +14550,7 @@
             "yr_change": "3.9%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin and Stimulants",
             "percentage": "63.5",
             "ciLower": "61.9",
@@ -14559,7 +14559,7 @@
             "yr_change": "13.2%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Heroin and Stimulants",
             "percentage": "65.4",
             "ciLower": "63.8",
@@ -14736,7 +14736,7 @@
       "Positivity": {
         "Quarterly": [
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Cocaine",
             "percentage": "6.4",
             "ciLower": "6.2",
@@ -14745,7 +14745,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Cocaine",
             "percentage": "6.4",
             "ciLower": "6.2",
@@ -14754,7 +14754,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Cocaine",
             "percentage": "6.9",
             "ciLower": "6.7",
@@ -14763,7 +14763,7 @@
             "yr_change": "7.8%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Cocaine",
             "percentage": "7.3",
             "ciLower": "7.1",
@@ -14772,7 +14772,7 @@
             "yr_change": "5.8%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Cocaine",
             "percentage": "7.4",
             "ciLower": "7.1",
@@ -14781,7 +14781,7 @@
             "yr_change": "1.4%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Cocaine",
             "percentage": "7.2",
             "ciLower": "7.0",
@@ -14790,7 +14790,7 @@
             "yr_change": "-2.7%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Cocaine",
             "percentage": "8.0",
             "ciLower": "7.8",
@@ -14799,7 +14799,7 @@
             "yr_change": "11.1%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Cocaine",
             "percentage": "8.5",
             "ciLower": "8.2",
@@ -14808,7 +14808,7 @@
             "yr_change": "6.3%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Cocaine",
             "percentage": "8.3",
             "ciLower": "8.0",
@@ -14817,7 +14817,7 @@
             "yr_change": "-2.4%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.2",
             "ciLower": "3.1",
@@ -14826,7 +14826,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.3",
             "ciLower": "3.2",
@@ -14835,7 +14835,7 @@
             "yr_change": "3.1%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.5",
             "ciLower": "3.4",
@@ -14844,7 +14844,7 @@
             "yr_change": "6.1%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.7",
             "ciLower": "3.5",
@@ -14853,7 +14853,7 @@
             "yr_change": "5.7%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.7",
             "ciLower": "3.5",
@@ -14862,7 +14862,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.6",
             "ciLower": "3.4",
@@ -14871,7 +14871,7 @@
             "yr_change": "-2.7%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.8",
             "ciLower": "3.7",
@@ -14880,7 +14880,7 @@
             "yr_change": "5.6%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Cocaine with Opioids",
             "percentage": "4.0",
             "ciLower": "3.9",
@@ -14889,7 +14889,7 @@
             "yr_change": "5.3%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Cocaine with Opioids",
             "percentage": "3.8",
             "ciLower": "3.7",
@@ -14898,7 +14898,7 @@
             "yr_change": "-5.0%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Cocaine without Opioids",
             "percentage": "3.1",
             "ciLower": "3.0",
@@ -14907,7 +14907,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Cocaine without Opioids",
             "percentage": "3.1",
             "ciLower": "3.0",
@@ -14916,7 +14916,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Cocaine without Opioids",
             "percentage": "3.4",
             "ciLower": "3.2",
@@ -14925,7 +14925,7 @@
             "yr_change": "9.7%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Cocaine without Opioids",
             "percentage": "3.6",
             "ciLower": "3.4",
@@ -14934,7 +14934,7 @@
             "yr_change": "5.9%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Cocaine without Opioids",
             "percentage": "3.7",
             "ciLower": "3.5",
@@ -14943,7 +14943,7 @@
             "yr_change": "2.8%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Cocaine without Opioids",
             "percentage": "3.6",
             "ciLower": "3.5",
@@ -14952,7 +14952,7 @@
             "yr_change": "-2.7%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Cocaine without Opioids",
             "percentage": "4.2",
             "ciLower": "4.0",
@@ -14961,7 +14961,7 @@
             "yr_change": "16.7%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Cocaine without Opioids",
             "percentage": "4.4",
             "ciLower": "4.3",
@@ -14970,7 +14970,7 @@
             "yr_change": "4.8%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Cocaine without Opioids",
             "percentage": "4.4",
             "ciLower": "4.3",
@@ -15105,7 +15105,7 @@
       "CoPositive": {
         "Quarterly": [
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Fentanyl",
             "percentage": "49.4",
             "ciLower": "47.8",
@@ -15114,7 +15114,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Fentanyl",
             "percentage": "49.8",
             "ciLower": "48.3",
@@ -15123,7 +15123,7 @@
             "yr_change": "0.8%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Fentanyl",
             "percentage": "49.8",
             "ciLower": "48.3",
@@ -15132,7 +15132,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Fentanyl",
             "percentage": "49.4",
             "ciLower": "48.1",
@@ -15141,7 +15141,7 @@
             "yr_change": "-0.8%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Fentanyl",
             "percentage": "48.5",
             "ciLower": "47.0",
@@ -15150,7 +15150,7 @@
             "yr_change": "-2.4%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Fentanyl",
             "percentage": "48.2",
             "ciLower": "46.8",
@@ -15159,7 +15159,7 @@
             "yr_change": "-0.6%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Fentanyl",
             "percentage": "46.4",
             "ciLower": "45.1",
@@ -15168,7 +15168,7 @@
             "yr_change": "-3.7%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Fentanyl",
             "percentage": "46.4",
             "ciLower": "45.2",
@@ -15177,7 +15177,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Fentanyl",
             "percentage": "44.9",
             "ciLower": "43.6",
@@ -15186,7 +15186,7 @@
             "yr_change": "-3.2%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin",
             "percentage": "16.7",
             "ciLower": "15.6",
@@ -15195,7 +15195,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin",
             "percentage": "17.7",
             "ciLower": "16.6",
@@ -15204,7 +15204,7 @@
             "yr_change": "6.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin",
             "percentage": "16.9",
             "ciLower": "15.8",
@@ -15213,7 +15213,7 @@
             "yr_change": "-4.5%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin",
             "percentage": "17.3",
             "ciLower": "16.3",
@@ -15222,7 +15222,7 @@
             "yr_change": "2.4%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin",
             "percentage": "17.4",
             "ciLower": "16.5",
@@ -15231,7 +15231,7 @@
             "yr_change": "0.6%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin",
             "percentage": "17.2",
             "ciLower": "16.1",
@@ -15240,7 +15240,7 @@
             "yr_change": "-1.1%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin",
             "percentage": "16.4",
             "ciLower": "15.4",
@@ -15249,7 +15249,7 @@
             "yr_change": "-4.7%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin",
             "percentage": "17.0",
             "ciLower": "16.0",
@@ -15258,7 +15258,7 @@
             "yr_change": "3.7%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Heroin",
             "percentage": "19.8",
             "ciLower": "18.8",
@@ -15267,7 +15267,7 @@
             "yr_change": "5.9%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Opioids",
             "percentage": "50.4",
             "ciLower": "49.2",
@@ -15276,7 +15276,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Opioids",
             "percentage": "51.4",
             "ciLower": "49.9",
@@ -15285,7 +15285,7 @@
             "yr_change": "1.6%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Opioids",
             "percentage": "50.9",
             "ciLower": "49.5",
@@ -15294,7 +15294,7 @@
             "yr_change": "-1.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Opioids",
             "percentage": "49.9",
             "ciLower": "48.5",
@@ -15303,7 +15303,7 @@
             "yr_change": "-1.8%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Opioids",
             "percentage": "49.5",
             "ciLower": "48.1",
@@ -15312,7 +15312,7 @@
             "yr_change": "-0.8%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Opioids",
             "percentage": "47.7",
             "ciLower": "46.5",
@@ -15321,7 +15321,7 @@
             "yr_change": "-3.6%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Opioids",
             "percentage": "47.6",
             "ciLower": "46.5",
@@ -15330,7 +15330,7 @@
             "yr_change": "-0.2%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Opioids",
             "percentage": "47.4",
             "ciLower": "46.3",
@@ -15339,7 +15339,7 @@
             "yr_change": "-0.5%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Opioids",
             "percentage": "46.7",
             "ciLower": "45.6",
@@ -15348,7 +15348,7 @@
             "yr_change": "-1.5%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Methamphetamine",
             "percentage": "29.3",
             "ciLower": "27.8",
@@ -15357,7 +15357,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Methamphetamine",
             "percentage": "29.9",
             "ciLower": "28.5",
@@ -15366,7 +15366,7 @@
             "yr_change": "2.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Methamphetamine",
             "percentage": "31.4",
             "ciLower": "30.0",
@@ -15375,7 +15375,7 @@
             "yr_change": "5.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Methamphetamine",
             "percentage": "29.9",
             "ciLower": "28.6",
@@ -15384,7 +15384,7 @@
             "yr_change": "-4.8%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Methamphetamine",
             "percentage": "32.8",
             "ciLower": "31.5",
@@ -15393,7 +15393,7 @@
             "yr_change": "9.6%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Methamphetamine",
             "percentage": "34.5",
             "ciLower": "33.2",
@@ -15402,7 +15402,7 @@
             "yr_change": "5.2%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Methamphetamine",
             "percentage": "37.5",
             "ciLower": "36.3",
@@ -15411,7 +15411,7 @@
             "yr_change": "8.7%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Methamphetamine",
             "percentage": "37.5",
             "ciLower": "36.3",
@@ -15420,7 +15420,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Methamphetamine",
             "percentage": "37.7",
             "ciLower": "36.5",
@@ -15597,7 +15597,7 @@
       "Positivity": {
         "Quarterly": [
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Methamphetamine",
             "percentage": "16.1",
             "ciLower": "15.8",
@@ -15606,7 +15606,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Methamphetamine",
             "percentage": "15.9",
             "ciLower": "15.6",
@@ -15615,7 +15615,7 @@
             "yr_change": "-1.2%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Methamphetamine",
             "percentage": "16.6",
             "ciLower": "16.3",
@@ -15624,7 +15624,7 @@
             "yr_change": "4.4%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Methamphetamine",
             "percentage": "16.3",
             "ciLower": "16.0",
@@ -15633,7 +15633,7 @@
             "yr_change": "-1.8%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Methamphetamine",
             "percentage": "16.1",
             "ciLower": "15.8",
@@ -15642,7 +15642,7 @@
             "yr_change": "-1.2%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Methamphetamine",
             "percentage": "16.1",
             "ciLower": "15.8",
@@ -15651,7 +15651,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Methamphetamine",
             "percentage": "16.9",
             "ciLower": "16.6",
@@ -15660,7 +15660,7 @@
             "yr_change": "5.0%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Methamphetamine",
             "percentage": "17.8",
             "ciLower": "17.5",
@@ -15669,7 +15669,7 @@
             "yr_change": "5.3%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Methamphetamine",
             "percentage": "18.4",
             "ciLower": "18.2",
@@ -15678,7 +15678,7 @@
             "yr_change": "3.4%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "8.3",
             "ciLower": "8.0",
@@ -15687,7 +15687,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "7.5",
             "ciLower": "7.3",
@@ -15696,7 +15696,7 @@
             "yr_change": "-9.6%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "8.1",
             "ciLower": "7.8",
@@ -15705,7 +15705,7 @@
             "yr_change": "8.0%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "8.1",
             "ciLower": "7.9",
@@ -15714,7 +15714,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "8.2",
             "ciLower": "8.0",
@@ -15723,7 +15723,7 @@
             "yr_change": "1.2%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "7.9",
             "ciLower": "7.7",
@@ -15732,7 +15732,7 @@
             "yr_change": "-3.7%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "8.5",
             "ciLower": "8.3",
@@ -15741,7 +15741,7 @@
             "yr_change": "7.6%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "8.8",
             "ciLower": "8.6",
@@ -15750,7 +15750,7 @@
             "yr_change": "3.5%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Methamphetamine with Opioids",
             "percentage": "9.0",
             "ciLower": "8.8",
@@ -15759,7 +15759,7 @@
             "yr_change": "2.3%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "7.8",
             "ciLower": "7.6",
@@ -15768,7 +15768,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "8.4",
             "ciLower": "8.2",
@@ -15777,7 +15777,7 @@
             "yr_change": "7.7%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "8.5",
             "ciLower": "8.3",
@@ -15786,7 +15786,7 @@
             "yr_change": "1.2%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "8.2",
             "ciLower": "8.0",
@@ -15795,7 +15795,7 @@
             "yr_change": "-3.5%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "8.2",
             "ciLower": "8.0",
@@ -15804,7 +15804,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "8.4",
             "ciLower": "8.2",
@@ -15813,7 +15813,7 @@
             "yr_change": "2.4%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "8.4",
             "ciLower": "8.2",
@@ -15822,7 +15822,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "9.0",
             "ciLower": "8.8",
@@ -15831,7 +15831,7 @@
             "yr_change": "7.1%"
           },
           {
-            "quarter": "Q4 2024",
+            "period": "Q4 2024",
             "drug_name": "Methamphetamine without Opioids",
             "percentage": "9.5",
             "ciLower": "9.2",
@@ -15966,7 +15966,7 @@
       "CoPositive": {
         "Quarterly": [
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Fentanyl",
             "percentage": "48.7",
             "ciLower": "47.7",
@@ -15975,7 +15975,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Fentanyl",
             "percentage": "45.3",
             "ciLower": "44.4",
@@ -15984,7 +15984,7 @@
             "yr_change": "-7.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Fentanyl",
             "percentage": "46.7",
             "ciLower": "45.8",
@@ -15993,7 +15993,7 @@
             "yr_change": "3.1%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Fentanyl",
             "percentage": "49.0",
             "ciLower": "48.0",
@@ -16002,7 +16002,7 @@
             "yr_change": "1.9%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Fentanyl",
             "percentage": "47.7",
             "ciLower": "46.8",
@@ -16011,7 +16011,7 @@
             "yr_change": "-2.7%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Fentanyl",
             "percentage": "49.0",
             "ciLower": "48.1",
@@ -16020,7 +16020,7 @@
             "yr_change": "2.7%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Fentanyl",
             "percentage": "48.1",
             "ciLower": "47.2",
@@ -16029,7 +16029,7 @@
             "yr_change": "-1.8%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Fentanyl",
             "percentage": "47.0",
             "ciLower": "46.1",
@@ -16038,7 +16038,7 @@
             "yr_change": "-2.3%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Heroin",
             "percentage": "13.9",
             "ciLower": "13.2",
@@ -16047,7 +16047,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Heroin",
             "percentage": "11.8",
             "ciLower": "11.2",
@@ -16056,7 +16056,7 @@
             "yr_change": "-15.1%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Heroin",
             "percentage": "12.1",
             "ciLower": "11.5",
@@ -16065,7 +16065,7 @@
             "yr_change": "2.5%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Heroin",
             "percentage": "10.5",
             "ciLower": "9.9",
@@ -16074,7 +16074,7 @@
             "yr_change": "-13.5%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Heroin",
             "percentage": "10.2",
             "ciLower": "9.6",
@@ -16083,7 +16083,7 @@
             "yr_change": "-2.9%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Heroin",
             "percentage": "13.9",
             "ciLower": "13.3",
@@ -16092,7 +16092,7 @@
             "yr_change": "35.0%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Heroin",
             "percentage": "15.0",
             "ciLower": "14.5",
@@ -16101,7 +16101,7 @@
             "yr_change": "7.9%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Heroin",
             "percentage": "19.1",
             "ciLower": "18.5",
@@ -16110,7 +16110,7 @@
             "yr_change": "27.3%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Opioids",
             "percentage": "51.4",
             "ciLower": "50.4",
@@ -16119,7 +16119,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Opioids",
             "percentage": "47.1",
             "ciLower": "46.3",
@@ -16128,7 +16128,7 @@
             "yr_change": "-8.0%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Opioids",
             "percentage": "48.6",
             "ciLower": "47.7",
@@ -16137,7 +16137,7 @@
             "yr_change": "2.7%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Opioids",
             "percentage": "50.6",
             "ciLower": "49.6",
@@ -16146,7 +16146,7 @@
             "yr_change": "4.1%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Opioids",
             "percentage": "49.1",
             "ciLower": "48.2",
@@ -16155,7 +16155,7 @@
             "yr_change": "-3.0%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Opioids",
             "percentage": "49.6",
             "ciLower": "48.7",
@@ -16164,7 +16164,7 @@
             "yr_change": "1.0%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Opioids",
             "percentage": "49.6",
             "ciLower": "48.7",
@@ -16173,7 +16173,7 @@
             "yr_change": "0.0%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Opioids",
             "percentage": "48.4",
             "ciLower": "47.4",
@@ -16182,7 +16182,7 @@
             "yr_change": "-2.4%"
           },
           {
-            "quarter": "Q4 2022",
+            "period": "Q4 2022",
             "drug_name": "Cocaine",
             "percentage": "11.6",
             "ciLower": "11.0",
@@ -16191,7 +16191,7 @@
             "yr_change": ""
           },
           {
-            "quarter": "Q1 2023",
+            "period": "Q1 2023",
             "drug_name": "Cocaine",
             "percentage": "11.4",
             "ciLower": "11.2",
@@ -16200,7 +16200,7 @@
             "yr_change": "-1.7%"
           },
           {
-            "quarter": "Q2 2023",
+            "period": "Q2 2023",
             "drug_name": "Cocaine",
             "percentage": "13.0",
             "ciLower": "12.4",
@@ -16209,7 +16209,7 @@
             "yr_change": "8.3%"
           },
           {
-            "quarter": "Q3 2023",
+            "period": "Q3 2023",
             "drug_name": "Cocaine",
             "percentage": "13.4",
             "ciLower": "12.8",
@@ -16218,7 +16218,7 @@
             "yr_change": "3.1%"
           },
           {
-            "quarter": "Q4 2023",
+            "period": "Q4 2023",
             "drug_name": "Cocaine",
             "percentage": "14.7",
             "ciLower": "14.1",
@@ -16227,7 +16227,7 @@
             "yr_change": "9.7%"
           },
           {
-            "quarter": "Q1 2024",
+            "period": "Q1 2024",
             "drug_name": "Cocaine",
             "percentage": "15.6",
             "ciLower": "15.0",
@@ -16236,7 +16236,7 @@
             "yr_change": "6.1%"
           },
           {
-            "quarter": "Q2 2024",
+            "period": "Q2 2024",
             "drug_name": "Cocaine",
             "percentage": "17.8",
             "ciLower": "17.1",
@@ -16245,7 +16245,7 @@
             "yr_change": "9.9%"
           },
           {
-            "quarter": "Q3 2024",
+            "period": "Q3 2024",
             "drug_name": "Cocaine",
             "percentage": "16.8",
             "ciLower": "16.2",

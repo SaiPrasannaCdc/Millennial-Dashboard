@@ -12,7 +12,7 @@ import MethamphetamineLineChartSouth from './components/MethamphetamineLineChart
 import MethamphetamineLineChartMidwest from './components/MethamphetamineLineChartMidwest'; 
 import MethamphetamineLineChartNortheast from './components/MethamphetamineLineChartNortheast'; 
 import FentanylLineChartWest from './components/FentanylLineChartWest';
-import FentanylLineChartMidwest from './components/FentanylLineChartMidwest';
+import { FentanylLineChartMidwest, MidwestThreeDrugsLineChart} from './components/FentanylLineChartMidwest';
 import FentanylLineChartSouth from './components/FentanylLineChartSouth';
 import HeroinLineChartRegions from './components/HeroinLineChartRegions'; 
 import HeroinLineChartRegions6months from './components/HeroinLineChartRegions6months';
@@ -179,7 +179,10 @@ function App() {
         <FentanylLineChartWest />
       )}
       {selectedRegion === 'MIDWEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
+        <>
         <FentanylLineChartMidwest />
+        <MidwestThreeDrugsLineChart />
+        </>
       )}
       {selectedRegion === 'SOUTH' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
         <FentanylLineChartSouth />

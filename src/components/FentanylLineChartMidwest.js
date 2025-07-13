@@ -6,76 +6,21 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-const midwestQuarterlyData = [
-  { quarter: 'Q4 2022', percentage: 10.9, ciLower: 10.5, ciUpper: 11.4 },
-  { quarter: 'Q1 2023', percentage: 10.7, ciLower: 10.2, ciUpper: 11.1 },
-  { quarter: 'Q2 2023', percentage: 11.4, ciLower: 11.0, ciUpper: 11.8 },
-  { quarter: 'Q3 2023', percentage: 13.3, ciLower: 12.8, ciUpper: 13.7 },
-  { quarter: 'Q4 2023', percentage: 12.8, ciLower: 12.3, ciUpper: 13.2 },
-  { quarter: 'Q1 2024', percentage: 10.9, ciLower: 10.5, ciUpper: 11.3 },
-  { quarter: 'Q2 2024', percentage: 10.2, ciLower: 9.9, ciUpper: 10.6 },
-  { quarter: 'Q3 2024', percentage: 9.5, ciLower: 9.2, ciUpper: 9.9 },
-  { quarter: 'Q4 2024', percentage: 9.0, ciLower: 8.7, ciUpper: 9.4 },
-];
-
-const midwestWithStimulantsQuarterly = [
-  { quarter: 'Q4 2022', percentage: 6.5, ciLower: 6.2, ciUpper: 6.8 },
-  { quarter: 'Q1 2023', percentage: 6.7, ciLower: 6.4, ciUpper: 7.0 },
-  { quarter: 'Q2 2023', percentage: 7.2, ciLower: 6.8, ciUpper: 7.5 },
-  { quarter: 'Q3 2023', percentage: 8.4, ciLower: 8.1, ciUpper: 8.8 },
-  { quarter: 'Q4 2023', percentage: 8.0, ciLower: 7.6, ciUpper: 8.4 },
-  { quarter: 'Q1 2024', percentage: 7.1, ciLower: 6.7, ciUpper: 7.4 },
-  { quarter: 'Q2 2024', percentage: 6.3, ciLower: 6.0, ciUpper: 6.6 },
-  { quarter: 'Q3 2024', percentage: 6.3, ciLower: 6.0, ciUpper: 6.6 },
-  { quarter: 'Q4 2024', percentage: 6.3, ciLower: 6.0, ciUpper: 6.6 },
-];
-
-const midwestWithoutStimulantsQuarterly = [
-  { quarter: 'Q4 2022', percentage: 4.4, ciLower: 4.1, ciUpper: 4.7 },
-  { quarter: 'Q1 2023', percentage: 4.0, ciLower: 3.7, ciUpper: 4.2 },
-  { quarter: 'Q2 2023', percentage: 4.2, ciLower: 4.0, ciUpper: 4.5 },
-  { quarter: 'Q3 2023', percentage: 4.8, ciLower: 4.5, ciUpper: 5.1 },
-  { quarter: 'Q4 2023', percentage: 4.8, ciLower: 4.5, ciUpper: 5.1 },
-  { quarter: 'Q1 2024', percentage: 3.2, ciLower: 3.1, ciUpper: 3.4 },
-  { quarter: 'Q2 2024', percentage: 2.9, ciLower: 2.7, ciUpper: 3.1 },
-  { quarter: 'Q3 2024', percentage: 2.9, ciLower: 2.7, ciUpper: 3.1 },
-  { quarter: 'Q4 2024', percentage: 2.7, ciLower: 2.5, ciUpper: 2.9 },
-];
-
-const allQuarters = midwestQuarterlyData.map(d => d.quarter);
 function alignDataToQuarters(data, quarters) {
   const map = Object.fromEntries(data.map(d => [d.quarter, d]));
   return quarters.map(q => map[q] || { quarter: q, percentage: null, ciLower: null, ciUpper: null });
 }
 
-const datasets = [
-  { data: alignDataToQuarters(midwestQuarterlyData, allQuarters), color: '#0073e6', label: 'Fentanyl' },
-  { data: alignDataToQuarters(midwestWithStimulantsQuarterly, allQuarters), color: '#6a0dad', label: 'Fentanyl with Stimulants' },
-  { data: alignDataToQuarters(midwestWithoutStimulantsQuarterly, allQuarters), color: '#e67e22', label: 'Fentanyl without Stimulants' },
-];
-
 const FentanylLineChartMidwest = ({ width = 1100, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [midwestQuarterlyData, setMidwestQuarterlyData] = useState([]);
+  const [midwestWithStimulantsQuarterly, setMidwestWithStimulantsQuarterly] = useState([]);
+  const [midwestWithoutStimulantsQuarterly, setMidwestWithoutStimulantsQuarterly] = useState([]);
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
-
-  const xDomain = allQuarters;
-  const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
-    padding: 0.2,
-  });
-  const yMax = Math.max(
-    ...datasets.flatMap(ds => ds.data.map(d => d.percentage || 0))
-  );
-  const yScale = scaleLinear({
-    domain: [0, yMax],
-    range: [adjustedHeight, 0],
-    nice: true,
-  });
 
   function getPrevValueForDataset(data, i, offset = 1) {
     let idx = i - 1, found = 0;
@@ -140,9 +85,64 @@ const FentanylLineChartMidwest = ({ width = 1100, height = 450 }) => {
     );
   };
 
+  function getGroupedCoPosSeriesMidwest(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.MidWest?.Fentanyl?.Positivity?.[periodKey] || [];
+    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange]);
+
+
+  useEffect(() => {
+      fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+        .then(res => res.json())
+        .then(data => {
+
+      const mwData = getGroupedCoPosSeriesMidwest(data);
+      
+      setMidwestQuarterlyData(mwData[0].data);
+      setMidwestWithStimulantsQuarterly(mwData[1].data);
+      setMidwestWithoutStimulantsQuarterly(mwData[2].data);
+
+        });
+  }, []); 
+
+  const allQuarters = midwestQuarterlyData.map(d => d.quarter);
+
+  const datasets = [
+  { data: alignDataToQuarters(midwestQuarterlyData, allQuarters), color: '#0073e6', label: 'Fentanyl' },
+  { data: alignDataToQuarters(midwestWithStimulantsQuarterly, allQuarters), color: '#6a0dad', label: 'Fentanyl with Stimulants' },
+  { data: alignDataToQuarters(midwestWithoutStimulantsQuarterly, allQuarters), color: '#e67e22', label: 'Fentanyl without Stimulants' },
+];
+
+  const xDomain = allQuarters;
+  const xScale = scaleBand({
+    domain: xDomain,
+    range: [0, adjustedWidth],
+    padding: 0.2,
+  });
+  const yMax = Math.max(
+    ...datasets.flatMap(ds => ds.data.map(d => d.percentage || 0))
+  );
+  const yScale = scaleLinear({
+    domain: [0, yMax],
+    range: [adjustedHeight, 0],
+    nice: true,
+  });
 
   const getKeyFinding = () => {
     if (!midwestQuarterlyData || midwestQuarterlyData.length < 2) return null;
@@ -374,68 +374,14 @@ const FentanylLineChartMidwest = ({ width = 1100, height = 450 }) => {
   );
 };
 
+function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
+  const [showLabels, setShowLabels] = useState(false);
+  const [showPercentChange, setShowPercentChange] = useState([]);
+  const [heroinMidwestData, setHeroinMidwestData] = useState([]);
+  const [cocaineMidwestData, setCocaineMidwestData] = useState([]);
+  const [methMidwestData, setMethMidwestData] = useState([]);
+  const [fentanylAndStimulantsMidwestData, setFentanylAndStimulantsMidwestData] = useState([]);
 
-const heroinMidwestData = [
-  { quarter: 'Q4 2022', percentage: 14.7, ciLower: 13.7, ciUpper: 15.7 },
-  { quarter: 'Q1 2023', percentage: 14, ciLower: 13.1, ciUpper: 15.1 },
-  { quarter: 'Q2 2023', percentage: 13.4, ciLower: 12.3, ciUpper: 14.5 },
-  { quarter: 'Q3 2023', percentage: 12.3, ciLower: 11.3, ciUpper: 13.2 },
-  { quarter: 'Q4 2023', percentage: 11, ciLower: 9.8, ciUpper: 12.1 },
-  { quarter: 'Q1 2024', percentage: 10.9, ciLower: 9.8, ciUpper: 11.9 },
-  { quarter: 'Q2 2024', percentage: 10.8, ciLower: 9.8, ciUpper: 11.8 },
-  { quarter: 'Q3 2024', percentage: 24.1, ciLower: 22.5, ciUpper: 25.8 },
-  { quarter: 'Q4 2024', percentage: 30.5, ciLower: 28.1, ciUpper: 32.8 },
-];
-
-const cocaineMidwestData = [
-  { quarter: 'Q4 2022', percentage: 10.2, ciLower: 9.3, ciUpper: 11.1 },
-  { quarter: 'Q1 2023', percentage: 10.3, ciLower: 9.4, ciUpper: 11.2 },
-  { quarter: 'Q2 2023', percentage: 11.2, ciLower: 10.2, ciUpper: 12.1 },
-  { quarter: 'Q3 2023', percentage: 12.1, ciLower: 11.1, ciUpper: 13.1 },
-  { quarter: 'Q4 2023', percentage: 13.5, ciLower: 12.3, ciUpper: 14.7 },
-  { quarter: 'Q1 2024', percentage: 14.8, ciLower: 13.6, ciUpper: 16.0 },
-  { quarter: 'Q2 2024', percentage: 15.8, ciLower: 14.6, ciUpper: 17.0 },
-  { quarter: 'Q3 2024', percentage: 19, ciLower: 17.7, ciUpper: 20.3 },
-  { quarter: 'Q4 2024', percentage: 19.5, ciLower: 18.5, ciUpper: 20.6 },
-];
-
-const methMidwestData = [
-  { quarter: 'Q4 2022', percentage: 66.8, ciLower: 65.0, ciUpper: 68.7 },
-  { quarter: 'Q1 2023', percentage: 67.2, ciLower: 65.3, ciUpper: 69.1 },
-  { quarter: 'Q2 2023', percentage: 73.4, ciLower: 71.3, ciUpper: 75.5 },
-  { quarter: 'Q3 2023', percentage: 77.2, ciLower: 75.1, ciUpper: 79.3 },
-  { quarter: 'Q4 2023', percentage: 80.4, ciLower: 78.3, ciUpper: 82.5 },
-  { quarter: 'Q1 2024', percentage: 85, ciLower: 83.1, ciUpper: 86.9 },
-  { quarter: 'Q2 2024', percentage: 85.8, ciLower: 83.9, ciUpper: 87.8 },
-  { quarter: 'Q3 2024', percentage: 85.9, ciLower: 83.9, ciUpper: 87.8 },
-  { quarter: 'Q4 2024', percentage: 85.8, ciLower: 83.9, ciUpper: 87.8 },
-];
-
-const fentanylAndStimulantsMidwestData = [
-  { quarter: 'Q4 2022', percentage: 59.5, ciLower: 57.4, ciUpper: 61.6 },
-  { quarter: 'Q1 2023', percentage: 63, ciLower: 61, ciUpper: 65 },
-  { quarter: 'Q2 2023', percentage: 62.9, ciLower: 61, ciUpper: 64.8 },
-  { quarter: 'Q3 2023', percentage: 63.6, ciLower: 61.9, ciUpper: 65.3 },
-  { quarter: 'Q4 2023', percentage: 62.4, ciLower: 60.6, ciUpper: 64.2 },
-  { quarter: 'Q1 2024', percentage: 64.5, ciLower: 62.6, ciUpper: 66.4 },
-  { quarter: 'Q2 2024', percentage: 68.9, ciLower: 67, ciUpper: 70.7 },
-  { quarter: 'Q3 2024', percentage: 70, ciLower: 68.1, ciUpper: 71.9 },
-  { quarter: 'Q4 2024', percentage: 70.2, ciLower: 68.2, ciUpper: 72.1 },
-];
-
-const allDrugQuarters = heroinMidwestData.map(d => d.quarter);
-
-function alignDrugDataToQuarters(data, quarters) {
-  const map = Object.fromEntries(data.map(d => [d.quarter, d]));
-  return quarters.map(q => map[q] || { quarter: q, percentage: null, ciLower: null, ciUpper: null });
-}
-
-const midwestThreeDrugsDatasets = [
-  { data: alignDrugDataToQuarters(methMidwestData, allDrugQuarters), color: '#3e92cc', label: 'Methamphetamine' },
-  { data: alignDrugDataToQuarters(cocaineMidwestData, allDrugQuarters), color: '#fbb13c', label: 'Cocaine' },
-  { data: alignDrugDataToQuarters(heroinMidwestData, allDrugQuarters), color: '#d7263d', label: 'Heroin' },
-  { data: alignDrugDataToQuarters(fentanylAndStimulantsMidwestData, allDrugQuarters), color: '#1b9e77', label: 'Fentanyl and Stimulants' },
-];
 
 function getKeyFindingForThreeDrugs() {
   const drug = { data: methMidwestData, label: 'Methamphetamine' };
@@ -457,30 +403,9 @@ function getKeyFindingForThreeDrugs() {
   );
 }
 
-function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
-  const [showLabels, setShowLabels] = useState(false);
-  const [showPercentChange, setShowPercentChange] = useState(false);
-  // Add radio/checkbox state for this chart only
-  const [selectedLines, setSelectedLines] = useState(midwestThreeDrugsDatasets.map(ds => ds.label));
-
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
-
-  const xDomain = allDrugQuarters;
-  const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
-    padding: 0.2,
-  });
-  const yMax = Math.max(
-    ...midwestThreeDrugsDatasets.flatMap(ds => ds.data.map(d => d.percentage || 0))
-  );
-  const yScale = scaleLinear({
-    domain: [0, yMax],
-    range: [adjustedHeight, 0],
-    nice: true,
-  });
 
   function getPrevValueForDataset(data, i, offset = 1) {
     let idx = i - 1, found = 0;
@@ -545,10 +470,129 @@ function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
     );
   };
 
+  function getGroupedCoPosSeriesHeroinMidwest(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.MidWest?.Heroin?.Positivity?.[periodKey] || [];
+    const drugs = ['Heroin'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesCocaineMidwest(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.MidWest?.Cocaine?.Positivity?.[periodKey] || [];
+    const drugs = ['Cocaine'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesMethamphetamineMidwest(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.MidWest?.Methamphetamine?.Positivity?.[periodKey] || [];
+    const drugs = ['Methamphetamine'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesFentanylWSMidwest(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.MidWest?.Fentanyl?.Positivity?.[periodKey] || [];
+    const drugs = ['Fentanyl with Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange]);
 
+  useEffect(() => {
+      fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+        .then(res => res.json())
+        .then(data => {
+
+      const hData = getGroupedCoPosSeriesHeroinMidwest(data);
+      const cData = getGroupedCoPosSeriesCocaineMidwest(data);
+      const mData = getGroupedCoPosSeriesMethamphetamineMidwest(data);
+      const fwsData = getGroupedCoPosSeriesFentanylWSMidwest(data);
+
+      setHeroinMidwestData(hData[0].data);
+      setCocaineMidwestData(cData[0].data);
+      setMethMidwestData(mData[0].data);
+      setFentanylAndStimulantsMidwestData(fwsData[0].data);
+
+        });
+  }, []); 
+
+function alignDrugDataToQuarters(data, quarters) {
+  const map = Object.fromEntries(data.map(d => [d.quarter, d]));
+  return quarters.map(q => map[q] || { quarter: q, percentage: null, ciLower: null, ciUpper: null });
+}
+
+const allDrugQuarters = heroinMidwestData?.map(d => d.quarter);
+
+const midwestThreeDrugsDatasets = [
+  { data: alignDrugDataToQuarters(methMidwestData, allDrugQuarters), color: '#3e92cc', label: 'Methamphetamine' },
+  { data: alignDrugDataToQuarters(cocaineMidwestData, allDrugQuarters), color: '#fbb13c', label: 'Cocaine' },
+  { data: alignDrugDataToQuarters(heroinMidwestData, allDrugQuarters), color: '#d7263d', label: 'Heroin' },
+  { data: alignDrugDataToQuarters(fentanylAndStimulantsMidwestData, allDrugQuarters), color: '#1b9e77', label: 'Fentanyl and Stimulants' },
+];
+
+// Add radio/checkbox state for this chart only
+  const [selectedLines, setSelectedLines] = useState(midwestThreeDrugsDatasets.map(ds => ds.label));
+
+  const xDomain = allDrugQuarters;
+  const xScale = scaleBand({
+    domain: xDomain,
+    range: [0, adjustedWidth],
+    padding: 0.2,
+  });
+  const yMax = Math.max(
+    ...midwestThreeDrugsDatasets.flatMap(ds => ds.data.map(d => d.percentage || 0))
+  );
+  const yScale = scaleLinear({
+    domain: [0, yMax],
+    range: [adjustedHeight, 0],
+    nice: true,
+  });
+  
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', marginBottom: 40 }}>
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
@@ -578,7 +622,6 @@ function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
           {getKeyFindingForThreeDrugs()}
         </div>
       )}
-      {/* Only one set of selection controls below Key Finding */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', margin: '10px 0 0 0' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
           <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
@@ -792,15 +835,5 @@ function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
   );
 }
 
+export { FentanylLineChartMidwest, MidwestThreeDrugsLineChart };
 
-function FentanylLineChartMidwestCombined(props) {
-  return (
-    <div>
-      <FentanylLineChartMidwest {...props} />
-      <MidwestThreeDrugsLineChart width={1100} height={600} />
-    </div>
-  );
-}
-
-export default FentanylLineChartMidwestCombined;
-export { MidwestThreeDrugsLineChart };
