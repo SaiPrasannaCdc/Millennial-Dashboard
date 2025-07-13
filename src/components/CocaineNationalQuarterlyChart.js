@@ -141,7 +141,7 @@ const CocaineNationalQuarterlyChart = ({ width = 1100, height = 450 }) => {
     });
   };
 
-function getGroupedCoPosSeries(millenialData) {
+function getGroupedPosSeries(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.National?.Cocaine?.Positivity?.[periodKey] || [];
     const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
@@ -167,7 +167,7 @@ function getGroupedCoPosSeries(millenialData) {
           .then(res => res.json())
           .then(data => {
 
-            const jData = getGroupedCoPosSeries(data);
+            const jData = getGroupedPosSeries(data);
             setCocaineNationalQuarterly(jData[0].data);
             setAmphetamineNationalQuarterly(jData[1].data);
             setMethamphetamineNationalQuarterly(jData[2].data);
@@ -469,7 +469,7 @@ function CocaineWestQuarterlyChart({ width = 1100, height = 450 }) {
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
   
-  function getGroupedCoPosSeries(millenialData) {
+  function getGroupedPosSeries(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.West?.Cocaine?.Positivity?.[periodKey] || [];
     const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
@@ -493,7 +493,7 @@ function CocaineWestQuarterlyChart({ width = 1100, height = 450 }) {
           .then(res => res.json())
           .then(data => {
 
-            const jData = getGroupedCoPosSeries(data);
+            const jData = getGroupedPosSeries(data);
             setCocaineWestQuarterly(jData[0].data);
             setAmphetamineWestQuarterly(jData[1].data);
             setMethamphetamineWestQuarterly(jData[2].data);
@@ -780,7 +780,7 @@ function CocaineMidwestQuarterlyChart({ width = 1100, height = 450 }) {
     });
   };
 
-  function getGroupedCoPosSeries(millenialData) {
+  function getGroupedPosSeries(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.MidWest?.Cocaine?.Positivity?.[periodKey] || [];
     const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
@@ -804,7 +804,7 @@ function CocaineMidwestQuarterlyChart({ width = 1100, height = 450 }) {
           .then(res => res.json())
           .then(data => {
 
-            const jData = getGroupedCoPosSeries(data);
+            const jData = getGroupedPosSeries(data);
             setCocaineMidwestQuarterly(jData[0].data);
             setAmphetamineMidwestQuarterly(jData[1].data);
             setMethamphetamineMidwestQuarterly(jData[2].data);
@@ -1027,7 +1027,7 @@ function CocaineSouthQuarterlyChart({ width = 1100, height = 450 }) {
     });
   };
 
-    function getGroupedCoPosSeries(millenialData) {
+    function getGroupedPosSeries(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.National?.Cocaine?.Positivity?.[periodKey] || [];
     const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
@@ -1044,7 +1044,7 @@ function CocaineSouthQuarterlyChart({ width = 1100, height = 450 }) {
     })).filter(line => line.data.length > 0);
 }
 
-function getGroupedCoPosSeriesSouth(millenialData) {
+function getGroupedPosSeriesSouth(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.South?.Cocaine?.Positivity?.[periodKey] || [];
     const drugs = ['Cocaine'];
@@ -1067,9 +1067,9 @@ function getGroupedCoPosSeriesSouth(millenialData) {
           .then(res => res.json())
           .then(data => {
 
-            const sData = getGroupedCoPosSeriesSouth(data);
+            const sData = getGroupedPosSeriesSouth(data);
             setCocaineSouthQuarterly(sData[0].data);
-            const jData = getGroupedCoPosSeries(data);
+            const jData = getGroupedPosSeries(data);
             setAmphetamineNationalQuarterly(jData[1].data);
             setMethamphetamineNationalQuarterly(jData[2].data);
           });

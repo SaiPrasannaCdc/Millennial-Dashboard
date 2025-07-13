@@ -470,7 +470,7 @@ function getKeyFindingForThreeDrugs() {
     );
   };
 
-  function getGroupedCoPosSeriesHeroinMidwest(millenialData) {
+  function getGroupedPosSeriesHeroinMidwest(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.MidWest?.Heroin?.Positivity?.[periodKey] || [];
     const drugs = ['Heroin'];
@@ -487,7 +487,7 @@ function getKeyFindingForThreeDrugs() {
     })).filter(line => line.data.length > 0);
 }
 
-function getGroupedCoPosSeriesCocaineMidwest(millenialData) {
+function getGroupedPosSeriesCocaineMidwest(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.MidWest?.Cocaine?.Positivity?.[periodKey] || [];
     const drugs = ['Cocaine'];
@@ -504,7 +504,7 @@ function getGroupedCoPosSeriesCocaineMidwest(millenialData) {
     })).filter(line => line.data.length > 0);
 }
 
-function getGroupedCoPosSeriesMethamphetamineMidwest(millenialData) {
+function getGroupedPosSeriesMethamphetamineMidwest(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.MidWest?.Methamphetamine?.Positivity?.[periodKey] || [];
     const drugs = ['Methamphetamine'];
@@ -523,8 +523,8 @@ function getGroupedCoPosSeriesMethamphetamineMidwest(millenialData) {
 
 function getGroupedCoPosSeriesFentanylWSMidwest(millenialData) {
     const periodKey = 'Quarterly';
-    const arr = millenialData?.MidWest?.Fentanyl?.Positivity?.[periodKey] || [];
-    const drugs = ['Fentanyl with Stimulants'];
+    const arr = millenialData?.MidWest?.Fentanyl?.CoPositive?.[periodKey] || [];
+    const drugs = ['Fentanyl and Stimulants'];
     return drugs.map(name => ({
       label: name,
       data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
@@ -548,9 +548,9 @@ function getGroupedCoPosSeriesFentanylWSMidwest(millenialData) {
         .then(res => res.json())
         .then(data => {
 
-      const hData = getGroupedCoPosSeriesHeroinMidwest(data);
-      const cData = getGroupedCoPosSeriesCocaineMidwest(data);
-      const mData = getGroupedCoPosSeriesMethamphetamineMidwest(data);
+      const hData = getGroupedPosSeriesHeroinMidwest(data);
+      const cData = getGroupedPosSeriesCocaineMidwest(data);
+      const mData = getGroupedPosSeriesMethamphetamineMidwest(data);
       const fwsData = getGroupedCoPosSeriesFentanylWSMidwest(data);
 
       setHeroinMidwestData(hData[0].data);

@@ -107,10 +107,28 @@ function FentanylLineChartBase({
     );
   };
 
-  function getGroupedCoPosSeries(millenialData) {
+  function getGroupedPosSeries(millenialData) {
     const periodKey = 'Quarterly';
     const arr = millenialData?.West?.Fentanyl?.Positivity?.[periodKey] || [];
     const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        quarter: d.period || d.smon_yr, 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+        yearlyChange: d.yr_change || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeries(millenialData) {
+    const periodKey = 'Quarterly';
+    const arr = millenialData?.West?.Fentanyl?.CoPositive?.[periodKey] || [];
+    const drugs = ['Fentanyl and Stimulants'];
     return drugs.map(name => ({
       label: name,
       data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
@@ -189,7 +207,8 @@ function getGroupedCoPosSeriesCocaine(millenialData) {
           .then(res => res.json())
           .then(data => {
   
-        const fData = getGroupedCoPosSeries(data);
+        const fData = getGroupedPosSeries(data);
+        const fDataCo = getGroupedCoPosSeries(data);
 
         const mData = getGroupedCoPosSeriesMethamphetamine(data);
         const hData = getGroupedCoPosSeriesHeroin(data);
@@ -199,7 +218,7 @@ function getGroupedCoPosSeriesCocaine(millenialData) {
         setWestWithStimulantsQuarterly(fData[1].data);
         setWestWithoutStimulantsQuarterly(fData[2].data);
 
-        setFentanylAndStimulantsData(fData[1].data);
+        setFentanylAndStimulantsData(fDataCo[0].data);
 
         setMethamphetamineWestData(mData[0].data);
         setCocaineWestData(hData[0].data);
