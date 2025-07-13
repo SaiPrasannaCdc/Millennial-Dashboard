@@ -299,7 +299,7 @@ const LineChartWithToggles = ({ width, height, period}) => {
         {adjustedData.map((lineData, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
             <div style={{ width: '30px', height: '2px', backgroundColor: index === 0 ? '#0073e6' : index === 1 ? '#17632a' : '#e87722', marginRight: '5px' }}></div>
-            <span style={{ fontSize: '16px', color: '#333' }}>{lineData.name}</span>
+            <span style={{ fontSize: '16px', color: '#333' }}>{lineData.name}</span> 
           </div>
         ))}
       </div>

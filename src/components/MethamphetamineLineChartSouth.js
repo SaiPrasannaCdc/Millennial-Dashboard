@@ -317,7 +317,7 @@ const MethamphetamineLineChartSouth = ({ width, height, period}) => {
                   marginRight: '5px'
                 }}
               ></div>
-              <span style={{ fontSize: '16px', color: '#333' }}>{lineData.name}</span>
+              <span style={{ fontSize: '16px', color: '#333' }}>{lineData.label}</span>
             </div>
           ))}
         </div>

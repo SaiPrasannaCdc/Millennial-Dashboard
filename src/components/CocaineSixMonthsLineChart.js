@@ -975,12 +975,12 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
             })}
           />
           {dataSets.map(ds => (
-            <React.Fragment key={ds.key}>
+            <React.Fragment key={ds.label}>
               <LinePath
                 data={ds.data}
                 x={d => xScale(d.period) + xScale.bandwidth() / 2}
                 y={d => yScale(d.percentage)}
-                stroke={lineColors[ds.key] || '#1f77b4'}
+                stroke={lineColors[ds.label] || '#1f77b4'}
                 strokeWidth={2}
                 curve={null}
               />
@@ -990,7 +990,7 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
                     cx={xScale(d.period) + xScale.bandwidth() / 2}
                     cy={yScale(d.percentage)}
                     r={4}
-                    fill={lineColors[ds.key] || '#1f77b4'}
+                    fill={lineColors[ds.label] || '#1f77b4'}
                     data-tip={`<div style='text-align: left;'>
                       <strong>${d.period}</strong><br/>
                       ${ds.label} positivity: ${d.percentage}%<br/>
