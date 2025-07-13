@@ -422,7 +422,7 @@ const getKeyFindingNew = (data) => {
   };
 };
 
-const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450, showMultiDrug = false }) => {
+const CocaineSixMonthsLineChart = ({ region, width, height, showMultiDrug = false }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [cocaineSixMonthsData, setCocaineSixMonthsData] = useState([]);
@@ -783,7 +783,7 @@ const CocaineSixMonthsLineChart = ({ region, width = 1100, height = 450, showMul
 // Add this function back above the export default if it was removed.
 // This is required for <NationalMultiDrugLineChart ... /> to work.
 
-const NationalMultiDrugLineChart = ({ region = "National", width = 1100, height = 450 }) => {
+const NationalMultiDrugLineChart = ({ region = "National", width, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 

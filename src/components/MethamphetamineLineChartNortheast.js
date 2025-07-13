@@ -12,16 +12,16 @@ import MethamphetamineNortheastsecondlinechart from './MethamphetamineLineChartN
 
 
 
-const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+const MethamphetamineLineChartNortheast = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [millenialData, setMillenialData] = useState(null);
-  const [periodType, setPeriodType] = useState(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  const [periodType, setPeriodType] = useState(period);
   const [seriesList, setSeriesList] = useState([]);
   const [allQuarters, setAllQuarters] = useState([]);
 
   useEffect(() => {
-    setPeriodType(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+    setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
   }, [period]);
 
   useEffect(() => {

@@ -5,45 +5,11 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import { UtilityFunctions } from '../utility';
 import Methamphetaminewestsecondlinechart from './Methamphetaminewestsecondlinechart';
 
-const sampleDataWestQuarterly = [];
 
-const sampleDataWest6Months = [];
-
-// Helper to group by drug_name for multi-line chart (Positivity)
-function getGroupedMethSeriesWest(millenialData) {
-  const arr = millenialData?.West?.Methamphetamine?.Positivity?.Quarterly || [];
-  const drugs = ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids'];
-  return drugs.map(name => ({
-    name,
-    values: arr.filter(d => d.drug_name === name && d.USregion === 'WEST').map(d => ({
-      quarter: d.period, // Use 'period' for x-axis
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
-      ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),
-      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-    }))
-  })).filter(line => line.values.length > 0);
-}
-
-function getGroupedMethSeriesWest6Months(millenialData) {
-  const arr = millenialData?.West?.Methamphetamine?.Positivity?.HalfYearly || [];
-  const drugs = ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids'];
-  return drugs.map(name => ({
-    name,
-    values: arr.filter(d => d.drug_name === name && d.USregion === 'WEST').map(d => ({
-      period: d.smon_yr, // Use 'smon_yr' for x-axis
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
-      ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),
-      periodChange: d.Period || d.period,
-      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-    }))
-  })).filter(line => line.values.length > 0);
-}
-
-const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+const MethamphetamineLineChartWest = ({ width, height, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [millenialData, setMillenialData] = useState(null);
@@ -56,16 +22,18 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
       .then(data => {
         setMillenialData(data);
         let grouped;
-        if (period === '6 Months' || period === 'Half Yearly') {
-          grouped = getGroupedMethSeriesWest6Months(data);
+        if (period === 'HalfYearly') {
+          grouped = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
           setAllPeriods(grouped[0] ? grouped[0].values.map(d => d.period) : []);
         } else {
-          grouped = getGroupedMethSeriesWest(data);
+          grouped = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'Positivity', 'Quarterly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
           setAllPeriods(grouped[0] ? grouped[0].values.map(d => d.quarter) : []);
         }
         setSeriesList(grouped);
       });
   }, [period]);
+
+  
 
   const adjustedData = seriesList;
 
@@ -78,7 +46,7 @@ const MethamphetamineLineChartWest = ({ width = 1100, height = 450, period = 'Qu
     );
   }
 
-  const is6Months = period === '6 Months' || period === 'Half Yearly';
+  const is6Months = period === 'HalfYearly';
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;

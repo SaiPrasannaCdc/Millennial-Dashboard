@@ -115,7 +115,7 @@ const lineColors = {
   'Fentanyl and Stimulants': '#00bfae', // Teal
 };
 
-const PositiveHeroinChart = ({ width = 1100, height = 450, period }) => {
+const PositiveHeroinChart = ({ width, height, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));

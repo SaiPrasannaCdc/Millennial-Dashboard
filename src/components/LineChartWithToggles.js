@@ -7,7 +7,7 @@ import sampleData2, { sampleData2_6Months } from './data/sampleData2';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 
-const LineChartWithToggles = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+const LineChartWithToggles = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 

@@ -107,7 +107,7 @@ function alignDataToQuarters(data, quarters, labelField = 'quarter') {
   }));
 }
 
-const MethamphetamineMidwestsecondlinechart = ({ width = 1100, height = 350, period = 'Quarterly' }) => {
+const MethamphetamineMidwestsecondlinechart = ({ width, height = 350, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
@@ -117,7 +117,7 @@ const MethamphetamineMidwestsecondlinechart = ({ width = 1100, height = 350, per
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  const is6M = period === '6 Months' || period === 'Half Yearly';
+  const is6M = period === 'HalfYearly';
   const regionData = is6M
     ? methMidwestSecondData6Months.filter(d => d.region === 'MIDWEST')
     : methMidwestSecondData.filter(d => d.region === 'MIDWEST');

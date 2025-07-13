@@ -42,11 +42,11 @@ function normalizeRegionKey(region) {
   if (key.includes('MIDWEST')) return 'MIDWEST';
   if (key.includes('SOUTH')) return 'SOUTH';
   if (key.includes('WEST')) return 'WEST';
-  if (key.includes('NATIONAL')) return 'NATIONAL';
+  if (key.includes('National')) return 'National';
   return 'SOUTH'; // fallback
 }
 
-const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height = 350, period = '6 Months' }) => {
+const HeroinLineChartRegions6months = ({ region = 'SOUTH', width, height = 350 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [heroinSouth6MData, setHeroinSouth6MData] = useState([]);
@@ -161,7 +161,7 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
         }));
         setHeroinNortheast6MData(heroinNortheast);
 
-        // NATIONAL
+        // National
         const heroinNational = drugs.map(drug => ({
           name: drug,
           values: periods.map(period => {
@@ -208,7 +208,7 @@ const HeroinLineChartRegions6months = ({ region = 'SOUTH', width = 1100, height 
       });
   }, []);
 
-  const adjustedDataRaw = regionKey === 'SOUTH' ? heroinSouth6MData : regionKey === 'WEST' ? heroinWest6MData : regionKey === 'NORTH' ? heroinNortheast6MData : regionKey === 'NATIONAL' ? heroinNational6MData : regionKey === 'MIDWEST' ? heroinMidwest6MData : (heroin6MonthsData[regionKey] || heroin6MonthsData['SOUTH']);
+  const adjustedDataRaw = regionKey === 'SOUTH' ? heroinSouth6MData : regionKey === 'WEST' ? heroinWest6MData : regionKey === 'NORTH' ? heroinNortheast6MData : regionKey === 'National' ? heroinNational6MData : regionKey === 'MIDWEST' ? heroinMidwest6MData : (heroin6MonthsData[regionKey] || heroin6MonthsData['SOUTH']);
   const adjustedData = alignDataToPeriods(adjustedDataRaw);
 
   useEffect(() => {

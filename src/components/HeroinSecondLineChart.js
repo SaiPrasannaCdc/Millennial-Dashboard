@@ -86,46 +86,46 @@ const heroinSecondChartData = [
   { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q2 2024', percentage: 70.8, ciLower: 67.7, ciUpper: 73.8 },
   { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q3 2024', percentage: 68.7, ciLower: 65.7, ciUpper: 71.7 },
   { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q4 2024', percentage: 68.7, ciLower: 65.7, ciUpper: 71.7 },
-  // NATIONAL
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 69.3, ciLower: 67.5, ciUpper: 71.1 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 69.0, ciLower: 67.2, ciUpper: 70.8 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 69.7, ciLower: 67.8, ciUpper: 71.6 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 70.3, ciLower: 68.6, ciUpper: 72.1 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 69.7, ciLower: 67.9, ciUpper: 71.6 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 68.5, ciLower: 66.7, ciUpper: 70.3 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 68.5, ciLower: 66.7, ciUpper: 70.2 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 76.3, ciLower: 74.9, ciUpper: 77.7 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 76.3, ciLower: 74.9, ciUpper: 77.7 },
-  // NATIONAL Cocaine
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 28.7, ciLower: 26.9, ciUpper: 30.5 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 32.7, ciLower: 30.8, ciUpper: 34.6 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 31.2, ciLower: 29.4, ciUpper: 33.0 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 31.2, ciLower: 29.4, ciUpper: 33.0 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 32.1, ciLower: 30.4, ciUpper: 33.9 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 32.2, ciLower: 30.4, ciUpper: 34.0 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 33.6, ciLower: 31.8, ciUpper: 35.4 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 34.4, ciLower: 32.8, ciUpper: 36.1 },
-  { region: 'NATIONAL', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 33.4, ciLower: 31.8, ciUpper: 35.0 },
-  // NATIONAL Methamphetamine
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 52.5, ciLower: 50.5, ciUpper: 54.5 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 47.3, ciLower: 45.3, ciUpper: 49.2 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 44.3, ciLower: 42.4, ciUpper: 46.2 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 44.3, ciLower: 42.4, ciUpper: 46.2 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 42.8, ciLower: 40.9, ciUpper: 44.6 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 45.1, ciLower: 43.3, ciUpper: 46.9 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 54.0, ciLower: 52.3, ciUpper: 55.7 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 57.7, ciLower: 56.1, ciUpper: 59.3 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 55.4, ciLower: 53.6, ciUpper: 57.3 },
-  // NATIONAL Heroin and Stimulants
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q4 2022', percentage: 54.4, ciLower: 52.4, ciUpper: 56.3 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q1 2023', percentage: 54.4, ciLower: 52.4, ciUpper: 56.3 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q2 2023', percentage: 55.5, ciLower: 53.6, ciUpper: 57.5 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q3 2023', percentage: 55.5, ciLower: 53.6, ciUpper: 57.5 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q4 2023', percentage: 53.7, ciLower: 51.7, ciUpper: 55.7 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q1 2024', percentage: 54.0, ciLower: 52.1, ciUpper: 55.9 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q2 2024', percentage: 56.1, ciLower: 54.1, ciUpper: 58.1 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q3 2024', percentage: 63.5, ciLower: 61.3, ciUpper: 65.2 },
-  { region: 'NATIONAL', drug: 'Heroin and Stimulants', quarter: 'Q4 2024', percentage: 65.4, ciLower: 63.8, ciUpper: 66.9 },
+  // National
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 69.3, ciLower: 67.5, ciUpper: 71.1 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 69.0, ciLower: 67.2, ciUpper: 70.8 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 69.7, ciLower: 67.8, ciUpper: 71.6 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 70.3, ciLower: 68.6, ciUpper: 72.1 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 69.7, ciLower: 67.9, ciUpper: 71.6 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 68.5, ciLower: 66.7, ciUpper: 70.3 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 68.5, ciLower: 66.7, ciUpper: 70.2 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 76.3, ciLower: 74.9, ciUpper: 77.7 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 76.3, ciLower: 74.9, ciUpper: 77.7 },
+  // National Cocaine
+  { region: 'National', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 28.7, ciLower: 26.9, ciUpper: 30.5 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 32.7, ciLower: 30.8, ciUpper: 34.6 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 31.2, ciLower: 29.4, ciUpper: 33.0 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 31.2, ciLower: 29.4, ciUpper: 33.0 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 32.1, ciLower: 30.4, ciUpper: 33.9 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 32.2, ciLower: 30.4, ciUpper: 34.0 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 33.6, ciLower: 31.8, ciUpper: 35.4 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 34.4, ciLower: 32.8, ciUpper: 36.1 },
+  { region: 'National', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 33.4, ciLower: 31.8, ciUpper: 35.0 },
+  // National Methamphetamine
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 52.5, ciLower: 50.5, ciUpper: 54.5 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 47.3, ciLower: 45.3, ciUpper: 49.2 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 44.3, ciLower: 42.4, ciUpper: 46.2 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 44.3, ciLower: 42.4, ciUpper: 46.2 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 42.8, ciLower: 40.9, ciUpper: 44.6 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 45.1, ciLower: 43.3, ciUpper: 46.9 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 54.0, ciLower: 52.3, ciUpper: 55.7 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 57.7, ciLower: 56.1, ciUpper: 59.3 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 55.4, ciLower: 53.6, ciUpper: 57.3 },
+  // National Heroin and Stimulants
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q4 2022', percentage: 54.4, ciLower: 52.4, ciUpper: 56.3 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q1 2023', percentage: 54.4, ciLower: 52.4, ciUpper: 56.3 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q2 2023', percentage: 55.5, ciLower: 53.6, ciUpper: 57.5 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q3 2023', percentage: 55.5, ciLower: 53.6, ciUpper: 57.5 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q4 2023', percentage: 53.7, ciLower: 51.7, ciUpper: 55.7 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q1 2024', percentage: 54.0, ciLower: 52.1, ciUpper: 55.9 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q2 2024', percentage: 56.1, ciLower: 54.1, ciUpper: 58.1 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q3 2024', percentage: 63.5, ciLower: 61.3, ciUpper: 65.2 },
+  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q4 2024', percentage: 65.4, ciLower: 63.8, ciUpper: 66.9 },
   // SOUTH Fentanyl
   { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 75.2, ciLower: 71.9, ciUpper: 78.4 },
   { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 74.3, ciLower: 71.1, ciUpper: 77.6 },
@@ -194,11 +194,11 @@ function alignDataToQuarters(data, quarters) {
 const regionKeyFindings = {
   WEST: "Key finding: Fentanyl positivity decreased 1% from 20.1% in Q3 2024 to 19.1% in Q4 2024. This may indicate decreased exposure to fentanyl among people with substance use disorders.",
   MIDWEST: "Key finding: Fentanyl positivity increased 2.1% from 86.6% in Q2 2024 to 88.7% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders.",
-  NATIONAL: "Key finding: Fentanyl positivity increased 7.8% from 68.5% in Q2 2024 to 76.3% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders.",
+  National: "Key finding: Fentanyl positivity increased 7.8% from 68.5% in Q2 2024 to 76.3% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders.",
   SOUTH: "Key finding: Fentanyl positivity increased 2.4% from 70.7% in Q2 2024 to 73.1% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders."
 };
 
-const HeroinSecondLineChart = ({ region = 'WEST', width = 1100, height = 450 }) => {
+const HeroinSecondLineChart = ({ region = 'WEST', width, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
   const [showPercentChange, setShowPercentChange] = useState(false);

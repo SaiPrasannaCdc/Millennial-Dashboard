@@ -13,7 +13,7 @@ const COLORS = {
   "Fentanyl without Stimulants": "#4daf4a"
 };
 
-const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 450 }) => {
+const FentanylLineChart6Months = ({ region = 'National', width, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [fentanylSixMonthsData, setFentanylSixMonthsData] = useState([]);

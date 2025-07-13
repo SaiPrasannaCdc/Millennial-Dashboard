@@ -4,6 +4,7 @@ import { Group } from '@visx/group';
 import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
+import { UtilityFunctions } from '../utility';
 
 const lineColors = {
   'Fentanyl': '#27ae60',
@@ -12,36 +13,18 @@ const lineColors = {
   'Cocaine': '#d35400',
 };
 
-function getGroupedCoPosSeries(millenialData, periodType) {
-  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
-  const arr = millenialData?.South?.Methamphetamine?.CoPositive?.[periodKey] || [];
-  const drugs = ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine'];
-  return drugs.map(name => ({
-    label: name,
-    color: lineColors[name] || '#0073e6',
-    data: arr.filter(d => (d.drug_name === name || d.drug_name === name) && d.USregion === 'SOUTH').map(d => ({
-      period: d.period || d.smon_yr, // Use 'period' for x-axis
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-      ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-      periodChange: d.Period || d.periodChange || '',
-    }))
-  })).filter(line => line.data.length > 0);
-}
-
-const MethamphetamineSouthsecondlinechart = ({ width = 1100, height = 350, period = 'Quarterly' }) => {
+const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
   const [millenialData, setMillenialData] = useState(null);
-  const [periodType, setPeriodType] = useState(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  const [periodType, setPeriodType] = useState(period);
   const [seriesList, setSeriesList] = useState([]);
   const [allPeriods, setAllPeriods] = useState([]);
   const allLineKeys = Object.keys(lineColors);
 
   useEffect(() => {
-    setPeriodType(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+    setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
   }, [period]);
 
   useEffect(() => {
@@ -49,7 +32,7 @@ const MethamphetamineSouthsecondlinechart = ({ width = 1100, height = 350, perio
       .then(res => res.json())
       .then(data => {
         setMillenialData(data);
-        const grouped = getGroupedCoPosSeries(data, periodType);
+        const grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'CoPositive', periodType, ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine']);
         setSeriesList(grouped);
         // Build a union of all periods present in any drug's data
         const allPeriodsSet = new Set();

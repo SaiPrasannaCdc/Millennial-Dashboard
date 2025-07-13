@@ -25,7 +25,7 @@ function LineChart({ selectedPeriod, selectedRegion }) {
     const regionFilteredData = Positivity1Data.filter(d => d.USregion === selectedRegion);
     if (selectedPeriod === 'Quarterly') {
       setAggregatedData(regionFilteredData);
-    } else if (selectedPeriod === 'Half Yearly') {
+    } else if (selectedPeriod === 'HalfYearly') {
       const halfYearlyData = regionFilteredData.reduce((acc, curr) => {
         const year = curr.quarter.split(' ')[1];
         const half = curr.quarter.includes('Q1') || curr.quarter.includes('Q2') ? 'H1' : 'H2';

@@ -133,7 +133,7 @@ const heroin6MonthsData2 = {
       ]
     }
   ],
-  NATIONAL: [
+  National: [
     {
       name: 'Fentanyl',
       values: [
@@ -248,7 +248,7 @@ function normalizeRegionKey(region) {
   if (key.includes('MIDWEST')) return 'MIDWEST';
   if (key.includes('SOUTH')) return 'SOUTH';
   if (key.includes('WEST')) return 'WEST';
-  if (key.includes('NATIONAL')) return 'NATIONAL';
+  if (key.includes('National')) return 'National';
   return 'SOUTH'; // fallback
 }
 
@@ -261,7 +261,7 @@ const drugsToShow = [
 
 const newNationalLineColors = lineColors; // for compatibility with your prompt
 
-const Heroin6Monthssecondlinechart = ({ region = 'SOUTH', width = 1100, height = 350, period = '6 Months' }) => {
+const Heroin6Monthssecondlinechart = ({ region = 'SOUTH', width, height = 350}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 /*   const [heroin6MonthsData2, setHeroin6MonthsData2] = useState([]); */

@@ -31,18 +31,18 @@ const lineColors = {
   })).filter(line => line.data.length > 0);
 } */
 
-const MethamphetamineSouthsecondlinechart = ({ width = 1100, height = 350, period = 'Quarterly' }) => {
+const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
   const [millenialData, setMillenialData] = useState(null);
-  const [periodType, setPeriodType] = useState(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  const [periodType, setPeriodType] = useState(period);
   const [seriesList, setSeriesList] = useState([]);
   const [allPeriods, setAllPeriods] = useState([]);
   const allLineKeys = Object.keys(lineColors);
 
   useEffect(() => {
-    setPeriodType(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+    setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
   }, [period]);
 
   useEffect(() => {

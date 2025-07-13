@@ -8,7 +8,7 @@ import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
 import MethamphetamineLineChartsecondLineChart from './MethamphetamineLineChartsecondlinechart';
 
-const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+const MethamphetamineLineChart = ({ width, height, period = 'Quarterly' }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [millenialData, setMillenialData] = useState(null);

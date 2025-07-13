@@ -71,7 +71,7 @@ const renderDrugPoints = (data, color, xScale, yScale, showLabels) =>
     );
   });
 
-const CocaineNationalQuarterlyChart = ({ width = 1100, height = 450 }) => {
+const CocaineNationalQuarterlyChart = ({ width, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [cocaineNationalQuarterly, setCocaineNationalQuarterly] = useState([]);
@@ -442,7 +442,7 @@ const renderChangeIndicatorsWest = (data, color, xScale, yScale, showPercentChan
   });
 };
 
-function CocaineWestQuarterlyChart({ width = 1100, height = 450 }) {
+function CocaineWestQuarterlyChart({ width, height = 450 }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [cocaineWestQuarterly, setCocaineWestQuarterly] = useState([]);
@@ -708,7 +708,7 @@ function renderChangeIndicatorsMidwest(data, color, xScale, yScale, showPercentC
   });
 }
 
-function CocaineMidwestQuarterlyChart({ width = 1100, height = 450 }) {
+function CocaineMidwestQuarterlyChart({ width, height = 450 }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [cocaineMidwestQuarterly, setCocaineMidwestQuarterly] = useState([]);
@@ -938,7 +938,7 @@ function CocaineMidwestQuarterlyChart({ width = 1100, height = 450 }) {
   );
 }
 
-function CocaineSouthQuarterlyChart({ width = 1100, height = 450 }) {
+function CocaineSouthQuarterlyChart({ width, height = 450 }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [cocaineSouthQuarterly, setCocaineSouthQuarterly] = useState([]);

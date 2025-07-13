@@ -111,7 +111,7 @@ const lineColors = {
   'Cocaine': '#6a0dad', // Purple
 };
 
-const PositiveCocaineChart = ({ width = 1100, height = 450, period }) => {
+const PositiveCocaineChart = ({ width, height, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));

@@ -57,7 +57,7 @@ function getGroupedSeries(millenialData, periodType, metric) {
   }));
 }
 
-const FentanylLineChartSouth = ({ width = 1100, height = 450 }) => {
+const FentanylLineChartSouth = ({ width, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState([]); 

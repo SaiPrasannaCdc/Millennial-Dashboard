@@ -26,10 +26,10 @@ const regionKeyFindings = {
   WEST: "Key finding: Heroin positivity decreased 1.0% from 5.2% in Q3 2024 to 4.2% in Q4 2024. This may indicate decreased exposure to heroin among people with substance use disorders.",
   MIDWEST: "Key finding: Heroin positivity increased 0.2% from 3.6% in Q3 2024 to 3.8% in Q4 2024. This may indicate increased exposure to heroin among people with substance use disorders.",
   SOUTH: "Key finding: Heroin positivity remained stable at 5.0% in Q3 2024 and Q4 2024. This may indicate stable exposure to heroin among people with substance use disorders.",
-  NATIONAL: "Key finding: Heroin positivity increased 0.3% from 4.6% in Q3 2024 to 4.9% in Q4 2024. This may indicate increased exposure to heroin among people with substance use disorders."
+  National: "Key finding: Heroin positivity increased 0.3% from 4.6% in Q3 2024 to 4.9% in Q4 2024. This may indicate increased exposure to heroin among people with substance use disorders."
 };
 
-function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST', period = 'Quarterly' }) {
+function HeroinLineChartRegions({ width, height, region = 'MIDWEST', period = 'Quarterly' }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [heroinSouthData, setHeroinSouthData] = useState([]);
@@ -65,7 +65,7 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
           )
         );
         setHeroinWestData(westHeroin);
-        // Flatten and map the JSON for NATIONAL region Heroin
+        // Flatten and map the JSON for National region Heroin
         const nationalHeroin = mapHeroinNationalData(
           [].concat(
             data?.National?.Heroin?.Positivity?.Quarterly || [],
@@ -91,7 +91,7 @@ function HeroinLineChartRegions({ width = 1100, height = 450, region = 'MIDWEST'
   const regionKey = region.toUpperCase();
   const keyFinding = regionKeyFindings[regionKey];
 
-  if (regionKey === 'NATIONAL') {
+  if (regionKey === 'National') {
     const nationalDrugs = [
       'Heroin',
       'Heroin with Stimulants',
@@ -1289,7 +1289,7 @@ function mapHeroinNationalData(jsonData) {
   return jsonData
     .filter(d => (d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'))
     .map(d => ({
-      region: d.USregion || 'NATIONAL',
+      region: d.USregion || 'National',
       drug: d.drug_name,
       quarter: d.period,
       percentage: d.rcent_pos || d.percentage,

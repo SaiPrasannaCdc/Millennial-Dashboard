@@ -6,46 +6,46 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 
 const heroinSecondChartData = [
-  // NATIONAL
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 49.4, ciLower: 47.8, ciUpper: 51.0 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 49.2, ciLower: 47.6, ciUpper: 50.8 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 49.7, ciLower: 48.1, ciUpper: 51.3 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 50.1, ciLower: 48.5, ciUpper: 51.7 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 49.7, ciLower: 48.1, ciUpper: 51.3 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 48.8, ciLower: 47.2, ciUpper: 50.4 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 48.8, ciLower: 47.2, ciUpper: 50.4 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 54.2, ciLower: 52.6, ciUpper: 55.8 },
-  { region: 'NATIONAL', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 54.2, ciLower: 52.6, ciUpper: 55.8 },
+  // National
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 49.4, ciLower: 47.8, ciUpper: 51.0 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 49.2, ciLower: 47.6, ciUpper: 50.8 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 49.7, ciLower: 48.1, ciUpper: 51.3 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 50.1, ciLower: 48.5, ciUpper: 51.7 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 49.7, ciLower: 48.1, ciUpper: 51.3 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 48.8, ciLower: 47.2, ciUpper: 50.4 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 48.8, ciLower: 47.2, ciUpper: 50.4 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 54.2, ciLower: 52.6, ciUpper: 55.8 },
+  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 54.2, ciLower: 52.6, ciUpper: 55.8 },
 
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q4 2022', percentage: 8.2, ciLower: 7.3, ciUpper: 9.1 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q1 2023', percentage: 8.7, ciLower: 7.8, ciUpper: 9.6 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q2 2023', percentage: 8.4, ciLower: 7.5, ciUpper: 9.3 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q3 2023', percentage: 8.4, ciLower: 7.5, ciUpper: 9.3 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q4 2023', percentage: 8.5, ciLower: 7.6, ciUpper: 9.4 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q1 2024', percentage: 8.5, ciLower: 7.6, ciUpper: 9.4 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q2 2024', percentage: 8.8, ciLower: 7.9, ciUpper: 9.7 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q3 2024', percentage: 9.0, ciLower: 8.1, ciUpper: 9.9 },
-  { region: 'NATIONAL', drug: 'Heroin', quarter: 'Q4 2024', percentage: 8.7, ciLower: 7.8, ciUpper: 9.6 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q4 2022', percentage: 8.2, ciLower: 7.3, ciUpper: 9.1 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q1 2023', percentage: 8.7, ciLower: 7.8, ciUpper: 9.6 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q2 2023', percentage: 8.4, ciLower: 7.5, ciUpper: 9.3 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q3 2023', percentage: 8.4, ciLower: 7.5, ciUpper: 9.3 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q4 2023', percentage: 8.5, ciLower: 7.6, ciUpper: 9.4 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q1 2024', percentage: 8.5, ciLower: 7.6, ciUpper: 9.4 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q2 2024', percentage: 8.8, ciLower: 7.9, ciUpper: 9.7 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q3 2024', percentage: 9.0, ciLower: 8.1, ciUpper: 9.9 },
+  { region: 'National', drug: 'Heroin', quarter: 'Q4 2024', percentage: 8.7, ciLower: 7.8, ciUpper: 9.6 },
 
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q4 2022', percentage: 19.7, ciLower: 18.5, ciUpper: 20.9 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q1 2023', percentage: 20.2, ciLower: 19.0, ciUpper: 21.4 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q2 2023', percentage: 19.7, ciLower: 18.5, ciUpper: 20.9 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q3 2023', percentage: 19.7, ciLower: 18.5, ciUpper: 20.9 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q4 2023', percentage: 19.9, ciLower: 18.7, ciUpper: 21.1 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q1 2024', percentage: 19.9, ciLower: 18.7, ciUpper: 21.1 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q2 2024', percentage: 20.5, ciLower: 19.3, ciUpper: 21.7 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q3 2024', percentage: 21.1, ciLower: 19.9, ciUpper: 22.3 },
-  { region: 'NATIONAL', drug: 'Opioids', quarter: 'Q4 2024', percentage: 20.7, ciLower: 19.5, ciUpper: 21.9 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q4 2022', percentage: 19.7, ciLower: 18.5, ciUpper: 20.9 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q1 2023', percentage: 20.2, ciLower: 19.0, ciUpper: 21.4 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q2 2023', percentage: 19.7, ciLower: 18.5, ciUpper: 20.9 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q3 2023', percentage: 19.7, ciLower: 18.5, ciUpper: 20.9 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q4 2023', percentage: 19.9, ciLower: 18.7, ciUpper: 21.1 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q1 2024', percentage: 19.9, ciLower: 18.7, ciUpper: 21.1 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q2 2024', percentage: 20.5, ciLower: 19.3, ciUpper: 21.7 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q3 2024', percentage: 21.1, ciLower: 19.9, ciUpper: 22.3 },
+  { region: 'National', drug: 'Opioids', quarter: 'Q4 2024', percentage: 20.7, ciLower: 19.5, ciUpper: 21.9 },
 
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 27.2, ciLower: 25.9, ciUpper: 28.5 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 24.7, ciLower: 23.4, ciUpper: 26.0 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 23.1, ciLower: 21.8, ciUpper: 24.4 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 23.1, ciLower: 21.8, ciUpper: 24.4 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 22.3, ciLower: 21.0, ciUpper: 23.6 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 23.5, ciLower: 22.2, ciUpper: 24.8 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 28.2, ciLower: 26.9, ciUpper: 29.5 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 30.1, ciLower: 28.8, ciUpper: 31.4 },
-  { region: 'NATIONAL', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 28.9, ciLower: 27.6, ciUpper: 30.2 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 27.2, ciLower: 25.9, ciUpper: 28.5 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 24.7, ciLower: 23.4, ciUpper: 26.0 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 23.1, ciLower: 21.8, ciUpper: 24.4 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 23.1, ciLower: 21.8, ciUpper: 24.4 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 22.3, ciLower: 21.0, ciUpper: 23.6 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 23.5, ciLower: 22.2, ciUpper: 24.8 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 28.2, ciLower: 26.9, ciUpper: 29.5 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 30.1, ciLower: 28.8, ciUpper: 31.4 },
+  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 28.9, ciLower: 27.6, ciUpper: 30.2 },
 
   // WEST
   { region: 'WEST', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 44.9, ciLower: 41.8, ciUpper: 48.0 },
@@ -197,11 +197,11 @@ function alignDataToQuarters(data, quarters) {
 const regionKeyFindings = {
   WEST: "Key finding: Fentanyl positivity decreased 1% from 20.1% in Q3 2024 to 19.1% in Q4 2024. This may indicate decreased exposure to fentanyl among people with substance use disorders.",
   MIDWEST: "Key finding: Fentanyl positivity increased 2.1% from 86.6% in Q2 2024 to 88.7% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders.",
-  NATIONAL: "Key finding: Fentanyl positivity increased 7.8% from 68.5% in Q2 2024 to 76.3% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders.",
+  National: "Key finding: Fentanyl positivity increased 7.8% from 68.5% in Q2 2024 to 76.3% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders.",
   SOUTH: "Key finding: Fentanyl positivity increased 2.4% from 70.7% in Q2 2024 to 73.1% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders."
 };
 
-const HeroinSecondLineChartBelowCocaine = ({ region = 'WEST', width = 1100, height = 450 }) => {
+const HeroinSecondLineChartBelowCocaine = ({ region = 'WEST', width, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
   const [showPercentChange, setShowPercentChange] = useState(false);

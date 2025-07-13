@@ -4,11 +4,7 @@ import { Group } from '@visx/group';
 import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
-
-const methWestSecondData = [];
-
-// 6 Months data for WEST 
-const methWestSecondData6Months = [];
+import { UtilityFunctions } from '../utility';
 
 const lineColors = {
   'Fentanyl': '#27ae60',
@@ -16,38 +12,6 @@ const lineColors = {
   'Opioids': '#2980b9',
   'Cocaine': '#d35400',
 };
-
-function getGroupedCoPosSeriesWest(millenialData, periodType) {
-  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
-  const arr = millenialData?.West?.Methamphetamine?.CoPositive?.[periodKey] || [];
-  const drugs = ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine'];
-  return drugs.map(name => ({
-    label: name,
-    color: lineColors[name] || '#0073e6',
-    data: arr.filter(d => (d.drug_name === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
-      quarter: d.period, // Use 'period' for x-axis for quarterly
-      period: d.smon_yr || d.period, // Use 'smon_yr' for halfyearly, fallback to 'period'
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
-      ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),
-    }))
-  })).filter(line => line.data.length > 0);
-}
-
-function getGroupedCoPosSeriesWestHalfYearly(millenialData) {
-  const arr = millenialData?.West?.Methamphetamine?.CoPositive?.HalfYearly || [];
-  const drugs = ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine'];
-  return drugs.map(name => ({
-    label: name,
-    color: lineColors[name] || '#0073e6',
-    data: arr.filter(d => (d.drug_name === name || d.drug_name === name) && d.USregion === 'WEST').map(d => ({
-      period: d.smon_yr,
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['CI lower'] || d['CI_lower'] || d.ciLower),
-      ciUpper: parseFloat(d['CI upper'] || d['CI_upper'] || d.ciUpper),
-    }))
-  })).filter(line => line.data.length > 0);
-}
 
 const allQuarters = [
   'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
@@ -57,18 +21,18 @@ const allPeriods6M = [
   '2022 Jul-Dec', '2023 Jan-Jun', '2023 Jul-Dec', '2024 Jan-Jun', '2024 Jul-Dec'
 ];
 
-const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period = 'Quarterly' }) => {
+const Methamphetaminewestsecondlinechart = ({ width, height = 350, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
   const [millenialData, setMillenialData] = useState(null);
-  const [periodType, setPeriodType] = useState(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  const [periodType, setPeriodType] = useState(period);
   const [seriesList, setSeriesList] = useState([]);
   const [allPeriods, setAllPeriods] = useState([]);
   const allLineKeys = Object.keys(lineColors);
 
   useEffect(() => {
-    setPeriodType(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+    setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
   }, [period]);
 
   useEffect(() => {
@@ -78,10 +42,10 @@ const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period
         setMillenialData(data);
         let grouped;
         if (periodType === 'HalfYearly') {
-          grouped = getGroupedCoPosSeriesWestHalfYearly(data);
+          grouped = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'CoPositive', 'HalfYearly', ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine']);
           setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.period) : []);
         } else {
-          grouped = getGroupedCoPosSeriesWest(data, periodType);
+          grouped = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'CoPositive', periodType, ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine']);
           setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.quarter) : []);
         }
         setSeriesList(grouped);
@@ -98,7 +62,7 @@ const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period
   // Filter and align data for the selected period
   const alignedDatasets = seriesList.map(ds => ({
     ...ds,
-    data: (period === '6 Months' || period === 'Half Yearly'
+    data: (period === 'HalfYearly'
       ? allPeriods6M.map(q => ds.data.find(d => d.period === q) || { period: q, percentage: null, ciLower: null, ciUpper: null })
       : allQuarters.map(q => ds.data.find(d => d.quarter === q) || { quarter: q, percentage: null, ciLower: null, ciUpper: null })
     )
@@ -229,7 +193,7 @@ const Methamphetaminewestsecondlinechart = ({ width = 1100, height = 350, period
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff' }}>
-            {period === '6 Months' || period === 'Half Yearly'
+            {period === 'HalfYearly'
               ? 'How often do people with a substance use disorder test positive for fentanyl, heroin, opioids, or cocaine: Western Census Region Jul 2022 – Dec 2024. Millennium Health, Western Census Region Jul 2022 – Dec 2024'
               : 'How often do people with a substance use disorder test positive for fentanyl, heroin, opioids, or cocaine: Western Census Region Q4 2022 – Q4 2024. Millennium Health, Western Census Region Q4 2022 – Q4 2024'}
           </h3>

@@ -28,7 +28,7 @@ const sampleData2 = [
         ]
     },
     {
-        name: "Fentanyl without stimulants",
+        name: "Fentanyl without Stimulants",
         values: [
             { quarter: "Q4 2022", percentage: "5.2", ciLower: "5", ciUpper: "5.3" },
             { quarter: "Q1 2023", percentage: "4.5", ciLower: "4.4", ciUpper: "4.7" },
@@ -66,7 +66,7 @@ export const sampleData2_6Months = [
         ]
     },
     {
-        name: "Fentanyl without stimulants",
+        name: "Fentanyl without Stimulants",
         values: [
             { period: "2022 Jul-Dec", percentage: "5.2", ciLower: "5", ciUpper: "5.3" },
             { period: "2023 Jan-Jun", percentage: "4.5", ciLower: "4.4", ciUpper: "4.6" },

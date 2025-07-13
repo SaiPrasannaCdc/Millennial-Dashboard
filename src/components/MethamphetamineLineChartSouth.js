@@ -5,38 +5,22 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import { UtilityFunctions } from '../utility';
 import MethamphetamineSouthsecondlinechart from './MethamphetamineLineChartSouthsecondlinechart';
 
 // Helper to group by drug_name for multi-line chart (Positivity)
-function getGroupedMethSeries(millenialData, periodType) {
 
-  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
-  const arr = millenialData?.South?.Methamphetamine?.Positivity?.[periodKey] || [];
-  // Group by drug_name for SOUTH and correct period key
-  const drugs = ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids'];
-  return drugs.map(name => ({
-    name,
-    data: arr.filter(d => d.drug_name === name && d.USregion === 'SOUTH').map(d => ({
-      period: d.period || d.smon_yr, // Use 'period' for x-axis
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-      ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-      periodChange: d.Period || d.periodChange || '',
-    }))
-  })).filter(line => line.data.length > 0);
-}
 
-const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+const MethamphetamineLineChartSouth = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [millenialData, setMillenialData] = useState(null);
-  const [periodType, setPeriodType] = useState(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+  const [periodType, setPeriodType] = useState(period);
   const [seriesList, setSeriesList] = useState([]);
   const [allQuarters, setAllQuarters] = useState([]);
 
   useEffect(() => {
-    setPeriodType(period === '6 Months' || period === 'Half Yearly' ? 'HalfYearly' : 'Quarterly');
+    setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
   }, [period]);
 
   useEffect(() => {
@@ -44,7 +28,7 @@ const MethamphetamineLineChartSouth = ({ width = 1100, height = 450, period = 'Q
       .then(res => res.json())
       .then(data => {
         setMillenialData(data);
-        const grouped = getGroupedMethSeries(data, periodType);
+        const grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', periodType, ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
         setSeriesList(grouped);
         setAllQuarters(grouped[0] ? grouped[0].data.map(d => d.period) : []);
       });

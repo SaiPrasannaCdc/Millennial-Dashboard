@@ -12,7 +12,7 @@ function alignDataToQuarters(data, quarters) {
   return quarters.map(q => map[q] || { quarter: q, percentage: null, ciLower: null, ciUpper: null });
 }
 
-const FentanylLineChartMidwest = ({ width = 1100, height = 450 }) => {
+const FentanylLineChartMidwest = ({ width, height = 450 }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [midwestQuarterlyData, setMidwestQuarterlyData] = useState([]);
@@ -358,7 +358,7 @@ const FentanylLineChartMidwest = ({ width = 1100, height = 450 }) => {
   );
 };
 
-function MidwestThreeDrugsLineChart({ width = 1100, height = 600 }) {
+function MidwestThreeDrugsLineChart({ width, height = 600 }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState([]);
   const [heroinMidwestData, setHeroinMidwestData] = useState([]);

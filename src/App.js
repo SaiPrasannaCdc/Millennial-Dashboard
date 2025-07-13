@@ -29,13 +29,14 @@ import Heroin6Monthssecondlinechart from './components/Heroin6Monthssecondlinech
 function App() {
   const viewportCutoffSmall = 550;
   const viewportCutoffMedium = 800;
+  const chartHeight = 450;
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const accessible = false;
   const [selectedPeriod, setSelectedPeriod] = useState('Quarterly');
   const [selectedRegion, setSelectedRegion] = useState('National');
   const [selectedDrug, setSelectedDrug] = useState('fentanyl');
 
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(1100);
 
   const isSmallViewport = width < 500;
 
@@ -76,174 +77,174 @@ function App() {
 
       {selectedRegion === 'National' && selectedDrug === 'fentanyl' && (
         <>
-          <LineChartWithToggles period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-          <PositiveHeroinChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+          <LineChartWithToggles period={selectedPeriod} width={width} height={chartHeight}/>
+          <PositiveHeroinChart period={selectedPeriod} width={width} height={chartHeight}/>
         </>
       )}
       
-      {selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
+      {selectedRegion === 'National' && selectedDrug === 'heroin' && (
+        selectedPeriod === 'HalfYearly'
           ? (
             <>
-              <HeroinLineChartRegions6months region="National" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="NATIONAL" width={1100} height={450} />
+              <HeroinLineChartRegions6months region="National" width={width} height={chartHeight}/>
+              <Heroin6Monthssecondlinechart region="National" width={width} height={chartHeight} />
             </>
           )
           : (
             <>
-              <HeroinLineChartRegions region="National" period={selectedPeriod} />
-              <HeroinSecondLineChart region="NATIONAL" width={1100} height={450} />
+              <HeroinLineChartRegions region="National" period={selectedPeriod} width={width} height={chartHeight}/>
+              <HeroinSecondLineChart region="National" width={width} height={chartHeight} />
             </>
           )
       )}
       {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
+        selectedPeriod === 'HalfYearly'
           ? (
             <>
-              <HeroinLineChartRegions6months region="Midwest" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="MIDWEST" width={1100} height={450} />
+              <HeroinLineChartRegions6months region="Midwest" width={width} height={chartHeight}/>
+              <Heroin6Monthssecondlinechart region="MIDWEST" width={width} height={chartHeight} />
             </>
           )
           : (
             <>
-              <HeroinLineChartRegions region="Midwest" period={selectedPeriod} />
-              <HeroinSecondLineChart region="MIDWEST" width={1100} height={450} />
+              <HeroinLineChartRegions region="Midwest" period={selectedPeriod} width={width} height={chartHeight}/>
+              <HeroinSecondLineChart region="MIDWEST" width={width} height={chartHeight} />
             </>
           )
       )}
       {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
+        selectedPeriod === 'HalfYearly'
           ? (
             <>
-              <HeroinLineChartRegions6months region="West" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="WEST" width={1100} height={450} />
+              <HeroinLineChartRegions6months region="West" width={width} height={chartHeight}/>
+              <Heroin6Monthssecondlinechart region="WEST" width={width} height={chartHeight} />
             </>
           )
           : (
             <>
-              <HeroinLineChartRegions region="West" period={selectedPeriod} />
-              <HeroinSecondLineChart region="WEST" width={1100} height={450} />
+              <HeroinLineChartRegions region="West" period={selectedPeriod} width={width} height={chartHeight}/>
+              <HeroinSecondLineChart region="WEST" width={width} height={chartHeight} />
             </>
           )
       )}
       {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
+        selectedPeriod === 'HalfYearly'
           ? (
             <>
-              <HeroinLineChartRegions6months region="South" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="SOUTH" width={1100} height={450} />
+              <HeroinLineChartRegions6months region="South" width={width} height={chartHeight}/>
+              <Heroin6Monthssecondlinechart region="SOUTH" width={width} height={chartHeight} />
             </>
           )
           : (
             <>
-              <HeroinLineChartRegions region="South" period={selectedPeriod} />
-              <HeroinSecondLineChart region="SOUTH" width={1100} height={450} />
+              <HeroinLineChartRegions region="South" period={selectedPeriod} width={width} height={chartHeight}/>
+              <HeroinSecondLineChart region="SOUTH" width={width} height={chartHeight} />
             </>
           )
       )}
       {selectedRegion.toUpperCase() === 'NORTH' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
+        selectedPeriod === 'HalfYearly'
           ? (
             <>
-              <HeroinLineChartRegions6months region="Northeast" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="NORTH" width={1100} height={450} />
+              <HeroinLineChartRegions6months region="Northeast" width={width} height={chartHeight}/>
+              <Heroin6Monthssecondlinechart region="NORTH" width={width} height={chartHeight} />
             </>
           )
           : (
             <>
-              <HeroinLineChartRegions region="Northeast" period={selectedPeriod} />
-              <HeroinSecondLineChart region="NORTH" width={1100} height={450} />
+              <HeroinLineChartRegions region="Northeast" period={selectedPeriod} width={width} height={chartHeight}/>
+              <HeroinSecondLineChart region="NORTH" width={width} height={chartHeight} />
             </>
           )
       )}
       {selectedRegion === 'National' && selectedDrug === 'methamphetamine' && (
         <>
-          <MethamphetamineLineChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+          <MethamphetamineLineChart period={selectedPeriod} width={width} height={chartHeight}/>
         </>
       )}
       {selectedRegion === 'WEST' && selectedDrug === 'methamphetamine' && (
         <>
-          <MethamphetamineLineChartWest period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+          <MethamphetamineLineChartWest period={selectedPeriod} width={width} height={chartHeight}/>
         </>
       )}
       {selectedRegion === 'SOUTH' && selectedDrug === 'methamphetamine' && (
-        <MethamphetamineLineChartSouth period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+        <MethamphetamineLineChartSouth period={selectedPeriod} width={width} height={chartHeight}/>
       )}
       {selectedRegion === 'MIDWEST' && selectedDrug === 'methamphetamine' && (
-        <MethamphetamineLineChartMidwest period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
+        <MethamphetamineLineChartMidwest period={selectedPeriod} width={width} height={chartHeight}/>
       )}
       {selectedRegion === 'NORTH' && selectedDrug === 'methamphetamine' && (
-        <MethamphetamineLineChartNortheast period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod}/>
+        <MethamphetamineLineChartNortheast period={selectedPeriod} width={width} height={chartHeight}/>
       )}
       {selectedRegion === 'WEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
-        <FentanylLineChartWest />
+        <FentanylLineChartWest width={width} height={chartHeight}/>
       )}
       {selectedRegion === 'MIDWEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
         <>
-        <FentanylLineChartMidwest />
-        <MidwestThreeDrugsLineChart />
+        <FentanylLineChartMidwest width={width} height={chartHeight}/>
+        <MidwestThreeDrugsLineChart width={width} height={chartHeight}/>
         </>
       )}
       {selectedRegion === 'SOUTH' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
-        <FentanylLineChartSouth />
+        <FentanylLineChartSouth width={width} height={chartHeight}/>
       )}
      
-      {selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {selectedRegion.toUpperCase() === 'National' && selectedDrug === 'cocaine' && selectedPeriod === 'HalfYearly' && (
         <>
-          <CocaineSixMonthsLineChart region="National" showMultiDrug={true} />
+          <CocaineSixMonthsLineChart region="National" showMultiDrug={true} width={width} height={chartHeight}/>
         </>
       )}
-      {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'cocaine' && selectedPeriod === 'HalfYearly' && (
         <>
-          <CocaineSixMonthsLineChart region="West" showMultiDrug={true} />
+          <CocaineSixMonthsLineChart region="West" showMultiDrug={true} width={width} height={chartHeight}/>
         </>
       )}
-      {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'cocaine' && selectedPeriod === 'HalfYearly' && (
         <>
-          <CocaineSixMonthsLineChart region="Midwest" showMultiDrug={true} />
+          <CocaineSixMonthsLineChart region="Midwest" showMultiDrug={true} width={width} height={chartHeight}/>
         </>
       )}
-      {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'cocaine' && selectedPeriod === 'HalfYearly' && (
         <>
-          <CocaineSixMonthsLineChart region="South" showMultiDrug={true} />
+          <CocaineSixMonthsLineChart region="South" showMultiDrug={true} width={width} height={chartHeight}/>
         </>
       )}
-      {(selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {(selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'cocaine' && selectedPeriod === 'HalfYearly' && (
         <>
-          <CocaineSixMonthsLineChart region="Northeast" showMultiDrug={true} />
+          <CocaineSixMonthsLineChart region="Northeast" showMultiDrug={true} width={width} height={chartHeight}/>
         </>
       )}
-      {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'HalfYearly' && (
         <>
-          <FentanylLineChart6Months region="West" />
-          <NationalMultiDrugLineChart region="West" />
+          <FentanylLineChart6Months region="West" width={width} height={chartHeight}/>
+          <NationalMultiDrugLineChart region="West" width={width} height={chartHeight}/>
         </>
       )}
-      {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'HalfYearly' && (
         <>
-          <FentanylLineChart6Months region="Midwest" />
-          <NationalMultiDrugLineChart region="Midwest" />
+          <FentanylLineChart6Months region="Midwest" width={width} height={chartHeight}/>
+          <NationalMultiDrugLineChart region="Midwest" width={width} height={chartHeight}/>
         </>
       )}
-      {(selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {(selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'fentanyl' && selectedPeriod === 'HalfYearly' && (
         <>
-          <FentanylLineChart6Months region="Northeast" />
-          <NationalMultiDrugLineChart region="Northeast" />
+          <FentanylLineChart6Months region="Northeast" width={width} height={chartHeight}/>
+          <NationalMultiDrugLineChart region="Northeast" width={width} height={chartHeight}/>
         </>
       )}
-      {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
+      {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'fentanyl' && selectedPeriod === 'HalfYearly' && (
         <>
-          <FentanylLineChart6Months region="South" />
-          <NationalMultiDrugLineChart region="South" />
+          <FentanylLineChart6Months region="South" width={width} height={chartHeight}/>
+          <NationalMultiDrugLineChart region="South" width={width} height={chartHeight}/>
         </>
       )}
      
       {selectedDrug === 'cocaine' && selectedPeriod === 'Quarterly' && (
         <>
-          {selectedRegion === 'National' && <CocaineNationalQuarterlyChart />}
-          {selectedRegion === 'WEST' && <CocaineWestQuarterlyChart />}
-          {selectedRegion === 'MIDWEST' && <CocaineMidwestQuarterlyChart />}
-          {selectedRegion === 'SOUTH' && <CocaineSouthQuarterlyChart />}
+          {selectedRegion === 'National' && <CocaineNationalQuarterlyChart width={width} height={chartHeight}/>}
+          {selectedRegion === 'WEST' && <CocaineWestQuarterlyChart width={width} height={chartHeight}/>}
+          {selectedRegion === 'MIDWEST' && <CocaineMidwestQuarterlyChart width={width} height={chartHeight}/>}
+          {selectedRegion === 'SOUTH' && <CocaineSouthQuarterlyChart width={width} height={chartHeight}/>}
           <HeroinSecondLineChartBelowCocaine region={selectedRegion.toUpperCase()} width={1100} height={450} />
         </>
       )}

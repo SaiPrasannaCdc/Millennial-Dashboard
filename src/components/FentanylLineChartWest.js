@@ -17,8 +17,8 @@ function FentanylLineChartBase({
   title,
   yLabel,
   legendLabels,
-  width = 1100,
-  height = 450, 
+  width,
+  height, 
   showDrugSelection = true, 
 }) {
   const [showLabels, setShowLabels] = useState(false);

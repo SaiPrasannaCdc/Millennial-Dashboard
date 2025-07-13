@@ -85,11 +85,11 @@ const midwest6MonthsData = [
   }
 ];
 
-const MethamphetamineLineChartMidwest = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
+const MethamphetamineLineChartMidwest = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
-  const is6Months = period === '6 Months' || period === 'Half Yearly';
+  const is6Months = period === 'HalfYearly';
   const adjustedData = is6Months ? midwest6MonthsData : midwestQuarterlyData;
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
