@@ -4,6 +4,7 @@ import { Group } from '@visx/group';
 import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
+import { UtilityFunctions } from '../utility';
 
 // Quarterly data for National
 const methNationalSecondData = [
@@ -302,53 +303,9 @@ const MethamphetamineLineChartsecondLineChart = ({ width, height = 350, period }
           Clear All
         </label>
         <div style={{ flex: 1 }} />
-        <div className="toggle-container" style={{ display: 'flex', gap: '10px' }}>
-          <div className="toggle-wrapper" style={{ position: 'relative' }}>
-            <label
-              className="toggle-switch"
-              data-tip={percentChgTooltip}
-              data-for="percentChangeTooltip"
-              style={{ cursor: 'pointer' }}
-            >
-              <input
-                type="checkbox"
-                checked={showPercentChange}
-                onChange={() => setShowPercentChange(!showPercentChange)}
-              />
-              <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
-            </label>
-            <span
-              className="toggle-label"
-              style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
-              data-tip={percentChgTooltip}
-              data-for="percentChangeTooltip"
-            >
-              % Chg {showPercentChange ? 'On' : 'Off'}
-            </span>
-            <ReactTooltip
-              id="percentChangeTooltip"
-              place="top"
-              effect="solid"
-              backgroundColor="#ededed"
-              border={true}
-              borderColor="#bbb"
-              className="simple-tooltip"
-              html={true}
-              textColor="#222"
-            />
-          </div>
-          <div className="toggle-wrapper">
-            <label className="toggle-switch">
-              <input
-                type="checkbox"
-                checked={showLabels}
-                onChange={() => setShowLabels(!showLabels)}
-              />
-              <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
-            </label>
-            <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
-          </div>
-        </div>
+
+        {UtilityFunctions.getToggleControls('MethamphetamineLineChartsecondLineChartToggle', setShowPercentChange, setShowLabels, showPercentChange, showLabels)}
+
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '10px', marginBottom: '20px' }}>
         {Object.entries(lineColors).map(([drug, color]) => (

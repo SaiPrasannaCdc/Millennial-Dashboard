@@ -354,77 +354,8 @@ const PositiveCocaineChart = ({ width, height, period }) => {
         </div>
       </div>
 
-      <div className="toggle-container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '-90px' }}>
-        <div className="toggle-wrapper" style={{ position: 'relative' }}>
-          {(() => {
-            const percentChgTooltip = `
-              <div style="
-                text-align: center;
-                padding: 16px 12px;
-                color: #222;
-                font-size: 15px;
-                max-width: 260px;
-                min-width: 220px;
-                margin: 0 auto;
-                border-radius: 14px;
-                background: #ededed;
-                box-shadow: 0 2px 12px #bbb3;
-              ">
-                <div style="margin-top: 8px;">
-                  When <b>% Chg</b> is on, hover over the data point for the 5 most recent quarters to view percent change from the same quarter in the previous year and the previous quarter.
-                </div>
-              </div>
-            `;
-            return (
-              <>
-                <label
-                  className="toggle-switch"
-                  data-tip={percentChgTooltip}
-                  data-for="percentChangeTooltip"
-                  style={{ cursor: 'pointer' }}
-                >
-                  <input
-                    type="checkbox"
-                    checked={showPercentChange}
-                    onChange={() => setShowPercentChange(!showPercentChange)}
-                  />
-                  <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
-                </label>
-                <span
-                  className="toggle-label"
-                  style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
-                  data-tip={percentChgTooltip}
-                  data-for="percentChangeTooltip"
-                >
-                  % Chg {showPercentChange ? 'On' : 'Off'}
-                </span>
-                <ReactTooltip
-                  id="percentChangeTooltip"
-                  place="top"
-                  effect="solid"
-                  backgroundColor="#ededed"
-                  border={true}
-                  borderColor="#bbb"
-                  className="simple-tooltip"
-                  html={true}
-                  textColor="#222"
-                />
-              </>
-            );
-          })()}
-        </div>
-        <div className="toggle-wrapper">
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={showLabels}
-              onChange={() => setShowLabels(!showLabels)}
-            />
-            <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
-          </label>
-          <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333' }}>Labels {showLabels ? 'On' : 'Off'}</span>
-        </div>
-      </div>
+      {UtilityFunctions.getToggleControls('PositiveCocaineChartToggle', setShowPercentChange, setShowLabels, showPercentChange, showLabels)}
+
       <svg width={width} height={height}>
         <Group left={margin.left} top={margin.top}>
           {/* Y-axis label: two lines, Segoe UI, semi-bold, fontSize 13, color #222, before AxisLeft */}
