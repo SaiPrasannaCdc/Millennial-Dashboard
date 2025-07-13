@@ -31,7 +31,7 @@ const lineColors = {
   })).filter(line => line.data.length > 0);
 } */
 
-const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period }) => {
+const MethamphetamineSouthsecondlinechart = ({ width, height, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
@@ -56,16 +56,6 @@ const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period }) =>
         const allPeriodsSet = new Set();
         grouped.forEach(line => line.data.forEach(d => allPeriodsSet.add(d.period)));
         const allPeriodsArr = Array.from(allPeriodsSet);
-        // Sort periods chronologically if possible (assuming format like Q1 2023, Q2 2023, ...)
-        allPeriodsArr.sort((a, b) => {
-          const parse = s => {
-            const [q, y] = s.split(' ');
-            return [parseInt(y), parseInt(q.replace(/[^0-9]/g, ''))];
-          };
-          const [ya, qa] = parse(a);
-          const [yb, qb] = parse(b);
-          return ya !== yb ? ya - yb : qa - qb;
-        });
         setAllPeriods(allPeriodsArr);
       });
   }, [periodType]);
@@ -392,7 +382,7 @@ const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period }) =>
                   data={ds.data}
                   x={d => xScale(d[xLabelField]) + xScale.bandwidth() / 2}
                   y={d => d.percentage !== null ? yScale(d.percentage) : null}
-                  stroke={ds.color}
+                  stroke={lineColors[ds.label]}
                   strokeWidth={3}
                   curve={null}
                 />
@@ -411,7 +401,7 @@ const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period }) =>
                         cx={xScale(d[xLabelField]) + xScale.bandwidth() / 2}
                         cy={yScale(d.percentage)}
                         r={4}
-                        fill={ds.color}
+                        fill={lineColors[ds.label]}
                         data-tip={
                           showPercentChange
                             ? undefined

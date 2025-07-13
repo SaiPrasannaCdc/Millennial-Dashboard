@@ -198,7 +198,7 @@ const regionKeyFindings = {
   SOUTH: "Key finding: Fentanyl positivity increased 2.4% from 70.7% in Q2 2024 to 73.1% in Q4 2024. This may indicate increased exposure to fentanyl among people with substance use disorders."
 };
 
-const HeroinSecondLineChart = ({ region = 'WEST', width, height = 450 }) => {
+const HeroinSecondLineChart = ({ region = 'WEST', width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
   const [showPercentChange, setShowPercentChange] = useState(false);

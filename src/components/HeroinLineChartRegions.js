@@ -29,7 +29,7 @@ const regionKeyFindings = {
   National: "Key finding: Heroin positivity increased 0.3% from 4.6% in Q3 2024 to 4.9% in Q4 2024. This may indicate increased exposure to heroin among people with substance use disorders."
 };
 
-function HeroinLineChartRegions({ width, height, region = 'MIDWEST', period = 'Quarterly' }) {
+function HeroinLineChartRegions({ width, height, region = 'MIDWEST', period }) {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [heroinSouthData, setHeroinSouthData] = useState([]);
@@ -46,6 +46,7 @@ function HeroinLineChartRegions({ width, height, region = 'MIDWEST', period = 'Q
       .then(res => res.json())
       .then(data => {
         // Flatten and map the JSON for SOUTH region Heroin
+
         const southHeroin = mapHeroinSouthData(
           [].concat(
             data?.South?.Heroin?.Positivity?.Quarterly || [],
@@ -88,7 +89,7 @@ function HeroinLineChartRegions({ width, height, region = 'MIDWEST', period = 'Q
       });
   }, []);
 
-  const regionKey = region.toUpperCase();
+  const regionKey = region !== 'National' ? region.toUpperCase() : region;
   const keyFinding = regionKeyFindings[regionKey];
 
   if (regionKey === 'National') {
@@ -102,7 +103,7 @@ function HeroinLineChartRegions({ width, height, region = 'MIDWEST', period = 'Q
       color: lineColors[drug],
       data: alignDataToQuarters(
         heroinNationalData.filter(d => {
-          const isDrug = (d.drug === drug || d.drug_name === drug);
+          const isDrug = (d.drug === drug);
           // Only allow Heroin data with percentage in the expected range (e.g., 3-6%)
           if (drug === 'Heroin') {
             const pct = parseFloat(d.percentage);

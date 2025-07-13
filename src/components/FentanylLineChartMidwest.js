@@ -12,7 +12,7 @@ function alignDataToQuarters(data, quarters) {
   return quarters.map(q => map[q] || { quarter: q, percentage: null, ciLower: null, ciUpper: null });
 }
 
-const FentanylLineChartMidwest = ({ width, height = 450 }) => {
+const FentanylLineChartMidwest = ({ width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [midwestQuarterlyData, setMidwestQuarterlyData] = useState([]);

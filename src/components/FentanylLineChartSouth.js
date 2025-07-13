@@ -57,12 +57,12 @@ function getGroupedSeries(millenialData, periodType, metric) {
   }));
 }
 
-const FentanylLineChartSouth = ({ width, height = 450 }) => {
+const FentanylLineChartSouth = ({ width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState([]); 
   const [millenialData, setMillenialData] = useState(null);
-  const [periodType, setPeriodType] = useState('Quarterly'); // 'Quarterly' or 'HalfYearly'
+  const [periodType, setPeriodType] = useState('Quarterly'); 
   const [seriesList, setSeriesList] = useState([]);
   const [allQuarters, setAllQuarters] = useState([]);
   const [coPosSeries, setCoPosSeries] = useState([]);

@@ -301,7 +301,7 @@ const getKeyFindingNew = (data) => {
   };
 };
 
-const NationalMultiDrugLineChart = ({ region = "National", width, height = 450 }) => {
+const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 

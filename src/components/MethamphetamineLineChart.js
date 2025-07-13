@@ -8,83 +8,68 @@ import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
 import MethamphetamineLineChartsecondLineChart from './MethamphetamineLineChartsecondlinechart';
 
-const MethamphetamineLineChart = ({ width, height, period = 'Quarterly' }) => {
+const MethamphetamineLineChart = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [millenialData, setMillenialData] = useState(null);
   const [seriesList, setSeriesList] = useState([]);
-  const [loading, setLoading] = useState(true); // <-- Add loading state
+  const [allPeriods, setAllPeriods] = useState([]);
 
   useEffect(() => {
-    setLoading(true); // <-- Set loading true on period change
-    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
-      .then(res => res.json())
-      .then(data => {
-        setMillenialData(data);
+    ReactTooltip.rebuild();
+  }, [showPercentChange]);
 
-        const grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', period === 'Quarterly' ? 'Quarterly' : 'HalfYearly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
-        setSeriesList(grouped);
-        setLoading(false); // <-- Set loading false after data is set
-      });
-  }, [period]);
+  useEffect(() => {
+        fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+          .then(res => res.json())
+          .then(data => {
+            let grouped;
+            
+            if (period === 'HalfYearly') {
+              grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
+              setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.period) : []);
+            } else {
+              grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', 'Quarterly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
+              setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.quarter) : []);
+            }
+            setSeriesList(grouped);
+           });
+    }, [period]); 
 
-  // Select data based on period
   const adjustedData = seriesList;
-  const margin = { top: 60, right: 30, bottom: 50, left: 90 };
-  const adjustedWidth = width - margin.left - margin.right;
-  const adjustedHeight = height - margin.top - margin.bottom;
-
-  const formatHalfYearLabel = (periodStr) => {
-    if (!periodStr || typeof periodStr !== 'string') return '';
-    let year, half;
-    let match = periodStr.match(/H([12])\s*([0-9]{4})/);
-    if (match) {
-      half = match[1];
-      year = match[2];
-      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
+  
+    // Guard clause to prevent errors if data is not loaded yet
+    if (!adjustedData || adjustedData.length === 0) {
+      return (
+        <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>
+          Loading chart data...
+        </div>
+      );
     }
-    match = periodStr.match(/([0-9]{4})\s*H([12])/);
-    if (match) {
-      year = match[1];
-      half = match[2];
-      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
-    }
-    match = periodStr.match(/([0-9]{4})[- ]([12])/);
-    if (match) {
-      year = match[1];
-      half = match[2];
-      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
-    }
-    return periodStr;
-  };
-
-  const hasData = adjustedData.length > 0 && adjustedData[0].values && adjustedData[0].values.length > 0;
-
-  const xDomain = hasData
-    ? (period === 'Quarterly'
-        ? adjustedData[0].values.map(d => d.quarter)
-        : adjustedData[0].values.map(d => formatHalfYearLabel(d.period))) // d.period is now d.smon_yr for HalfYearly
-    : [];
-
-  const xAccessor = period === 'Quarterly'
-    ? d => d.quarter
-    : d => formatHalfYearLabel(d.period); // d.period is now d.smon_yr for HalfYearly
-
-  const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
-    padding: 0.2,
-  });
-
-  const yScale = scaleLinear({
-    domain: [0, Math.max(...adjustedData.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
-    range: [adjustedHeight, 0],
-    nice: true,
-  });
+  
+    const is6Months = period === 'HalfYearly';
+    const margin = { top: 60, right: 30, bottom: 50, left: 90 };
+    const adjustedWidth = width - margin.left - margin.right;
+    const adjustedHeight = height - margin.top - margin.bottom;
+  
+    const xDomain = is6Months ? allPeriods : allPeriods;
+    const xAccessor = is6Months ? d => d.period : d => d.quarter;
+  
+    const xScale = scaleBand({
+      domain: xDomain,
+      range: [0, adjustedWidth],
+      padding: 0.2,
+    });
+  
+    const yScale = scaleLinear({
+      domain: [0, Math.max(...adjustedData[0].data.map(v => parseFloat(v.percentage)))],
+      range: [adjustedHeight, 0],
+      nice: true,
+    });
 
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
-      return parseFloat(lineData.values[i - offset].percentage);
+      return parseFloat(lineData.data[i - offset].percentage);
     }
     return null;
   };
@@ -93,7 +78,7 @@ const MethamphetamineLineChart = ({ width, height, period = 'Quarterly' }) => {
     if (!showPercentChange) return null;
 
     return adjustedData.map((lineData, index) => {
-      return lineData.values.map((d, i) => {
+      return lineData.data.map((d, i) => {
         if (i === 0) return null;
 
         const prevPeriod = getPrevPeriodValue(lineData, i, 1);
@@ -159,18 +144,14 @@ const MethamphetamineLineChart = ({ width, height, period = 'Quarterly' }) => {
     });
   };
 
-  useEffect(() => {
-    ReactTooltip.rebuild();
-  }, [showPercentChange, adjustedData]);
-
   const getKeyFinding = (data) => {
     if (!data || data.length === 0) return null;
     const line = data[0];
-    if (!line || !line.values || line.values.length < 2) return null;
-    const lastIdx = line.values.length - 1;
-    const prevIdx = line.values.length - 2;
-    const last = line.values[lastIdx];
-    const prev = line.values[prevIdx];
+    if (!line || !line.data || line.data.length < 2) return null;
+    const lastIdx = line.data.length - 1;
+    const prevIdx = line.data.length - 2;
+    const last = line.data[lastIdx];
+    const prev = line.data[prevIdx];
     if (!last || !prev) return null;
     const lastVal = parseFloat(last.percentage);
     const prevVal = parseFloat(prev.percentage);
@@ -187,14 +168,6 @@ const MethamphetamineLineChart = ({ width, height, period = 'Quarterly' }) => {
   };
 
   const keyFinding = getKeyFinding(adjustedData);
-
-  if (loading) {
-    return <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>Loading...</div>;
-  }
-
-  if (!hasData) {
-    return <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>No data available for this chart.</div>;
-  }
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
@@ -345,7 +318,7 @@ const MethamphetamineLineChart = ({ width, height, period = 'Quarterly' }) => {
           {adjustedData.map((lineData, index) => (
             <React.Fragment key={index}>
               <LinePath
-                data={lineData.values}
+                data={lineData.data}
                 x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                 y={d => yScale(parseFloat(d.percentage))}
                 stroke={
@@ -358,11 +331,11 @@ const MethamphetamineLineChart = ({ width, height, period = 'Quarterly' }) => {
                 strokeWidth={2}
                 curve={null}
               />
-              {lineData.values.map((d, i) => {
+              {lineData.data.map((d, i) => {
                 const percentage = parseFloat(d.percentage);
                 let lowerCI = d.ciLower !== undefined ? d.ciLower : (percentage - 0.5).toFixed(1);
                 let upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
-                const n = lineData.values.length;
+                const n = lineData.data.length;
                 let showLabel = false;
                 showLabel = showLabels || (
                     i === 0 || // first

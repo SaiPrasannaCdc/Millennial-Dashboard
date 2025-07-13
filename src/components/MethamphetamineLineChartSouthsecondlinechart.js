@@ -20,8 +20,10 @@ const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period}) => 
   const [millenialData, setMillenialData] = useState(null);
   const [periodType, setPeriodType] = useState(period);
   const [seriesList, setSeriesList] = useState([]);
-  const [allPeriods, setAllPeriods] = useState([]);
+  const [allQuarters, setAllQuarters] = useState([]);
   const allLineKeys = Object.keys(lineColors);
+
+  const is6Months = periodType === 'HalfYearly';
 
   useEffect(() => {
     setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
@@ -34,30 +36,18 @@ const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period}) => 
         setMillenialData(data);
         const grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'CoPositive', periodType, ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine']);
         setSeriesList(grouped);
-        // Build a union of all periods present in any drug's data
         const allPeriodsSet = new Set();
-        grouped.forEach(line => line.data.forEach(d => allPeriodsSet.add(d.period)));
+        grouped.forEach(line => line.data.forEach(d => allPeriodsSet.add(is6Months ? d.period : d.quarter)));
         const allPeriodsArr = Array.from(allPeriodsSet);
-        // Sort periods chronologically if possible (assuming format like Q1 2023, Q2 2023, ...)
-        allPeriodsArr.sort((a, b) => {
-          const parse = s => {
-            const [q, y] = s.split(' ');
-            return [parseInt(y), parseInt(q.replace(/[^0-9]/g, ''))];
-          };
-          const [ya, qa] = parse(a);
-          const [yb, qb] = parse(b);
-          return ya !== yb ? ya - yb : qa - qb;
-        });
-        setAllPeriods(allPeriodsArr);
+        setAllQuarters(allPeriodsArr);
       });
   }, [periodType]);
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
-  const is6M = periodType === 'HalfYearly';
-  const xDomain = allPeriods;
-  const xLabelField = 'period'; // Always use 'period' for x-axis
+  const xDomain = is6Months ? allQuarters : allQuarters;
+  const xLabelField = is6Months ? 'period' : 'quarter'; 
   const datasets = seriesList;
 
   const xScale = scaleBand({
@@ -374,7 +364,7 @@ const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period}) => 
                   data={ds.data}
                   x={d => xScale(d[xLabelField]) + xScale.bandwidth() / 2}
                   y={d => d.percentage !== null ? yScale(d.percentage) : null}
-                  stroke={ds.color}
+                  stroke={lineColors[ds.label]}
                   strokeWidth={3}
                   curve={null}
                 />
@@ -393,7 +383,7 @@ const MethamphetamineSouthsecondlinechart = ({ width, height = 350, period}) => 
                         cx={xScale(d[xLabelField]) + xScale.bandwidth() / 2}
                         cy={yScale(d.percentage)}
                         r={4}
-                        fill={ds.color}
+                        fill={lineColors[ds.label]}
                         data-tip={
                           showPercentChange
                             ? undefined

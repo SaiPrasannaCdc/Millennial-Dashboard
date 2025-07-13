@@ -19,6 +19,8 @@ const MethamphetamineLineChartSouth = ({ width, height, period}) => {
   const [seriesList, setSeriesList] = useState([]);
   const [allQuarters, setAllQuarters] = useState([]);
 
+  const is6Months = periodType === 'HalfYearly';
+
   useEffect(() => {
     setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
   }, [period]);
@@ -30,18 +32,18 @@ const MethamphetamineLineChartSouth = ({ width, height, period}) => {
         setMillenialData(data);
         const grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', periodType, ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
         setSeriesList(grouped);
-        setAllQuarters(grouped[0] ? grouped[0].data.map(d => d.period) : []);
+        setAllQuarters(grouped[0] ? grouped[0].data.map(is6Months ? d => d.period : d => d.quarter) : []);
       });
   }, [periodType]);
 
-  const is6Months = periodType === 'HalfYearly';
+  
   const adjustedData = seriesList;
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  const xDomain = allQuarters;
-  const xAccessor = d => d.period; // Use 'period' for x-axis
+  const xDomain = is6Months ? allQuarters : allQuarters;
+  const xAccessor = is6Months ? d => d.period : d => d.quarter;
   const xScale = scaleBand({
     domain: xDomain,
     range: [0, adjustedWidth],
@@ -391,7 +393,7 @@ const MethamphetamineLineChartSouth = ({ width, height, period}) => {
         <ReactTooltip html={true} />
       </>
       {/* --- Render the new MethamphetamineSouthsecondlinechart below --- */}
-      <MethamphetamineSouthsecondlinechart width={width} height={350} period={period} />
+      <MethamphetamineSouthsecondlinechart width={width} height={height} period={period} />
     </div>
   );
 };

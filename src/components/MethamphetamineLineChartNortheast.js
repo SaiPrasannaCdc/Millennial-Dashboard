@@ -8,9 +8,6 @@ import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
 import MethamphetamineNortheastsecondlinechart from './MethamphetamineLineChartNortheastsecondlinechart';
 
-// Helper to group by drug_name for multi-line chart (Positivity)
-
-
 
 const MethamphetamineLineChartNortheast = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
@@ -388,7 +385,7 @@ const MethamphetamineLineChartNortheast = ({ width, height, period}) => {
         <ReactTooltip html={true} />
       </>
       {/* --- Render the new MethamphetamineSouthsecondlinechart below --- */}
-      <MethamphetamineNortheastsecondlinechart width={width} height={350} period={period} />
+      <MethamphetamineNortheastsecondlinechart width={width} height={height} period={period} />
     </div>
   );
 };

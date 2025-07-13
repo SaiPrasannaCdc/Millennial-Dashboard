@@ -783,7 +783,7 @@ const CocaineSixMonthsLineChart = ({ region, width, height, showMultiDrug = fals
 // Add this function back above the export default if it was removed.
 // This is required for <NationalMultiDrugLineChart ... /> to work.
 
-const NationalMultiDrugLineChart = ({ region = "National", width, height = 450 }) => {
+const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
 
