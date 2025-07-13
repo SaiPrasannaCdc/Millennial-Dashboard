@@ -494,7 +494,7 @@ const westThreeDrugsDatasets = [
   );
 }
 
-const FentanylLineChartWest = () => {
+const FentanylLineChartWest = ({width, height}) => {
   return (
     <div>
       <FentanylLineChartBase
@@ -508,6 +508,8 @@ with drug(s) detected"
           { color: '#e67e22', label: 'Fentanyl without Stimulants' },
         ]}
         showDrugSelection={false}
+        width={width}
+        height={height}
       />
       <FentanylLineChartBase
         chartNum={2}
@@ -520,8 +522,8 @@ with drug detected"
           { color: '#d7263d', label: 'Heroin' },
           { color: '#1b9e77', label: 'Fentanyl and Stimulants' }, 
         ]}
-        height={450}
-        width={1100}
+        width={width}
+        height={height}
         
         showDrugSelection={true}
       />

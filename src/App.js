@@ -245,7 +245,7 @@ function App() {
           {selectedRegion === 'WEST' && <CocaineWestQuarterlyChart width={width} height={chartHeight}/>}
           {selectedRegion === 'MIDWEST' && <CocaineMidwestQuarterlyChart width={width} height={chartHeight}/>}
           {selectedRegion === 'SOUTH' && <CocaineSouthQuarterlyChart width={width} height={chartHeight}/>}
-          <HeroinSecondLineChartBelowCocaine region={selectedRegion} width={1100} height={450} />
+          <HeroinSecondLineChartBelowCocaine region={selectedRegion} width={width} height={chartHeight} />
         </>
       )}
       <ReactTooltip
