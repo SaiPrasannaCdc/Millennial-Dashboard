@@ -5,6 +5,7 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import { UtilityFunctions } from '../utility';
 
 function alignDataToQuarters(data, quarters) {
   const map = Object.fromEntries(data.map(d => [d.quarter, d]));
@@ -85,23 +86,6 @@ const FentanylLineChartMidwest = ({ width = 1100, height = 450 }) => {
     );
   };
 
-  function getGroupedCoPosSeriesMidwest(millenialData) {
-    const periodKey = 'Quarterly';
-    const arr = millenialData?.MidWest?.Fentanyl?.Positivity?.[periodKey] || [];
-    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        quarter: d.period || d.smon_yr, 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange]);
@@ -112,7 +96,7 @@ const FentanylLineChartMidwest = ({ width = 1100, height = 450 }) => {
         .then(res => res.json())
         .then(data => {
 
-      const mwData = getGroupedCoPosSeriesMidwest(data);
+      const mwData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'Positivity', 'Quarterly', ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants']);
       
       setMidwestQuarterlyData(mwData[0].data);
       setMidwestWithStimulantsQuarterly(mwData[1].data);
@@ -470,75 +454,6 @@ function getKeyFindingForThreeDrugs() {
     );
   };
 
-  function getGroupedPosSeriesHeroinMidwest(millenialData) {
-    const periodKey = 'Quarterly';
-    const arr = millenialData?.MidWest?.Heroin?.Positivity?.[periodKey] || [];
-    const drugs = ['Heroin'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        quarter: d.period || d.smon_yr, 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
-function getGroupedPosSeriesCocaineMidwest(millenialData) {
-    const periodKey = 'Quarterly';
-    const arr = millenialData?.MidWest?.Cocaine?.Positivity?.[periodKey] || [];
-    const drugs = ['Cocaine'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        quarter: d.period || d.smon_yr, 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
-function getGroupedPosSeriesMethamphetamineMidwest(millenialData) {
-    const periodKey = 'Quarterly';
-    const arr = millenialData?.MidWest?.Methamphetamine?.Positivity?.[periodKey] || [];
-    const drugs = ['Methamphetamine'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        quarter: d.period || d.smon_yr, 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
-function getGroupedCoPosSeriesFentanylWSMidwest(millenialData) {
-    const periodKey = 'Quarterly';
-    const arr = millenialData?.MidWest?.Fentanyl?.CoPositive?.[periodKey] || [];
-    const drugs = ['Fentanyl and Stimulants'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        quarter: d.period || d.smon_yr, 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
-
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange]);
@@ -548,10 +463,10 @@ function getGroupedCoPosSeriesFentanylWSMidwest(millenialData) {
         .then(res => res.json())
         .then(data => {
 
-      const hData = getGroupedPosSeriesHeroinMidwest(data);
-      const cData = getGroupedPosSeriesCocaineMidwest(data);
-      const mData = getGroupedPosSeriesMethamphetamineMidwest(data);
-      const fwsData = getGroupedCoPosSeriesFentanylWSMidwest(data);
+      const hData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Heroin', 'Positivity', 'Quarterly', ['Heroin']);
+      const cData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Cocaine', 'Positivity', 'Quarterly', ['Cocaine']);
+      const mData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Methamphetamine', 'Positivity', 'Quarterly', ['Methamphetamine']);
+      const fwsData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'CoPositive', 'Quarterly', ['Fentanyl with Stimulants']); //TODO SKV
 
       setHeroinMidwestData(hData[0].data);
       setCocaineMidwestData(cData[0].data);

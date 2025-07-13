@@ -5,6 +5,7 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import { UtilityFunctions } from '../utility';
 
 const COLORS = {
   "Fentanyl": "#1f77b4",
@@ -189,85 +190,15 @@ const FentanylLineChart6Months = ({ region = 'National', width = 1100, height = 
     ReactTooltip.rebuild();
   }, [showPercentChange, regionKey]);
 
-  
-function getGroupedCoPosSeriesWest(millenialData) {
-    const periodKey = 'HalfYearly';
-    const arr = millenialData?.West?.Fentanyl?.Positivity?.[periodKey] || [];
-    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
-function getGroupedCoPosSeriesMidwest(millenialData) {
-    const periodKey = 'HalfYearly';
-    const arr = millenialData?.MidWest?.Fentanyl?.Positivity?.[periodKey] || [];
-    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
-function getGroupedCoPosSeriesSouth(millenialData) {
-
-    const periodKey = 'HalfYearly';
-    const arr = millenialData?.South?.Fentanyl?.Positivity?.[periodKey] || [];
-    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-}
-
-function getGroupedCoPosSeriesNorth(millenialData) {
-    const periodKey = 'HalfYearly';
-    const arr = millenialData?.North?.Fentanyl?.Positivity?.[periodKey] || [];
-    const drugs = ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants'];
-    return drugs.map(name => ({
-      label: name,
-      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
-        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
-        percentage: parseFloat(d.percentage),
-        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-        periodChange: d.Period || d.periodChange || '',
-      }))
-    })).filter(line => line.data.length > 0);
-} 
-
    useEffect(() => {
         fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
           .then(res => res.json())
           .then(data => {
 
-        const wData = getGroupedCoPosSeriesWest(data);
-        const mwData = getGroupedCoPosSeriesMidwest(data);
-        const sData = getGroupedCoPosSeriesSouth(data);
-        const neData = getGroupedCoPosSeriesNorth(data);
+        const wData = UtilityFunctions.getGroupedData(data, 'West', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants']);
+        const mwData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants']);
+        const sData = UtilityFunctions.getGroupedData(data, 'South', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants']);
+        const neData = UtilityFunctions.getGroupedData(data, 'North', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants']);
 
         var sixMData = {};
 

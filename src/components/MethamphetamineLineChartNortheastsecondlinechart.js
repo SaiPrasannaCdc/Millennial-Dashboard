@@ -4,6 +4,7 @@ import { Group } from '@visx/group';
 import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
+import { UtilityFunctions } from '../utility';
 
 const lineColors = {
   'Fentanyl': '#27ae60',
@@ -12,10 +13,10 @@ const lineColors = {
   'Cocaine': '#d35400',
 };
 
-function getGroupedCoPosSeries(millenialData, periodType) {
+/* function getGroupedCoPosSeries(millenialData, periodType) {
   const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
   const arr = millenialData?.North?.Methamphetamine?.CoPositive?.[periodKey] || [];
-  const drugs = ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine'];
+  const drugs = [];
   return drugs.map(name => ({
     label: name,
     color: lineColors[name] || '#0073e6',
@@ -28,7 +29,7 @@ function getGroupedCoPosSeries(millenialData, periodType) {
       periodChange: d.Period || d.periodChange || '',
     }))
   })).filter(line => line.data.length > 0);
-}
+} */
 
 const MethamphetamineSouthsecondlinechart = ({ width = 1100, height = 350, period = 'Quarterly' }) => {
   const [showLabels, setShowLabels] = useState(false);
@@ -49,7 +50,7 @@ const MethamphetamineSouthsecondlinechart = ({ width = 1100, height = 350, perio
       .then(res => res.json())
       .then(data => {
         setMillenialData(data);
-        const grouped = getGroupedCoPosSeries(data, periodType);
+        const grouped = UtilityFunctions.getGroupedData(data, 'North', 'Methamphetamine', 'CoPositive', periodType, ['Fentanyl', 'Heroin', 'Opioids', 'Cocaine']);
         setSeriesList(grouped);
         // Build a union of all periods present in any drug's data
         const allPeriodsSet = new Set();

@@ -1247,16 +1247,14 @@ function mapHeroinSouthData(jsonData) {
     .filter(d => (
       (d.USregion === 'SOUTH' || d.region === 'SOUTH') &&
       (
-        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
-        d.drug === 'Heroin' || d.drug === 'Heroin with Stimulants' || d.drug === 'Heroin without Stimulants' ||
         d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'
       )
     ))
     .map(d => ({
       region: d.USregion || d.region,
-      drug: d.drug_name || d.drug || d.drug_name,
+      drug: d.drug_name,
       // Support period, quarter, and smon_yr for x-axis
-      quarter: d.period || d.quarter || d.smon_yr,
+      quarter: d.period || d.smon_yr,
       percentage: d.percentage !== undefined ? d.percentage : (d.percentage !== undefined ? d.percentage : null),
       ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
       ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
@@ -1271,14 +1269,13 @@ function mapHeroinWestData(jsonData) {
     .filter(d => (
       (d.USregion === 'WEST' || d.region === 'WEST') &&
       (
-        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
-        d.drug === 'Heroin' || d.drug === 'Heroin with Stimulants' || d.drug === 'Heroin without Stimulants'
+        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'
       )
     ))
     .map(d => ({
       region: d.USregion || d.region,
-      drug: d.drug_name || d.drug,
-      quarter: d.period || d.quarter,
+      drug: d.drug_name,
+      quarter: d.period,
       percentage: d.percentage !== undefined ? d.percentage : (d.percentage !== undefined ? d.percentage : null),
       ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
       ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
@@ -1290,12 +1287,11 @@ function mapHeroinWestData(jsonData) {
 
 function mapHeroinNationalData(jsonData) {
   return jsonData
-    .filter(d => (d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
-      d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'))
+    .filter(d => (d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'))
     .map(d => ({
       region: d.USregion || 'NATIONAL',
-      drug: d.drug_name || d.drug_name,
-      quarter: d.quarter,
+      drug: d.drug_name,
+      quarter: d.period,
       percentage: d.rcent_pos || d.percentage,
       ciLower: d['CI lower'] || d.ciLower,
       ciUpper: d['CI upper'] || d.ciUpper,
@@ -1309,14 +1305,13 @@ function mapHeroinMidwestData(jsonData) {
     .filter(d => (
       (d.USregion === 'MIDWEST' || d.region === 'MIDWEST') &&
       (
-        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants' ||
-        d.drug === 'Heroin' || d.drug === 'Heroin with Stimulants' || d.drug === 'Heroin without Stimulants'
+        d.drug_name === 'Heroin' || d.drug_name === 'Heroin with Stimulants' || d.drug_name === 'Heroin without Stimulants'
       )
     ))
     .map(d => ({
       region: d.USregion || d.region,
-      drug: d.drug_name || d.drug,
-      quarter: d.period || d.quarter,
+      drug: d.drug_name,
+      quarter: d.period,
       percentage: d.percentage !== undefined ? d.percentage : (d.percentage !== undefined ? d.percentage : null),
       ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
       ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),

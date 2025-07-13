@@ -5,27 +5,12 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import { UtilityFunctions } from '../utility';
 import MethamphetamineNortheastsecondlinechart from './MethamphetamineLineChartNortheastsecondlinechart';
 
 // Helper to group by drug_name for multi-line chart (Positivity)
-function getGroupedMethSeries(millenialData, periodType) {
 
-  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
-  const arr = millenialData?.North?.Methamphetamine?.Positivity?.[periodKey] || [];
-  // Group by drug_name for NORTH and correct period key
-  const drugs = ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids'];
-  return drugs.map(name => ({
-    name,
-    data: arr.filter(d => d.drug_name === name && d.USregion === 'NORTH').map(d => ({
-      period: d.period || d.smon_yr, // Use 'period' for x-axis
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-      ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-      periodChange: d.Period || d.periodChange || '',
-    }))
-  })).filter(line => line.data.length > 0);
-}
+
 
 const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
   const [showLabels, setShowLabels] = useState(false);
@@ -44,7 +29,7 @@ const MethamphetamineLineChartNortheast = ({ width = 1100, height = 450, period 
       .then(res => res.json())
       .then(data => {
         setMillenialData(data);
-        const grouped = getGroupedMethSeries(data, periodType);
+        const grouped = UtilityFunctions.getGroupedData(data, 'North', 'Methamphetamine', 'Positivity', periodType, ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
         setSeriesList(grouped);
         setAllQuarters(grouped[0] ? grouped[0].data.map(d => d.period) : []);
       });

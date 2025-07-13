@@ -5,35 +5,8 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import { UtilityFunctions } from '../utility';
 import MethamphetamineLineChartsecondLineChart from './MethamphetamineLineChartsecondlinechart';
-
-const sampleData2 = [
-
-  
-];
-
-const sampleData2_6Months = [
-  
- 
-];
-
-// Helper to group by drug_name for multi-line chart (Positivity)
-function getGroupedMethSeries(millenialData, periodType) {
-  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
-  const arr = millenialData?.South?.Methamphetamine?.Positivity?.[periodKey] || [];
-  const drugs = ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids'];
-  return drugs.map(name => ({
-    name,
-    values: arr.filter(d => d.drug_name === name).map(d => ({
-      quarter: periodKey === 'Quarterly' ? d.quarter || d.period : undefined,
-      period: periodKey === 'HalfYearly' ? d.smon_yr : undefined, // <-- FIXED: use smon_yr for HalfYearly
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d.ciLower),
-      ciUpper: parseFloat(d.ciUpper),
-      yr_change: d.yr_change || d['Yr_change'] || d['Yr change'] || '',
-    }))
-  })).filter(line => line.values.length > 0);
-}
 
 const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarterly' }) => {
   const [showLabels, setShowLabels] = useState(false);
@@ -48,14 +21,15 @@ const MethamphetamineLineChart = ({ width = 1100, height = 450, period = 'Quarte
       .then(res => res.json())
       .then(data => {
         setMillenialData(data);
-        const grouped = getGroupedMethSeries(data, period === 'Quarterly' ? 'Quarterly' : 'HalfYearly');
+
+        const grouped = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', period === 'Quarterly' ? 'Quarterly' : 'HalfYearly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
         setSeriesList(grouped);
         setLoading(false); // <-- Set loading false after data is set
       });
   }, [period]);
 
   // Select data based on period
-  const adjustedData = seriesList.length > 0 ? seriesList : (period === 'Quarterly' ? sampleData2 : sampleData2_6Months);
+  const adjustedData = seriesList;
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;

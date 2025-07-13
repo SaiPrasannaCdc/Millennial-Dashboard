@@ -264,6 +264,7 @@ const newNationalLineColors = lineColors; // for compatibility with your prompt
 const Heroin6Monthssecondlinechart = ({ region = 'SOUTH', width = 1100, height = 350, period = '6 Months' }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+/*   const [heroin6MonthsData2, setHeroin6MonthsData2] = useState([]); */
   const [selectedLines, setSelectedLines] = useState(drugsToShow.map(line => line.key));
 
   // Tooltip HTML for percent change toggle
@@ -292,10 +293,131 @@ const Heroin6Monthssecondlinechart = ({ region = 'SOUTH', width = 1100, height =
   // Use the correct data object for this chart
   const adjustedDataRaw = heroin6MonthsData2[regionKey] || heroin6MonthsData2['SOUTH'];
   const adjustedData = alignDataToPeriods(adjustedDataRaw);
+/* 
+  function getGroupedCoPosSeriesNational(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.National?.Cocaine?.Positivity?.[periodKey] || [];
+    const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesWest(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.West?.Cocaine?.Positivity?.[periodKey] || [];
+    const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesMidwest(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.MidWest?.Cocaine?.Positivity?.[periodKey] || [];
+    const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesSouth(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.South?.Cocaine?.Positivity?.[periodKey] || [];
+    const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+}
+
+function getGroupedCoPosSeriesNorth(millenialData) {
+    const periodKey = 'HalfYearly';
+    const arr = millenialData?.North?.Cocaine?.Positivity?.[periodKey] || [];
+    const drugs = ['Cocaine', 'Cocaine with Opioids', 'Cocaine without Opioids'];
+    return drugs.map(name => ({
+      label: name,
+      data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+        period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+        percentage: parseFloat(d.percentage),
+        ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
+        ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
+        annual: d.Annual || d['Yr_change'] || d.yr_change || '',
+        periodChange: d.Period || d.periodChange || '',
+      }))
+    })).filter(line => line.data.length > 0);
+} */
 
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange, adjustedData]);
+
+/* useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+
+        const nData = getGroupedCoPosSeriesNational(data);
+        const wData = getGroupedCoPosSeriesWest(data);
+        const mwData = getGroupedCoPosSeriesMidwest(data);
+        const sData = getGroupedCoPosSeriesSouth(data);
+        const neData = getGroupedCoPosSeriesNorth(data);
+
+        var sixMData = {};
+        sixMData['National'] = nData[0].data;
+        sixMData['Cocaine with Opioids'] = nData[1].data;
+        sixMData['Cocaine without Opioids'] = nData[2].data;
+
+        sixMData['West'] = wData[0].data;
+        sixMData['West Cocaine with Opioids'] = wData[1].data;
+        sixMData['West Cocaine without Opioids'] = wData[2].data;
+
+        sixMData['Midwest'] = mwData[0].data;
+        sixMData['Midwest Cocaine with Opioids'] = mwData[1].data;
+        sixMData['Midwest Cocaine without Opioids'] = mwData[2].data;
+
+        sixMData['South'] = sData[0].data;
+        sixMData['South Cocaine with Opioids'] = sData[1].data;
+        sixMData['South Cocaine without Opioids'] = sData[2].data;
+
+        sixMData['Northeast'] = neData[0].data;
+        sixMData['Northeast Cocaine with Opioids'] = neData[1].data;
+        sixMData['Northeast Cocaine without Opioids'] = neData[2].data;
+        
+        setCocaineSixMonthsData(sixMData);
+      });
+  }, []); */
 
   if (!adjustedData || !Array.isArray(adjustedData) || adjustedData.length === 0) {
     return (

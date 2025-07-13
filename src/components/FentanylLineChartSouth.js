@@ -5,6 +5,7 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import { UtilityFunctions } from '../utility';
 
 // Helper to group by drug_name for multi-line chart (Positivity or CoPositive)
 function getGroupedSeries(millenialData, periodType, metric) {
