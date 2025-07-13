@@ -387,7 +387,7 @@ const Methamphetaminewestsecondlinechart = ({ width, height = 350, period}) => {
                   data={ds.data}
                   x={d => xScale(d[xLabelField]) + xScale.bandwidth() / 2}
                   y={d => d.percentage !== null ? yScale(d.percentage) : null}
-                  stroke={ds.color}
+                  stroke={lineColors[ds.label]}
                   strokeWidth={3}
                   curve={null}
                 />
@@ -406,7 +406,7 @@ const Methamphetaminewestsecondlinechart = ({ width, height = 350, period}) => {
                         cx={xScale(d[xLabelField]) + xScale.bandwidth() / 2}
                         cy={yScale(d.percentage)}
                         r={4}
-                        fill={ds.color}
+                        fill={lineColors[ds.label]}
                         data-tip={
                           showPercentChange
                             ? undefined

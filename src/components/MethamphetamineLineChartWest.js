@@ -24,10 +24,10 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
         let grouped;
         if (period === 'HalfYearly') {
           grouped = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
-          setAllPeriods(grouped[0] ? grouped[0].values.map(d => d.period) : []);
+          setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.period) : []);
         } else {
           grouped = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'Positivity', 'Quarterly', ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
-          setAllPeriods(grouped[0] ? grouped[0].values.map(d => d.quarter) : []);
+          setAllPeriods(grouped[0] ? grouped[0].data.map(d => d.quarter) : []);
         }
         setSeriesList(grouped);
       });
@@ -38,7 +38,7 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
   const adjustedData = seriesList;
 
   // Guard clause to prevent errors if data is not loaded yet
-  if (!adjustedData || adjustedData.length === 0 || !adjustedData[0].values) {
+  if (!adjustedData || adjustedData.length === 0) {
     return (
       <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>
         Loading chart data...
@@ -61,14 +61,14 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
   });
 
   const yScale = scaleLinear({
-    domain: [0, Math.max(...adjustedData[0].values.map(v => parseFloat(v.percentage)))],
+    domain: [0, Math.max(...adjustedData[0].data.map(v => parseFloat(v.percentage)))],
     range: [adjustedHeight, 0],
     nice: true,
   });
 
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
-      return parseFloat(lineData.values[i - offset].percentage);
+      return parseFloat(lineData.data[i - offset].percentage);
     }
     return null;
   };
@@ -76,7 +76,7 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
   const renderChangeIndicatorsUnified = () => {
     if (!showPercentChange) return null;
     return adjustedData.map((lineData, index) => {
-      return lineData.values.map((d, i) => {
+      return lineData.data.map((d, i) => {
         if (i === 0) return null;
         const prevPeriod = getPrevPeriodValue(lineData, i, 1);
         const yearlyOffset = 4;
@@ -134,7 +134,7 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
     });
   };
 
-  const values = adjustedData[0].values;
+  const values = adjustedData[0].data;
   const n = values.length;
   let keyFindingText = '';
   if (n >= 2) {
@@ -289,18 +289,18 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
           {adjustedData.map((lineData, index) => (
             <React.Fragment key={index}>
               <LinePath
-                data={lineData.values}
+                data={lineData.data}
                 x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                 y={d => yScale(parseFloat(d.percentage))}
                 stroke={'#0073e6'}
                 strokeWidth={2}
                 curve={null}
               />
-              {lineData.values.map((d, i) => {
+              {lineData.data.map((d, i) => {
                 const percentage = parseFloat(d.percentage);
                 const lowerCI = d.ciLower !== undefined ? d.ciLower : (percentage - 0.5).toFixed(1);
                 const upperCI = d.ciUpper !== undefined ? d.ciUpper : (percentage + 0.5).toFixed(1);
-                const n = lineData.values.length;
+                const n = lineData.data.length;
                 let showLabel = false;
                 showLabel = showLabels || (
                   i === 0 || // first
@@ -352,7 +352,7 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
       <ReactTooltip html={true} />
 
       {/* --- Render the new Methamphetaminewestsecondlinechart below --- */}
-      <Methamphetaminewestsecondlinechart width={width} height={350} />
+      <Methamphetaminewestsecondlinechart width={width} height={height} />
     </div>
   );
 };
