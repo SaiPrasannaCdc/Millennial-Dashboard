@@ -5,6 +5,7 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import { UtilityFunctions } from '../utility';
+import { allQuarters, allPeriods6M } from '../constants/Constants';
 
 // Quarterly data for MIDWEST
 const methMidwestSecondData = [
@@ -56,29 +57,29 @@ const methMidwestSecondData = [
 // 6 Months data for MIDWEST
 const methMidwestSecondData6Months = [
   // Fentanyl
-  { region: 'MIDWEST', drug: 'Fentanyl', period: '2022 Jul-Dec', percentage: 34.6, ciLower: 32.7, ciUpper: 36.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: '2023 Jan-Jun', percentage: 34.4, ciLower: 33.1, ciUpper: 35.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: '2023 Jul-Dec', percentage: 39.3, ciLower: 38, ciUpper: 40.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: '2024 Jan-Jun', percentage: 35.6, ciLower: 34.3, ciUpper: 36.8 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: '2024 Jul-Dec', percentage: 32.2, ciLower: 31, ciUpper: 33.4 },
+  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jul-Dec 2022', percentage: 34.6, ciLower: 32.7, ciUpper: 36.6 },
+  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jan-Jun 2023', percentage: 34.4, ciLower: 33.1, ciUpper: 35.6 },
+  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jul-Dec 2023', percentage: 39.3, ciLower: 38, ciUpper: 40.6 },
+  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jan-Jun 2024', percentage: 35.6, ciLower: 34.3, ciUpper: 36.8 },
+  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jul-Dec 2024', percentage: 32.2, ciLower: 31, ciUpper: 33.4 },
   // Heroin
-  { region: 'MIDWEST', drug: 'Heroin', period: '2022 Jul-Dec', percentage: 10.7, ciLower: 9.4, ciUpper: 11.9 },
-  { region: 'MIDWEST', drug: 'Heroin', period: '2023 Jan-Jun', percentage: 11.1, ciLower: 10.3, ciUpper: 11.9 },
-  { region: 'MIDWEST', drug: 'Heroin', period: '2023 Jul-Dec', percentage: 11.6, ciLower: 10.8, ciUpper: 12.4 },
-  { region: 'MIDWEST', drug: 'Heroin', period: '2024 Jan-Jun', percentage: 12.6, ciLower: 11.8, ciUpper: 13.5 },
-  { region: 'MIDWEST', drug: 'Heroin', period: '2024 Jul-Dec', percentage: 11.8, ciLower: 11, ciUpper: 12.6 },
+  { region: 'MIDWEST', drug: 'Heroin', period: 'Jul-Dec 2022', percentage: 10.7, ciLower: 9.4, ciUpper: 11.9 },
+  { region: 'MIDWEST', drug: 'Heroin', period: 'Jan-Jun 2023', percentage: 11.1, ciLower: 10.3, ciUpper: 11.9 },
+  { region: 'MIDWEST', drug: 'Heroin', period: 'Jul-Dec 2023', percentage: 11.6, ciLower: 10.8, ciUpper: 12.4 },
+  { region: 'MIDWEST', drug: 'Heroin', period: 'Jan-Jun 2024', percentage: 12.6, ciLower: 11.8, ciUpper: 13.5 },
+  { region: 'MIDWEST', drug: 'Heroin', period: 'Jul-Dec 2024', percentage: 11.8, ciLower: 11, ciUpper: 12.6 },
   // Opioids
-  { region: 'MIDWEST', drug: 'Opioids', period: '2022 Jul-Dec', percentage: 35.3, ciLower: 33.3, ciUpper: 37.3 },
-  { region: 'MIDWEST', drug: 'Opioids', period: '2023 Jan-Jun', percentage: 34.8, ciLower: 33.6, ciUpper: 36.1 },
-  { region: 'MIDWEST', drug: 'Opioids', period: '2023 Jul-Dec', percentage: 39.9, ciLower: 38.6, ciUpper: 41.1 },
-  { region: 'MIDWEST', drug: 'Opioids', period: '2024 Jan-Jun', percentage: 36, ciLower: 34.8, ciUpper: 37.3 },
-  { region: 'MIDWEST', drug: 'Opioids', period: '2024 Jul-Dec', percentage: 32.6, ciLower: 31.4, ciUpper: 33.7 },
+  { region: 'MIDWEST', drug: 'Opioids', period: 'Jul-Dec 2022', percentage: 35.3, ciLower: 33.3, ciUpper: 37.3 },
+  { region: 'MIDWEST', drug: 'Opioids', period: 'Jan-Jun 2023', percentage: 34.8, ciLower: 33.6, ciUpper: 36.1 },
+  { region: 'MIDWEST', drug: 'Opioids', period: 'Jul-Dec 2023', percentage: 39.9, ciLower: 38.6, ciUpper: 41.1 },
+  { region: 'MIDWEST', drug: 'Opioids', period: 'Jan-Jun 2024', percentage: 36, ciLower: 34.8, ciUpper: 37.3 },
+  { region: 'MIDWEST', drug: 'Opioids', period: 'Jul-Dec 2024', percentage: 32.6, ciLower: 31.4, ciUpper: 33.7 },
   // Cocaine
-  { region: 'MIDWEST', drug: 'Cocaine', period: '2022 Jul-Dec', percentage: 16.6, ciLower: 15.1, ciUpper: 18.2 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: '2023 Jan-Jun', percentage: 17.2, ciLower: 16.3, ciUpper: 18.2 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: '2023 Jul-Dec', percentage: 18.4, ciLower: 17.1, ciUpper: 19.4 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: '2024 Jan-Jun', percentage: 20.7, ciLower: 19.6, ciUpper: 21.7 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: '2024 Jul-Dec', percentage: 19.9, ciLower: 18.9, ciUpper: 20.9 },
+  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jul-Dec 2022', percentage: 16.6, ciLower: 15.1, ciUpper: 18.2 },
+  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jan-Jun 2023', percentage: 17.2, ciLower: 16.3, ciUpper: 18.2 },
+  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jul-Dec 2023', percentage: 18.4, ciLower: 17.1, ciUpper: 19.4 },
+  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jan-Jun 2024', percentage: 20.7, ciLower: 19.6, ciUpper: 21.7 },
+  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jul-Dec 2024', percentage: 19.9, ciLower: 18.9, ciUpper: 20.9 },
 ];
 
 const lineColors = {
@@ -87,14 +88,6 @@ const lineColors = {
   'Opioids': '#2980b9',
   'Cocaine': '#d35400',
 };
-
-const allQuarters = [
-  'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
-  'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'
-];
-const allPeriods6M = [
-  '2022 Jul-Dec', '2023 Jan-Jun', '2023 Jul-Dec', '2024 Jan-Jun', '2024 Jul-Dec'
-];
 
 function alignDataToQuarters(data, quarters, labelField = 'quarter') {
   const drugs = [...new Set(data.map(d => d.drug))];

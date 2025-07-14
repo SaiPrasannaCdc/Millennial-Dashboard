@@ -284,7 +284,7 @@ const MethamphetamineLineChartWest = ({ width, height, period }) => {
       <ReactTooltip html={true} />
 
       {/* --- Render the new Methamphetaminewestsecondlinechart below --- */}
-      <Methamphetaminewestsecondlinechart width={width} height={height} />
+      <Methamphetaminewestsecondlinechart width={width} height={height} period={period}/>
     </div>
   );
 };

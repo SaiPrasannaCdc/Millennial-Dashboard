@@ -81,6 +81,13 @@ export const colorScaleLighterClasses = {
     '<15': 'illegally-made-fentanyls-lighter'
 };
 
+export const allQuarters = [
+  'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'
+];
+
+export const allPeriods6M = [
+  'Jul-Dec 2022', 'Jan-Jun 2023', 'Jul-Dec 2023', 'Jan-Jun 2024', 'Jul-Dec 2024'
+];
 
 
 

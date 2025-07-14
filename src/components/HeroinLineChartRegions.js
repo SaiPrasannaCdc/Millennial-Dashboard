@@ -6,17 +6,13 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
+import { allQuarters, allPeriods6M } from '../constants/Constants';
 
 const lineColors = {
   'Heroin': '#6a0dad',
   'Heroin with Stimulants': '#2077b4',
   'Heroin without Stimulants': '#e67e22',
 };
-
-const allQuarters = [
-  'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
-  'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'
-];
 
 function alignDataToQuarters(data, quarters) {
   const map = Object.fromEntries(data.map(d => [d.quarter, d]));
@@ -1085,7 +1081,7 @@ function mapHeroinSouthData(jsonData) {
       ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
       ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
       period: d.Period,
-      yrChange: d['Yr change'] || d.Yr_change
+      yearlyChange: d['yearlyChange'] || d.Yr_change
     }))
     .filter(d => d.percentage !== null && d.quarter !== undefined && d.drug !== undefined);
 }
@@ -1106,7 +1102,7 @@ function mapHeroinWestData(jsonData) {
       ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
       ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
       period: d.Period,
-      yrChange: d['Yr change'] || d.Yr_change
+      yearlyChange: d['yearlyChange'] || d.yearlyChange
     }))
     .filter(d => d.percentage !== null && d.quarter !== undefined && d.drug !== undefined);
 }
@@ -1122,7 +1118,7 @@ function mapHeroinNationalData(jsonData) {
       ciLower: d['CI lower'] || d.ciLower,
       ciUpper: d['CI upper'] || d.ciUpper,
       period: d['Period'] || d.period,
-      yrChange: d['Yr change'] || d.yr_change
+      yearlyChange: d['yearlyChange'] || d.yearlyChange
     }));
 }
 
@@ -1142,7 +1138,7 @@ function mapHeroinMidwestData(jsonData) {
       ciLower: d.ciLower !== undefined ? d.ciLower : (d.ciLower === undefined && d.ci_lower !== undefined ? d.ci_lower : null),
       ciUpper: d.ciUpper !== undefined ? d.ciUpper : (d.ciUpper === undefined && d.ci_upper !== undefined ? d.ci_upper : null),
       period: d.Period,
-      yrChange: d['Yr change'] || d.Yr_change
+      yearlyChange: d['yearlyChange'] || d.yearlyChange
     }))
     .filter(d => d.percentage !== null && d.quarter !== undefined && d.drug !== undefined);
 }

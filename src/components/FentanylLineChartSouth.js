@@ -412,103 +412,8 @@ const FentanylLineChartSouth = ({ width, height }) => {
           </div>
         );
       })()}
-      <div style={{ height: '32px' }} />
-      <svg width={width} height={height}>
-        <Group left={margin.left} top={margin.top}>
-          <text
-            x={-adjustedHeight / 2}
-            y={-margin.left + 15}
-            transform={`rotate(-90)`}
-            textAnchor="middle"
-            fontSize={15}
-            fill="#222"
-            fontFamily="'Segoe UI', 'Arial', 'sans-serif'"
-            fontWeight="600"
-            style={{ letterSpacing: '0.01em' }}
-          >
-            % of people with substance use disorder
-            <tspan x={-adjustedHeight / 2} dy={15}>
-              with drug(s) detected
-            </tspan>
-          </text>
-          <AxisLeft scale={coPosYScale} tickFormat={value => `${value}%`} 
-            tickLabelProps={() => ({
-              fontSize: 16,
-              textAnchor: 'end',
-              dx: -6,
-              dy: 3,
-              fill: '#222',
-            })}
-          />
-          <AxisBottom
-            top={adjustedHeight}
-            scale={coPosXScale}
-            tickLabelProps={() => ({
-              fontSize: 16,
-              textAnchor: 'middle',
-              dy: 10,
-            })}
-          />
-          {coPosSeries.map((series, sIdx) => (
-            <React.Fragment key={series.name}>
-              <LinePath
-                data={series.data}
-                x={d => coPosXScale(d.quarter) + coPosXScale.bandwidth() / 2}
-                y={d => coPosYScale(d.percentage)}
-                stroke={series.color}
-                strokeWidth={2}
-                curve={null}
-              />
-              {series.data.map((d, i) => {
-                const n = series.data.length;
-                const showLabel = showCoPosLabels || (
-                  i === 0 || i === n - 1 || i === n - 2 || i === Math.floor((n - 1) / 2)
-                );
-                let labelYOffset = -22;
-                if (series.name.toLowerCase().includes('heroin')) {
-                  labelYOffset = -19;
-                }
-                const labelXOffset = 0;
-                return (
-                  <React.Fragment key={i}>
-                    <Circle
-                      cx={coPosXScale(d.quarter) + coPosXScale.bandwidth() / 2}
-                      cy={coPosYScale(d.percentage)}
-                      r={4}
-                      fill={series.color}
-                      data-tip={`<div style='text-align: left;'>
-                        <strong>${series.name}</strong><br/>
-                        <strong>${d.quarter}</strong><br/>
-                        Positivity: ${d.percentage}%<br/>
-                        Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
-                      </div>`}
-                    />
-                    {showLabel && (
-                      <text
-                        x={coPosXScale(d.quarter) + coPosXScale.bandwidth() / 2 + labelXOffset}
-                        y={coPosYScale(d.percentage) + labelYOffset}
-                        fontSize={13}
-                        textAnchor="middle"
-                        fill={series.color}
-                        fontWeight={700}
-                        style={{
-                          paintOrder: 'stroke',
-                          stroke: '#fff',
-                          strokeWidth: 3,
-                          strokeLinejoin: 'round',
-                        }}
-                      >
-                        {d.percentage}%
-                      </text>
-                    )}
-                  </React.Fragment>
-                );
-              })}
-            </React.Fragment>
-          ))}
-        </Group>
-      </svg>
-      {/* --- Second Chart Drug Selection and Toggles (match West style) --- */}
+
+            {/* --- Second Chart Drug Selection and Toggles (match West style) --- */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', margin: '10px 0 0 0' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
           <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
@@ -591,6 +496,104 @@ const FentanylLineChartSouth = ({ width, height }) => {
         </div>
       </div>
       {UtilityFunctions.getToggleControls('FentanylLineChartSouthToggle2', setShowPercentChange, setShowLabels, showPercentChange, showLabels)}
+
+      <div style={{ height: '32px' }} />
+      <svg width={width} height={height}>
+        <Group left={margin.left} top={margin.top}>
+          <text
+            x={-adjustedHeight / 2}
+            y={-margin.left + 15}
+            transform={`rotate(-90)`}
+            textAnchor="middle"
+            fontSize={15}
+            fill="#222"
+            fontFamily="'Segoe UI', 'Arial', 'sans-serif'"
+            fontWeight="600"
+            style={{ letterSpacing: '0.01em' }}
+          >
+            % of people with substance use disorder
+            <tspan x={-adjustedHeight / 2} dy={15}>
+              with drug(s) detected
+            </tspan>
+          </text>
+          <AxisLeft scale={coPosYScale} tickFormat={value => `${value}%`} 
+            tickLabelProps={() => ({
+              fontSize: 16,
+              textAnchor: 'end',
+              dx: -6,
+              dy: 3,
+              fill: '#222',
+            })}
+          />
+          <AxisBottom
+            top={adjustedHeight}
+            scale={coPosXScale}
+            tickLabelProps={() => ({
+              fontSize: 16,
+              textAnchor: 'middle',
+              dy: 10,
+            })}
+          />
+          {coPosSeries.filter(ds => selectedCoPosLines.includes(ds.name)).map((series, sIdx) => (
+            <React.Fragment key={series.name}>
+              <LinePath
+                data={series.data}
+                x={d => coPosXScale(d.quarter) + coPosXScale.bandwidth() / 2}
+                y={d => coPosYScale(d.percentage)}
+                stroke={series.color}
+                strokeWidth={2}
+                curve={null}
+              />
+              {series.data.map((d, i) => {
+                const n = series.data.length;
+                const showLabel = showCoPosLabels || (
+                  i === 0 || i === n - 1 || i === n - 2 || i === Math.floor((n - 1) / 2)
+                );
+                let labelYOffset = -22;
+                if (series.name.toLowerCase().includes('heroin')) {
+                  labelYOffset = -19;
+                }
+                const labelXOffset = 0;
+                return (
+                  <React.Fragment key={i}>
+                    <Circle
+                      cx={coPosXScale(d.quarter) + coPosXScale.bandwidth() / 2}
+                      cy={coPosYScale(d.percentage)}
+                      r={4}
+                      fill={series.color}
+                      data-tip={`<div style='text-align: left;'>
+                        <strong>${series.name}</strong><br/>
+                        <strong>${d.quarter}</strong><br/>
+                        Positivity: ${d.percentage}%<br/>
+                        Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
+                      </div>`}
+                    />
+                    {showLabel && (
+                      <text
+                        x={coPosXScale(d.quarter) + coPosXScale.bandwidth() / 2 + labelXOffset}
+                        y={coPosYScale(d.percentage) + labelYOffset}
+                        fontSize={13}
+                        textAnchor="middle"
+                        fill={series.color}
+                        fontWeight={700}
+                        style={{
+                          paintOrder: 'stroke',
+                          stroke: '#fff',
+                          strokeWidth: 3,
+                          strokeLinejoin: 'round',
+                        }}
+                      >
+                        {d.percentage}%
+                      </text>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </React.Fragment>
+          ))}
+        </Group>
+      </svg>
+
     </div>
   );
 };

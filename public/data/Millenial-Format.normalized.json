@@ -8492,7 +8492,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin and",
+            "drug_name": "Heroin and Stimulants",
             "USregion": "NORTH",
             "percentage": 16,
             "ciLower": 9.1,
@@ -8502,7 +8502,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin and",
+            "drug_name": "Heroin and Stimulants",
             "USregion": "NORTH",
             "percentage": 13.9,
             "ciLower": 10.1,
@@ -8512,7 +8512,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin and",
+            "drug_name": "Heroin and Stimulants",
             "USregion": "NORTH",
             "percentage": 13.5,
             "ciLower": 9.8,
@@ -8522,7 +8522,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin and",
+            "drug_name": "Heroin and Stimulants",
             "USregion": "NORTH",
             "percentage": 12.4,
             "ciLower": 9,
@@ -8532,7 +8532,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin and",
+            "drug_name": "Heroin and Stimulants",
             "USregion": "NORTH",
             "percentage": 13.9,
             "ciLower": 10.1,

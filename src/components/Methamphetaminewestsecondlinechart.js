@@ -5,6 +5,7 @@ import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import { UtilityFunctions } from '../utility';
+import { allQuarters, allPeriods6M } from '../constants/Constants';
 
 const lineColors = {
   'Fentanyl': '#27ae60',
@@ -12,14 +13,6 @@ const lineColors = {
   'Opioids': '#2980b9',
   'Cocaine': '#d35400',
 };
-
-const allQuarters = [
-  'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
-  'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'
-];
-const allPeriods6M = [
-  '2022 Jul-Dec', '2023 Jan-Jun', '2023 Jul-Dec', '2024 Jan-Jun', '2024 Jul-Dec'
-];
 
 const Methamphetaminewestsecondlinechart = ({ width, height = 350, period}) => {
   const [showLabels, setShowLabels] = useState(false);

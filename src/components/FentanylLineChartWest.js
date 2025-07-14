@@ -6,11 +6,7 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
-
-const allQuarters = [
-  'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
-  'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'
-];
+import { allQuarters, allPeriods6M } from '../constants/Constants';
 
 function FentanylLineChartBase({
   chartNum,

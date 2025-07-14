@@ -48,31 +48,31 @@ export const sampleData2_6Months = [
     {
         name: "Fentanyl",
         values: [
-            { period: "2022 Jul-Dec", percentage: "14.9", ciLower: "14.6", ciUpper: "15.2" },
-            { period: "2023 Jan-Jun", percentage: "13.9", ciLower: "13.8", ciUpper: "14.1" },
-            { period: "2023 Jul-Dec", percentage: "14.4", ciLower: "14.2", ciUpper: "14.6" },
-            { period: "2024 Jan-Jun", percentage: "13.6", ciLower: "13.4", ciUpper: "13.8" },
-            { period: "2024 Jul-Dec", percentage: "13.1", ciLower: "12.9", ciUpper: "13.3" }
+            { period: "Jul-Dec 2022", percentage: "14.9", ciLower: "14.6", ciUpper: "15.2" },
+            { period: "Jan-Jun 2023", percentage: "13.9", ciLower: "13.8", ciUpper: "14.1" },
+            { period: "Jul-Dec 2023", percentage: "14.4", ciLower: "14.2", ciUpper: "14.6" },
+            { period: "Jan-Jun 2024", percentage: "13.6", ciLower: "13.4", ciUpper: "13.8" },
+            { period: "Jul-Dec 2024", percentage: "13.1", ciLower: "12.9", ciUpper: "13.3" }
         ]
     },
     {
         name: "Fentanyl with Stimulants",
         values: [
-            { period: "2022 Jul-Dec", percentage: "9.7", ciLower: "9.5", ciUpper: "10" },
-            { period: "2023 Jan-Jun", percentage: "9.4", ciLower: "9.3", ciUpper: "9.6" },
-            { period: "2023 Jul-Dec", percentage: "10", ciLower: "9.8", ciUpper: "10.2" },
-            { period: "2024 Jan-Jun", percentage: "9.8", ciLower: "9.7", ciUpper: "10" },
-            { period: "2024 Jul-Dec", percentage: "10.1", ciLower: "10.1", ciUpper: "10.4" }
+            { period: "Jul-Dec 2022", percentage: "9.7", ciLower: "9.5", ciUpper: "10" },
+            { period: "Jan-Jun 2023", percentage: "9.4", ciLower: "9.3", ciUpper: "9.6" },
+            { period: "Jul-Dec 2023", percentage: "10", ciLower: "9.8", ciUpper: "10.2" },
+            { period: "Jan-Jun 2024", percentage: "9.8", ciLower: "9.7", ciUpper: "10" },
+            { period: "Jul-Dec 2024", percentage: "10.1", ciLower: "10.1", ciUpper: "10.4" }
         ]
     },
     {
         name: "Fentanyl without Stimulants",
         values: [
-            { period: "2022 Jul-Dec", percentage: "5.2", ciLower: "5", ciUpper: "5.3" },
-            { period: "2023 Jan-Jun", percentage: "4.5", ciLower: "4.4", ciUpper: "4.6" },
-            { period: "2023 Jul-Dec", percentage: "4.4", ciLower: "4.3", ciUpper: "4.5" },
-            { period: "2024 Jan-Jun", percentage: "3.8", ciLower: "3.7", ciUpper: "3.9" },
-            { period: "2024 Jul-Dec", percentage: "2.8", ciLower: "2.7", ciUpper: "2.9" }
+            { period: "Jul-Dec 2022", percentage: "5.2", ciLower: "5", ciUpper: "5.3" },
+            { period: "Jan-Jun 2023", percentage: "4.5", ciLower: "4.4", ciUpper: "4.6" },
+            { period: "Jul-Dec 2023", percentage: "4.4", ciLower: "4.3", ciUpper: "4.5" },
+            { period: "Jan-Jun 2024", percentage: "3.8", ciLower: "3.7", ciUpper: "3.9" },
+            { period: "Jul-Dec 2024", percentage: "2.8", ciLower: "2.7", ciUpper: "2.9" }
         ]
     }
 ];
