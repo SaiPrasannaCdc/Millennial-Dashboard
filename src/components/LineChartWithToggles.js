@@ -3,7 +3,6 @@ import { LinePath, Circle } from '@visx/shape';
 import { Group } from '@visx/group';
 import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
-import sampleData2, { sampleData2_6Months } from './data/sampleData2';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
@@ -11,9 +10,32 @@ import { UtilityFunctions } from '../utility';
 const LineChartWithToggles = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [fentanylNationalData, setFentanylNationalData] = useState([]);
 
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+        const nData = UtilityFunctions.getGroupedData(data, 'National', 'Fentanyl', 'Positivity', period, ['Fentanyl', 'Fentanyl with Stimulants', 'Fentanyl without Stimulants']);
+        const fentanylNatData = [{name: 'Fentanyl', values: nData[0].data}, {name: 'Fentanyl with Stimulants', values: nData[1].data}, {name: 'Fentanyl without Stimulants', values: nData[2].data}]
+        setFentanylNationalData(fentanylNatData);
+      });
 
-  const adjustedData = (period === 'Quarterly' ? sampleData2 : sampleData2_6Months);
+  }, []);
+
+  const adjustedData = fentanylNationalData;
+
+  useEffect(() => {
+      ReactTooltip.rebuild();
+    }, [showPercentChange, adjustedData]);
+  
+    if (!adjustedData || !Array.isArray(adjustedData) || adjustedData.length === 0) {
+      return (
+        <div style={{ color: 'red', textAlign: 'center', margin: 40 }}>
+          No data available for the selected region.
+        </div>
+      );
+    }
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
@@ -150,10 +172,6 @@ const LineChartWithToggles = ({ width, height, period}) => {
       prevLabel: xAccessor(mainLine.values[n - 2]),
     };
   }
-
-  useEffect(() => {
-    ReactTooltip.rebuild();
-  });
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>

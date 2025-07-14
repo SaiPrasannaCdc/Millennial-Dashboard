@@ -77,7 +77,8 @@ function App() {
 
       {selectedRegion === 'National' && selectedDrug === 'fentanyl' && (
         <>
-          <LineChartWithToggles period={selectedPeriod} width={width} height={chartHeight}/>
+          {selectedPeriod == 'HalfYearly' && <LineChartWithToggles period={selectedPeriod} width={width} height={chartHeight}/>}
+          {selectedPeriod == 'Quarterly' && <LineChartWithToggles period={selectedPeriod} width={width} height={chartHeight}/>}
           <PositiveHeroinChart period={selectedPeriod} width={width} height={chartHeight}/>
         </>
       )}
@@ -245,7 +246,11 @@ function App() {
           {selectedRegion === 'WEST' && <CocaineWestQuarterlyChart width={width} height={chartHeight}/>}
           {selectedRegion === 'MIDWEST' && <CocaineMidwestQuarterlyChart width={width} height={chartHeight}/>}
           {selectedRegion === 'SOUTH' && <CocaineSouthQuarterlyChart width={width} height={chartHeight}/>}
-          <HeroinSecondLineChartBelowCocaine region={selectedRegion} width={width} height={chartHeight} />
+          {selectedRegion === 'National' && <HeroinSecondLineChartBelowCocaine region={selectedRegion} width={width} height={chartHeight} />}
+          {selectedRegion === 'WEST' && <HeroinSecondLineChartBelowCocaine region={selectedRegion} width={width} height={chartHeight} />}
+          {selectedRegion === 'MIDWEST' && <HeroinSecondLineChartBelowCocaine region={selectedRegion} width={width} height={chartHeight} />}
+          {selectedRegion === 'SOUTH' && <HeroinSecondLineChartBelowCocaine region={selectedRegion} width={width} height={chartHeight} />}
+          
         </>
       )}
       <ReactTooltip

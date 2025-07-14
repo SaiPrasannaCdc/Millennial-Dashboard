@@ -35,7 +35,7 @@ function normalizeRegionKey(region) {
   return 'SOUTH'; // fallback
 }
 
-const HeroinLineChartRegions6months = ({ region = 'SOUTH', width, height = 350 }) => {
+const HeroinLineChartRegions6months = ({ region, width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [heroinSouth6MData, setHeroinSouth6MData] = useState([]);
