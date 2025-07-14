@@ -7,6 +7,7 @@ import ReactTooltip from 'react-tooltip';
 import { UtilityFunctions } from '../utility';
 import { allQuarters, allPeriods6M } from '../constants/Constants';
 
+
 // Quarterly data for National
 const methNationalSecondData = [
   // Fentanyl
@@ -157,6 +158,23 @@ const MethamphetamineLineChartsecondLineChart = ({ width, height = 350, period }
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [selectedLines, showPercentChange, showLabels]);
+
+  useEffect(() => {
+        fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+          .then(res => res.json())
+          .then(data => {
+  
+            const nhData = UtilityFunctions.getGroupedData(data, 'National', 'Fentanyl', 'Positivity', period, ['Heroin']);
+            const ncData = UtilityFunctions.getGroupedData(data, 'National', 'Heroin', 'Positivity', period, ['Cocaine']);
+            const nmData = UtilityFunctions.getGroupedData(data, 'National', 'Opioids', 'Positivity', period, ['Methamphetamine']);
+            const nfData = UtilityFunctions.getGroupedData(data, 'National', 'Cocaine', 'CoPositive', period, ['Fentanyl and Stimulants']);
+  
+            //const fentanylNatData = [{name: 'Fentanyl', values: nData[0].data}, {name: 'Fentanyl with Stimulants', values: nData[1].data}, {name: 'Fentanyl without Stimulants', values: nData[2].data}]
+            //setFentanylNationalData(fentanylNatData);
+          });
+    
+      }, []);
+  
 
   const percentChgTooltip = `
     <div style="

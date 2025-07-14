@@ -13,24 +13,6 @@ const lineColors = {
   'Cocaine': '#d35400',
 };
 
-/* function getGroupedCoPosSeries(millenialData, periodType) {
-  const periodKey = periodType === 'Quarterly' ? 'Quarterly' : 'HalfYearly';
-  const arr = millenialData?.North?.Methamphetamine?.CoPositive?.[periodKey] || [];
-  const drugs = [];
-  return drugs.map(name => ({
-    label: name,
-    color: lineColors[name] || '#0073e6',
-    data: arr.filter(d => (d.drug_name === name || d.drug_name === name) && d.USregion === 'NORTH').map(d => ({
-      period: d.period || d.smon_yr, // Use 'period' for x-axis
-      percentage: parseFloat(d.percentage),
-      ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
-      ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
-      annual: d.Annual || d['Yr_change'] || d.yr_change || '',
-      periodChange: d.Period || d.periodChange || '',
-    }))
-  })).filter(line => line.data.length > 0);
-} */
-
 const MethamphetamineSouthsecondlinechart = ({ width, height, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);

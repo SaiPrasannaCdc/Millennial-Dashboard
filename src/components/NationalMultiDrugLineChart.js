@@ -131,6 +131,9 @@ const getNewNationalDrugs = (region = "National") => {
   ];
 };
 
+
+
+
 const newNationalDrugsData = {
   Heroin: [
     { period: 'Jul-Dec 2022', percentage: 19.8, ciLower: 19, ciUpper: 20.7 },
@@ -313,11 +316,9 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
     data: newNationalDrugsData[drug.key] || [],
   }));
 
-  // --- Add state for selected lines ---
   const regionLineKeys = drugsToShow.map(d => d.key);
   const [selectedLines, setSelectedLines] = useState(regionLineKeys);
 
-  // --- Radio button logic for single/multi line selection (like PositiveHeroinChart.js) ---
   const [radioValue, setRadioValue] = useState('all');
   useEffect(() => {
     if (radioValue === 'all') {
@@ -350,6 +351,42 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showPercentChange]);
+
+  useEffect(() => {
+      fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+        .then(res => res.json())
+        .then(data => {
+
+          const nhData = UtilityFunctions.getGroupedData(data, 'National', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+          const ncData = UtilityFunctions.getGroupedData(data, 'National', 'Cocaine', 'Positivity', 'HalfYearly', ['Cocaine']);
+          const nmData = UtilityFunctions.getGroupedData(data, 'National', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+          const nfData = UtilityFunctions.getGroupedData(data, 'National', 'Fentanyl', 'CoPositive', 'HalfYearly', ['Fentanyl and Stimulants']);
+
+          const whData = UtilityFunctions.getGroupedData(data, 'West', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+          const wcData = UtilityFunctions.getGroupedData(data, 'West', 'Cocaine', 'Positivity', 'HalfYearly', ['Cocaine']);
+          const wmData = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+          const wfData = UtilityFunctions.getGroupedData(data, 'West', 'Fentanyl', 'CoPositive', 'HalfYearly', ['Fentanyl and Stimulants']);
+
+          const mwhData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+          const mwcData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Cocaine', 'Positivity', 'HalfYearly', ['Cocaine']);
+          const mwmData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+          const mwfData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'CoPositive', 'HalfYearly', ['Fentanyl and Stimulants']);
+
+          const shData = UtilityFunctions.getGroupedData(data, 'South', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+          const scData = UtilityFunctions.getGroupedData(data, 'South', 'Cocaine', 'Positivity', 'HalfYearly', ['Cocaine']);
+          const smData = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+          const sfData = UtilityFunctions.getGroupedData(data, 'South', 'Fentanyl', 'CoPositive', 'HalfYearly', ['Fentanyl and Stimulants']);
+
+          const nehData = UtilityFunctions.getGroupedData(data, 'North', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+          const necData = UtilityFunctions.getGroupedData(data, 'North', 'Cocaine', 'Positivity', 'HalfYearly', ['Cocaine']);
+          const nemData = UtilityFunctions.getGroupedData(data, 'North', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+          const nefData = UtilityFunctions.getGroupedData(data, 'North', 'Fentanyl', 'CoPositive', 'HalfYearly', ['Fentanyl and Stimulants']);
+
+          //const fentanylNatData = [{name: 'Fentanyl', values: nData[0].data}, {name: 'Fentanyl with Stimulants', values: nData[1].data}, {name: 'Fentanyl without Stimulants', values: nData[2].data}]
+          //setFentanylNationalData(fentanylNatData);
+        });
+  
+    }, []);
 
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
