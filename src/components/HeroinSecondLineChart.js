@@ -7,168 +7,6 @@ import ReactTooltip from 'react-tooltip';
 import { UtilityFunctions } from '../utility';
 import { allQuarters, allPeriods6M } from '../constants/Constants';
 
-const heroinSecondChartData = [
-  // WEST
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 62.5, ciLower: 59.7, ciUpper: 65.3 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 61.9, ciLower: 59.4, ciUpper: 64.3 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 63.5, ciLower: 60.6, ciUpper: 66.4 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 60.4, ciLower: 57.3, ciUpper: 63.6 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 58.8, ciLower: 55.5, ciUpper: 62 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 60.2, ciLower: 57, ciUpper: 63.3 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 59.4, ciLower: 56.3, ciUpper: 62.5 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 75.7, ciLower: 73.8, ciUpper: 77.8 },
-  { region: 'WEST', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 75.7, ciLower: 73.8, ciUpper: 77.8 },
-  // WEST Cocaine
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 12.7, ciLower: 10.8, ciUpper: 14.7 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 14.4, ciLower: 12.3, ciUpper: 16.6 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 13.7, ciLower: 11.6, ciUpper: 15.7 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 16.8, ciLower: 14.4, ciUpper: 19.3 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 17.3, ciLower: 14.8, ciUpper: 19.9 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 18.9, ciLower: 16.1, ciUpper: 21.5 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 18.6, ciLower: 16.1, ciUpper: 21.1 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 22.9, ciLower: 20.6, ciUpper: 25 },
-  { region: 'WEST', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 22.6, ciLower: 20.2, ciUpper: 24.5 },
-  // WEST Methamphetamine
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 74.5, ciLower: 72, ciUpper: 77 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 70.7, ciLower: 67.3, ciUpper: 74.1 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 73.6, ciLower: 71, ciUpper: 76.3 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 71.2, ciLower: 68.3, ciUpper: 74.2 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 68.1, ciLower: 65.1, ciUpper: 71.2 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 67.2, ciLower: 64.2, ciUpper: 70.3 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 69.6, ciLower: 66.6, ciUpper: 72.5 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 79.3, ciLower: 77.3, ciUpper: 81.4 },
-  { region: 'WEST', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 81.6, ciLower: 79.8, ciUpper: 83.4 },
-  // WEST Heroin and Stimulants
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q4 2022', percentage: 56.2, ciLower: 53.3, ciUpper: 59 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q1 2023', percentage: 54.9, ciLower: 51.9, ciUpper: 57.9 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q2 2023', percentage: 57.4, ciLower: 54.5, ciUpper: 60.2 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q3 2023', percentage: 60, ciLower: 56.8, ciUpper: 63.2 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q4 2023', percentage: 55.7, ciLower: 52.5, ciUpper: 58.9 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q1 2024', percentage: 55.2, ciLower: 52.2, ciUpper: 58.1 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q2 2024', percentage: 70, ciLower: 67.7, ciUpper: 72.3 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q3 2024', percentage: 70, ciLower: 67.7, ciUpper: 72.3 },
-  { region: 'WEST', drug: 'Heroin and Stimulants', quarter: 'Q4 2024', percentage: 71.8, ciLower: 69.7, ciUpper: 73.9 },
-  // MIDWEST
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 84, ciLower: 81, ciUpper: 87 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 85.1, ciLower: 82.4, ciUpper: 87.9 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 82.2, ciLower: 79.6, ciUpper: 84.8 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 82.8, ciLower: 80.3, ciUpper: 85.3 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 86.8, ciLower: 84.6, ciUpper: 89 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 86.6, ciLower: 84.3, ciUpper: 88.9 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 86.6, ciLower: 84.3, ciUpper: 88.9 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 88.7, ciLower: 86.8, ciUpper: 90.7 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 88.7, ciLower: 86.8, ciUpper: 90.7 },
-  // MIDWEST Cocaine
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 36.9, ciLower: 32.9, ciUpper: 40.9 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 40.9, ciLower: 37.1, ciUpper: 44.7 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 38.7, ciLower: 35.4, ciUpper: 42 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 43.5, ciLower: 40.3, ciUpper: 46.7 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 45.2, ciLower: 42.2, ciUpper: 48.3 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 46.2, ciLower: 43, ciUpper: 49.5 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 48, ciLower: 44.7, ciUpper: 51.3 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 49.8, ciLower: 45.6, ciUpper: 54.3 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 49.8, ciLower: 45.6, ciUpper: 54.3 },
-  // MIDWEST Methamphetamine
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 41.8, ciLower: 37.8, ciUpper: 45.9 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 42.2, ciLower: 38.4, ciUpper: 46.1 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 42.4, ciLower: 39, ciUpper: 45.8 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 37.8, ciLower: 34.7, ciUpper: 40.9 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 33, ciLower: 29.9, ciUpper: 36.1 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 39.9, ciLower: 36, ciUpper: 42.4 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 40.8, ciLower: 37.5, ciUpper: 44.1 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 41.7, ciLower: 38.4, ciUpper: 45 },
-  { region: 'MIDWEST', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 40.4, ciLower: 37.3, ciUpper: 43.6 },
-  // MIDWEST Heroin and Stimulants
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q4 2022', percentage: 61, ciLower: 57, ciUpper: 64.7 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q1 2023', percentage: 64.7, ciLower: 61, ciUpper: 68.3 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q2 2023', percentage: 63.5, ciLower: 60.1, ciUpper: 66.8 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q3 2023', percentage: 65.9, ciLower: 62.4, ciUpper: 69.4 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q4 2023', percentage: 65.9, ciLower: 62.4, ciUpper: 69.4 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q1 2024', percentage: 69.2, ciLower: 66.1, ciUpper: 72.2 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q2 2024', percentage: 70.8, ciLower: 67.7, ciUpper: 73.8 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q3 2024', percentage: 68.7, ciLower: 65.7, ciUpper: 71.7 },
-  { region: 'MIDWEST', drug: 'Heroin and Stimulants', quarter: 'Q4 2024', percentage: 68.7, ciLower: 65.7, ciUpper: 71.7 },
-  // National
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 69.3, ciLower: 67.5, ciUpper: 71.1 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 69.0, ciLower: 67.2, ciUpper: 70.8 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 69.7, ciLower: 67.8, ciUpper: 71.6 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 70.3, ciLower: 68.6, ciUpper: 72.1 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 69.7, ciLower: 67.9, ciUpper: 71.6 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 68.5, ciLower: 66.7, ciUpper: 70.3 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 68.5, ciLower: 66.7, ciUpper: 70.2 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 76.3, ciLower: 74.9, ciUpper: 77.7 },
-  { region: 'National', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 76.3, ciLower: 74.9, ciUpper: 77.7 },
-  // National Cocaine
-  { region: 'National', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 28.7, ciLower: 26.9, ciUpper: 30.5 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 32.7, ciLower: 30.8, ciUpper: 34.6 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 31.2, ciLower: 29.4, ciUpper: 33.0 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 31.2, ciLower: 29.4, ciUpper: 33.0 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 32.1, ciLower: 30.4, ciUpper: 33.9 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 32.2, ciLower: 30.4, ciUpper: 34.0 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 33.6, ciLower: 31.8, ciUpper: 35.4 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 34.4, ciLower: 32.8, ciUpper: 36.1 },
-  { region: 'National', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 33.4, ciLower: 31.8, ciUpper: 35.0 },
-  // National Methamphetamine
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 52.5, ciLower: 50.5, ciUpper: 54.5 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 47.3, ciLower: 45.3, ciUpper: 49.2 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 44.3, ciLower: 42.4, ciUpper: 46.2 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 44.3, ciLower: 42.4, ciUpper: 46.2 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 42.8, ciLower: 40.9, ciUpper: 44.6 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 45.1, ciLower: 43.3, ciUpper: 46.9 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 54.0, ciLower: 52.3, ciUpper: 55.7 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 57.7, ciLower: 56.1, ciUpper: 59.3 },
-  { region: 'National', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 55.4, ciLower: 53.6, ciUpper: 57.3 },
-  // National Heroin and Stimulants
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q4 2022', percentage: 54.4, ciLower: 52.4, ciUpper: 56.3 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q1 2023', percentage: 54.4, ciLower: 52.4, ciUpper: 56.3 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q2 2023', percentage: 55.5, ciLower: 53.6, ciUpper: 57.5 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q3 2023', percentage: 55.5, ciLower: 53.6, ciUpper: 57.5 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q4 2023', percentage: 53.7, ciLower: 51.7, ciUpper: 55.7 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q1 2024', percentage: 54.0, ciLower: 52.1, ciUpper: 55.9 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q2 2024', percentage: 56.1, ciLower: 54.1, ciUpper: 58.1 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q3 2024', percentage: 63.5, ciLower: 61.3, ciUpper: 65.2 },
-  { region: 'National', drug: 'Heroin and Stimulants', quarter: 'Q4 2024', percentage: 65.4, ciLower: 63.8, ciUpper: 66.9 },
-  // SOUTH Fentanyl
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 75.2, ciLower: 71.9, ciUpper: 78.4 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 74.3, ciLower: 71.1, ciUpper: 77.6 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 76.2, ciLower: 73, ciUpper: 79.4 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 68.8, ciLower: 65, ciUpper: 72.5 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 72, ciLower: 68.4, ciUpper: 75.6 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 68.9, ciLower: 65.3, ciUpper: 72.6 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 70.7, ciLower: 67.3, ciUpper: 74 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 72.7, ciLower: 69.5, ciUpper: 75.8 },
-  { region: 'SOUTH', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 73.1, ciLower: 70.1, ciUpper: 76.0 },
-  // SOUTH Cocaine
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 37.9, ciLower: 34.2, ciUpper: 41.6 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 41.7, ciLower: 38.1, ciUpper: 45.3 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 41.7, ciLower: 39.7, ciUpper: 45.4 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 38.2, ciLower: 34.3, ciUpper: 42.1 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 38.3, ciLower: 34.4, ciUpper: 42.2 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 37.7, ciLower: 33.9, ciUpper: 41.4 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 41.3, ciLower: 38.3, ciUpper: 45.7 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 44, ciLower: 40.5, ciUpper: 47.5 },
-  { region: 'SOUTH', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 44.5, ciLower: 40.8, ciUpper: 48.2 },
-  // SOUTH Methamphetamine
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q4 2022', percentage: 30, ciLower: 26.5, ciUpper: 33.5 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q1 2023', percentage: 24.8, ciLower: 21.6, ciUpper: 28 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q2 2023', percentage: 25.4, ciLower: 22.1, ciUpper: 28.7 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q3 2023', percentage: 25.3, ciLower: 21.8, ciUpper: 28.8 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q4 2023', percentage: 28.7, ciLower: 25, ciUpper: 32.3 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q1 2024', percentage: 23.2, ciLower: 20, ciUpper: 26.5 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q2 2024', percentage: 27.9, ciLower: 24.6, ciUpper: 31.1 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q3 2024', percentage: 29.7, ciLower: 26.5, ciUpper: 32.9 },
-  { region: 'SOUTH', drug: 'Methamphetamine', quarter: 'Q4 2024', percentage: 29.1, ciLower: 25.7, ciUpper: 32.5 },
-  // SOUTH Heroin and Stimulants
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q4 2022', percentage: 53.9, ciLower: 50.1, ciUpper: 57.7 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q1 2023', percentage: 52.5, ciLower: 48.8, ciUpper: 56.2 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q2 2023', percentage: 53.9, ciLower: 50.2, ciUpper: 57.7 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q3 2023', percentage: 49.2, ciLower: 45.1, ciUpper: 53.2 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q4 2023', percentage: 50.9, ciLower: 46.9, ciUpper: 55 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q1 2024', percentage: 47.3, ciLower: 43.4, ciUpper: 51.1 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q2 2024', percentage: 51.3, ciLower: 47.6, ciUpper: 55 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q3 2024', percentage: 53.7, ciLower: 50.2, ciUpper: 57.3 },
-  { region: 'SOUTH', drug: 'Heroin and Stimulants', quarter: 'Q4 2024', percentage: 54.9, ciLower: 51.2, ciUpper: 58.6 },
-];
 const lineColors = {
   'Fentanyl': '#e74c3c',
   'Cocaine': '#2980b9',
@@ -199,6 +37,8 @@ const HeroinSecondLineChart = ({ region = 'WEST', width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [heroinSecondChartData, setHeroinSecondChartData] = useState([]);
+  
   const allLineKeys = Object.keys(lineColors);
 
   const percentChgTooltip = `
@@ -280,7 +120,65 @@ const HeroinSecondLineChart = ({ region = 'WEST', width, height }) => {
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
-  const regionData = heroinSecondChartData.filter(d => d.region === region);
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, [selectedLines, region]);
+
+  useEffect(() => {
+          fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+            .then(res => res.json())
+            .then(data => {
+
+            var rgn = '';
+            switch (region) {
+              case 'WEST':
+                rgn = 'West'; 
+                break;
+              case 'MIDWEST':
+                rgn = 'MidWest'; 
+                break;
+              case 'SOUTH':
+                rgn = 'South'; 
+                break;
+              case 'National':
+                rgn = 'National'; 
+                break;
+              default:
+                break;
+            }
+
+            var heroinSecondChartData = [];
+
+            const fData = UtilityFunctions.getGroupedData(data, rgn, 'Fentanyl', 'Positivity', 'Quarterly', ['Fentanyl']);
+            const cData = UtilityFunctions.getGroupedData(data, rgn, 'Cocaine', 'Positivity', 'Quarterly', ['Cocaine']);
+            const mData = UtilityFunctions.getGroupedData(data, rgn, 'Methamphetamine', 'Positivity', 'Quarterly', ['Methamphetamine']);
+            const hData = UtilityFunctions.getGroupedData(data, rgn, 'Heroin', 'CoPositive', 'Quarterly', ['Heroin and Stimulants']);
+
+            
+            if (fData.length > 0) {
+                for(var i=0; i<fData[0].data.length; i++)
+                  heroinSecondChartData.push(fData[0].data[i])
+            }
+            if (cData.length > 0) {
+                for(var i=0; i<cData[0].data.length; i++)
+                  heroinSecondChartData.push(cData[0].data[i])
+            }
+            if (mData.length > 0) {
+                for(var i=0; i<mData[0].data.length; i++)
+                  heroinSecondChartData.push(mData[0].data[i])
+            }
+            if (hData.length > 0) {
+                for(var i=0; i<hData[0].data.length; i++)
+                  heroinSecondChartData.push(hData[0].data[i])
+            }
+ 
+          setHeroinSecondChartData(heroinSecondChartData);
+  
+            });
+        }, []); 
+
+
+  const regionData = heroinSecondChartData;
   const datasets = alignDataToQuarters(regionData, allQuarters);
 
   const xDomain = allQuarters;
@@ -296,11 +194,9 @@ const HeroinSecondLineChart = ({ region = 'WEST', width, height }) => {
     nice: true,
   });
 
-  useEffect(() => {
-    ReactTooltip.rebuild();
-  }, [selectedLines, region]);
-
   const keyFinding = regionKeyFindings[region];
+
+
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', marginBottom: 40 }}>

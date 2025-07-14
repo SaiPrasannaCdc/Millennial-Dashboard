@@ -12,6 +12,7 @@ export const UtilityFunctions = {
       return drugs.map(name => ({
         label: name,
         data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+          drug: name,
           period:  (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
           percentage: parseFloat(d.percentage),
           ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
@@ -27,6 +28,7 @@ export const UtilityFunctions = {
       return drugs.map(name => ({
         label: name,
         data: arr.filter(d => (d.drug_name === name || d.drug_name === name)).map(d => ({
+          drug: name,
           quarter:  d.period || d.smon_yr, 
           percentage: parseFloat(d.percentage),
           ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
