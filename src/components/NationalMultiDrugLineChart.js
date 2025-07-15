@@ -25,36 +25,6 @@ const lineColors = {
   "Northeast Cocaine without Opioids": '#ff7f0e',
 };
 
-const getNationalDrugs = () => [
-  { key: 'National', label: 'Cocaine' },
-  { key: 'Cocaine with Opioids', label: 'Cocaine with Opioids' },
-  { key: 'Cocaine without Opioids', label: 'Cocaine without Opioids' },
-];
-
-const getWestDrugs = () => [
-  { key: 'West', label: 'Cocaine' },
-  { key: 'West Cocaine with Opioids', label: 'Cocaine with Opioids' },
-  { key: 'West Cocaine without Opioids', label: 'Cocaine without Opioids' },
-];
-
-const getMidwestDrugs = () => [
-  { key: 'Midwest', label: 'Cocaine' },
-  { key: 'Midwest Cocaine with Opioids', label: 'Cocaine with Opioids' },
-  { key: 'Midwest Cocaine without Opioids', label: 'Cocaine without Opioids' },
-];
-
-const getSouthDrugs = () => [
-  { key: 'South', label: 'Cocaine' },
-  { key: 'South Cocaine with Opioids', label: 'Cocaine with Opioids' },
-  { key: 'South Cocaine without Opioids', label: 'Cocaine without Opioids' },
-];
-
-const getNortheastDrugs = () => [
-  { key: 'Northeast', label: 'Cocaine' },
-  { key: 'Northeast Cocaine with Opioids', label: 'Cocaine with Opioids' },
-  { key: 'Northeast Cocaine without Opioids', label: 'Cocaine without Opioids' },
-];
-
 const newNationalLineColors = {
   // National
   Fentanyl: '#1f77b4',
@@ -131,161 +101,6 @@ const getNewNationalDrugs = (region = "National") => {
   ];
 };
 
-
-
-
-const newNationalDrugsData = {
-  Heroin: [
-    { period: 'Jul-Dec 2022', percentage: 19.8, ciLower: 19, ciUpper: 20.7 },
-    { period: 'Jan-Jun 2023', percentage: 20.2, ciLower: 19.6, ciUpper: 20.8 },
-    { period: 'Jul-Dec 2023', percentage: 19.5, ciLower: 18.9, ciUpper: 20.1 },
-    { period: 'Jan-Jun 2024', percentage: 19.4, ciLower: 18.8, ciUpper: 20 },
-    { period: 'Jul-Dec 2024', percentage: 27.5, ciLower: 26.9, ciUpper: 28.2 },
-  ],
-  Cocaine: [
-    { period: 'Jul-Dec 2022', percentage: 21.1, ciLower: 20.3, ciUpper: 22 },
-    { period: 'Jan-Jun 2023', percentage: 23.7, ciLower: 23.1, ciUpper: 24.4 },
-    { period: 'Jul-Dec 2023', percentage: 24.8, ciLower: 24.2, ciUpper: 25.5 },
-    { period: 'Jan-Jun 2024', percentage: 26.3, ciLower: 25.7, ciUpper: 27 },
-    { period: 'Jul-Dec 2024', percentage: 29.1, ciLower: 28.4, ciUpper: 29.7 },
-  ],
-  Methamphetamine: [
-    { period: 'Jul-Dec 2022', percentage: 52.5, ciLower: 51.5, ciUpper: 53.6 },
-    { period: 'Jan-Jun 2023', percentage: 53.6, ciLower: 52.9, ciUpper: 54.3 },
-    { period: 'Jul-Dec 2023', percentage: 54.5, ciLower: 53.8, ciUpper: 55.2 },
-    { period: 'Jan-Jun 2024', percentage: 58.7, ciLower: 57.8, ciUpper: 59.4 },
-    { period: 'Jul-Dec 2024', percentage: 65.9, ciLower: 65.2, ciUpper: 66.5 },
-  ],
-  "Fentanyl and Stimulants": [
-    { period: 'Jul-Dec 2022', percentage: 65.4, ciLower: 64.4, ciUpper: 66.4 },
-    { period: 'Jan-Jun 2023', percentage: 67.7, ciLower: 67.1, ciUpper: 68.4 },
-    { period: 'Jul-Dec 2023', percentage: 69.3, ciLower: 68.7, ciUpper: 70 },
-    { period: 'Jan-Jun 2024', percentage: 72.2, ciLower: 71.6, ciUpper: 72.8 },
-    { period: 'Jul-Dec 2024', percentage: 78.6, ciLower: 78, ciUpper: 79.2 },
-  ],
-  // --- WEST DATA ---
-  "West Heroin": [
-    { period: 'Jul-Dec 2022', percentage: 14.7, ciLower: 13.7, ciUpper: 15.7 },
-    { period: 'Jan-Jun 2023', percentage: 13.9, ciLower: 13.2, ciUpper: 14.6 },
-    { period: 'Jul-Dec 2023', percentage: 11.6, ciLower: 11.0, ciUpper: 12.3 },
-    { period: 'Jan-Jun 2024', percentage: 10.3, ciLower: 9.7, ciUpper: 10.9 },
-    { period: 'Jul-Dec 2024', percentage: 21.8, ciLower: 21.1, ciUpper: 22.6 },
-  ],
-  "West Cocaine": [
-    { period: 'Jul-Dec 2022', percentage: 9.5, ciLower: 8.7, ciUpper: 10.3 },
-    { period: 'Jan-Jun 2023', percentage: 10.7, ciLower: 10.1, ciUpper: 11.3 },
-    { period: 'Jul-Dec 2023', percentage: 12.3, ciLower: 11.7, ciUpper: 13.0 },
-    { period: 'Jan-Jun 2024', percentage: 15.2, ciLower: 14.5, ciUpper: 15.9 },
-    { period: 'Jul-Dec 2024', percentage: 19.7, ciLower: 19.0, ciUpper: 20.4 },
-  ],
-  "West Methamphetamine": [
-    { period: 'Jul-Dec 2022', percentage: 66.8, ciLower: 65.5, ciUpper: 68.1 },
-    { period: 'Jan-Jun 2023', percentage: 71.0, ciLower: 70.1, ciUpper: 71.9 },
-    { period: 'Jul-Dec 2023', percentage: 73.6, ciLower: 72.7, ciUpper: 74.5 },
-    { period: 'Jan-Jun 2024', percentage: 75.8, ciLower: 75.0, ciUpper: 76.6 },
-    { period: 'Jul-Dec 2024', percentage: 82.5, ciLower: 81.8, ciUpper: 83.2 },
-  ],
-  "West Fentanyl and Stimulants": [
-    { period: 'Jul-Dec 2022', percentage: 70.0, ciLower: 68.7, ciUpper: 71.3 },
-    { period: 'Jan-Jun 2023', percentage: 73.7, ciLower: 72.8, ciUpper: 74.6 },
-    { period: 'Jul-Dec 2023', percentage: 76.8, ciLower: 75.9, ciUpper: 77.6 },
-    { period: 'Jan-Jun 2024', percentage: 78.8, ciLower: 78.0, ciUpper: 79.6 },
-    { period: 'Jul-Dec 2024', percentage: 85.2, ciLower: 84.5, ciUpper: 85.8 },
-  ],
-
-
-  // --- MIDWEST DATA ---
-
-  "Midwest Heroin": [
-    { period: 'Jul-Dec 2022', percentage: 22.3, ciLower: 20.5, ciUpper: 24.0 },
-    { period: 'Jan-Jun 2023', percentage: 25.2, ciLower: 24.0, ciUpper: 26.8 },
-    { period: 'Jul-Dec 2023', percentage: 27.8, ciLower: 26.6, ciUpper: 28.9 },
-    { period: 'Jan-Jun 2024', percentage: 31.7, ciLower: 30.4, ciUpper: 33.0 },
-    { period: 'Jul-Dec 2024', percentage: 35.5, ciLower: 34.1, ciUpper: 36.9 },
-  ],
-  "Midwest Cocaine": [
-    { period: 'Jul-Dec 2022', percentage: 34.7, ciLower: 32.6, ciUpper: 36.7 },
-    { period: 'Jan-Jun 2023', percentage: 35.7, ciLower: 34.7, ciUpper: 37.1 },
-    { period: 'Jul-Dec 2023', percentage: 35.9, ciLower: 34.7, ciUpper: 37.1 },
-    { period: 'Jan-Jun 2024', percentage: 40.4, ciLower: 39.0, ciUpper: 41.7 },
-    { period: 'Jul-Dec 2024', percentage: 41.0, ciLower: 39.6, ciUpper: 42.5 },
-  ],
-  "Midwest Methamphetamine": [
-    { period: 'Jul-Dec 2022', percentage: 36.1, ciLower: 34.0, ciUpper: 38.1 },
-    { period: 'Jan-Jun 2023', percentage: 39.6, ciLower: 38.2, ciUpper: 40.9 },
-    { period: 'Jul-Dec 2023', percentage: 38.5, ciLower: 37.3, ciUpper: 39.8 },
-    { period: 'Jan-Jun 2024', percentage: 41.2, ciLower: 39.8, ciUpper: 42.6 },
-    { period: 'Jul-Dec 2024', percentage: 44.3, ciLower: 42.8, ciUpper: 45.7 },
-  ],
-  "Midwest Fentanyl and Stimulants": [
-    { period: 'Jul-Dec 2022', percentage: 59.5, ciLower: 57.4, ciUpper: 61.6 },
-    { period: 'Jan-Jun 2023', percentage: 62.9, ciLower: 61.6, ciUpper: 64.2 },
-    { period: 'Jul-Dec 2023', percentage: 63.0, ciLower: 61.8, ciUpper: 64.2 },
-    { period: 'Jan-Jun 2024', percentage: 66.6, ciLower: 65.3, ciUpper: 67.9 },
-    { period: 'Jul-Dec 2024', percentage: 70.1, ciLower: 68.7, ciUpper: 71.4 },
-  ],
-  // --- SOUTH DATA ---
-  "South Heroin": [
-    { period: 'Jul-Dec 2022', percentage: 34.4, ciLower: 31.9, ciUpper: 36.8 },
-    { period: 'Jan-Jun 2023', percentage: 31.5, ciLower: 30.0, ciUpper: 33.1 },
-    { period: 'Jul-Dec 2023', percentage: 28.7, ciLower: 27.0, ciUpper: 30.3 },
-    { period: 'Jan-Jun 2024', percentage: 32.8, ciLower: 31.1, ciUpper: 34.5 },
-    { period: 'Jul-Dec 2024', percentage: 39.5, ciLower: 37.6, ciUpper: 41.3 },
-  ],
-  "South Cocaine": [
-    { period: 'Jul-Dec 2022', percentage: 38.9, ciLower: 36.4, ciUpper: 41.5 },
-    { period: 'Jan-Jun 2023', percentage: 41.6, ciLower: 39.9, ciUpper: 43.2 },
-    { period: 'Jul-Dec 2023', percentage: 42.1, ciLower: 40.3, ciUpper: 43.9 },
-    { period: 'Jan-Jun 2024', percentage: 42.1, ciLower: 40.3, ciUpper: 44.0 },
-    { period: 'Jul-Dec 2024', percentage: 47.1, ciLower: 45.2, ciUpper: 49.0 },
-  ],
-  "South Methamphetamine": [
-    { period: 'Jul-Dec 2022', percentage: 31.7, ciLower: 29.3, ciUpper: 34.1 },
-    { period: 'Jan-Jun 2023', percentage: 27.8, ciLower: 26.2, ciUpper: 29.3 },
-    { period: 'Jul-Dec 2023', percentage: 28.5, ciLower: 26.8, ciUpper: 30.1 },
-    { period: 'Jan-Jun 2024', percentage: 28.0, ciLower: 26.3, ciUpper: 29.6 },
-    { period: 'Jul-Dec 2024', percentage: 35.9, ciLower: 34.1, ciUpper: 37.8 },
-  ],
-  "South Fentanyl and Stimulants": [
-    { period: 'Jul-Dec 2022', percentage: 60.4, ciLower: 57.8, ciUpper: 62.9 },
-    { period: 'Jan-Jun 2023', percentage: 59.3, ciLower: 57.6, ciUpper: 60.9 },
-    { period: 'Jul-Dec 2023', percentage: 60.5, ciLower: 58.8, ciUpper: 62.1 },
-    { period: 'Jan-Jun 2024', percentage: 59.1, ciLower: 57.3, ciUpper: 60.9 },
-    { period: 'Jul-Dec 2024', percentage: 67.5, ciLower: 65.7, ciUpper: 69.2 },
-  ],
-
-  // --- NORTHEAST DATA ---
-  "Northeast Heroin": [
-    { period: 'Jul-Dec 2022', percentage: 14.9, ciLower: 10, ciUpper: 19.9 },
-    { period: 'Jan-Jun 2023', percentage: 16.7, ciLower: 13.1, ciUpper: 20.4 },
-    { period: 'Jul-Dec 2023', percentage: 20.7, ciLower: 16.5, ciUpper: 24.9 },
-    { period: 'Jan-Jun 2024', percentage: 19.0, ciLower: 15, ciUpper: 23 },
-    { period: 'Jul-Dec 2024', percentage: 19.4, ciLower: 15.2, ciUpper: 23.6 },
-  ],
-  "Northeast Cocaine": [
-    { period: 'Jul-Dec 2022', percentage: 35.3, ciLower: 28.7, ciUpper: 41.9 },
-    { period: 'Jan-Jun 2023', percentage: 41.3, ciLower: 36.5, ciUpper: 46.0 },
-    { period: 'Jul-Dec 2023', percentage: 38.4, ciLower: 33.4, ciUpper: 43.4 },
-    { period: 'Jan-Jun 2024', percentage: 43.2, ciLower: 38.1, ciUpper: 48.3 },
-    { period: 'Jul-Dec 2024', percentage: 46.8, ciLower: 41.5, ciUpper: 52.1 },
-  ],
-  "Northeast Methamphetamine": [
-    { period: 'Jul-Dec 2022', percentage: 25.9, ciLower: 19.8, ciUpper: 31.9 },
-    { period: 'Jan-Jun 2023', percentage: 22.8, ciLower: 18.8, ciUpper: 26.9 },
-    { period: 'Jul-Dec 2023', percentage: 16.9, ciLower: 13, ciUpper: 20.7 },
-    { period: 'Jan-Jun 2024', percentage: 26.1, ciLower: 21.6, ciUpper: 30.6 },
-    { period: 'Jul-Dec 2024', percentage: 26.2, ciLower: 21.5, ciUpper: 30.8 },
-  ],
-  "Northeast Fentanyl and Stimulants": [
-    { period: 'Jul-Dec 2022', percentage: 51.7, ciLower: 44.8, ciUpper: 58.6 },
-    { period: 'Jan-Jun 2023', percentage: 51.7, ciLower: 46.9, ciUpper: 56.5 },
-    { period: 'Jul-Dec 2023', percentage: 46.4, ciLower: 41.3, ciUpper: 51.5 },
-    { period: 'Jan-Jun 2024', percentage: 55.4, ciLower: 50.4, ciUpper: 60.5 },
-    { period: 'Jul-Dec 2024', percentage: 56.2, ciLower: 50.9, ciUpper: 61.5 },
-  ],
-};
-
-
 const getKeyFindingNew = (data) => {
   if (!data || data.length < 2) return null;
   const lastIdx = data.length - 1;
@@ -308,7 +123,8 @@ const getKeyFindingNew = (data) => {
 const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
-
+  const [newNationalDrugsData, setNewNationalDrugsData] = useState([]);
+  
   const drugsToShow = getNewNationalDrugs(region);
   const dataSets = drugsToShow.map(drug => ({
     key: drug.key,
@@ -328,25 +144,6 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
     }
     // eslint-disable-next-line
   }, [radioValue, region]);
-
-  const xDomain = Array.from(
-    new Set(dataSets.flatMap(ds => ds.data.map(d => d.period)))
-  );
-  const margin = { top: 60, right: 30, bottom: 50, left: 90 };
-  const adjustedWidth = width - margin.left - margin.right;
-  const adjustedHeight = height - margin.top - margin.bottom;
-
-  const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
-    padding: 0.2,
-  });
-  const yMax = Math.max(...dataSets.flatMap(ds => ds.data.map(d => d.percentage)));
-  const yScale = scaleLinear({
-    domain: [0, yMax],
-    range: [adjustedHeight, 0],
-    nice: true,
-  });
 
   useEffect(() => {
     ReactTooltip.rebuild();
@@ -382,11 +179,55 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
           const nemData = UtilityFunctions.getGroupedData(data, 'North', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
           const nefData = UtilityFunctions.getGroupedData(data, 'North', 'Fentanyl', 'CoPositive', 'HalfYearly', ['Fentanyl and Stimulants']);
 
-          //const fentanylNatData = [{name: 'Fentanyl', values: nData[0].data}, {name: 'Fentanyl with Stimulants', values: nData[1].data}, {name: 'Fentanyl without Stimulants', values: nData[2].data}]
-          //setFentanylNationalData(fentanylNatData);
+          var newNationalDrugsData = {};
+          newNationalDrugsData['Heroin'] = nhData[0].data;
+          newNationalDrugsData['Cocaine'] = ncData[0].data;
+          newNationalDrugsData['Methamphetamine'] = nmData[0].data;
+          newNationalDrugsData['Fentanyl and Stimulants'] = nfData[0].data;
+
+          newNationalDrugsData['West Heroin'] = whData[0].data;
+          newNationalDrugsData['West Cocaine'] = wcData[0].data;
+          newNationalDrugsData['West Methamphetamine'] = wmData[0].data;
+          newNationalDrugsData['West Fentanyl and Stimulants'] = wfData[0].data;
+
+          newNationalDrugsData['Midwest Heroin'] = mwhData[0].data;
+          newNationalDrugsData['Midwest Cocaine'] = mwcData[0].data;
+          newNationalDrugsData['Midwest Methamphetamine'] = mwmData[0].data;
+          newNationalDrugsData['Midwest Fentanyl and Stimulants'] = mwfData[0].data;
+
+          newNationalDrugsData['South Heroin'] = shData[0].data;
+          newNationalDrugsData['South Cocaine'] = scData[0].data;
+          newNationalDrugsData['South Methamphetamine'] = smData[0].data;
+          newNationalDrugsData['South Fentanyl and Stimulants'] = sfData[0].data;
+
+          newNationalDrugsData['Northeast Heroin'] = nehData[0].data;
+          newNationalDrugsData['Northeast Cocaine'] = necData[0].data;
+          newNationalDrugsData['Northeast Methamphetamine'] = nemData[0].data;
+          newNationalDrugsData['Northeast Fentanyl and Stimulants'] = nefData[0].data;
+
+          setNewNationalDrugsData(newNationalDrugsData);
         });
   
     }, []);
+
+    const xDomain = Array.from(
+    new Set(dataSets.flatMap(ds => ds.data.map(d => d.period)))
+  );
+  const margin = { top: 60, right: 30, bottom: 50, left: 90 };
+  const adjustedWidth = width - margin.left - margin.right;
+  const adjustedHeight = height - margin.top - margin.bottom;
+
+  const xScale = scaleBand({
+    domain: xDomain,
+    range: [0, adjustedWidth],
+    padding: 0.2,
+  });
+  const yMax = Math.max(...dataSets.flatMap(ds => ds.data.map(d => d.percentage)));
+  const yScale = scaleLinear({
+    domain: [0, yMax],
+    range: [adjustedHeight, 0],
+    nice: true,
+  });
 
   const renderChangeIndicators = () => {
     if (!showPercentChange) return null;
