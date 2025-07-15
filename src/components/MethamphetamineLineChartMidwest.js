@@ -8,90 +8,37 @@ import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
 import MethamphetamineMidwestsecondlinechart from './MethamphetamineLineChartMidwestsecondlinechart';
 
-const midwestQuarterlyData = [
-  {
-    name: 'Methamphetamine',
-    values: [
-      { quarter: 'Q4 2022', percentage: 11.4, ciLower: 10.9, ciUpper: 11.8 },
-      { quarter: 'Q1 2023', percentage: 12.6, ciLower: 12.1, ciUpper: 13.0 },
-      { quarter: 'Q2 2023', percentage: 12.9, ciLower: 12.4, ciUpper: 13.3 },
-      { quarter: 'Q3 2023', percentage: 13.1, ciLower: 12.7, ciUpper: 13.5 },
-      { quarter: 'Q4 2023', percentage: 12.4, ciLower: 12.0, ciUpper: 12.9 },
-      { quarter: 'Q1 2024', percentage: 12.1, ciLower: 11.6, ciUpper: 12.5 },
-      { quarter: 'Q2 2024', percentage: 12.4, ciLower: 12.0, ciUpper: 12.8 },
-      { quarter: 'Q3 2024', percentage: 12.6, ciLower: 12.2, ciUpper: 13.1 },
-      { quarter: 'Q4 2024', percentage: 12.9, ciLower: 12.5, ciUpper: 13.3 },
-    ]
-  },
-  {
-    name: 'Methamphetamine with Opioids',
-    values: [
-      { quarter: 'Q4 2022', percentage: 4.0, ciLower: 3.7, ciUpper: 4.3 },
-      { quarter: 'Q1 2023', percentage: 4.2, ciLower: 3.9, ciUpper: 4.5 },
-      { quarter: 'Q2 2023', percentage: 4.7, ciLower: 4.4, ciUpper: 4.9 },
-      { quarter: 'Q3 2023', percentage: 5.2, ciLower: 4.9, ciUpper: 5.5 },
-      { quarter: 'Q4 2023', percentage: 4.5, ciLower: 4.2, ciUpper: 4.7 },
-      { quarter: 'Q1 2024', percentage: 4.4, ciLower: 4.2, ciUpper: 4.7 },
-      { quarter: 'Q2 2024', percentage: 4.4, ciLower: 4.1, ciUpper: 4.6 },
-      { quarter: 'Q3 2024', percentage: 4.2, ciLower: 3.9, ciUpper: 4.4 },
-      { quarter: 'Q4 2024', percentage: 4.3, ciLower: 4.0, ciUpper: 4.6 },
-    ]
-  },
-  {
-    name: 'Methamphetamine without Opioids',
-    values: [
-      { quarter: 'Q4 2022', percentage: 7.4, ciLower: 7.1, ciUpper: 7.7 },
-      { quarter: 'Q1 2023', percentage: 8.4, ciLower: 8.0, ciUpper: 8.7 },
-      { quarter: 'Q2 2023', percentage: 7.9, ciLower: 7.6, ciUpper: 8.3 },
-      { quarter: 'Q3 2023', percentage: 7.6, ciLower: 7.3, ciUpper: 8.0 },
-      { quarter: 'Q4 2023', percentage: 7.6, ciLower: 7.3, ciUpper: 8.0 },
-      { quarter: 'Q1 2024', percentage: 7.6, ciLower: 7.3, ciUpper: 8.0 },
-      { quarter: 'Q2 2024', percentage: 8.5, ciLower: 8.2, ciUpper: 8.9 },
-      { quarter: 'Q3 2024', percentage: 8.5, ciLower: 8.2, ciUpper: 8.9 },
-      { quarter: 'Q4 2024', percentage: 8.7, ciLower: 8.3, ciUpper: 9.1 },
-    ]
-  }
-];
-
-const midwest6MonthsData = [
-  {
-    name: 'Methamphetamine',
-    values: [
-      { period: '2022 Jul-Dec', percentage: 11.4, ciLower: 10.9, ciUpper: 11.8 },
-      { period: '2023 Jan-Jun', percentage: 12.7, ciLower: 12.4, ciUpper: 13.0 },
-      { period: '2023 Jul-Dec', percentage: 12.8, ciLower: 12.5, ciUpper: 13.1 },
-      { period: '2024 Jan-Jun', percentage: 12.2, ciLower: 11.9, ciUpper: 12.5 },
-      { period: '2024 Jul-Dec', percentage: 12.8, ciLower: 12.5, ciUpper: 13.1 },
-    ]
-  },
-  {
-    name: 'Methamphetamine with Opioids',
-    values: [
-      { period: '2022 Jul-Dec', percentage: 4.0, ciLower: 3.7, ciUpper: 4.3 },
-      { period: '2023 Jan-Jun', percentage: 4.4, ciLower: 4.2, ciUpper: 4.6 },
-      { period: '2023 Jul-Dec', percentage: 5.1, ciLower: 4.9, ciUpper: 5.3 },
-      { period: '2024 Jan-Jun', percentage: 4.4, ciLower: 4.2, ciUpper: 4.6 },
-      { period: '2024 Jul-Dec', percentage: 4.2, ciLower: 4.0, ciUpper: 4.3 },
-    ]
-  },
-  {
-    name: 'Methamphetamine without Opioids',
-    values: [
-      { period: '2022 Jul-Dec', percentage: 7.4, ciLower: 7.1, ciUpper: 7.7 },
-      { period: '2023 Jan-Jun', percentage: 8.3, ciLower: 8.0, ciUpper: 8.5 },
-      { period: '2023 Jul-Dec', percentage: 7.7, ciLower: 7.4, ciUpper: 7.9 },
-      { period: '2024 Jan-Jun', percentage: 7.8, ciLower: 7.6, ciUpper: 8.1 },
-      { period: '2024 Jul-Dec', percentage: 8.6, ciLower: 8.4, ciUpper: 8.9 },
-    ]
-  }
-];
-
 const MethamphetamineLineChartMidwest = ({ width, height, period}) => {
-  const [showLabels, setShowLabels] = useState(false);
-  const [showPercentChange, setShowPercentChange] = useState(false);
+const [showLabels, setShowLabels] = useState(false);
+const [showPercentChange, setShowPercentChange] = useState(false);  
+const [midwestData, setMidwestData] = useState([]);
+
+useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+        const nData = UtilityFunctions.getGroupedData(data, 'National', 'Methamphetamine', 'Positivity', period, ['Methamphetamine', 'Methamphetamine with Opioids', 'Methamphetamine without Opioids']);
+        const midwestData = [{name: 'Methamphetamine', values: nData[0].data}, {name: 'Methamphetamine with Opioids', values: nData[1].data}, {name: 'Methamphetamine without Opioids', values: nData[2].data}]
+        setMidwestData(midwestData);
+      });
+
+  }, []);
 
   const is6Months = period === 'HalfYearly';
-  const adjustedData = is6Months ? midwest6MonthsData : midwestQuarterlyData;
+  const adjustedData =  midwestData;
+
+    useEffect(() => {
+    ReactTooltip.rebuild();
+  }, [showPercentChange, adjustedData]);
+
+   if (!adjustedData || !Array.isArray(adjustedData) || adjustedData.length === 0) {
+      return (
+        <div style={{ color: 'red', textAlign: 'center', margin: 40 }}>
+          No data available for the selected region.
+        </div>
+      );
+    }
+
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
@@ -184,10 +131,6 @@ const MethamphetamineLineChartMidwest = ({ width, height, period}) => {
       });
     });
   };
-
-  useEffect(() => {
-    ReactTooltip.rebuild();
-  }, [showPercentChange, adjustedData]);
 
   // Key finding logic
   const getKeyFinding = (data) => {
