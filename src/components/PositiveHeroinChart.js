@@ -18,12 +18,7 @@ const PositiveHeroinChart = ({ width, height, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
-  const [periodType, setPeriodType] = useState('Quarterly');
   const [heroinData, setHeroinData] = useState([]);
-
-  useEffect(() => {
-      setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
-    }, [period]);
 
     useEffect(() => {
       ReactTooltip.rebuild();
@@ -34,10 +29,10 @@ const PositiveHeroinChart = ({ width, height, period }) => {
           .then(res => res.json())
           .then(data => {
 
-          const nhData = UtilityFunctions.getGroupedData(data, 'National', 'Heroin', 'Positivity', periodType, ['Heroin']);
-          const ncData = UtilityFunctions.getGroupedData(data, 'National', 'Cocaine', 'Positivity', periodType, ['Cocaine']);
-          const nmData = UtilityFunctions.getGroupedData(data, 'National', 'Methamphetamine', 'Positivity', periodType, ['Methamphetamine']);
-          const nfData = UtilityFunctions.getGroupedData(data, 'National', 'Fentanyl', 'CoPositive', periodType, ['Fentanyl and Stimulants']);
+          const nhData = UtilityFunctions.getGroupedData(data, 'National', 'Heroin', 'Positivity', period, ['Heroin']);
+          const ncData = UtilityFunctions.getGroupedData(data, 'National', 'Cocaine', 'Positivity', period, ['Cocaine']);
+          const nmData = UtilityFunctions.getGroupedData(data, 'National', 'Methamphetamine', 'Positivity', period, ['Methamphetamine']);
+          const nfData = UtilityFunctions.getGroupedData(data, 'National', 'Fentanyl', 'CoPositive', period, ['Fentanyl and Stimulants']);
 
           var heroinData = {};
 

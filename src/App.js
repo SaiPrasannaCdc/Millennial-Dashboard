@@ -79,7 +79,8 @@ function App() {
         <>
           {selectedPeriod == 'HalfYearly' && <LineChartWithToggles period={selectedPeriod} width={width} height={chartHeight}/>}
           {selectedPeriod == 'Quarterly' && <LineChartWithToggles period={selectedPeriod} width={width} height={chartHeight}/>}
-          <PositiveHeroinChart period={selectedPeriod} width={width} height={chartHeight}/>
+          {selectedPeriod == 'HalfYearly' && <PositiveHeroinChart period={selectedPeriod} width={width} height={chartHeight}/>}
+          {selectedPeriod == 'Quarterly' && <PositiveHeroinChart period={selectedPeriod} width={width} height={chartHeight}/>}
         </>
       )}
       
