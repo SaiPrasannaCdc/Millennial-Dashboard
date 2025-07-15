@@ -196,8 +196,6 @@ const HeroinSecondLineChart = ({ region = 'WEST', width, height }) => {
 
   const keyFinding = regionKeyFindings[region];
 
-
-
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', marginBottom: 40 }}>
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
@@ -351,6 +349,15 @@ const HeroinSecondLineChart = ({ region = 'WEST', width, height }) => {
           {renderChangeIndicators()}
         </Group>
       </svg>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        {datasets.map(ds => (
+          <div key={ds.key} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
+            <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[ds.label] || '#1f77b4', marginRight: '5px' }}></div>
+            <span style={{ fontSize: '16px', color: '#333' }}>{ds.label}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ height: '32px' }} />
       <ReactTooltip html={true} />
     </div>
   );

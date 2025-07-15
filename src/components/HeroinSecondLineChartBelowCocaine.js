@@ -346,6 +346,14 @@ const HeroinSecondLineChartBelowCocaine = ({ region, width, height }) => {
           {renderChangeIndicators()}
         </Group>
       </svg>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        {Object.entries(lineColors).map(([drug, color]) => (
+          <div key={drug} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
+            <div style={{ width: '30px', height: '2px', backgroundColor: color, marginRight: '5px' }}></div>
+            <span style={{ fontSize: '16px', color: '#333' }}>{drug}</span>
+          </div>
+        ))}
+      </div>
       <ReactTooltip html={true} />
     </div>
   );

@@ -354,6 +354,7 @@ const FentanylLineChartSouth = ({ width, height }) => {
       </div>
       <div style={{ height: '32px' }} />
       <ReactTooltip html={true} />
+
       {/* --- Second Chart Heading and Key Finding (match West style) --- */}
       <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0', marginTop: 48, marginBottom: 0 }}>
         <div style={{ textAlign: 'center' }}>
@@ -592,9 +593,18 @@ const FentanylLineChartSouth = ({ width, height }) => {
             </React.Fragment>
           ))}
         </Group>
-      </svg>
-
-    </div>
+       </svg>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+              {coPosSeries.map(series => (
+                <div key={series.name} style={{ display: 'flex', alignItems: 'center', marginRight: '25px' }}>
+                  <div style={{ width: '30px', height: '2px', backgroundColor: series.color, marginRight: '5px' }}></div>
+                  <span style={{ fontSize: '16px', color: '#333' }}>{series.name}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{ height: '32px' }} />
+            <ReactTooltip html={true} />
+          </div>
   );
 };
 
