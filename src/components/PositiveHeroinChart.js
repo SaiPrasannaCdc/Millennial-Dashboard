@@ -7,108 +7,6 @@ import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
 
-const sampleDataHeroin = [
-  {
-    name: 'Heroin',
-    values: [
-      { quarter: 'Q4 2022', percentage: '19.8', ciLower: '19.0', ciUpper: '20.7' },
-      { quarter: 'Q1 2023', percentage: '20.0', ciLower: '19.1', ciUpper: '20.8' },
-      { quarter: 'Q2 2023', percentage: '19.5', ciLower: '19.1', ciUpper: '21.3' },
-      { quarter: 'Q3 2023', percentage: '19.3', ciLower: '18.4', ciUpper: '20.6' },
-      { quarter: 'Q4 2023', percentage: '18.4', ciLower: '18.0', ciUpper: '20.6' },
-      { quarter: 'Q1 2024', percentage: '19.4', ciLower: '18.6', ciUpper: '20.7' },
-      { quarter: 'Q2 2024', percentage: '19.8', ciLower: '18.6', ciUpper: '26.7' },
-      { quarter: 'Q3 2024', percentage: '28.4', ciLower: '23.3', ciUpper: '35.9' },
-      { quarter: 'Q4 2024', percentage: '30.5', ciLower: '19.6', ciUpper: '52.3' },
-    ],
-  },
-  {
-    name: 'Cocaine',
-    values: [
-      { quarter: 'Q4 2022', percentage: '21.1', ciLower: '20.3', ciUpper: '22.0' },
-      { quarter: 'Q1 2023', percentage: '22.5', ciLower: '21.5', ciUpper: '24.2' },
-      { quarter: 'Q2 2023', percentage: '24.2', ciLower: '23.2', ciUpper: '25.0' },
-      { quarter: 'Q3 2023', percentage: '25.2', ciLower: '24.3', ciUpper: '25.5' },
-      { quarter: 'Q4 2023', percentage: '24.7', ciLower: '23.8', ciUpper: '25.5' },
-      { quarter: 'Q1 2024', percentage: '25.8', ciLower: '24.8', ciUpper: '26.6' },
-      { quarter: 'Q2 2024', percentage: '25.8', ciLower: '24.8', ciUpper: '26.6' },
-      { quarter: 'Q3 2024', percentage: '29.3', ciLower: '28.2', ciUpper: '30.0' },
-      { quarter: 'Q4 2024', percentage: '29.2', ciLower: '28.1', ciUpper: '30.0' },
-    ],
-  },
-  {
-    name: 'Methamphetamine',
-    values: [
-      { quarter: 'Q4 2022', percentage: '52.5', ciLower: '51.5', ciUpper: '53.6' },
-      { quarter: 'Q1 2023', percentage: '53.3', ciLower: '51.6', ciUpper: '53.7' },
-      { quarter: 'Q2 2023', percentage: '54.7', ciLower: '53.3', ciUpper: '55.3' },
-      { quarter: 'Q3 2023', percentage: '54.5', ciLower: '53.3', ciUpper: '55.3' },
-      { quarter: 'Q4 2023', percentage: '54.8', ciLower: '53.3', ciUpper: '55.7' },
-      { quarter: 'Q1 2024', percentage: '57.1', ciLower: '55.8', ciUpper: '57.9' },
-      { quarter: 'Q2 2024', percentage: '60.8', ciLower: '59.4', ciUpper: '61.4' },
-      { quarter: 'Q3 2024', percentage: '64.1', ciLower: '62.8', ciUpper: '64.9' },
-      { quarter: 'Q4 2024', percentage: '68.4', ciLower: '67.1', ciUpper: '69.1' },
-    ],
-  },
-  {
-    name: 'Fentanyl and Stimulants',
-    values: [
-      { quarter: 'Q4 2022', percentage: '67.0', ciLower: '66.0', ciUpper: '67.9' },
-      { quarter: 'Q1 2023', percentage: '67.0', ciLower: '66.0', ciUpper: '67.9' },
-      { quarter: 'Q2 2023', percentage: '68.4', ciLower: '67.5', ciUpper: '69.4' },
-      { quarter: 'Q3 2023', percentage: '69.5', ciLower: '68.4', ciUpper: '70.3' },
-      { quarter: 'Q4 2023', percentage: '70.3', ciLower: '69.4', ciUpper: '71.0' },
-      { quarter: 'Q1 2024', percentage: '70.9', ciLower: '69.8', ciUpper: '71.5' },
-      { quarter: 'Q2 2024', percentage: '73.8', ciLower: '68.4', ciUpper: '74.7' },
-      { quarter: 'Q3 2024', percentage: '76.8', ciLower: '75.9', ciUpper: '77.6' },
-      { quarter: 'Q4 2024', percentage: '80.5', ciLower: '79.7', ciUpper: '81.3' },
-    ],
-  },
-];
-
-const sampleDataHeroin_6Months = [
-  {
-    name: 'Heroin',
-    values: [
-      { period: 'Jul-Dec 2022', percentage: '19.8', ciLower: '19.0', ciUpper: '20.7' },
-      { period: 'Jan-Jun 2023', percentage: '20.2', ciLower: '19.6', ciUpper: '20.8' },
-      { period: 'Jul-Dec 2023', percentage: '19.5', ciLower: '18.9', ciUpper: '20.1' },
-      { period: 'Jan-Jun 2024', percentage: '19.4', ciLower: '18.8', ciUpper: '20.0' },
-      { period: 'Jul-Dec 2024', percentage: '27.5', ciLower: '26.9', ciUpper: '28.2' },
-    ],
-  },
-  {
-    name: 'Cocaine',
-    values: [
-      { period: 'Jul-Dec 2022', percentage: '21.1', ciLower: '20.3', ciUpper: '22.0' },
-      { period: 'Jan-Jun 2023', percentage: '23.7', ciLower: '23.1', ciUpper: '24.4' },
-      { period: 'Jul-Dec 2023', percentage: '24.8', ciLower: '24.2', ciUpper: '25.5' },
-      { period: 'Jan-Jun 2024', percentage: '26.3', ciLower: '25.7', ciUpper: '27.0' },
-      { period: 'Jul-Dec 2024', percentage: '29.1', ciLower: '28.4', ciUpper: '29.7' },
-    ],
-  },
-  {
-    name: 'Methamphetamine',
-    values: [
-      { period: 'Jul-Dec 2022', percentage: '52.5', ciLower: '51.5', ciUpper: '53.6' },
-      { period: 'Jan-Jun 2023', percentage: '53.6', ciLower: '52.9', ciUpper: '54.3' },
-      { period: 'Jul-Dec 2023', percentage: '54.5', ciLower: '53.8', ciUpper: '55.2' },
-      { period: 'Jan-Jun 2024', percentage: '58.7', ciLower: '57.8', ciUpper: '59.4' },
-      { period: 'Jul-Dec 2024', percentage: '65.9', ciLower: '65.2', ciUpper: '66.4' },
-    ],
-  },
-  {
-    name: 'Fentanyl and Stimulants',
-    values: [
-      { period: 'Jul-Dec 2022', percentage: '65.4', ciLower: '64.4', ciUpper: '66.4' },
-      { period: 'Jan-Jun 2023', percentage: '67.7', ciLower: '67.0', ciUpper: '68.4' },
-      { period: 'Jul-Dec 2023', percentage: '69.3', ciLower: '68.7', ciUpper: '70.0' },
-      { period: 'Jan-Jun 2024', percentage: '72.2', ciLower: '71.6', ciUpper: '72.8' },
-      { period: 'Jul-Dec 2024', percentage: '78.6', ciLower: '78.0', ciUpper: '79.2' },
-    ],
-  },
-];
-
 const lineColors = {
   'Methamphetamine': '#ffa600', // Orange
   'Cocaine': '#2f4b7c', // Blue
@@ -120,29 +18,39 @@ const PositiveHeroinChart = ({ width, height, period }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
+  const [periodType, setPeriodType] = useState('Quarterly');
+  const [heroinData, setHeroinData] = useState([]);
+
+  useEffect(() => {
+      setPeriodType(period === 'HalfYearly' ? 'HalfYearly' : 'Quarterly');
+    }, [period]);
+
+    useEffect(() => {
+      ReactTooltip.rebuild();
+    }, [showPercentChange]);
+
+    useEffect(() => {
+        fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+          .then(res => res.json())
+          .then(data => {
+
+          const nhData = UtilityFunctions.getGroupedData(data, 'National', 'Heroin', 'Positivity', periodType, ['Heroin']);
+          const ncData = UtilityFunctions.getGroupedData(data, 'National', 'Cocaine', 'Positivity', periodType, ['Cocaine']);
+          const nmData = UtilityFunctions.getGroupedData(data, 'National', 'Methamphetamine', 'Positivity', periodType, ['Methamphetamine']);
+          const nfData = UtilityFunctions.getGroupedData(data, 'National', 'Fentanyl', 'CoPositive', periodType, ['Fentanyl and Stimulants']);
+
+          var heroinData = {};
+
+          heroinData = [{name: 'Heroin', values: nhData[0].data}, {name: 'Cocaine', values: ncData[0].data}, {name: 'Methamphetamine', values: nmData[0].data}, {name: 'Fentanyl and Stimulants', values: nfData[0].data}];
+
+          setHeroinData(heroinData);
+
+          });
+      }, []); 
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 }; 
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
-
-  const adjustedData = period === 'Quarterly' || !period ? sampleDataHeroin : sampleDataHeroin_6Months;
-
-  const xDomain = period === 'Quarterly' || !period
-    ? adjustedData[0].values.map(d => d.quarter)
-    : adjustedData[0].values.map(d => d.period.replace('Q2', 'Jan-Jun').replace('Q4', 'Jul-Dec'));
-  const xAccessor = period === 'Quarterly' || !period ? d => d.quarter : d => d.period.replace('Q2', 'Jan-Jun').replace('Q4', 'Jul-Dec');
-
-  const xScale = scaleBand({
-    domain: xDomain,
-    range: [0, adjustedWidth],
-    padding: 0.2,
-  });
-
-  const yScale = scaleLinear({
-    domain: [0, Math.max(...adjustedData.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
-    range: [adjustedHeight, 0],
-    nice: true,
-  });
 
   const getPrevPeriodValue = (lineData, i, offset = 1) => {
     if (i - offset >= 0) {
@@ -225,9 +133,30 @@ const PositiveHeroinChart = ({ width, height, period }) => {
       });
   };
 
-  useEffect(() => {
-    ReactTooltip.rebuild();
-  }, [showPercentChange, adjustedData]);
+  const adjustedData = heroinData;
+
+  if (!adjustedData || adjustedData.length == 0) {
+    return (
+      <div style={{ color: 'red', textAlign: 'center', margin: 40 }}>
+        No data available for the selected region.
+      </div>
+    );
+  }
+
+  const xDomain = period === 'Quarterly'  ? adjustedData[0].values.map(d => d.quarter)  : adjustedData[0].values.map(d => d.period);
+  const xAccessor = period === 'Quarterly' ? d => d.quarter : d => d.period;
+
+  const xScale = scaleBand({
+    domain: xDomain,
+    range: [0, adjustedWidth],
+    padding: 0.2,
+  });
+
+  const yScale = scaleLinear({
+    domain: [0, Math.max(...adjustedData.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
+    range: [adjustedHeight, 0],
+    nice: true,
+  });
 
   const mainLine = adjustedData.find(line => line.name === "Methamphetamine");
   let keyFinding = null;
