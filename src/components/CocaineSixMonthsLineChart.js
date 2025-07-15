@@ -7,113 +7,6 @@ import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
 
-/* const cocaineSixMonthsData = {
-  National: [
-    { period: 'Jan-Jun 2022', percentage: 6.4, ciLower: 6.2, ciUpper: 6.6 },
-    { period: 'Jul-Dec 2022', percentage: 6.6, ciLower: 6.5, ciUpper: 6.8 },
-    { period: 'Jan-Jun 2023', percentage: 7.3, ciLower: 7.2, ciUpper: 7.5 },
-    { period: 'Jul-Dec 2023', percentage: 7.6, ciLower: 7.4, ciUpper: 7.7 },
-    { period: 'Jan-Jun 2024', percentage: 8.3, ciLower: 8.2, ciUpper: 8.5 },
-  ],
-  "Cocaine with Opioids": [
-    { period: 'Jan-Jun 2022', percentage: 3.2, ciLower: 3.1, ciUpper: 3.4 },
-    { period: 'Jul-Dec 2022', percentage: 3.4, ciLower: 3.3, ciUpper: 3.5 },
-    { period: 'Jan-Jun 2023', percentage: 3.7, ciLower: 3.6, ciUpper: 3.8 },
-    { period: 'Jul-Dec 2023', percentage: 3.9, ciLower: 3.8, ciUpper: 4.0 },
-    { period: 'Jan-Jun 2024', percentage: 4.1, ciLower: 4.0, ciUpper: 4.2 },
-  ],
-  "Cocaine without Opioids": [
-    { period: 'Jan-Jun 2022', percentage: 3.1, ciLower: 3.0, ciUpper: 3.3 },
-    { period: 'Jul-Dec 2022', percentage: 3.2, ciLower: 3.1, ciUpper: 3.3 },
-    { period: 'Jan-Jun 2023', percentage: 3.6, ciLower: 3.5, ciUpper: 3.7 },
-    { period: 'Jul-Dec 2023', percentage: 3.9, ciLower: 3.8, ciUpper: 4.0 },
-    { period: 'Jan-Jun 2024', percentage: 4.4, ciLower: 4.3, ciUpper: 4.5 },
-  ],
-  West: [
-    { period: 'Jul-Dec 2022', percentage: 3.9, ciLower: 3.7, ciUpper: 4.2 },
-    { period: 'Jan-Jun 2023', percentage: 4.0, ciLower: 3.8, ciUpper: 4.2 },
-    { period: 'Jul-Dec 2023', percentage: 4.5, ciLower: 4.4, ciUpper: 4.7 },
-    { period: 'Jan-Jun 2024', percentage: 5.3, ciLower: 5.1, ciUpper: 5.5 },
-    { period: 'Jul-Dec 2024', percentage: 6.5, ciLower: 6.3, ciUpper: 6.7 },
-  ],
-  "West Cocaine with Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 2.2, ciLower: 2.0, ciUpper: 2.4 },
-    { period: 'Jan-Jun 2023', percentage: 2.2, ciLower: 2.1, ciUpper: 2.3 },
-    { period: 'Jul-Dec 2023', percentage: 2.5, ciLower: 2.4, ciUpper: 2.7 },
-    { period: 'Jan-Jun 2024', percentage: 3.2, ciLower: 3.0, ciUpper: 3.3 },
-    { period: 'Jul-Dec 2024', percentage: 4.0, ciLower: 3.9, ciUpper: 4.2 },
-  ],
-  "West Cocaine without Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 1.7, ciLower: 1.5, ciUpper: 1.8 },
-    { period: 'Jan-Jun 2023', percentage: 1.8, ciLower: 1.7, ciUpper: 1.9 },
-    { period: 'Jul-Dec 2023', percentage: 2.0, ciLower: 1.9, ciUpper: 2.1 },
-    { period: 'Jan-Jun 2024', percentage: 2.1, ciLower: 2.0, ciUpper: 2.2 },
-    { period: 'Jul-Dec 2024', percentage: 2.4, ciLower: 2.3, ciUpper: 2.6 },
-  ],
-  Midwest: [
-    { period: 'Jul-Dec 2022', percentage: 7.8, ciLower: 7.4, ciUpper: 8.1 },
-    { period: 'Jan-Jun 2023', percentage: 7.9, ciLower: 7.7, ciUpper: 8.2 },
-    { period: 'Jul-Dec 2023', percentage: 9.4, ciLower: 8.9, ciUpper: 9.8 },
-    { period: 'Jan-Jun 2024', percentage: 9.4, ciLower: 9.1, ciUpper: 9.6 },
-    { period: 'Jul-Dec 2024', percentage: 9.5, ciLower: 9.2, ciUpper: 9.7 },
-  ],
-  "Midwest Cocaine with Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 4.0, ciLower: 3.8, ciUpper: 4.2 },
-    { period: 'Jan-Jun 2023', percentage: 4.7, ciLower: 4.4, ciUpper: 4.9 },
-    { period: 'Jul-Dec 2023', percentage: 4.3, ciLower: 4.1, ciUpper: 4.5 },
-    { period: 'Jan-Jun 2024', percentage: 3.9, ciLower: 3.7, ciUpper: 4.2 },
-    { period: 'Jul-Dec 2024', percentage: 4.3, ciLower: 4.1, ciUpper: 4.5 },
-  ],
-  "Midwest Cocaine without Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 3.9, ciLower: 3.7, ciUpper: 4.2 },
-    { period: 'Jan-Jun 2023', percentage: 4.1, ciLower: 3.9, ciUpper: 4.2 },
-    { period: 'Jul-Dec 2023', percentage: 5.4, ciLower: 4.6, ciUpper: 5.8 },
-    { period: 'Jan-Jun 2024', percentage: 5.3, ciLower: 5.0, ciUpper: 5.3 },
-    { period: 'Jul-Dec 2024', percentage: 5.6, ciLower: 5.4, ciUpper: 5.8 },
-  ],
-  South: [
-    { period: 'Jul-Dec 2022', percentage: 8.7, ciLower: 8.2, ciUpper: 9.2 },
-    { period: 'Jan-Jun 2023', percentage: 9.5, ciLower: 9.1, ciUpper: 9.8 },
-    { period: 'Jul-Dec 2023', percentage: 9.4, ciLower: 9.0, ciUpper: 9.8 },
-    { period: 'Jan-Jun 2024', percentage: 8.8, ciLower: 8.5, ciUpper: 9.0 },
-    { period: 'Jul-Dec 2024', percentage: 10.3, ciLower: 9.9, ciUpper: 10.6 },
-  ],
-  "South Cocaine with Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 4.6, ciLower: 4.3, ciUpper: 4.9 },
-    { period: 'Jan-Jun 2023', percentage: 5.1, ciLower: 4.8, ciUpper: 5.3 },
-    { period: 'Jul-Dec 2023', percentage: 4.3, ciLower: 4.1, ciUpper: 4.5 },
-    { period: 'Jan-Jun 2024', percentage: 4.1, ciLower: 4.0, ciUpper: 4.2 },
-    { period: 'Jul-Dec 2024', percentage: 4.7, ciLower: 4.5, ciUpper: 4.9 },
-  ],
-  "South Cocaine without Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 4.1, ciLower: 3.9, ciUpper: 4.2 },
-    { period: 'Jan-Jun 2023', percentage: 4.4, ciLower: 4.2, ciUpper: 4.5 },
-    { period: 'Jul-Dec 2023', percentage: 5.1, ciLower: 4.6, ciUpper: 5.2 },
-    { period: 'Jan-Jun 2024', percentage: 5.9, ciLower: 5.6, ciUpper: 6.2 },
-    { period: 'Jul-Dec 2024', percentage: 5.9, ciLower: 5.6, ciUpper: 6.2 },
-  ],
-  Northeast: [
-    { period: 'Jul-Dec 2022', percentage: 2.6, ciLower: 2.2, ciUpper: 3.0 },
-    { period: 'Jan-Jun 2023', percentage: 2.7, ciLower: 2.3, ciUpper: 3.1 },
-    { period: 'Jul-Dec 2023', percentage: 2.9, ciLower: 2.5, ciUpper: 3.3 },
-    { period: 'Jan-Jun 2024', percentage: 3.1, ciLower: 2.7, ciUpper: 3.5 },
-    { period: 'Jul-Dec 2024', percentage: 3.2, ciLower: 2.8, ciUpper: 3.6 },
-  ],
-  "Northeast Cocaine with Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 1.3, ciLower: 1.1, ciUpper: 1.5 },
-    { period: 'Jan-Jun 2023', percentage: 1.3, ciLower: 1.1, ciUpper: 1.5 },
-    { period: 'Jul-Dec 2023', percentage: 1.4, ciLower: 1.2, ciUpper: 1.6 },
-    { period: 'Jan-Jun 2024', percentage: 1.5, ciLower: 1.3, ciUpper: 1.7 },
-    { period: 'Jul-Dec 2024', percentage: 1.6, ciLower: 1.4, ciUpper: 1.8 },
-  ],
-  "Northeast Cocaine without Opioids": [
-    { period: 'Jul-Dec 2022', percentage: 1.3, ciLower: 1.1, ciUpper: 1.5 },
-    { period: 'Jan-Jun 2023', percentage: 1.4, ciLower: 1.2, ciUpper: 1.6 },
-    { period: 'Jul-Dec 2023', percentage: 1.5, ciLower: 1.3, ciUpper: 1.7 },
-    { period: 'Jan-Jun 2024', percentage: 1.6, ciLower: 1.4, ciUpper: 1.8 },
-    { period: 'Jul-Dec 2024', percentage: 1.6, ciLower: 1.4, ciUpper: 1.8 },
-  ],
-}; */
 
 const getKeyFinding = (data) => {
   if (!data || data.length < 2) return null;
@@ -252,7 +145,7 @@ const getNewNationalDrugs = (region = "National") => {
   ];
 };
 
-const newNationalDrugsData = {
+/* const newNationalDrugsData = {
   Fentanyl: [
     { period: 'Jul-Dec 2022', percentage: 49.4, ciLower: 47.8, ciUpper: 51 },
     { period: 'Jan-Jun 2023', percentage: 49.8, ciLower: 48.7, ciUpper: 50.9 },
@@ -400,7 +293,7 @@ const newNationalDrugsData = {
     { period: 'Jan-Jun 2024', percentage: 17.5, ciLower: 14.7, ciUpper: 20.3 },
     { period: 'Jul-Dec 2024', percentage: 17.6, ciLower: 14.7, ciUpper: 20.4 },
   ],
-};
+}; */
 
 
 const getKeyFindingNew = (data) => {
@@ -464,6 +357,7 @@ const CocaineSixMonthsLineChart = ({ region, width, height, showMultiDrug = fals
         sixMData['Northeast Cocaine without Opioids'] = neData[2].data;
         
         setCocaineSixMonthsData(sixMData);
+
       });
   }, []);
 
@@ -718,6 +612,69 @@ const CocaineSixMonthsLineChart = ({ region, width, height, showMultiDrug = fals
 const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
+  const [newNationalDrugsData, setNewNationalDrugsData] = useState([]);
+
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+
+        const nfDataN = UtilityFunctions.getGroupedData(data, 'National', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl']);
+        const nhDataN = UtilityFunctions.getGroupedData(data, 'National', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+        const ncDataN = UtilityFunctions.getGroupedData(data, 'National', 'Cocaine', 'CoPositive', 'HalfYearly', ['Opioids']);
+        const nmDataN = UtilityFunctions.getGroupedData(data, 'National', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+
+        const wfDataN = UtilityFunctions.getGroupedData(data, 'West', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl']);
+        const whDataN = UtilityFunctions.getGroupedData(data, 'West', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+        const wcDataN = UtilityFunctions.getGroupedData(data, 'West', 'Cocaine', 'CoPositive', 'HalfYearly', ['Opioids']);
+        const wmDataN = UtilityFunctions.getGroupedData(data, 'West', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+
+        const mwfDataN = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl']);
+        const mwhDataN = UtilityFunctions.getGroupedData(data, 'MidWest', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+        const mwcDataN = UtilityFunctions.getGroupedData(data, 'MidWest', 'Cocaine', 'CoPositive', 'HalfYearly', ['Opioids']);
+        const mwmDataN = UtilityFunctions.getGroupedData(data, 'MidWest', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+
+        const sfDataN = UtilityFunctions.getGroupedData(data, 'South', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl']);
+        const shDataN = UtilityFunctions.getGroupedData(data, 'South', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+        const scDataN = UtilityFunctions.getGroupedData(data, 'South', 'Cocaine', 'CoPositive', 'HalfYearly', ['Opioids']);
+        const smDataN = UtilityFunctions.getGroupedData(data, 'South', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+
+        const nefDataN = UtilityFunctions.getGroupedData(data, 'North', 'Fentanyl', 'Positivity', 'HalfYearly', ['Fentanyl']);
+        const nehDataN = UtilityFunctions.getGroupedData(data, 'North', 'Heroin', 'Positivity', 'HalfYearly', ['Heroin']);
+        const necDataN = UtilityFunctions.getGroupedData(data, 'North', 'Cocaine', 'CoPositive', 'HalfYearly', ['Opioids']);
+        const nemDataN = UtilityFunctions.getGroupedData(data, 'North', 'Methamphetamine', 'Positivity', 'HalfYearly', ['Methamphetamine']);
+
+        var newNationalDrugsData = {};
+        newNationalDrugsData['Fentanyl'] = nfDataN[0].data;
+        newNationalDrugsData['Heroin'] = nhDataN[0].data;
+        newNationalDrugsData['Opioids'] = ncDataN[0].data;
+        newNationalDrugsData['Methamphetamine'] = nmDataN[0].data;
+
+        newNationalDrugsData['West Fentanyl'] = wfDataN[0].data;
+        newNationalDrugsData['West Heroin'] = whDataN[0].data;
+        newNationalDrugsData['West Opioids'] = wcDataN[0].data;
+        newNationalDrugsData['West Methamphetamine'] = wmDataN[0].data;
+
+        newNationalDrugsData['Midwest Fentanyl'] = mwfDataN[0].data;
+        newNationalDrugsData['Midwest Heroin'] = mwhDataN[0].data;
+        newNationalDrugsData['Midwest Opioids'] = mwcDataN[0].data;
+        newNationalDrugsData['Midwest Methamphetamine'] = mwmDataN[0].data;
+
+        newNationalDrugsData['South Fentanyl'] = sfDataN[0].data;
+        newNationalDrugsData['South Heroin'] = shDataN[0].data;
+        newNationalDrugsData['South Opioids'] = scDataN[0].data;
+        newNationalDrugsData['South Methamphetamine'] = smDataN[0].data;
+
+        newNationalDrugsData['Northeast Fentanyl'] = nefDataN[0].data;
+        newNationalDrugsData['Northeast Heroin'] = nehDataN[0].data;
+        newNationalDrugsData['Northeast Opioids'] = necDataN[0].data;
+        newNationalDrugsData['Northeast Methamphetamine'] = nemDataN[0].data;
+
+        setNewNationalDrugsData(newNationalDrugsData);
+
+
+      });
+  }, []);
 
   const drugsToShow = getNewNationalDrugs(region);
   const dataSets = drugsToShow.map(drug => ({
@@ -974,13 +931,13 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
               dy: 10,
             })}
           />
-          {dataSets.map(ds => (
-            <React.Fragment key={ds.label}>
+          {dataSets.filter(ds => selectedLines.includes(ds.key)).map(ds => (
+            <React.Fragment key={ds.key}>
               <LinePath
                 data={ds.data}
                 x={d => xScale(d.period) + xScale.bandwidth() / 2}
                 y={d => yScale(d.percentage)}
-                stroke={lineColors[ds.label] || '#1f77b4'}
+                stroke={lineColors[ds.key] || '#1f77b4'}
                 strokeWidth={2}
                 curve={null}
               />
@@ -990,10 +947,10 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
                     cx={xScale(d.period) + xScale.bandwidth() / 2}
                     cy={yScale(d.percentage)}
                     r={4}
-                    fill={lineColors[ds.label] || '#1f77b4'}
+                    fill={lineColors[ds.key] || '#1f77b4'}
                     data-tip={`<div style='text-align: left;'>
                       <strong>${d.period}</strong><br/>
-                      ${ds.label} positivity: ${d.percentage}%<br/>
+                      ${ds.key} positivity: ${d.percentage}%<br/>
                       Confidence interval: ${d.ciLower}% - ${d.ciUpper}%
                     </div>`}
                   />
@@ -1018,7 +975,7 @@ const NationalMultiDrugLineChart = ({ region = "National", width, height }) => {
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
         {dataSets.map(ds => (
           <div key={ds.key} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
-            <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[ds.key] || '#1f77b4', marginRight: '5px' }}></div>
+            <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[ds.label] || '#1f77b4', marginRight: '5px' }}></div>
             <span style={{ fontSize: '16px', color: '#333' }}>{ds.label}</span>
           </div>
         ))}

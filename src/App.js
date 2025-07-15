@@ -6,6 +6,7 @@ import debounce from 'lodash.debounce';
 
 import LineChartWithToggles from './components/LineChartWithToggles'; 
 import MethamphetamineLineChart from './components/MethamphetamineLineChart'; 
+import MethamphetamineLineChartsecondLineChart from './components/MethamphetamineLineChartsecondlinechart';
 import PositiveHeroinChart from './components/PositiveHeroinChart'; 
 import MethamphetamineLineChartWest from './components/MethamphetamineLineChartWest'; 
 import MethamphetamineLineChartSouth from './components/MethamphetamineLineChartSouth'; 
@@ -239,9 +240,16 @@ function App() {
       )}
 
       {/* methamphetamine */}
-      {selectedRegion === 'National' && selectedDrug === 'methamphetamine' && (
+      {selectedRegion === 'National' && selectedDrug === 'methamphetamine' && selectedPeriod === 'HalfYearly' && (
         <>
           <MethamphetamineLineChart period={selectedPeriod} width={width} height={chartHeight}/>
+          <MethamphetamineLineChartsecondLineChart period={selectedPeriod} width={width} height={chartHeight} />
+        </>
+      )}
+      {selectedRegion === 'National' && selectedDrug === 'methamphetamine' && selectedPeriod === 'Quarterly' && (
+        <>
+          <MethamphetamineLineChart period={selectedPeriod} width={width} height={chartHeight}/>
+          <MethamphetamineLineChartsecondLineChart period={selectedPeriod} width={width} height={chartHeight} />
         </>
       )}
       {selectedRegion === 'WEST' && selectedDrug === 'methamphetamine' && (

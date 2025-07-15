@@ -6,7 +6,6 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
 import { UtilityFunctions } from '../utility';
-import MethamphetamineLineChartsecondLineChart from './MethamphetamineLineChartsecondlinechart';
 
 const MethamphetamineLineChart = ({ width, height, period}) => {
   const [showLabels, setShowLabels] = useState(false);
@@ -334,8 +333,6 @@ const MethamphetamineLineChart = ({ width, height, period}) => {
       </div>
       <div style={{ height: '32px' }} />
       <ReactTooltip html={true} />
-
-      <MethamphetamineLineChartsecondLineChart width={width} height={350} period={period} />
     </div>
   );
 };
