@@ -7,81 +7,6 @@ import ReactTooltip from 'react-tooltip';
 import { UtilityFunctions } from '../utility';
 import { allQuarters, allPeriods6M } from '../constants/Constants';
 
-// Quarterly data for MIDWEST
-const methMidwestSecondData = [
-  // Fentanyl
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q4 2022', percentage: 34.6, ciLower: 32.7, ciUpper: 36.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q1 2023', percentage: 33.1, ciLower: 31.3, ciUpper: 34.9 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q2 2023', percentage: 35.5, ciLower: 33.8, ciUpper: 37.7 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q3 2023', percentage: 39.4, ciLower: 37.6, ciUpper: 41.3 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q4 2023', percentage: 34.6, ciLower: 32.9, ciUpper: 36.4 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q1 2024', percentage: 33.4, ciLower: 31.7, ciUpper: 35.2 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q2 2024', percentage: 34.1, ciLower: 32.4, ciUpper: 35.9 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q3 2024', percentage: 32, ciLower: 30.3, ciUpper: 33.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', quarter: 'Q4 2024', percentage: 32, ciLower: 30.3, ciUpper: 33.6 },
-
-  // Heroin
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q4 2022', percentage: 10.7, ciLower: 9.4, ciUpper: 11.9 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q1 2023', percentage: 10.1, ciLower: 9, ciUpper: 11.2 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q2 2023', percentage: 12, ciLower: 10.8, ciUpper: 13.3 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q3 2023', percentage: 11.1, ciLower: 9.8, ciUpper: 12.3 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q4 2023', percentage: 11.9, ciLower: 10.7, ciUpper: 13.1 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q1 2024', percentage: 12.6, ciLower: 11.4, ciUpper: 13.9 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q2 2024', percentage: 12.6, ciLower: 11.4, ciUpper: 13.9 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q3 2024', percentage: 11.9, ciLower: 10.8, ciUpper: 13 },
-  { region: 'MIDWEST', drug: 'Heroin', quarter: 'Q4 2024', percentage: 11.9, ciLower: 10.8, ciUpper: 13 },
-
-  // Opioids
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q4 2022', percentage: 36.3, ciLower: 34, ciUpper: 38.7 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q1 2023', percentage: 33.4, ciLower: 31.3, ciUpper: 35.6 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q2 2023', percentage: 39.6, ciLower: 37.9, ciUpper: 41.4 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q3 2023', percentage: 40.1, ciLower: 38.3, ciUpper: 41.9 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q4 2023', percentage: 35.2, ciLower: 33.5, ciUpper: 37 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q1 2024', percentage: 32.7, ciLower: 31.1, ciUpper: 34.4 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q2 2024', percentage: 32.4, ciLower: 30.7, ciUpper: 34 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q3 2024', percentage: 32.4, ciLower: 30.7, ciUpper: 34 },
-  { region: 'MIDWEST', drug: 'Opioids', quarter: 'Q4 2024', percentage: 32.4, ciLower: 30.7, ciUpper: 34 },
-
-  // Cocaine
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q4 2022', percentage: 16.6, ciLower: 15.2, ciUpper: 18 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q1 2023', percentage: 16.6, ciLower: 15.2, ciUpper: 18 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q2 2023', percentage: 17.8, ciLower: 16.4, ciUpper: 19.2 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q3 2023', percentage: 18.5, ciLower: 17.1, ciUpper: 19.9 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q4 2023', percentage: 19.7, ciLower: 18.3, ciUpper: 21.1 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q1 2024', percentage: 21.6, ciLower: 20, ciUpper: 23.1 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q2 2024', percentage: 21.6, ciLower: 20, ciUpper: 23.1 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q3 2024', percentage: 19.6, ciLower: 18.2, ciUpper: 21 },
-  { region: 'MIDWEST', drug: 'Cocaine', quarter: 'Q4 2024', percentage: 19.6, ciLower: 18.2, ciUpper: 21 },
-];
-
-// 6 Months data for MIDWEST
-const methMidwestSecondData6Months = [
-  // Fentanyl
-  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jul-Dec 2022', percentage: 34.6, ciLower: 32.7, ciUpper: 36.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jan-Jun 2023', percentage: 34.4, ciLower: 33.1, ciUpper: 35.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jul-Dec 2023', percentage: 39.3, ciLower: 38, ciUpper: 40.6 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jan-Jun 2024', percentage: 35.6, ciLower: 34.3, ciUpper: 36.8 },
-  { region: 'MIDWEST', drug: 'Fentanyl', period: 'Jul-Dec 2024', percentage: 32.2, ciLower: 31, ciUpper: 33.4 },
-  // Heroin
-  { region: 'MIDWEST', drug: 'Heroin', period: 'Jul-Dec 2022', percentage: 10.7, ciLower: 9.4, ciUpper: 11.9 },
-  { region: 'MIDWEST', drug: 'Heroin', period: 'Jan-Jun 2023', percentage: 11.1, ciLower: 10.3, ciUpper: 11.9 },
-  { region: 'MIDWEST', drug: 'Heroin', period: 'Jul-Dec 2023', percentage: 11.6, ciLower: 10.8, ciUpper: 12.4 },
-  { region: 'MIDWEST', drug: 'Heroin', period: 'Jan-Jun 2024', percentage: 12.6, ciLower: 11.8, ciUpper: 13.5 },
-  { region: 'MIDWEST', drug: 'Heroin', period: 'Jul-Dec 2024', percentage: 11.8, ciLower: 11, ciUpper: 12.6 },
-  // Opioids
-  { region: 'MIDWEST', drug: 'Opioids', period: 'Jul-Dec 2022', percentage: 35.3, ciLower: 33.3, ciUpper: 37.3 },
-  { region: 'MIDWEST', drug: 'Opioids', period: 'Jan-Jun 2023', percentage: 34.8, ciLower: 33.6, ciUpper: 36.1 },
-  { region: 'MIDWEST', drug: 'Opioids', period: 'Jul-Dec 2023', percentage: 39.9, ciLower: 38.6, ciUpper: 41.1 },
-  { region: 'MIDWEST', drug: 'Opioids', period: 'Jan-Jun 2024', percentage: 36, ciLower: 34.8, ciUpper: 37.3 },
-  { region: 'MIDWEST', drug: 'Opioids', period: 'Jul-Dec 2024', percentage: 32.6, ciLower: 31.4, ciUpper: 33.7 },
-  // Cocaine
-  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jul-Dec 2022', percentage: 16.6, ciLower: 15.1, ciUpper: 18.2 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jan-Jun 2023', percentage: 17.2, ciLower: 16.3, ciUpper: 18.2 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jul-Dec 2023', percentage: 18.4, ciLower: 17.1, ciUpper: 19.4 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jan-Jun 2024', percentage: 20.7, ciLower: 19.6, ciUpper: 21.7 },
-  { region: 'MIDWEST', drug: 'Cocaine', period: 'Jul-Dec 2024', percentage: 19.9, ciLower: 18.9, ciUpper: 20.9 },
-];
-
 const lineColors = {
   'Fentanyl': '#27ae60',
   'Heroin': '#8e44ad',
@@ -105,16 +30,57 @@ const MethamphetamineMidwestsecondlinechart = ({ width, height = 350, period }) 
   const [showLabels, setShowLabels] = useState(false);
   const [showPercentChange, setShowPercentChange] = useState(false);
   const [selectedLines, setSelectedLines] = useState(Object.keys(lineColors));
+  const [methMidwestSecondData, setMethMidwestSecondData] = useState([]);
   const allLineKeys = Object.keys(lineColors);
 
   const margin = { top: 60, right: 30, bottom: 50, left: 90 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, [selectedLines, showPercentChange, showLabels]);
+
+  useEffect(() => {
+      fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+        .then(res => res.json())
+        .then(data => {
+
+            var methMidwestSecondData = [];
+
+            const fData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'Positivity', period, ['Fentanyl']);
+            const hData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Heroin', 'Positivity', period, ['Heroin']);
+            const mData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Methamphetamine', 'CoPositive', period, ['Opioids']);
+            const cData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Cocaine', 'Positivity', period, ['Cocaine']);
+
+            
+            if (fData.length > 0) {
+                for(var i=0; i<fData[0].data.length; i++)
+                  methMidwestSecondData.push(fData[0].data[i])
+            }
+            if (hData.length > 0) {
+                for(var i=0; i<hData[0].data.length; i++)
+                  methMidwestSecondData.push(hData[0].data[i])
+            }
+            if (mData.length > 0) {
+                for(var i=0; i<mData[0].data.length; i++)
+                  methMidwestSecondData.push(mData[0].data[i])
+            }
+            if (cData.length > 0) {
+                for(var i=0; i<cData[0].data.length; i++)
+                  methMidwestSecondData.push(cData[0].data[i])
+            }
+
+            setMethMidwestSecondData(methMidwestSecondData);
+        });
+  
+    }, []);
+
   const is6M = period === 'HalfYearly';
-  const regionData = is6M
-    ? methMidwestSecondData6Months.filter(d => d.region === 'MIDWEST')
-    : methMidwestSecondData.filter(d => d.region === 'MIDWEST');
+  const regionData = methMidwestSecondData;
+
+
+
   const xDomain = is6M ? allPeriods6M : allQuarters;
   const xLabelField = is6M ? 'period' : 'quarter';
   const datasets = alignDataToQuarters(regionData, xDomain, xLabelField);
@@ -153,10 +119,6 @@ const MethamphetamineMidwestsecondlinechart = ({ width, height = 350, period }) 
       };
     }
   }
-
-  useEffect(() => {
-    ReactTooltip.rebuild();
-  }, [selectedLines, showPercentChange, showLabels]);
 
   const percentChgTooltip = `
     <div style="
