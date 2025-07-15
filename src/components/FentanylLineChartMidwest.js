@@ -398,7 +398,7 @@ function getKeyFindingForThreeDrugs() {
       const hData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Heroin', 'Positivity', 'Quarterly', ['Heroin']);
       const cData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Cocaine', 'Positivity', 'Quarterly', ['Cocaine']);
       const mData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Methamphetamine', 'Positivity', 'Quarterly', ['Methamphetamine']);
-      const fwsData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'CoPositive', 'Quarterly', ['Fentanyl with Stimulants']); //TODO SKV
+      const fwsData = UtilityFunctions.getGroupedData(data, 'MidWest', 'Fentanyl', 'Positivity', 'Quarterly', ['Fentanyl with Stimulants']);
 
       setHeroinMidwestData(hData[0].data);
       setCocaineMidwestData(cData[0].data);
