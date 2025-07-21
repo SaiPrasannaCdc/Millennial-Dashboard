@@ -5704,7 +5704,7 @@
         ],
         "HalfYearly": [
           {
-            "period": "2022 Jun-Dec",
+            "period": "2022 Jul-Dec",
             "drug_name": "Fentanyl",
             "USregion": "WEST",
             "percentage": 62.5,
@@ -5721,7 +5721,7 @@
             "Period": "-1.0%"
           },
           {
-            "period": "2023 Jun-Dec",
+            "period": "2023 Jul-Dec",
             "drug_name": "Fentanyl",
             "USregion": "WEST",
             "percentage": 63.5,
@@ -5741,7 +5741,7 @@
             "Annual": "4.0%"
           },
           {
-            "period": "2024 Jun-Dec",
+            "period": "2024 Jul-Dec",
             "drug_name": "Fentanyl",
             "USregion": "WEST",
             "percentage": 58.8,
@@ -5751,7 +5751,7 @@
             "Annual": "-7.4%"
           },
           {
-            "period": "2022 Jun-Dec",
+            "period": "2022 Jul-Dec",
             "drug_name": "Cocaine",
             "USregion": "WEST",
             "percentage": 12.7,
@@ -5768,7 +5768,7 @@
             "Period": "10.2%"
           },
           {
-            "period": "2023 Jun-Dec",
+            "period": "2023 Jul-Dec",
             "drug_name": "Cocaine",
             "USregion": "WEST",
             "percentage": 17.1,
@@ -5788,7 +5788,7 @@
             "Annual": "34.3%"
           },
           {
-            "period": "2024 Jun-Dec",
+            "period": "2024 Jul-Dec",
             "drug_name": "Cocaine",
             "USregion": "WEST",
             "percentage": 22.7,
@@ -5798,7 +5798,7 @@
             "Annual": "32.7%"
           },
           {
-            "period": "2022 Jun-Dec",
+            "period": "2022 Jul-Dec",
             "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 74.5,
@@ -5815,7 +5815,7 @@
             "Period": "-3.1%"
           },
           {
-            "period": "2023 Jun-Dec",
+            "period": "2023 Jul-Dec",
             "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 69.7,
@@ -5835,7 +5835,7 @@
             "Annual": "-5.3%"
           },
           {
-            "period": "2024 Jun-Dec",
+            "period": "2024 Jul-Dec",
             "drug_name": "Methamphetamine",
             "USregion": "WEST",
             "percentage": 80.6,
@@ -5845,7 +5845,7 @@
             "Annual": "15.6%"
           },
           {
-            "period": "2022 Jun-Dec",
+            "period": "2022 Jul-Dec",
             "drug_name": "Heroin and Stimulants",
             "USregion": "WEST",
             "percentage": 56.2,
@@ -5862,7 +5862,7 @@
             "Period": "0.0%"
           },
           {
-            "period": "2023 Jun-Dec",
+            "period": "2023 Jul-Dec",
             "drug_name": "Heroin and Stimulants",
             "USregion": "WEST",
             "percentage": 57.1,
@@ -5882,7 +5882,7 @@
             "Annual": "-0.7%"
           },
           {
-            "period": "2024 Jun-Dec",
+            "period": "2024 Jul-Dec",
             "drug_name": "Heroin and Stimulants",
             "USregion": "WEST",
             "percentage": 71,
@@ -8854,7 +8854,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamph",
+            "drug_name": "Methamphetamine",
             "USregion": "NORTH",
             "percentage": 13.2,
             "ciLower": 9,
@@ -8864,7 +8864,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamph",
+            "drug_name": "Methamphetamine",
             "USregion": "NORTH",
             "percentage": 15,
             "ciLower": 12,
@@ -8874,7 +8874,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamph",
+            "drug_name": "Methamphetamine",
             "USregion": "NORTH",
             "percentage": 12,
             "ciLower": 9.5,
@@ -8884,7 +8884,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamph",
+            "drug_name": "Methamphetamine",
             "USregion": "NORTH",
             "percentage": 17.5,
             "ciLower": 14.7,
@@ -8894,7 +8894,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamph",
+            "drug_name": "Methamphetamine",
             "USregion": "NORTH",
             "percentage": 17.6,
             "ciLower": 14.7,
