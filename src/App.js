@@ -32,6 +32,8 @@ function App() {
   const [kfInfoFromChartOne, setDataFromChartOne] = useState('');
   const [kfInfoFromChartTwo, setDataFromChartTwo] = useState('');
 
+  const dataUrl = window.location.origin.includes('localhost') ? '' : '/overdose-prevention/data-dashboards/clinical-urine-dashboard';
+
   const [width, setWidth] = useState(1100);
 
   const isSmallViewport = width < 500;
@@ -142,7 +144,7 @@ function App() {
   
   useEffect(() => {
 
-    fetch(process.env.PUBLIC_URL + '/data/Millenial-Format.normalized.json')
+    fetch(dataUrl + '/data/Millenial-Format.normalized.json')
       .then(res => res.json())
       .then(data => {
       setJsonData(data);
