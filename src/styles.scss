@@ -1318,3 +1318,28 @@ $sidebarWidth:  $sidebarMargin - 25px;
         }
     }
 }
+
+.containerLC {
+display: flex;
+width: 100%;
+}
+
+.chartDivAll {
+width: 100%;
+}
+
+.loading-container {
+text-align: center;
+
+.loading-spinner {
+width: 30px;
+height: 30px;
+border-radius: 15px;
+border: 3px solid black;
+border-right: none;
+border-top: none;
+display: inline-block;
+margin-top: 2em;
+animation: spin 1s infinite;
+}
+}

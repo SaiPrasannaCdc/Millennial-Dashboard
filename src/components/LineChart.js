@@ -1,760 +1,304 @@
-import React, { useState, useEffect , useRef , useCallback} from 'react';
-import { LinePath, Circle } from '@visx/shape';
+import {React, Fragment, useState, useEffect} from 'react';
 import { Group } from '@visx/group';
-import { AxisLeft, AxisBottom } from '@visx/axis';
-import { scaleTime, scaleLinear } from '@visx/scale';
-import { max } from 'd3-array';
-import { format } from 'd3-format';
 import { Text } from '@visx/text';
-import { capitalizeFirstLetter } from '../constants/functions';
-import { adjustArrayToHaveMinimumDistance } from '../constants/functions';
-import { colorScaleLighterClasses } from '../constants/Constants';
-const formatYear = format('d');
+import { Circle } from '@visx/shape';
+import { AxisLeft, AxisBottom } from '@visx/axis';
+import { scaleLinear, scaleBand } from '@visx/scale';
+import { UtilityFunctions } from '../utility'
+import ReactDOMServer from 'react-dom/server';
+import ReactTooltip from 'react-tooltip';
+import './ToggleSwitch.css';
+
 
 function LineChart(params) {
-    const { data, width, height, colorScale, fromYear, toYear, yLabel1, yLabel2, xLabel, isPercent,
-        chartClick, lineClick, selectedLabel, setSelectedLabel, toolTip, number, labelWidth,
-        value1,
-        chartId,
-        labelOptions, drugsInvolvedMetric, 
-        dataProp = 'value',
-        colorScaleLighter, setTooltipColor,
-        displayYLables = true,
-        maxValueDefined,
-        labelSuffix,
-        sectionHeading,
-        section,
-        skipFootNotes = false,
-        indicatorHeight,
-        setIndicatorHeight
-    } = params;
-    const [adjustedLabelPositions, setAdjustedLabelPositions] = useState([]);
-    const [selectedLabels, setSelectedLabels] = useState([]);
-    const [selectedDrugIsSuppressed, setSelectedDrugIsSuppressed] = useState(false);
-    const [hovered, setHovered] = useState(null);
-    const [hoveredDrug, setHoveredDrug] = useState('');
-    const indicatorRef = useRef();
-    const labelNames = Object.keys(data);
 
-    const margin = { top: 20, right: 30, bottom: 50, left: 20 };
-    const adjustedHeight = height - margin.top - margin.bottom;
-    // const xMax = width - margin.left - margin.right;
-    const yMax = height - margin.top - margin.bottom;
+  const { data, region, currentDrug, period, width, height, selectedDrugs, showLabels, showPercentChange, lineColors, onData, chartNum } = params;
 
-    useEffect(() => {
-        if(setIndicatorHeight && indicatorRef?.current?.clientHeight)
-        {
-            setIndicatorHeight(indicatorRef?.current?.clientHeight)
-        }
-    }, [indicatorRef?.current?.clientHeight]);
+  useEffect(() => {
+        ReactTooltip.rebuild();
+    }, [showPercentChange, selectedDrugs, data, period, showLabels]);
 
-    useEffect(() => {
-        setSelectedLabels(Object.keys(data));
-    }, [data]);
+if (data === undefined || data?.length == 0)
+      return '';
 
-    useEffect(() => {
-        // setSelectedDrugIsSuppressed(false);
-        if(!selectedLabels.includes(selectedLabel)){
-            setSelectedLabel('')
-        }
-    }, [drugsInvolvedMetric, selectedLabels]);
+  const dataSet = data;
+ 
+  const margin = { top: 60, right: 30, bottom: 50, left: 95 };
+  const adjustedWidth = width - margin.left - margin.right;
+  const adjustedHeight = height - margin.top - margin.bottom;
 
-    useEffect(() => {
-        setAdjustedLabelPositions(getLabelPositions());
-    }, [data, selectedLabels, dataProp]);
+  const formatHalfYearLabel = (periodStr) => {
+    if (periodStr == null || periodStr == undefined || periodStr == '')
+      return '';
 
-    useEffect(() => {
-        if (selectedLabel && data[selectedLabel] && drugHasSuppressedValue(yearFilter(data[selectedLabel]), false)) {
-            setSelectedDrugIsSuppressed(true);
-        }
-        else {
-            setSelectedDrugIsSuppressed(false);
-        }
-    },[selectedLabel,section, fromYear, drugsInvolvedMetric, data])
-
-    const getMaxStringLength = (arr) => {
-        return (
-            (labelSuffix ? labelSuffix.length + 1 : 0) +
-            arr.reduce((maxLength, str) => Math.max(maxLength, str.length), 0));
+    let year, half;
+    let match = periodStr.match(/H([12])\s*([0-9]{4})/);
+    if (match) {
+      half = match[1];
+      year = match[2];
+      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
     }
-    const drugLabelWidth = 30 + Math.max(getMaxStringLength(labelNames) * (section=='circumstances' ? 9: 11), 135);
-    const adjustedWidth = width - drugLabelWidth - margin.left - margin.right + (displayYLables? 0: 100);
-
-    const splitData = (data) => {
-        const segments = [];
-        let currentSegment = [];
-        let isDashed = false;
-
-        for (let i = 0; i < data.length - 1; i++) {
-            const currentPoint = { ...data[i] };
-            const nextPoint = { ...data[i + 1] };
-
-            if (currentPoint[dataProp] == -1 || nextPoint[dataProp] == -1) {
-                isDashed = true;
-                if (currentPoint[dataProp] === -1)
-                    currentPoint[dataProp] = 1;
-                if (nextPoint[dataProp] === -1)
-                    nextPoint[dataProp] = 1;
-            } else {
-                isDashed = false;
-            }
-
-            currentSegment.push(currentPoint);
-            currentSegment.push(nextPoint);
-
-            segments.push({ data: currentSegment, isDashed: isDashed });
-            currentSegment = [];
-        }
-
-        return segments;
-    };
-
-    const getLabelName = (dr, isForIndicator = false) => {
-        let v = dr;
-        if (dr == 'All')  v = 'All drugs';
-        if (dr == 'Opioid') v = 'Any opioids';
-        if (dr == 'Stimulant') v = 'Any stimulants';
-        if (!dr) v = '';
-
-        if(isForIndicator){
-            if(section == 'demographics-By race')
-                return v;
-            else
-            return v.toLowerCase()
-        }
-
-        return v;
+    match = periodStr.match(/([0-9]{4})\s*H([12])/);
+    if (match) {
+      year = match[1];
+      half = match[2];
+      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
     }
-
-    const getSortedKeys = () => {
-        const keys = Object.keys(data);
-        keys.sort((a, b) => {
-            data[a].find(a => a.year == toYear);
-            let lastValueA = data[a].find(a => a.year == toYear)[dataProp];
-            let lastValueB = data[b].find(a => a.year == toYear)[dataProp];
-
-            if (lastValueA < lastValueB) {
-                return 1;
-            }
-            if (lastValueA > lastValueB) {
-                return -1;
-            }
-            return 0;
-        });
-
-        return keys;
+    match = periodStr.match(/([0-9]{4})[- ]([12])/);
+    if (match) {
+      year = match[1];
+      half = match[2];
+      return half === '1' ? `Jan-Jun ${year}` : `Jul-Dec ${year}`;
     }
+    return periodStr;
+  };
 
-    let maxDrugValue = maxValueDefined? maxValueDefined: 0;
-
-    labelNames.forEach(dr => {
-        let drugM = max(data[dr], a => a[dataProp]);
-        if (drugM > maxDrugValue) {
-            maxDrugValue = drugM;
-        }
-    })
-
-    const yLabelWidth = Math.floor(maxDrugValue).toLocaleString().length * 5;
-    
-    const minYear = parseInt(fromYear, 10);
-    const maxYear = parseInt(toYear, 10);
-
-    // Scales
-    const xScale = scaleTime({
-        range: [40, adjustedWidth - 20],
-        domain: [minYear, maxYear],
-        padding: 0.35
-    });
-
-    const yScale = scaleLinear({
-        range: [adjustedHeight, 0],
-        nice: true,
-        domain: [0, isPercent ? maxDrugValue * 1.1 : maxDrugValue * 1.1],
-    });
-
-    const drugHasSuppressedValue = (d, inloop=true)=> {
-        for (const entry of d) {
-            if (
-                ((entry[dataProp] === -1 && dataProp == 'value') || entry.rate == -1) && drugsInvolvedMetric == 'rate') {
-                return true;
-            }
-        }
-        if(!inloop) return false;
+  const getPrevPeriodValue = (lineData, i, offset = 1) => {
+    if (i - offset >= 0) {
+      return parseFloat(lineData.values[i - offset].percentage);
     }
+    return null;
+  };
 
-    const dataHasSuppressedValue = (data) => {
-        for (const key in data) {
-            if (data.hasOwnProperty(key) && (!labelOptions || selectedLabels.includes(key))) {
-                 if(drugHasSuppressedValue(yearFilter(data[key]))) return true
-            }
-        }
-        return false;
-    }
+  const renderChangeIndicators = () => {
 
-    const yearFilter = (d) => {
-        return d.filter(a => a.year >= fromYear && a.year <= toYear);
-    }
-
-    const hasSuppressedRate = dataHasSuppressedValue(data);
-
-    const getLabelPositions = () => {
-        let currentPositions = [];
-        getSortedKeys()
-            .filter(k => !labelOptions || selectedLabels.includes(k))
-            .forEach(dr => {
-                let last = yearFilter(data[dr]).length - 1;
-                const lastDataPoint = yearFilter(data[dr])[last];
-                currentPositions.push(yScale(lastDataPoint[dataProp] == -1 ? 1 : lastDataPoint[dataProp]));
-            })
-
-        return adjustArrayToHaveMinimumDistance(currentPositions, 17, yScale(0), yScale(maxDrugValue));
-    }
-
-    const drugOptionClick = (dr) => {
-        if (selectedLabels.includes(dr)) {
-            setSelectedLabels(selectedLabels.filter(l => l != dr));
-            if (selectedLabel == dr) {
-                setSelectedLabel('');
-            }
-        }
-        else {
-            setSelectedLabels([...selectedLabels, dr]);
-        }
-    }
-
-    const drugOptions = (dr, clickable = true, disable = false) => {
-        return <div className={`drug-select-option-button ${disable? 'disabled' : ''}`} key={`label-${dr}`} disable={disable}>
-            <div className='circle-container' id={`label-c-${dr}`}
-                onClick={
-                    (e) => {
-                        if(clickable)
-                        drugOptionClick(dr)
-                    }
-                }>
-                <svg viewBox="-3 -5 110 110" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" 
-                        fill={ (!labelOptions || selectedLabels.includes(dr)) && clickable ? colorScale[dr] : '#C0C0C0'} 
-                        stroke="#555" strokeWidth="4">
-                    </circle></svg>
-            </div>
-            <div className='label-container'>
-                <label
-                    onClick={
-                        (e) => {
-                            if(clickable)
-                            drugOptionClick(dr)
-                        }
-                    }
-                    htmlFor={`label-${dr}`}>{capitalizeFirstLetter(getLabelName(dr))}</label>
-            </div>
-        </div>;
-    }
-
-    const selectLabel = (e, dr, hasSuppressedValue) => {
-        // setShowDefaultIndicator(false)
-        lineClick(e, dr);
-        if (!hasSuppressedValue) {
-            setSelectedDrugIsSuppressed(false);
-        }
-        else {
-            setSelectedDrugIsSuppressed(true);
-        }
-    };
-
-    const handleCircleMouseOver = (event, d, dr) => {
-        setHoveredDrug(dr);
-        setHovered(d);
-    };
-
-    const handleCircleMouseLeave = () => {
-        setHovered(null);
-        setHoveredDrug('');
-    };
-
-    const printLabel = l => {
-        return getLabelName(l) + (section=='demographics-By sex' ? 's': '') + (labelSuffix ? labelSuffix : '');
-    }
-
-    const getTrendWord1 = (c, v) => {
-        if(v>0) 
-            return `${Math.abs(value1).toFixed(1)} ${c} higher than`
-        if(v<0) 
-            return `${Math.abs(value1).toFixed(1)} ${c} lower than`
-        else
-            return 'same as'
-    }
-
-    const getLableWording = () => {
-        if(section=='drugsinvolved') return 'involving'
-        if(section=='demographics-By sex') return 'among'
-        if(section=='demographics-By race') return 'among'
-        if(section=='demographics-By age') return 'among people aged'
-        if(section=='demographics-By age & sex') return 'among '+ sectionHeading?.toLowerCase() + 's aged'
-        else return ''
-    }
-
-    const yAxisLabelWidth = 70;
-
-    // const checkIfSelectedDrugIsSuppressed = () => {
-    //     if (selectedLabel) {
-    //         const selectedData = data[selectedLabel];
-    //         if (selectedData) {
-    //             const selectedYearData = selectedData.find(d => d.year == toYear);
-    //             if (selectedYearData) {
-    //                 if (selectedYearData[dataProp] == -1) {
-    //                     setSelectedDrugIsSuppressed(true);
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     return false;
-    // }
-
-
-    return (
-        <>
-            {
-                sectionHeading && <h4 className="individual-header smaller" style={{color: 'black' }}>{sectionHeading}</h4>
-            }
-            
-            <div 
-                ref={indicatorRef}
-                className='trendSummaryOverdoseDeaths' 
-                style={{ 
-                    backgroundColor: colorScaleLighter[selectedLabel],
-                    height: (indicatorHeight && selectedLabel != '') ? indicatorHeight : undefined
-                    }}>
-                {!selectedDrugIsSuppressed && (selectedLabel != '') &&
-                    <div visibility={!selectedDrugIsSuppressed && selectedLabel != '' ? 'visible' : 'hidden'}>
-                        {
-                            (drugsInvolvedMetric == 'rate' || drugsInvolvedMetric == 'count') && <h2 className='trendSummaryOverdoseDeathsLabel' style={{ padding: section=='demographics-By age & sex'?'0.5em 0.5em':'0.5em 4em'}}>
-                                From {fromYear} to {toYear}, there was {value1 == 0 && <>no change</>}{value1 != 0 && <>a <span className='heightlighted' style={{ color: colorScale[selectedLabel] }}>{Math.abs(value1).toFixed(1)}% relative {value1 > 0 ? 'increase' : 'decrease'}</span></>} in the {drugsInvolvedMetric == 'count' ? 'number' : 'rate'} of overdose deaths {getLableWording()} {selectedLabel == '' ? (drugsInvolvedMetric == 'rate' ? 'all drugs' : '') : getLabelName(selectedLabel,true)}{section=='demographics-By sex'?'s':''}{labelSuffix ? ' years' : ''}.
-                            </h2>
-                        }
-                        {
-                            section=='drugsinvolved' && drugsInvolvedMetric == 'percent' && <h2 className='trendSummaryOverdoseDeathsLabel'>
-                                The percentage of overdose deaths involving {selectedLabel == '' ? 'any opioids' : getLabelName(selectedLabel, true)} in {toYear} was <span className='heightlighted' style={{ color: colorScale[selectedLabel] }}>{Math.abs(value1).toFixed(1)} percentage points {value1 > 0 ? 'higher' : 'lower'}</span> than in {fromYear}.
-                            </h2>
-                        }
-                        {
-                            (section=='drugsinvolvedcombinations') && <h2 className='trendSummaryOverdoseDeathsLabel'>
-                                The percentage of overdose deaths in {toYear} that involved {getLabelName(selectedLabel, true)} was <span className='heightlighted' style={{ color: colorScale[selectedLabel] }}>{Math.abs(value1).toFixed(1)} percentage points {value1 > 0 ? 'higher' : 'lower'}</span> than in {fromYear}.
-                            </h2>
-                        }
-                        {
-                            drugsInvolvedMetric == 'percent' && section=='demographics-By sex' && <h2 className='trendSummaryOverdoseDeathsLabel'>The percentage of overdose deaths that occurred among {(selectedLabel)?.toLowerCase()}s in {toYear} was <span className='heightlighted'  style={{ color: colorScale[selectedLabel] }}>{getTrendWord1('percentage points', value1)} </span>in {fromYear}.</h2>
-                        }
-                        {
-                            drugsInvolvedMetric == 'percent' && section=='demographics-By race' && <h2  className='trendSummaryOverdoseDeathsLabel'>The percentage of overdose deaths among {getLabelName(selectedLabel, true)} people in {toYear} was <span className='heightlighted' style={{ color: colorScale[selectedLabel] }}>{getTrendWord1('percentage points', value1)} </span>in {fromYear}.</h2>
-                        }
-                        {
-                            drugsInvolvedMetric == 'percent' && section=='demographics-By age' && <h2  className='trendSummaryOverdoseDeathsLabel'>The percentage of overdose deaths that occurred among people aged {selectedLabel} years in {toYear} was <span className='heightlighted' style={{ color: colorScale[selectedLabel] }}>{getTrendWord1('percentage points', value1)} </span> in {fromYear}.</h2>
-                        }
-                        {
-                            drugsInvolvedMetric == 'percent' && section=='demographics-By age & sex' && <h2  className='trendSummaryOverdoseDeathsLabel' style={{ padding: '0.5em 0.5em'}}>The percentage of overdose deaths that occurred among {sectionHeading?.toLowerCase()}s aged {selectedLabel} years in {toYear} was <span className='heightlighted' style={{ color: colorScale[selectedLabel] }}>{getTrendWord1('percentage points', value1)} </span>in {fromYear}.</h2>
-                        }
-                        {
-                            section=='circumstances' && <h2  className='trendSummaryOverdoseDeathsLabel' style={{ padding: '0.5em 0.5em'}}>The percentage of overdose deaths for which there was {selectedLabel?.toLowerCase()} in {toYear} was <span className='heightlighted' style={{ color: colorScale[selectedLabel] }}>{getTrendWord1('percentage points', value1)} </span>in {fromYear}.</h2>
-                        }
-                    </div>
-                }
-                {selectedDrugIsSuppressed && selectedLabel != '' && <h4 className='trendSummaryOverdoseDeathsLabel'>Statistic cannot be calculated due to suppressed data.</h4>}
-            </div>
-            <div className='row'>
-                <div id={chartId}  className="trendview-line-chart-container chart-container" >
-                    <svg width={width} height={height} onClick={() => {
-                        chartClick()
-                        setSelectedDrugIsSuppressed(false)
-                        // setShowDefaultIndicator(false)
-                    }}>
-                        <Group left={
-                            displayYLables? (margin.left + yAxisLabelWidth + yLabelWidth): 5} top={margin.top}>
-                            <g transform={`translate(${0}, 0))`}>
-                                {yScale.ticks(5).map((tick, i) => (
-                                    <line
-                                        key={i}
-                                        x1={ 0 }
-                                        x2={adjustedWidth}
-                                        y1={yScale(tick)}
-                                        y2={yScale(tick)}
-                                        stroke="#ccc"
-                                        strokeWidth="0.5"
-                                    />
-                                ))}
-                            </g>
-                            <AxisBottom
-                                top={yMax}
-                                scale={xScale}
-                                numTicks={width > 520 ? 10 : 5}
-                                tickFormat={formatYear}
-                                hideTicks={true}
-                                hideAxisLine={true}
-                                tickTransform='translate(0, 4)'
-                            />
-                            <AxisLeft
-                                scale={yScale}
-                                hideTicks={true}
-                                hideAxisLine={true}
-                                numTicks={5}
-                                tickLabelProps={() => ({
-                                    display: displayYLables ? 'block' : 'none', // Hide the labels
-                                    textAnchor: 'end',
-                                })}
-                                tickFormat={value => `${dataProp == 'count' ? value.toLocaleString() : value}${isPercent ? '%' : ''}`}
-                                tickTransform='translate(0, 5)'
-                            />
-                            {
-                                (yLabel1 || yLabel2) && <>
-                                    <text
-                                        x={height / -2 + 50}
-                                        y={ -yLabelWidth - yAxisLabelWidth}
-                                        textAnchor="middle"
-                                        // fontSize={'medium'}
-                                        transform="rotate(-90)">
-                                        {yLabel1}{yLabel2 ? '' : '†'}
-                                    </text>
-                                    <text
-                                        x={height / -2 + 35}
-                                        y={ -yLabelWidth - yAxisLabelWidth + 20 }
-                                        textAnchor="middle"
-                                        // fontSize={'medium'}
-                                        transform="rotate(-90)">
-                                        {yLabel2}{yLabel2 ? '†' : ''}
-                                    </text>
-                                </>
-                            }
-
-                            {
-                                getSortedKeys()
-                                    .filter(k => !labelOptions || selectedLabels.includes(k))
-                                    .map((dr, i) => {
-                                        let yearFilterData = yearFilter(data[dr]);
-                                        // Find the last data point
-                                        let last = yearFilterData.length - 1;
-                                        const lastDataPoint = yearFilterData[last];
-                                        const lastX = xScale(lastDataPoint.year);
-                                        let lastY = lastDataPoint[dataProp] == -1 ? yScale(1) : yScale(lastDataPoint[dataProp]);
-
-                                        const hasSuppressedValue = yearFilterData.some(d => d[dataProp] == -1);
-                                        // setHasSuppressedValue(hasSuppressed)
-                                        // const correctedData = yearFilterData.map(d => ({ ...d, value: d[dataProp] == -1 ? 1 : d[dataProp] }));
-
-                                        const segments = splitData(yearFilterData);
-
-                                        return <React.Fragment key={`fragment-${number}-${dr}`}>
-                                            {segments.map((segment, j) => (
-                                                <LinePath
-                                                    key={`${i}-${j}-${dr}`}
-                                                    data={segment.data}
-                                                    x={d => xScale(d.year)}
-                                                    y={d => yScale(d[dataProp] === -1 ? 1 : d[dataProp])}
-                                                    stroke={colorScale[dr]}
-                                                    strokeWidth={2}
-                                                    strokeDasharray={segment.isDashed ? "4 4" : ""}
-                                                    style={{ cursor: 'pointer' }}
-                                                    opacity={selectedLabel === dr || selectedLabel == '' ? 1 : 0.3}
-                                                    onClick={(e) => selectLabel(e, dr, segment.isDashed)}
-                                                />
-                                            ))}
-                                            {/* <LinePath
-                                                key={`${number}-line-${dr}`}
-                                                onClick={(e) => {
-                                                    selectLabel(e, dr, hasSuppressedValue);
-                                                }}
-                                                style={{ cursor: 'pointer' }}
-                                                opacity={selectedLabel === dr || selectedLabel == '' ? 1 : 0.3}
-                                                data={suppressedData} // Suppressing data points
-                                                x={d => xScale(d.year)}
-                                                y={d => yScale(d[dataProp])}
-                                                stroke={colorScale[dr]}
-                                                strokeWidth={2}
-                                                strokeDasharray={hasSuppressedValue ? "4 4" : "0"}
-                                            /> */}
-                                            {yearFilterData.map((d, i) => (
-                                                <React.Fragment key={`fragment-${number}-${dr}-${i}-${d.year}`}>
-                                                    {
-                                                        d[dataProp] == -1 && <text
-                                                            fill={colorScale[dr]}
-                                                            key={`${number}-star-${i}`}
-                                                            x={xScale(d.year)}
-                                                            y={yScale(1)}
-                                                            fontSize={40}
-                                                            textAnchor="middle"
-                                                            opacity={selectedLabel === dr || selectedLabel == '' ? 1 : 0.3}
-                                                            data-tip={toolTip(getLabelName(dr), d)}
-                                                            onMouseLeave={() => setTooltipColor('')}
-                                                            onMouseEnter={() => setTooltipColor(colorScaleLighterClasses[dr] || '')}
-                                                            dy=".5em"
-                                                            style={{ cursor: 'pointer' }}
-                                                            onClick={(e) => {
-                                                                selectLabel(e, dr, hasSuppressedValue);
-                                                            }}>*</text>
-                                                    }
-                                                    {
-                                                        d[dataProp] != -1 && <Circle
-                                                            id={`dot-${dr}-${d.year}`}
-                                                            key={`${number}-dot-${i}`}
-                                                            opacity={selectedLabel === dr || selectedLabel == '' ? 1 : 0.3}
-                                                            cx={xScale(d.year)}
-                                                            cy={yScale(d[dataProp])}
-                                                            r={9 + (hovered == d ? 1 : 0)}
-                                                            fill={hovered == d ? '#fff' : colorScale[dr]}
-                                                            data-tip={toolTip(getLabelName(dr), d)}
-                                                            onMouseEnter={(event) => {
-                                                                handleCircleMouseOver(event, d, dr)
-                                                                setTooltipColor(colorScaleLighterClasses[dr] || '')
-                                                            }}
-                                                            onMouseLeave={() => { setTooltipColor(colorScaleLighterClasses[dr] || ''); handleCircleMouseLeave() }}
-                                                            strokeWidth={2}
-                                                            stroke={hovered == d ? colorScale[dr] : 'none'}
-                                                            style={{ cursor: 'pointer' }}
-                                                            onClick={(e) => {
-                                                                selectLabel(e, dr, hasSuppressedValue);
-                                                            }}
-                                                        />
-                                                    }
-                                                </React.Fragment>
-                                            ))}
-                                            <Text
-                                                key={`label-${dr}`}
-                                                opacity={selectedLabel === dr || selectedLabel == '' ? 1 : 0.3}
-                                                x={lastX + 30}
-                                                y={adjustedLabelPositions[i]}
-                                                onClick={(e) => {
-                                                    selectLabel(e, dr, hasSuppressedValue);
-                                                }}
-                                                verticalAnchor="middle"
-                                                stroke={colorScale[dr]}
-                                                style={{ cursor: 'pointer' }}
-                                                strokeWidth={0.5}>
-                                                {printLabel(dr)}
-                                            </Text>
-                                            {
-                                                adjustedLabelPositions[i] != lastY &&
-                                                <line
-                                                    k1={`line-leading-${dr}`}
-                                                    x1={xScale(lastDataPoint.year)}
-                                                    y1={lastY}
-                                                    x2={lastX + 18} // Same x position as the text
-                                                    y2={adjustedLabelPositions[i]}
-                                                    stroke={colorScale[dr]}
-                                                    strokeWidth={0.5}
-                                                />
-                                            }
-                                        </React.Fragment>
-                                    })
-                            }
-                            {/* Render One more layer of circles/star for the selected drug */}
-                            {
-                                selectedLabel && data[selectedLabel] && yearFilter(data[selectedLabel]).map(d => ({ ...d, suppressed: d[dataProp] == -1 ? true : false })).map((d, i) => (
-                                    <React.Fragment key={`fragment-${number}-${selectedLabel}-${i}-${d.year}`}>
-                                        {
-                                            d.suppressed && <text
-                                                fill={colorScale[selectedLabel]}
-                                                key={`hover-star-h`}
-                                                x={xScale(d.year)}
-                                                y={yScale(1)}
-                                                fontSize={40}
-                                                textAnchor="middle"
-                                                data-tip={toolTip(getLabelName(selectedLabel), d)}
-                                                onMouseLeave={() => setTooltipColor('')}
-                                                onMouseEnter={() => setTooltipColor(colorScaleLighterClasses[selectedLabel])}
-                                                dy=".5em"
-                                                style={{ cursor: 'pointer' }}
-                                            // onClick={(e) => {
-                                            //     selectLabel(e, selectedLabel, true);
-                                            // }}
-                                            >*</text>
-                                        }
-                                        {
-                                            !d.suppressed && <circle
-                                                key={`dottool-${i}`}
-                                                style={{ cursor: 'pointer' }}
-                                                cx={xScale(d.year)}
-                                                cy={yScale(d[dataProp])}
-                                                r={9 + (hovered == d ? 1 : 0)}
-                                                fill={hovered == d ? '#fff' : colorScale[selectedLabel]}
-                                                data-tip={toolTip(getLabelName(selectedLabel), d)}
-                                                strokeWidth={2}
-                                                stroke={hovered == d ? colorScale[selectedLabel] : 'none'}
-                                                onMouseEnter={(event) => {
-                                                    handleCircleMouseOver(event, d, selectedLabel)
-                                                    setTooltipColor(colorScaleLighterClasses[selectedLabel])
-                                                }}
-                                                onMouseLeave={() => { handleCircleMouseLeave(); setTooltipColor('') }}
-                                            // onClick={(e) => {
-                                            //     selectLabel(e, selectedLabel, false);
-                                            // }}
-                                            />
-                                        }
-                                    </React.Fragment>
-                                ))}
-
-                            {/* Render top layer of circles, for hovered drug if it is not suppressed point */}
-                            {
-                                hovered && hovered[dataProp] > 0 && <Circle
-                                    visibility={ (hovered && hoveredDrug) ? 'visible' : 'hidden'}
-                                    strokeWidth={2}
-                                    stroke={colorScale[hoveredDrug]}
-                                    key={`dottool-dynamic-hover`}
-                                    style={{ cursor: 'pointer' }}
-                                    cx={xScale(hovered?.year)}
-                                    cy={yScale(hovered ? hovered[dataProp] : 0)}
-                                    r={10}
-                                    fill={'#fff'}
-                                    onMouseEnter={(event) => {
-                                        handleCircleMouseOver(event, hovered, hoveredDrug); setTooltipColor(colorScaleLighterClasses[hoveredDrug])
-                                    }}
-                                    onMouseLeave={() => {
-                                        handleCircleMouseLeave()
-                                        setTooltipColor()
-                                    }
-                                    }
-                                    data-tip={hovered ? toolTip(getLabelName(hoveredDrug), hovered) : ''}
-                                    onClick={(e) => {
-                                        selectLabel(e, hoveredDrug, yearFilter(data[hoveredDrug]).some(d => d[dataProp] == -1));
-                                    }}
-                                />
-                            }
-                            {/* Render one layer of star for the hovered drug if it is suppressed point */}
-                            {
-                                hovered && hovered[dataProp] == -1 &&
-                                <text
-                                    visibility={hovered && hoveredDrug && hovered[dataProp] == -1 ? 'visible' : 'hidden'}
-                                    fill={colorScale[hoveredDrug]}
-                                    key={`hover-star-h`}
-                                    x={xScale(hovered.year)}
-                                    y={yScale(1)}
-                                    fontSize={40}
-                                    textAnchor="middle"
-                                    data-tip={hovered ? toolTip(getLabelName(hoveredDrug), hovered) : ''}
-                                    onMouseLeave={() => setTooltipColor('')}
-                                    onMouseEnter={() => setTooltipColor(colorScaleLighterClasses[hoveredDrug])}
-                                    dy=".5em"
-                                    style={{ cursor: 'pointer' }}
-                                    onClick={(e) => {
-                                        selectLabel(e, hoveredDrug, yearFilter(data[hoveredDrug]).some(d => d[dataProp] == -1));
-                                    }}
-                                >*</text>
-                            }
-
-                            <text
-                                x={(adjustedWidth) / 2}
-                                y={height - margin.bottom + 28}
-                                textAnchor="middle"
-                                // fontSize={'medium'}
-                            >{xLabel}</text>
-
-                        </Group>
+      return dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => {
+        return lineData.values.map((d, i) => {
+          if (i === 0) return null;
+  
+          const prevPeriod = getPrevPeriodValue(lineData, i, 1);
+          const yearlyOffset = period === 'Quarterly' ? 4 : 2;
+          const prevYear = getPrevPeriodValue(lineData, i, yearlyOffset);
+          const curr = parseFloat(d.percentage);
+  
+          const yearlyChange = prevYear !== null ? ((curr - prevYear) / prevYear) * 100 : null;
+          const periodChange = prevPeriod !== null ? ((curr - prevPeriod) / prevPeriod) * 100 : null;
+  
+          const xLabel = xAccessor(d);
+          const xPosition = xScale(xLabel) + xScale.bandwidth() / 2;
+          const yPosition = yScale(curr);
+          if (isNaN(xPosition) || isNaN(yPosition)) return null;
+  
+          const showYearlyIndicator = i >= yearlyOffset;
+  
+          return (
+            <g key={`indicator-${index}-${i}`}> 
+              <Circle
+                cx={xPosition}
+                cy={yPosition}
+                r={4}
+                fill={lineColors[d.drug]}
+                onMouseEnter={(e) => {
+                  ReactTooltip.show(e.target);
+                }}
+                onMouseLeave={(e) => {
+                  ReactTooltip.hide(e.target);
+                }}
+                data-tip={`<div style='text-align: left; padding: 0;'>
+                  ${showYearlyIndicator ? `<div style='display: flex; align-items: center; margin-bottom: 10px;'>
+                    <svg width='20' height='20' style='margin-right: 10px;'>
+                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${yearlyChange !== null && yearlyChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
                     </svg>
-                </div>
-            </div>
-
-            {
-                labelOptions &&
-                <div className='ml-1'>
-                    <br></br>
-                    <fieldset className='border drug-selector-fieldset'>
-                        <legend className='float-none w-auto'>{
-                            // (drugsInvolvedMetric == 'count' || drugsInvolvedMetric == 'rate' || drugsInvolvedMetric == 'count') &&
-                            <div className='row font16 bold ml-1'>
-                                <div><b>Make a selection to change the line graph above </b></div>
-                            </div>}
-                        </legend>
-                        <div className='drug-selector-container'>
-                            {
-                                <div className='drug-selector-column'>
-                                    {
-                                        drugOptions('All', !isPercent, drugsInvolvedMetric == 'percent')
-                                    }
-                                </div>
-                            }
-                            <div className='drug-selector-column'>
-                                {
-                                    drugOptions('Any opioids', true)
-                                }
-                                {
-                                    drugOptions('Heroin', true)
-                                }
-                                {
-                                    drugOptions('Illegally-made fentanyls', true)
-                                }
-                                {
-                                    drugOptions('Prescription opioids', true)
-                                }</div>
-                            <div className='drug-selector-column'>
-                                {
-                                    drugOptions('Any stimulants', true)
-                                }
-                                {
-                                    drugOptions('Cocaine', true)
-                                }
-                                {
-                                    drugOptions('Methamphetamine', true)
-                                }
-                            </div>
-                            <div className='drug-selector-column'>
-                                {
-                                    drugOptions('Any non-opioid sedatives', true)
-                                }
-                                {
-                                    drugOptions('Benzodiazepines', true)
-                                }
-                            </div>
-                        </div>
-                        <div className='row ml-1 mt-3'>
-                            <div className='col-md-5'>
-                                {/* <input
-                                    type="checkbox"
-                                    id={`label-All`}
-                                    name={`label-All`}
-                                    checked={selectedLabels.length == labelNames.length}
-                                    onChange={(e) => {
-                                        if (e.target.checked) {
-                                            setSelectedLabels(labelNames);
-                                        }
-                                    }}
-                                ></input> */}
-                                {/* <label htmlFor="label-All">&nbsp;Show all selections</label> */}
-                                <a href="#" onClick={(e) => {
-                                        e.preventDefault();
-                                        setSelectedLabels(labelNames);
-                                    }}>Show all selections</a>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                {/* <input
-                                    type="checkbox"
-                                    id={`label-clear-All`}
-                                    name={`label-clear-All`}
-                                    checked={selectedLabels.length == 0}
-                                    onChange={(e) => {
-                                        if (e.target.checked) {
-                                            setSelectedLabels([]);
-                                        }
-                                        setSelectedLabel('');
-                                    }}
-                                ></input> */}
-                                {/* <label htmlFor='label-clear-All'>&nbsp;Clear all selections</label> */}
-                                <a href="#" onClick={(e) => {
-                                        e.preventDefault();
-                                        setSelectedLabels([]);
-                                        setSelectedLabel('');
-                                    }}>Clear all selections</a>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-            }
-            {
-                !skipFootNotes &&
-                <div className=''>
- <p className="scale-note"><sup>†</sup><span style={{ fontSize: '14px' }}>Scale of the chart may change based on the data presented.</span>
- <br></br>
-                        {hasSuppressedRate && <><sup>*</sup>Rate is suppressed due to sparse data.</>}</p>
+                    <div>
+                      <strong>Yearly Change</strong><br/>
+                      ${yearlyChange !== null ? Number(yearlyChange).toFixed(1) : 'N/A'}% (${yearlyChange !== null && yearlyChange > 0 ? 'Increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})<br/>
+                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
                     </div>
-            }
-        </>
-    );
+                  </div>` : ''}
+                  <div style='display: flex; align-items: center;'>
+                    <svg width='20' height='20' style='margin-right: 10px;'>
+                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${periodChange !== null && periodChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${periodChange !== null && periodChange > 0 ? 0 : 180}, 10, 10)' />
+                    </svg>
+                    <div>
+                      <strong>${period === 'Quarterly' ? 'Quarterly' : '6 Month'} Change</strong><br/>
+                      ${periodChange !== null ? Number(periodChange).toFixed(1) : 'N/A'}% (${periodChange !== null && periodChange > 0 ? 'Increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})<br/>
+                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${periodChange !== null && periodChange > 0 ? 'increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
+                    </div>
+                  </div>
+                </div>`}
+                style={{ cursor: 'pointer' }}
+              />
+            </g>
+          );
+        });
+      });
+    };
+
+    const allPeriodsSet = new Set();
+    dataSet.forEach(line => line.values.forEach(d => allPeriodsSet.add(period === 'Quarterly' ? d.quarter : formatHalfYearLabel(d.period))));
+    const allPeriodsArr = Array.from(allPeriodsSet);
+
+    const xDomain = allPeriodsArr;
+    /* const xDomain = period === 'Quarterly'
+      ? dataSet[0].values.map(d => d.quarter)
+      : dataSet[0].values.map(d => formatHalfYearLabel(d.period)); */
+    const xAccessor = period === 'Quarterly'
+      ? d => d.quarter
+      : d => formatHalfYearLabel(d.period);
+  
+    const xScale = scaleBand({
+      domain: xDomain,
+      range: [0, adjustedWidth],
+      padding: 0.2,
+    });
+  
+    const yScale = scaleLinear({
+      domain: [0, Math.max(...dataSet.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
+      range: [adjustedHeight, 0],
+      nice: true,
+  });
+
+  const mainLine = data[0];
+  const n = mainLine.values.length;
+  let keyFinding = null;
+  if (n >= 2) {
+    const last = parseFloat(mainLine.values[n - 1].percentage);
+    const prev = parseFloat(mainLine.values[n - 2].percentage);
+    const percentChange = prev !== 0 ? ((last - prev) / prev) * 100 : 0;
+    keyFinding = {
+      last: last.toFixed(1),
+      prev: prev.toFixed(1),
+      percentChange: percentChange.toFixed(1),
+      direction: percentChange > 0 ? 'increased' : 'decreased',
+      absChange: Math.abs(percentChange).toFixed(1),
+      lastLabel: xAccessor(mainLine.values[n - 1]),
+      prevLabel: xAccessor(mainLine.values[n - 2]),
+    };
+  }
+
+  onData(keyFinding);
+
+ return (
+    <div style={{ fontFamily: 'Arial, sans-serif' }}>
+      
+      <svg width={width} height={height}>
+        <Group left={margin.left} top={margin.top}>
+          <text
+            x={-adjustedHeight / 2}
+            y={-margin.left + 25}
+            transform={`rotate(-90)`}
+            textAnchor="middle"
+            fontSize={15}
+            fill="#222"
+            fontFamily="'Segoe UI', 'Arial', 'sans-serif'"
+            fontWeight="600"
+            style={{ letterSpacing: '0.01em' }}
+          >
+            % of people with substance use disorder
+            <tspan x={-adjustedHeight / 2} dy={15}>
+              with drug(s) detected
+            </tspan>
+          </text>
+          <AxisLeft 
+            scale={yScale} 
+            tickFormat={value => `${value}%`} 
+            tickLabelProps={() => ({ 
+              fontSize: 16, 
+              fontWeight: 500, 
+              textAnchor: 'end', 
+              dy: 4, 
+              dx: -6,
+              fill: '#222', 
+              fontFamily: 'Barlow, Arial, sans-serif',
+              letterSpacing: '0.01em',
+            })} 
+          />
+          <AxisBottom
+            top={adjustedHeight}
+            scale={xScale}
+            tickFormat={value => value}
+            tickLabelProps={() => ({
+              fontSize: 16,
+              textAnchor: 'middle',
+              dy: 10,
+            })}
+          />
+
+          {dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
+            <Fragment key={index}>
+              {lineData.values.map((d, i) => {
+                const percentage = parseFloat(d.percentage);
+                const lowerCI = (percentage - 0.5).toFixed(1);
+                const upperCI = (percentage + 0.5).toFixed(1);
+                const n = lineData.values.length;
+                const dNext = i === n - 1 ? {} :  lineData.values[i+1] || {}
+                const percentageN = parseFloat(dNext.percentage);
+                const showLabel = showLabels;
+                return (
+                  <Fragment key={i}>
+                     <Group key={`line-path-${d.drug.substring(0,4)}-point-${i}`}>
+                        { i < n - 1 &&
+                        <line 
+                          x1={xScale(xAccessor(d)) + xScale.bandwidth() / 2} 
+                          y1={yScale(percentage)} 
+                          x2={xScale(xAccessor(dNext)) + xScale.bandwidth() / 2} 
+                          y2={yScale(percentageN)} 
+                          stroke={lineColors[d.drug]}
+                          strokeWidth={2} />
+                        }
+                        <Circle
+                          cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                          cy={yScale(percentage)}
+                          r={4}
+                          fill={lineColors[d.drug]}
+                          data-tip={`<div style='text-align: left;'>
+                            <strong>${xAccessor(d)}</strong><br/>
+                            ${UtilityFunctions.getPositivityLabel(d.drug)}: ${percentage}%<br/>
+                            Confidence interval: ${lowerCI}% - ${upperCI}%
+                          </div>`}
+                        />
+                        {(!showLabel && (i == n -1)) && (
+                          <text
+                            x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 30}
+                            y={yScale(percentage) + 4}
+                            fontSize={12}
+                            textAnchor="middle"
+                            fill="#333"
+                          >
+                            {percentage}%
+                          </text>
+                        )}
+                        {showLabel && (
+                        <text
+                        x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                        y={yScale(percentage) - 14}
+                        fontSize={12}
+                        textAnchor="middle"
+                        fill="#333"
+                      >
+                        {percentage}%
+                      </text>
+                      )}
+                    </Group>
+                  </Fragment>
+                );
+              })}
+            </Fragment>
+          ))}
+          {showPercentChange && renderChangeIndicators()}
+        </Group>
+      </svg>
+
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', marginBottom: '20px' }}>
+        {dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
+          <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
+            <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[lineData.name] }}></div>
+            <span style={{ fontSize: '16px', color: '#333' }}>{UtilityFunctions.getLegend(lineData.name)}</span> 
+          </div>
+        ))}
+      </div>
+      
+      <ReactTooltip
+          effect="solid"
+          backgroundColor="#ededed"
+          border={true}
+          borderColor="#bbb"
+          html={true}
+          textColor="#222"
+        />
+    </div>
+  );
+
 }
 
-export default LineChart;
+export default LineChart

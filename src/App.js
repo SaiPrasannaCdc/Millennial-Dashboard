@@ -1,55 +1,171 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useMemo, useRef } from 'react';
 import ReactTooltip from 'react-tooltip';
-import FentanylPositiveChart from './components/FentanylPositiveChart.js';
-import Positivefentanyl from './components/Positivefentanyl.js';
 import Dropdowns from './dropdowns';
-import StatsCards from './components/StatsCards'; // Import the StatsCards component
-import LineChartWithToggles from './components/LineChartWithToggles'; // Import the LineChartWithToggles component
-import MethamphetamineLineChart from './components/MethamphetamineLineChart'; // Import the new MethamphetamineLineChart component
-import PositiveHeroinChart from './components/PositiveHeroinChart'; 
-import MethamphetamineLineChartWest from './components/MethamphetamineLineChartWest'; 
-import MethamphetamineLineChartSouth from './components/MethamphetamineLineChartSouth'; 
-import MethamphetamineLineChartMidwest from './components/MethamphetamineLineChartMidwest'; 
-import MethamphetamineLineChartNortheast from './components/MethamphetamineLineChartNortheast'; 
-import FentanylLineChartWest from './components/FentanylLineChartWest';
-import FentanylLineChartMidwest from './components/FentanylLineChartMidwest';
-import FentanylLineChartSouth from './components/FentanylLineChartSouth';
-import HeroinLineChartRegions from './components/HeroinLineChartRegions'; 
-import HeroinLineChartRegions6months from './components/HeroinLineChartRegions6months';
-import { CocaineNationalQuarterlyChart, CocaineWestQuarterlyChart, CocaineMidwestQuarterlyChart, CocaineSouthQuarterlyChart } from './components/CocaineNationalQuarterlyChart'; // Import the new CocaineNationalQuarterlyChart component
-import CocaineSixMonthsLineChart from './components/CocaineSixMonthsLineChart'; // Import the new CocaineSixMonthsLineChart component
-import FentanylLineChart6Months from './components/FentanylLineChart6Months';
-import HeroinSecondLineChart from './components/HeroinSecondLineChart';
-import HeroinSecondLineChartBelowCocaine from './components/HeroinSecondLineChartBelowCocaine';
-import { NationalMultiDrugLineChart } from './components/Fentanyl6monthsecondlinechart';
-import Heroin6Monthssecondlinechart from './components/Heroin6Monthssecondlinechart';
+import StatsCards from './components/StatsCards'; 
+import debounce from 'lodash.debounce';
+import LineChart from './components/LineChart';
+import { UtilityFunctions } from './utility';
 
 function App() {
   const viewportCutoffSmall = 550;
   const viewportCutoffMedium = 800;
+  const chartHeight = 450;
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const accessible = false;
   const [selectedPeriod, setSelectedPeriod] = useState('Quarterly');
   const [selectedRegion, setSelectedRegion] = useState('National');
   const [selectedDrug, setSelectedDrug] = useState('fentanyl');
+  const [jsonData, setJsonData] = useState([]);
+  const [chartOneData, setChartOneDataInState] = useState([]);
+  const [chartTwoData, setChartTwoDataInState] = useState([]);
+
+  const [chartDrugsOne, setChartDrugsOne] = useState([]);
+  const [chartDrugsTwo, setChartDrugsTwo] = useState([]);
+  const [selectedLinesOne, setSelectedLinesOne] = useState([]);
+  const [selectedLinesTwo, setSelectedLinesTwo] = useState([]);
+  const [drugsLineColorsOne, setDrugsLineColorsOne] = useState([]);
+  const [drugsLineColorsTwo, setDrugsLineColorsTwo] = useState([]);
+  const [showLabelsOne, setShowLabelsOne] = useState(false);
+  const [showPercentChangeOne, setShowPercentChangeOne] = useState(false);
+  const [showLabelsTwo, setShowLabelsTwo] = useState(false);
+  const [showPercentChangeTwo, setShowPercentChangeTwo] = useState(false);
+  const [kfInfoFromChartOne, setDataFromChartOne] = useState('');
+  const [kfInfoFromChartTwo, setDataFromChartTwo] = useState('');
+
+  const dataUrl = window.location.origin.includes('localhost') ? '' : '/overdose-prevention/data-dashboards/clinical-urine-dashboard';
+
+  const [width, setWidth] = useState(1100);
+
+  const isSmallViewport = width < 500;
+
+  const lineChartRef = useRef();
+
+  const debouncedSetWidth = useMemo(
+    () => debounce(setWidth, 300)
+    , []);
 
   const resizeObserver = new ResizeObserver(entries => {
-    const { width, height } = entries[0].contentRect;
+    const { width: newWidth } = entries[0].contentRect;
 
-    if (width !== dimensions.width || height !== dimensions.height) {
-      setDimensions({ width, height });
+    if (newWidth !== width) {
+      debouncedSetWidth(newWidth);
     }
   });
 
   const outerContainerRef = useCallback(node => {
     if (node !== null) {
       resizeObserver.observe(node);
-    }
+    } // eslint-disable-next-line
   }, []);
 
-  console.log('Selected Region:', selectedRegion);
-  console.log('Selected Drug:', selectedDrug);
-  console.log('Selected Period:', selectedPeriod);
+  const handleDataOne = (forKeyFinding) => {
+    setDataFromChartOne(forKeyFinding);
+  };
+
+  const handleDataTwo = (forKeyFinding) => {
+    setDataFromChartTwo(forKeyFinding);
+  };
+
+  const lineChartOneMemo = useMemo(() =>
+    <>
+      <table style={{width: '100%'}}>
+        <tr>
+          <td>
+            <div class="containerLC">
+              <div class={"chartDivAll"}>
+                <LineChart 
+                  data={chartOneData[0]}
+                  region={selectedRegion}
+                  currentDrug={selectedDrug.charAt(0).toUpperCase() + selectedDrug.slice(1).toLowerCase()}
+                  period={selectedPeriod}
+                  width={width}
+                  height={chartHeight}
+                  selectedDrugs={selectedLinesOne}
+                  showLabels={showLabelsOne}
+                  showPercentChange={showPercentChangeOne}
+                  lineColors={drugsLineColorsOne}
+                  onData={handleDataOne}
+                  chartNum={1}
+              />
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </>,
+    [chartOneData, selectedLinesOne, showLabelsOne, showPercentChangeOne, drugsLineColorsOne, width]);
+
+    const lineChartTwoMemo = useMemo(() =>
+    <>
+      <table style={{width: '100%'}}>
+        <tr>
+          <td>
+            <div class="containerLC">
+              <div class={"chartDivAll"}>
+                <LineChart 
+                  data={chartTwoData[0]}
+                  region={selectedRegion}
+                  currentDrug={selectedDrug.charAt(0).toUpperCase() + selectedDrug.slice(1).toLowerCase()}
+                  period={selectedPeriod}
+                  width={width}
+                  height={chartHeight}
+                  selectedDrugs={selectedLinesTwo}
+                  showLabels={showLabelsTwo}
+                  showPercentChange={showPercentChangeTwo}
+                  lineColors={drugsLineColorsTwo}
+                  onData={handleDataTwo}
+                  chartNum={2}
+              />
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </>,
+    [chartTwoData, selectedLinesTwo, showLabelsTwo, showPercentChangeTwo, drugsLineColorsTwo, width]);
+
+  const setChartOneData = (data) => {
+    if (data[0] != null && data[0][0].values.length > 0) {
+      setChartOneDataInState(data);
+      setChartDrugsOne(data[1]);
+      setSelectedLinesOne(data[1]);
+      setDrugsLineColorsOne(data[2]);
+    }
+  }
+
+  const setChartTwoData = (data) => {
+    if (data != null && data[0][0].values.length > 0) {
+      setChartTwoDataInState(data);
+      setChartDrugsTwo(data[1]);
+      setSelectedLinesTwo(data[1]);
+      setDrugsLineColorsTwo(data[2]);
+    }
+  }
+  
+  useEffect(() => {
+
+    fetch(dataUrl + '/data/Millenial-Format.normalized.json')
+      .then(res => res.json())
+      .then(data => {
+      setJsonData(data);
+    });
+
+  }, []);
+
+  useEffect(() => {
+
+    setChartOneData(UtilityFunctions.getChartOneData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
+    setChartTwoData(UtilityFunctions.getChartTwoData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
+
+  }, [selectedRegion, selectedDrug, selectedPeriod, jsonData]);
+
+  const loading = <div className="loading-container">
+      <div className="loading-spinner"></div>
+  </div>;
+
+  if (jsonData == null || (jsonData != null && jsonData?.length == 0)) {
+    return loading;
+  }
 
   return (
     <div
@@ -64,198 +180,16 @@ function App() {
         selectedDrug={selectedDrug}
         onDrugChange={setSelectedDrug}
       />
+
       <StatsCards />
-      {selectedRegion === 'National' && selectedDrug === 'fentanyl' && (
-        <>
-          <LineChartWithToggles period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-          <PositiveHeroinChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-        </>
-      )}
-      
-      {selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
-          ? (
-            <>
-              <HeroinLineChartRegions6months region="National" period="6 Months" />
-              {/* Render the new multi-drug chart below the current line chart */}
-              <Heroin6Monthssecondlinechart region="NATIONAL" width={1100} height={450} />
-              {/* <HeroinSecondLineChart region="NATIONAL" width={1100} height={450} /> */}
-            </>
-          )
-          : (
-            <>
-              <HeroinLineChartRegions region="National" period={selectedPeriod} />
-              <HeroinSecondLineChart region="NATIONAL" width={1100} height={450} />
-            </>
-          )
-      )}
-      {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
-          ? (
-            <>
-              <HeroinLineChartRegions6months region="Midwest" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="MIDWEST" width={1100} height={450} />
-              {/* <HeroinSecondLineChart region="MIDWEST" width={1100} height={450} /> */}
-            </>
-          )
-          : (
-            <>
-              <HeroinLineChartRegions region="Midwest" period={selectedPeriod} />
-              <HeroinSecondLineChart region="MIDWEST" width={1100} height={450} />
-            </>
-          )
-      )}
-      {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
-          ? (
-            <>
-              <HeroinLineChartRegions6months region="West" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="WEST" width={1100} height={450} />
-              {/* <HeroinSecondLineChart region="WEST" width={1100} height={450} /> */}
-            </>
-          )
-          : (
-            <>
-              <HeroinLineChartRegions region="West" period={selectedPeriod} />
-              <HeroinSecondLineChart region="WEST" width={1100} height={450} />
-            </>
-          )
-      )}
-      {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
-          ? (
-            <>
-              <HeroinLineChartRegions6months region="South" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="SOUTH" width={1100} height={450} />
-              {/* <HeroinSecondLineChart region="SOUTH" width={1100} height={450} /> */}
-            </>
-          )
-          : (
-            <>
-              <HeroinLineChartRegions region="South" period={selectedPeriod} />
-              <HeroinSecondLineChart region="SOUTH" width={1100} height={450} />
-            </>
-          )
-      )}
-      {selectedRegion.toUpperCase() === 'NORTHEAST' && selectedDrug === 'heroin' && (
-        selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'
-          ? (
-            <>
-              <HeroinLineChartRegions6months region="Northeast" period="6 Months" />
-              <Heroin6Monthssecondlinechart region="NORTHEAST" width={1100} height={450} />
-              {/* <HeroinSecondLineChart region="NORTHEAST" width={1100} height={450} /> */}
-            </>
-          )
-          : (
-            <>
-              <HeroinLineChartRegions region="Northeast" period={selectedPeriod} />
-              <HeroinSecondLineChart region="NORTHEAST" width={1100} height={450} />
-            </>
-          )
-      )}
-      {selectedRegion === 'National' && selectedDrug === 'methamphetamine' && (
-        <>
-          <MethamphetamineLineChart period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-        </>
-      )}
-      {selectedRegion === 'WEST' && selectedDrug === 'methamphetamine' && (
-        <>
-          <MethamphetamineLineChartWest period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-        </>
-      )}
-      {selectedRegion === 'SOUTH' && selectedDrug === 'methamphetamine' && (
-        <MethamphetamineLineChartSouth period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-      )}
-      {selectedRegion === 'MIDWEST' && selectedDrug === 'methamphetamine' && (
-        <MethamphetamineLineChartMidwest period={selectedPeriod === 'Half Yearly' ? '6 Months' : selectedPeriod} />
-      )}
-      {selectedRegion === 'NORTH' && selectedDrug === 'methamphetamine' && (selectedPeriod === 'Half Yearly' || selectedPeriod === '6 Months') && (
-        <MethamphetamineLineChartNortheast />
-      )}
-      {selectedRegion === 'WEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
-        <FentanylLineChartWest />
-      )}
-      {selectedRegion === 'MIDWEST' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
-        <FentanylLineChartMidwest />
-      )}
-      {selectedRegion === 'SOUTH' && selectedDrug === 'fentanyl' && selectedPeriod === 'Quarterly' && (
-        <FentanylLineChartSouth />
-      )}
-     
-      {selectedRegion.toUpperCase() === 'NATIONAL' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <CocaineSixMonthsLineChart region="National" showMultiDrug={true} />
-          {/* <NationalMultiDrugLineChart region="National" /> */}
-        </>
-      )}
-      {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <CocaineSixMonthsLineChart region="West" showMultiDrug={true} />
-          {/* <NationalMultiDrugLineChart region="West" /> */}
-        </>
-      )}
-      {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <CocaineSixMonthsLineChart region="Midwest" showMultiDrug={true} />
-          {/* <NationalMultiDrugLineChart region="Midwest" /> */}
-        </>
-      )}
-      {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <CocaineSixMonthsLineChart region="South" showMultiDrug={true} />
-          {/* <NationalMultiDrugLineChart region="South" /> */}
-        </>
-      )}
-      {(selectedRegion.toUpperCase() === 'NORTHEAST' || selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'cocaine' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <CocaineSixMonthsLineChart region="Northeast" showMultiDrug={true} />
-          {/* <NationalMultiDrugLineChart region="Northeast" /> */}
-        </>
-      )}
-      {selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <FentanylLineChart6Months region="West" />
-          <NationalMultiDrugLineChart region="West" />
-          {console.log('Rendering FentanylLineChart6Months:', selectedRegion.toUpperCase() === 'WEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly'))}
-          {console.log('Props passed to FentanylLineChart6Months:', { region: 'West' })}
-        </>
-      )}
-      {selectedRegion.toUpperCase() === 'MIDWEST' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <FentanylLineChart6Months region="Midwest" />
-          <NationalMultiDrugLineChart region="Midwest" />
-        </>
-      )}
-      {(selectedRegion.toUpperCase() === 'NORTHEAST' || selectedRegion.toUpperCase() === 'NORTH') && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <FentanylLineChart6Months region="Northeast" />
-          <NationalMultiDrugLineChart region="Northeast" />
-        </>
-      )}
-      {selectedRegion.toUpperCase() === 'SOUTH' && selectedDrug === 'fentanyl' && (selectedPeriod === '6 Months' || selectedPeriod === 'Half Yearly') && (
-        <>
-          <FentanylLineChart6Months region="South" />
-          <NationalMultiDrugLineChart region="South" />
-        </>
-      )}
-     
-      {selectedDrug === 'cocaine' && selectedPeriod === 'Quarterly' && (
-        <>
-          {selectedRegion === 'National' && <CocaineNationalQuarterlyChart />}
-          {selectedRegion === 'WEST' && <CocaineWestQuarterlyChart />}
-          {selectedRegion === 'MIDWEST' && <CocaineMidwestQuarterlyChart />}
-          {selectedRegion === 'SOUTH' && <CocaineSouthQuarterlyChart />}
-          <HeroinSecondLineChartBelowCocaine region={selectedRegion.toUpperCase()} width={1100} height={450} />
-        </>
-      )}
-      <ReactTooltip
-        html={true}
-        type="light"
-        arrowColor="rgb(0, 0, 0)"
-        place="top"
-        effect="solid"
-        className={`tooltip`}
-      />
+
+      {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1)}
+      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne)}
+      {lineChartOneMemo}
+      {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2)}
+      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo)}
+      {lineChartTwoMemo}
+
     </div>
   );
 }
