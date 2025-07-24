@@ -1,7 +1,7 @@
 import {React, Fragment, useState, useEffect} from 'react';
 import { Group } from '@visx/group';
 import { Text } from '@visx/text';
-import { LinePath, Circle } from '@visx/shape';
+import { Circle } from '@visx/shape';
 import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import { UtilityFunctions } from '../utility'
@@ -16,7 +16,7 @@ function LineChart(params) {
 
   useEffect(() => {
         ReactTooltip.rebuild();
-    }, [showPercentChange]);
+    }, [showPercentChange, selectedDrugs, data, period, showLabels]);
 
 if (data === undefined || data?.length == 0)
       return '';
@@ -28,6 +28,9 @@ if (data === undefined || data?.length == 0)
   const adjustedHeight = height - margin.top - margin.bottom;
 
   const formatHalfYearLabel = (periodStr) => {
+    if (periodStr == null || periodStr == undefined || periodStr == '')
+      return '';
+
     let year, half;
     let match = periodStr.match(/H([12])\s*([0-9]{4})/);
     if (match) {
@@ -59,8 +62,6 @@ if (data === undefined || data?.length == 0)
 
   const renderChangeIndicators = () => {
 
-      if (!showPercentChange) return null;
-  
       return dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => {
         return lineData.values.map((d, i) => {
           if (i === 0) return null;
@@ -101,7 +102,7 @@ if (data === undefined || data?.length == 0)
                     <div>
                       <strong>Yearly Change</strong><br/>
                       ${yearlyChange !== null ? Number(yearlyChange).toFixed(1) : 'N/A'}% (${yearlyChange !== null && yearlyChange > 0 ? 'Increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})<br/>
-                      ${d.drug} positivity ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
+                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
                     </div>
                   </div>` : ''}
                   <div style='display: flex; align-items: center;'>
@@ -111,7 +112,7 @@ if (data === undefined || data?.length == 0)
                     <div>
                       <strong>${period === 'Quarterly' ? 'Quarterly' : '6 Month'} Change</strong><br/>
                       ${periodChange !== null ? Number(periodChange).toFixed(1) : 'N/A'}% (${periodChange !== null && periodChange > 0 ? 'Increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})<br/>
-                      ${d.drug} positivity ${periodChange !== null && periodChange > 0 ? 'increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
+                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${periodChange !== null && periodChange > 0 ? 'increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
                     </div>
                   </div>
                 </div>`}
@@ -215,40 +216,50 @@ if (data === undefined || data?.length == 0)
 
           {dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
             <Fragment key={index}>
-              <LinePath
-                data={lineData.values}
-                x={d => xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                y={d => yScale(parseFloat(d.percentage))}
-                stroke={lineColors[lineData.name]}
-                strokeWidth={2}
-                curve={null}
-              />
               {lineData.values.map((d, i) => {
                 const percentage = parseFloat(d.percentage);
                 const lowerCI = (percentage - 0.5).toFixed(1);
                 const upperCI = (percentage + 0.5).toFixed(1);
                 const n = lineData.values.length;
-                const showLabel = showLabels || (period == 'Quarterly' && (
-                  i === 0 ||
-                  i === n - 1 || 
-                  i === n - 2 || 
-                  i === Math.floor((n - 1) / 2))
-                );
+                const dNext = i === n - 1 ? {} :  lineData.values[i+1] || {}
+                const percentageN = parseFloat(dNext.percentage);
+                const showLabel = showLabels;
                 return (
                   <Fragment key={i}>
-                    <Circle
-                      cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                      cy={yScale(percentage)}
-                      r={4}
-                      fill={lineColors[d.drug]}
-                      data-tip={`<div style='text-align: left;'>
-                        <strong>${xAccessor(d)}</strong><br/>
-                        ${d.drug} positivity: ${percentage}%<br/>
-                        Confidence interval: ${lowerCI}% - ${upperCI}%
-                      </div>`}
-                    />
-                    {showLabel && (
-                      <text
+                     <Group key={`line-path-${d.drug.substring(0,4)}-point-${i}`}>
+                        { i < n - 1 &&
+                        <line 
+                          x1={xScale(xAccessor(d)) + xScale.bandwidth() / 2} 
+                          y1={yScale(percentage)} 
+                          x2={xScale(xAccessor(dNext)) + xScale.bandwidth() / 2} 
+                          y2={yScale(percentageN)} 
+                          stroke={lineColors[d.drug]}
+                          strokeWidth={2} />
+                        }
+                        <Circle
+                          cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                          cy={yScale(percentage)}
+                          r={4}
+                          fill={lineColors[d.drug]}
+                          data-tip={`<div style='text-align: left;'>
+                            <strong>${xAccessor(d)}</strong><br/>
+                            ${UtilityFunctions.getPositivityLabel(d.drug)}: ${percentage}%<br/>
+                            Confidence interval: ${lowerCI}% - ${upperCI}%
+                          </div>`}
+                        />
+                        {(!showLabel && (i == n -1)) && (
+                          <text
+                            x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 30}
+                            y={yScale(percentage) + 4}
+                            fontSize={12}
+                            textAnchor="middle"
+                            fill="#333"
+                          >
+                            {percentage}%
+                          </text>
+                        )}
+                        {showLabel && (
+                        <text
                         x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                         y={yScale(percentage) - 14}
                         fontSize={12}
@@ -257,13 +268,14 @@ if (data === undefined || data?.length == 0)
                       >
                         {percentage}%
                       </text>
-                    )}
+                      )}
+                    </Group>
                   </Fragment>
                 );
               })}
             </Fragment>
           ))}
-          {renderChangeIndicators()}
+          {showPercentChange && renderChangeIndicators()}
         </Group>
       </svg>
 

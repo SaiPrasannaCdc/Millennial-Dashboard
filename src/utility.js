@@ -120,6 +120,25 @@ const drugNodeInfo = {
   'OpioidsM': 'Methamphetamine',
 }
 
+const posstivityLabeleInfo = {
+  'Fentanyl': 'Fentanyl postivity',
+  'Fentanyl with Stimulants': 'Fentanyl postivity with Stimulants',
+  'Fentanyl without Stimulants': 'Fentanyl postivity without Stimulants',
+  'Heroin': 'Heroin postivity',
+  'Heroin with Stimulants': 'Heroin postivity with Stimulants',
+  'Heroin without Stimulants': 'Heroin postivity without Stimulants',
+  'Cocaine': 'Cocaine postivity',
+  'Cocaine with Opioids': 'Cocaine postivity with Opioids',
+  'Cocaine without Opioids': 'Cocaine postivity without Opioids',
+  'Methamphetamine': 'Methamphetamine postivity',
+  'Methamphetamine with Opioids': 'Methamphetamine postivity with Opioids',
+  'Methamphetamine without Opioids': 'Methamphetamine postivity without Opioids',
+  'Fentanyl and Stimulants': 'Fentanyl and Stimulants postivity',
+  'Heroin and Stimulants': 'Heroin and Stimulants postivity',
+  'OpioidsC': 'Cocaine postivity',
+  'OpioidsM': 'Methamphetamine postivity',
+}
+
 const CoPositiveInfo = {
   'OpioidsC': 'Cocaine',
   'OpioidsM': 'Methamphetamine',
@@ -204,7 +223,7 @@ export const UtilityFunctions = {
     //var coPos = (UtilityFunctions.getCoPositiveExceptions(region, mdrug, periodKey, drug) ? 'CoPositive' : UtilityFunctions.getPositivity(drug)) //SKV TODO
     var drugNm = drug.replace('OpioidsC','Opioids').replace('OpioidsM','Opioids'); //SKV TODO
     const arr = data?.[region]?.[mainDrug]?.[coPos]?.[periodKey] || [];
-    const drgRecs = arr.filter(d => (d.drug_name === drugNm));
+    const drgRecs = arr.filter(d => (d.drug_name == drugNm));
     if (periodKey == 'HalfYearly')
     { 
       return drgRecs.map(drg => ({
@@ -232,7 +251,9 @@ export const UtilityFunctions = {
         }));
     }
   },
+
   getDrugsDataNew: (data, region, periodKey, mainDrug, drugs, chartNum) => {
+
     var drugsDataSet = [];
     drugs.forEach(function(drug, index) {
       var drugsData = {};
@@ -355,13 +376,13 @@ export const UtilityFunctions = {
             heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Heroin':
-            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Cocaine':
-            heading = ': How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health,' + rgnFinal + ' ' + prd; 
             break;
           case 'Methamphetamine':
-            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           default:
             break;
@@ -380,13 +401,17 @@ export const UtilityFunctions = {
             heading = 'How often do people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for methamphetamine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Methamphetamine':
-            heading = ': How often do people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
+            heading = 'How often do people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
             break;
           default:
             break;
         }
     }
     return heading;
+  },
+
+  getPositivityLabel: (drug) => {
+    return posstivityLabeleInfo[drug] == '' || posstivityLabeleInfo[drug] == null ? drug : posstivityLabeleInfo[drug];
   },
 
   getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels) => {
@@ -407,7 +432,6 @@ export const UtilityFunctions = {
                           margin: 0 auto;
                           border-radius: 14px;
                           background: #ededed;
-                          box-shadow: 0 2px 12px #bbb3;
                         ">
                           <div style="margin-top: 8px;">
                             When <b>% Chg</b> is on, hover over the data point for the 5 most recent quarters to view percent change from the same quarter in the previous year and the previous quarter.
@@ -466,7 +490,6 @@ export const UtilityFunctions = {
                           margin: 0 auto;
                           border-radius: 14px;
                           background: #ededed;
-                          box-shadow: 0 2px 12px #bbb3;
                         ">
                           <div style="margin-top: 8px;">
                             When Labels is On, values for all data points will be shown.
