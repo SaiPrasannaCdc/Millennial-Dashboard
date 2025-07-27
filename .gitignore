@@ -18,6 +18,12 @@
 .env.test.local
 .env.production.local
 
+# build outputs
+/ExcelToJsonConverter/bin/
+/ExcelToJsonConverter/obj/
+
+/.vs/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
