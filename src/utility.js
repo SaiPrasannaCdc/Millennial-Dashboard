@@ -135,8 +135,7 @@ const posstivityLabeleInfo = {
   'Methamphetamine without Opioids': 'Methamphetamine postivity without Opioids',
   'Fentanyl and Stimulants': 'Fentanyl and Stimulants postivity',
   'Heroin and Stimulants': 'Heroin and Stimulants postivity',
-  'OpioidsC': 'Cocaine postivity',
-  'OpioidsM': 'Methamphetamine postivity',
+  'Opioids': 'Opioids postivity',
 }
 
 const CoPositiveInfo = {
@@ -379,7 +378,7 @@ export const UtilityFunctions = {
             heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Cocaine':
-            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health,' + rgnFinal + ' ' + prd; 
+            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Methamphetamine':
             heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
