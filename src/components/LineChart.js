@@ -14,18 +14,13 @@ function LineChart(params) {
 
   const { data, region, currentDrug, period, width, height, selectedDrugs, showLabels, showPercentChange, lineColors, onData, chartNum } = params;
 
-  useEffect(() => {
-        ReactTooltip.rebuild();
-    }, [showPercentChange, selectedDrugs, data, period, showLabels]);
-
-if (data === undefined || data?.length == 0)
-      return '';
-
   const dataSet = data;
  
   const margin = { top: 60, right: 30, bottom: 50, left: 95 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
+
+  const specs = [];
 
   const formatHalfYearLabel = (periodStr) => {
     if (periodStr == null || periodStr == undefined || periodStr == '')
@@ -148,6 +143,117 @@ if (data === undefined || data?.length == 0)
       nice: true,
   });
 
+  const adjustCrowdedLabels = () => {
+
+    var positionsVar = [];
+    const allLabels = document?.getElementsByClassName("adjustCrowded");
+    if (selectedDrugs !== undefined && selectedDrugs != null) {
+      for (var i=0; i<selectedDrugs?.length; i++) {
+        let recs = dataSet.find(rec => rec.name === selectedDrugs[i]).values;
+        var pos = yScale(recs[recs.length - 1].percentage);
+        if (pos !== undefined) {
+          positionsVar.push({
+              label: selectedDrugs[i],
+              val: String(recs[recs.length - 1].percentage) + '%',
+              xpos: adjustedWidth + 18,
+              ypos:  yScale(recs[recs.length - 1].percentage),
+              yposNew: yScale(recs[recs.length - 1].percentage),
+              adjusted: false
+            })
+        }
+      }
+    }
+    
+    var avg = 0; var order = 'topdown'; var upcnt = 0; var downcnt = 0;
+
+    for (var i=0; i<positionsVar?.length; i++) 
+      avg = avg + positionsVar[i].ypos;
+    
+    avg = avg/positionsVar?.length;
+
+    for (var i=0; i<positionsVar?.length; i++) {
+      if (positionsVar[i].ypos > avg)
+        downcnt++;
+      else
+        upcnt++;
+    }
+
+    if (downcnt > upcnt)
+      order = 'bottomup';
+
+    if (order == 'bottomup') {
+      
+      positionsVar.sort((a, b) => b.ypos - a.ypos);
+
+      if (positionsVar !== undefined && positionsVar != null) {
+        for (var i=0; i<positionsVar?.length; i++) {
+          if (i == 0) {
+            positionsVar[i].yposNew = Number(positionsVar[i].ypos);
+          }
+          else{
+            positionsVar[i].yposNew = ((Number(positionsVar[i-1].yposNew) - Number(positionsVar[i].ypos)) < 20) ? (Number(positionsVar[i-1].yposNew) - 20) : Number(positionsVar[i].ypos);
+            positionsVar[i].adjusted = ((Number(positionsVar[i-1].yposNew) - Number(positionsVar[i].ypos)) < 20) ? true : false;
+          }
+        }
+      }
+    }
+    else
+    {
+      positionsVar.sort((a, b) => a.ypos - b.ypos);
+
+      if (positionsVar !== undefined && positionsVar != null) {
+        for (var i=0; i<positionsVar?.length; i++) {
+          if (i == 0) {
+            positionsVar[i].yposNew = Number(positionsVar[i].ypos);
+          }
+          else{
+              positionsVar[i].yposNew = ((Number(positionsVar[i].ypos) - Number(positionsVar[i-1].yposNew)) < 20) ? (Number(positionsVar[i-1].yposNew) + 20) : Number(positionsVar[i].ypos);
+              positionsVar[i].adjusted = ((Number(positionsVar[i].ypos) - Number(positionsVar[i-1].yposNew)) < 20) ? true : false;
+          }
+        }
+      }
+    }
+    
+    specs['positionsVar'] = positionsVar;
+
+    for (var i=0; i<allLabels?.length; i++) {
+      for (var j=0; j<positionsVar?.length; j++) {
+          if (allLabels[i].innerHTML == positionsVar[j].val) {
+            allLabels[i].setAttribute("y", String(positionsVar[j].yposNew));
+            break;
+          }
+        }
+      }
+  }
+
+  const adjustLinesForLabels = () => {
+
+    if (selectedDrugs !== undefined && selectedDrugs != null) {
+      for (var i=0; i<selectedDrugs?.length; i++) {
+        var lineElm = document?.getElementById(`line-leading-${chartNum}-${i}`);
+
+          if (lineElm?.id.includes(chartNum + '-' + i)) {
+            lineElm.style.visibility = "visible";
+            var rec = specs['positionsVar'].find(rec => rec.label === selectedDrugs[i]);
+            if (rec.adjusted === true) {
+              lineElm.setAttribute("y1", String(rec.ypos));
+              lineElm.setAttribute("y2", String(rec.yposNew));
+            }
+            else
+            {
+              lineElm.style.visibility = "hidden";
+            }
+          }
+       }
+    }
+  }
+
+    useEffect(() => {
+      adjustCrowdedLabels();
+      adjustLinesForLabels();
+      ReactTooltip.rebuild();
+    }, [showPercentChange, selectedDrugs, data, period, showLabels]);
+
   const mainLine = data[0];
   const n = mainLine.values.length;
   let keyFinding = null;
@@ -224,6 +330,8 @@ if (data === undefined || data?.length == 0)
                 const dNext = i === n - 1 ? {} :  lineData.values[i+1] || {}
                 const percentageN = parseFloat(dNext.percentage);
                 const showLabel = showLabels;
+
+                const drugIdx = selectedDrugs.findIndex(rec => rec === d.drug);
                 return (
                   <Fragment key={i}>
                      <Group key={`line-path-${d.drug.substring(0,4)}-point-${i}`}>
@@ -248,15 +356,26 @@ if (data === undefined || data?.length == 0)
                           </div>`}
                         />
                         {(!showLabel && (i == n -1)) && (
-                          <text
-                            x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 30}
-                            y={yScale(percentage) + 4}
-                            fontSize={12}
-                            textAnchor="middle"
-                            fill="#333"
-                          >
-                            {percentage}%
-                          </text>
+                          <Group>
+                            <line
+                                id={`line-leading-${chartNum}-${drugIdx}`}
+                                x1={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 4}
+                                y1={yScale(percentage)}
+                                x2={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 22} 
+                                y2={yScale(percentage)}
+                                stroke={lineColors[d.drug]}
+                                strokeWidth={1.5}/>
+                            <text
+                              class='adjustCrowded'
+                              x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 40}
+                              y={yScale(percentage) + 4}
+                              fontSize={12}
+                              textAnchor="middle"
+                              fill="#333"
+                            >
+                              {percentage.toFixed(1)}%
+                            </text>
+                          </Group>
                         )}
                         {showLabel && (
                         <text
@@ -275,7 +394,7 @@ if (data === undefined || data?.length == 0)
               })}
             </Fragment>
           ))}
-          {showPercentChange && renderChangeIndicators()}
+          {showPercentChange && renderChangeIndicators()}          
         </Group>
       </svg>
 

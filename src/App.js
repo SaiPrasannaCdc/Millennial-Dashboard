@@ -163,7 +163,7 @@ function App() {
       <div className="loading-spinner"></div>
   </div>;
 
-  if (jsonData == null || (jsonData != null && jsonData?.length == 0)) {
+  if (jsonData == null || (jsonData != null && jsonData?.length == 0) || chartOneData == null || (chartOneData != null && chartOneData?.length == 0) || chartTwoData == null || (chartTwoData != null && chartTwoData?.length == 0)) {
     return loading;
   }
 
