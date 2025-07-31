@@ -388,6 +388,15 @@
       "CoPositive": {
         "HalfYearly": [
           {
+            "period": "2022 Jul-Dec",
+            "drug_name": "Heroin",
+            "percentage": 19.8,
+            "ciLower": 19,
+            "ciUpper": 20.7,
+            "periodChange": "",
+            "yearChange": ""
+          },
+          {
             "period": "2023 Jan-Jun",
             "drug_name": "Heroin",
             "percentage": 20.2,
