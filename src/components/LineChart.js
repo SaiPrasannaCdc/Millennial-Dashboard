@@ -364,18 +364,19 @@ function LineChart(params) {
                             <line
                                 id={`line-leading-${chartNum}-${drugIdx}`}
                                 x1={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 4}
-                                y1={yScale(percentage)}
+                                y1={yScale(percentage.toFixed(1))}
                                 x2={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 22} 
-                                y2={yScale(percentage)}
+                                y2={yScale(percentage.toFixed(1))}
                                 stroke={lineColors[d.drug]}
                                 strokeWidth={1.5}/>
                             <text
                               id={`adjustCrowded-${chartNum}-${drugIdx}`}
                               class='adjustCrowded'
                               x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 42}
-                              y={yScale(percentage) + 4}
+                              y={yScale(percentage.toFixed(1))}
                               fontSize={12}
                               textAnchor="middle"
+                              alignmentBaseline="middle"
                               fill="#333"
                             >
                               {percentage.toFixed(1)}%
@@ -385,7 +386,7 @@ function LineChart(params) {
                         {showLabel && (
                         <text
                         x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                        y={yScale(percentage) - 14}
+                        y={yScale(percentage.toFixed(1)) - 14}
                         fontSize={12}
                         textAnchor="middle"
                         fill="#333"

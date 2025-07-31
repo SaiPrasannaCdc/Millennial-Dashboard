@@ -28,23 +28,23 @@ const firstChartQuarterlyInfo = {
 const secondChartQuarterlyInfo = {
   'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
   'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 
   'West_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
   'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 
   'MidWest_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
   'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 
   'South_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0C6F96,#671AAA,#A378E8,#0B3345',
   'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 }
 
 const firstChartHalfYearlyInfo = {
@@ -77,28 +77,28 @@ const firstChartHalfYearlyInfo = {
 const secondChartHalfYearlyInfo = {
   'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
   'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 
   'West_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0C6F96,#671AAA,#A378E8,#0B3345',
   'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 
   'MidWest_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0C6F96,#671AAA,#0B3345,#A378E8',
   'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 
   'South_Fentanyl': 'Heroin,Methamphetamine,Cocaine,Fentanyl with cocaine or methamphetamine|#0C6F96,#A378E8,#671AAA,#0B3345',
   'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA',
+  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
 
   'North_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0C6F96,#671AAA,#0B3345,#A378E8',
   'North_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'North_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#2980B9,#A378E8',
-  'North_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#29AF61,#671AAA'
+  'North_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
+  'North_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA'
 }
 
 const drugNodeInfo = {
@@ -131,7 +131,7 @@ const posstivityLabeleInfo = {
   'Methamphetamine': 'Methamphetamine postivity',
   'Methamphetamine with fentanyl or heroin': 'Methamphetamine postivity with fentanyl or heroin',
   'Methamphetamine without fentanyl or heroin': 'Methamphetamine postivity without fentanyl or heroin',
-  'Opioids': 'Opioids postivity',
+  'Opioids': 'Fentanyl or heroin postivity',
 }
 
 const CoPositiveInfo = {
@@ -634,7 +634,7 @@ export const UtilityFunctions = {
                       />
                     )}
                   </span>
-                  <span style={{ fontSize: '14px', color: '#222' }}>{drug}</span>
+                  <span style={{ fontSize: '14px', color: '#222' }}>{drug.replace('Opioids','Fentanyl or heroin')}</span>
                 </label>
               ))}
             </div>
