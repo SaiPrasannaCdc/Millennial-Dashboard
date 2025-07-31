@@ -124,9 +124,6 @@ function LineChart(params) {
     const allPeriodsArr = Array.from(allPeriodsSet);
 
     const xDomain = allPeriodsArr;
-    /* const xDomain = period === 'Quarterly'
-      ? dataSet[0].values.map(d => d.quarter)
-      : dataSet[0].values.map(d => formatHalfYearLabel(d.period)); */
     const xAccessor = period === 'Quarterly'
       ? d => d.quarter
       : d => formatHalfYearLabel(d.period);
@@ -158,7 +155,8 @@ function LineChart(params) {
               xpos: adjustedWidth + 18,
               ypos:  yScale(recs[recs.length - 1].percentage),
               yposNew: yScale(recs[recs.length - 1].percentage),
-              adjusted: false
+              adjusted: false,
+              id: 'lbl_' + {chartNum} + '_' + {i}
             })
         }
       }
@@ -191,7 +189,7 @@ function LineChart(params) {
             positionsVar[i].yposNew = Number(positionsVar[i].ypos);
           }
           else{
-            positionsVar[i].yposNew = ((Number(positionsVar[i-1].yposNew) - Number(positionsVar[i].ypos)) < 20) ? (Number(positionsVar[i-1].yposNew) - 20) : Number(positionsVar[i].ypos);
+            positionsVar[i].yposNew = ((Number(positionsVar[i-1].yposNew) - Number(positionsVar[i].ypos)) < 20) ? (Number(positionsVar[i-1].yposNew) - 16) : Number(positionsVar[i].ypos);
             positionsVar[i].adjusted = ((Number(positionsVar[i-1].yposNew) - Number(positionsVar[i].ypos)) < 20) ? true : false;
           }
         }
@@ -207,7 +205,7 @@ function LineChart(params) {
             positionsVar[i].yposNew = Number(positionsVar[i].ypos);
           }
           else{
-              positionsVar[i].yposNew = ((Number(positionsVar[i].ypos) - Number(positionsVar[i-1].yposNew)) < 20) ? (Number(positionsVar[i-1].yposNew) + 20) : Number(positionsVar[i].ypos);
+              positionsVar[i].yposNew = ((Number(positionsVar[i].ypos) - Number(positionsVar[i-1].yposNew)) < 20) ? (Number(positionsVar[i-1].yposNew) + 24) : Number(positionsVar[i].ypos);
               positionsVar[i].adjusted = ((Number(positionsVar[i].ypos) - Number(positionsVar[i-1].yposNew)) < 20) ? true : false;
           }
         }
@@ -216,14 +214,18 @@ function LineChart(params) {
     
     specs['positionsVar'] = positionsVar;
 
-    for (var i=0; i<allLabels?.length; i++) {
-      for (var j=0; j<positionsVar?.length; j++) {
-          if (allLabels[i].innerHTML == positionsVar[j].val) {
-            allLabels[i].setAttribute("y", String(positionsVar[j].yposNew));
-            break;
+      if (selectedDrugs !== undefined && selectedDrugs != null) {
+      for (var i=0; i<selectedDrugs?.length; i++) {
+        var labelElm = document?.getElementById(`adjustCrowded-${chartNum}-${i}`);
+
+          if (labelElm?.id.includes(chartNum + '-' + i)) {
+            var rec = specs['positionsVar'].find(rec => rec.label === selectedDrugs[i]);
+            if (rec.adjusted === true) {
+              labelElm.setAttribute("y", String(rec.yposNew))
+            }
           }
-        }
-      }
+       }
+    }
   }
 
   const adjustLinesForLabels = () => {
@@ -236,8 +238,7 @@ function LineChart(params) {
             lineElm.style.visibility = "visible";
             var rec = specs['positionsVar'].find(rec => rec.label === selectedDrugs[i]);
             if (rec.adjusted === true) {
-              lineElm.setAttribute("y1", String(rec.ypos));
-              lineElm.setAttribute("y2", String(rec.yposNew));
+              lineElm.setAttribute("y2", String(rec.yposNew - 2));
             }
             else
             {
@@ -366,8 +367,9 @@ function LineChart(params) {
                                 stroke={lineColors[d.drug]}
                                 strokeWidth={1.5}/>
                             <text
+                              id={`adjustCrowded-${chartNum}-${drugIdx}`}
                               class='adjustCrowded'
-                              x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 40}
+                              x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 42}
                               y={yScale(percentage) + 4}
                               fontSize={12}
                               textAnchor="middle"
