@@ -223,6 +223,9 @@ function LineChart(params) {
             if (rec.adjusted === true) {
               labelElm.setAttribute("y", String(rec.yposNew))
             }
+            else {
+              labelElm.setAttribute("y", String(rec.ypos))
+            }
           }
        }
     }
