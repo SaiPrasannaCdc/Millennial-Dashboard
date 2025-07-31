@@ -258,23 +258,66 @@ if (data === undefined || data?.length == 0)
                             {percentage}%
                           </text>
                         )}
-                        {showLabel && (
-                        <text
-                        x={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
-                        y={yScale(percentage) - 14}
-                        fontSize={12}
-                        textAnchor="middle"
-                        fill="#333"
-                      >
-                        {percentage}%
-                      </text>
-                      )}
                     </Group>
                   </Fragment>
                 );
               })}
             </Fragment>
           ))}
+          
+          {/* Render labels separately to avoid overlapping */}
+          {showLabels && (() => {
+            // Collect all data points for each x position to calculate optimal label positions
+            const labelsByPosition = {};
+            
+            dataSet.filter(ds => selectedDrugs?.includes(ds.name)).forEach((lineData) => {
+              lineData.values.forEach((d) => {
+                const xPos = xAccessor(d);
+                const percentage = parseFloat(d.percentage);
+                const xPixel = xScale(xPos) + xScale.bandwidth() / 2;
+                
+                if (!labelsByPosition[xPos]) {
+                  labelsByPosition[xPos] = [];
+                }
+                
+                labelsByPosition[xPos].push({
+                  x: xPixel,
+                  percentage: percentage,
+                  drug: d.drug,
+                  color: lineColors[d.drug]
+                });
+              });
+            });
+
+            // Render labels with overlap prevention for each x position
+            return Object.keys(labelsByPosition).map(xPos => {
+              const pointsAtPosition = labelsByPosition[xPos];
+              const adjustedPositions = UtilityFunctions.calculateLabelPositions(
+                pointsAtPosition, 
+                yScale, 
+                20, // label height
+                3   // minimum gap between labels
+              );
+
+              return (
+                <Group key={`labels-${xPos}`}>
+                  {adjustedPositions.map((pos, idx) => (
+                    <text
+                      key={`label-${xPos}-${idx}`}
+                      x={pos.x}
+                      y={pos.y}
+                      fontSize={12}
+                      textAnchor="middle"
+                      fill="#333"
+                    >
+                      {pos.value}%
+                    </text>
+                  ))}
+                </Group>
+              );
+            });
+          })()}
+          
           {showPercentChange && renderChangeIndicators()}
         </Group>
       </svg>

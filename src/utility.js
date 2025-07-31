@@ -527,6 +527,44 @@ export const UtilityFunctions = {
     )
   },
 
+  // Function to calculate non-overlapping label positions
+  calculateLabelPositions: (dataPoints, yScale, labelHeight = 20, minGap = 5) => {
+    // Sort points by their y position (percentage value)
+    const sortedPoints = dataPoints
+      .map((point, index) => ({
+        ...point,
+        originalIndex: index,
+        yPos: yScale(parseFloat(point.percentage)),
+        preferredY: yScale(parseFloat(point.percentage)) - 14 // Default label position
+      }))
+      .sort((a, b) => a.yPos - b.yPos);
+
+    // Adjust positions to avoid overlaps
+    const adjustedPositions = [];
+    let lastLabelBottom = -Infinity;
+
+    sortedPoints.forEach(point => {
+      let labelY = point.preferredY;
+      const labelTop = labelY - labelHeight / 2;
+      const labelBottom = labelY + labelHeight / 2;
+
+      // If this label would overlap with the previous one, push it down
+      if (labelTop < lastLabelBottom + minGap) {
+        labelY = lastLabelBottom + minGap + labelHeight / 2;
+      }
+
+      adjustedPositions[point.originalIndex] = {
+        x: point.x,
+        y: labelY,
+        value: point.percentage
+      };
+
+      lastLabelBottom = labelY + labelHeight / 2;
+    });
+
+    return adjustedPositions;
+  },
+
   getDrugControls: (ctlName, currentDrug, keyFinding, setSelectedLines, selectedLines, drugsToShow, lineColors, selectedRegion, selectedPeriod, chartNum) => {
     return (
       <Fragment>
