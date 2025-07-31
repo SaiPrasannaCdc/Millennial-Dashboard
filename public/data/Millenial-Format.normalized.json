@@ -50,7 +50,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.7,
             "ciLower": 9.5,
             "ciUpper": 10.0,
@@ -59,7 +59,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.4,
             "ciLower": 9.3,
             "ciUpper": 9.6,
@@ -68,7 +68,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.0,
             "ciLower": 9.8,
             "ciUpper": 10.2,
@@ -77,7 +77,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.8,
             "ciLower": 9.7,
             "ciUpper": 10.0,
@@ -86,7 +86,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.3,
             "ciLower": 10.1,
             "ciUpper": 10.4,
@@ -95,7 +95,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 5.2,
             "ciLower": 5.0,
             "ciUpper": 5.3,
@@ -104,7 +104,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.4,
             "ciUpper": 4.6,
@@ -113,7 +113,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.3,
             "ciUpper": 4.5,
@@ -122,7 +122,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.8,
             "ciLower": 3.7,
             "ciUpper": 3.9,
@@ -131,7 +131,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.7,
             "ciUpper": 2.9,
@@ -223,7 +223,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.7,
             "ciLower": 9.5,
             "ciUpper": 10.0,
@@ -232,7 +232,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.2,
             "ciLower": 8.9,
             "ciUpper": 9.4,
@@ -241,7 +241,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.7,
             "ciLower": 9.5,
             "ciUpper": 9.9,
@@ -250,7 +250,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.0,
             "ciLower": 9.8,
             "ciUpper": 10.2,
@@ -259,7 +259,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.0,
             "ciLower": 9.8,
             "ciUpper": 10.2,
@@ -268,7 +268,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.5,
             "ciLower": 9.3,
             "ciUpper": 9.8,
@@ -277,7 +277,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.1,
             "ciLower": 9.9,
             "ciUpper": 10.4,
@@ -286,7 +286,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.3,
             "ciLower": 10.1,
             "ciUpper": 10.5,
@@ -295,7 +295,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.2,
             "ciLower": 10.0,
             "ciUpper": 10.5,
@@ -304,7 +304,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 5.2,
             "ciLower": 5.0,
             "ciUpper": 5.3,
@@ -313,7 +313,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.4,
             "ciUpper": 4.7,
@@ -322,7 +322,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.3,
             "ciUpper": 4.6,
@@ -331,7 +331,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.3,
             "ciUpper": 4.6,
@@ -340,7 +340,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.3,
             "ciUpper": 4.6,
@@ -349,7 +349,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.0,
             "ciLower": 3.8,
             "ciUpper": 4.1,
@@ -358,7 +358,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.5,
             "ciUpper": 3.7,
@@ -367,7 +367,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.1,
             "ciLower": 3.0,
             "ciUpper": 3.3,
@@ -376,7 +376,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.4,
             "ciUpper": 2.6,
@@ -515,7 +515,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 65.4,
             "ciLower": 64.4,
             "ciUpper": 66.4,
@@ -524,7 +524,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 67.7,
             "ciLower": 67.0,
             "ciUpper": 68.4,
@@ -533,7 +533,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 69.3,
             "ciLower": 68.7,
             "ciUpper": 70.0,
@@ -542,7 +542,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 72.2,
             "ciLower": 71.6,
             "ciUpper": 72.8,
@@ -551,7 +551,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 78.6,
             "ciLower": 78.0,
             "ciUpper": 79.2,
@@ -805,7 +805,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 65.4,
             "ciLower": 64.4,
             "ciUpper": 66.4,
@@ -814,7 +814,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 67.0,
             "ciLower": 66.0,
             "ciUpper": 67.9,
@@ -823,7 +823,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 68.4,
             "ciLower": 67.5,
             "ciUpper": 69.4,
@@ -832,7 +832,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 69.4,
             "ciLower": 68.4,
             "ciUpper": 70.3,
@@ -841,7 +841,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 69.3,
             "ciLower": 68.4,
             "ciUpper": 70.3,
@@ -850,7 +850,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 70.5,
             "ciLower": 69.6,
             "ciUpper": 71.5,
@@ -859,7 +859,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 73.8,
             "ciLower": 73.0,
             "ciUpper": 74.7,
@@ -868,7 +868,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 76.8,
             "ciLower": 75.9,
             "ciUpper": 77.6,
@@ -877,7 +877,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 80.5,
             "ciLower": 79.7,
             "ciUpper": 81.3,
@@ -937,7 +937,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.7,
             "ciUpper": 3.0,
@@ -946,7 +946,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.6,
             "ciLower": 2.5,
             "ciUpper": 2.7,
@@ -955,7 +955,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.4,
             "ciUpper": 2.6,
@@ -964,7 +964,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.4,
             "ciLower": 2.3,
             "ciUpper": 2.5,
@@ -973,7 +973,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.4,
             "ciLower": 3.3,
             "ciUpper": 3.5,
@@ -982,7 +982,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.8,
             "ciLower": 3.6,
             "ciUpper": 3.9,
@@ -991,7 +991,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.5,
             "ciUpper": 3.7,
@@ -1000,7 +1000,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.5,
             "ciLower": 3.4,
             "ciUpper": 3.6,
@@ -1009,7 +1009,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.3,
             "ciLower": 3.2,
             "ciUpper": 3.4,
@@ -1018,7 +1018,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.9,
             "ciLower": 3.8,
             "ciUpper": 4.0,
@@ -1110,7 +1110,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.7,
             "ciUpper": 3.0,
@@ -1119,7 +1119,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.4,
             "ciUpper": 2.6,
@@ -1128,7 +1128,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.8,
@@ -1137,7 +1137,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.6,
             "ciLower": 2.4,
             "ciUpper": 2.7,
@@ -1146,7 +1146,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.4,
             "ciUpper": 2.6,
@@ -1155,7 +1155,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.4,
             "ciLower": 2.2,
             "ciUpper": 2.5,
@@ -1164,7 +1164,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.4,
             "ciUpper": 2.6,
@@ -1173,7 +1173,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.1,
             "ciUpper": 3.4,
@@ -1182,7 +1182,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.4,
             "ciUpper": 3.7,
@@ -1191,7 +1191,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.8,
             "ciLower": 3.6,
             "ciUpper": 3.9,
@@ -1200,7 +1200,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.5,
             "ciLower": 3.3,
             "ciUpper": 3.6,
@@ -1209,7 +1209,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.5,
             "ciUpper": 3.8,
@@ -1218,7 +1218,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.5,
             "ciLower": 3.4,
             "ciUpper": 3.7,
@@ -1227,7 +1227,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.5,
             "ciLower": 3.3,
             "ciUpper": 3.6,
@@ -1236,7 +1236,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.3,
             "ciLower": 3.2,
             "ciUpper": 3.4,
@@ -1245,7 +1245,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.3,
             "ciLower": 3.2,
             "ciUpper": 3.4,
@@ -1254,7 +1254,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.8,
             "ciLower": 3.6,
             "ciUpper": 3.9,
@@ -1263,7 +1263,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.0,
             "ciLower": 3.9,
             "ciUpper": 4.2,
@@ -1411,7 +1411,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.0,
             "ciLower": 53.0,
             "ciUpper": 56.9,
@@ -1420,7 +1420,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.9,
             "ciLower": 53.6,
             "ciUpper": 56.3,
@@ -1429,7 +1429,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.6,
             "ciLower": 53.3,
             "ciUpper": 56.0,
@@ -1438,7 +1438,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.1,
             "ciLower": 53.7,
             "ciUpper": 56.4,
@@ -1447,7 +1447,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 64.5,
             "ciLower": 63.3,
             "ciUpper": 65.6,
@@ -1701,7 +1701,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.0,
             "ciLower": 53.0,
             "ciUpper": 56.9,
@@ -1710,7 +1710,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.4,
             "ciLower": 52.4,
             "ciUpper": 56.3,
@@ -1719,7 +1719,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.4,
             "ciLower": 53.6,
             "ciUpper": 57.3,
@@ -1728,7 +1728,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.5,
             "ciLower": 53.6,
             "ciUpper": 57.5,
@@ -1737,7 +1737,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 53.7,
             "ciLower": 51.8,
             "ciUpper": 55.6,
@@ -1746,7 +1746,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.0,
             "ciLower": 52.1,
             "ciUpper": 55.9,
@@ -1755,7 +1755,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 56.1,
             "ciLower": 54.2,
             "ciUpper": 58.0,
@@ -1764,7 +1764,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 63.5,
             "ciLower": 61.9,
             "ciUpper": 65.2,
@@ -1773,7 +1773,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 65.4,
             "ciLower": 63.8,
             "ciUpper": 66.9,
@@ -1833,7 +1833,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.3,
             "ciLower": 8.0,
             "ciUpper": 8.5,
@@ -1842,7 +1842,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 7.8,
             "ciLower": 7.6,
             "ciUpper": 7.9,
@@ -1851,7 +1851,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.1,
             "ciLower": 8.0,
             "ciUpper": 8.3,
@@ -1860,7 +1860,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.2,
             "ciLower": 8.1,
             "ciUpper": 8.4,
@@ -1869,7 +1869,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.9,
             "ciLower": 8.8,
             "ciUpper": 9.1,
@@ -1878,7 +1878,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.8,
             "ciLower": 7.6,
             "ciUpper": 8.0,
@@ -1887,7 +1887,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.4,
             "ciLower": 8.3,
             "ciUpper": 8.6,
@@ -1896,7 +1896,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.1,
             "ciLower": 7.9,
             "ciUpper": 8.2,
@@ -1905,7 +1905,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.3,
             "ciLower": 8.1,
             "ciUpper": 8.4,
@@ -1914,7 +1914,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 9.2,
             "ciLower": 9.1,
             "ciUpper": 9.4,
@@ -2006,7 +2006,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.3,
             "ciLower": 8.0,
             "ciUpper": 8.5,
@@ -2015,7 +2015,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 7.5,
             "ciLower": 7.3,
             "ciUpper": 7.7,
@@ -2024,7 +2024,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.1,
             "ciLower": 7.8,
             "ciUpper": 8.3,
@@ -2033,7 +2033,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.1,
             "ciLower": 7.9,
             "ciUpper": 8.3,
@@ -2042,7 +2042,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.2,
             "ciLower": 8.0,
             "ciUpper": 8.4,
@@ -2051,7 +2051,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 7.9,
             "ciLower": 7.7,
             "ciUpper": 8.1,
@@ -2060,7 +2060,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.5,
             "ciLower": 8.3,
             "ciUpper": 8.7,
@@ -2069,7 +2069,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 8.8,
             "ciLower": 8.6,
             "ciUpper": 9.0,
@@ -2078,7 +2078,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 9.0,
             "ciLower": 8.8,
             "ciUpper": 9.2,
@@ -2087,7 +2087,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.8,
             "ciLower": 7.6,
             "ciUpper": 8.0,
@@ -2096,7 +2096,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.4,
             "ciLower": 8.2,
             "ciUpper": 8.6,
@@ -2105,7 +2105,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.5,
             "ciLower": 8.3,
             "ciUpper": 8.7,
@@ -2114,7 +2114,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.2,
             "ciLower": 8.0,
             "ciUpper": 8.4,
@@ -2123,7 +2123,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.0,
             "ciLower": 7.8,
             "ciUpper": 8.2,
@@ -2132,7 +2132,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.2,
             "ciLower": 8.0,
             "ciUpper": 8.4,
@@ -2141,7 +2141,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.4,
             "ciLower": 8.2,
             "ciUpper": 8.6,
@@ -2150,7 +2150,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 9.0,
             "ciLower": 8.8,
             "ciUpper": 9.2,
@@ -2159,7 +2159,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 9.5,
             "ciLower": 9.2,
             "ciUpper": 9.7,
@@ -2729,7 +2729,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.2,
             "ciLower": 3.1,
             "ciUpper": 3.4,
@@ -2738,7 +2738,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.4,
             "ciLower": 3.3,
             "ciUpper": 3.5,
@@ -2747,7 +2747,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.7,
             "ciLower": 3.6,
             "ciUpper": 3.8,
@@ -2756,7 +2756,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.7,
             "ciLower": 3.6,
             "ciUpper": 3.8,
@@ -2765,7 +2765,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.9,
             "ciLower": 3.8,
             "ciUpper": 4.0,
@@ -2774,7 +2774,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.1,
             "ciLower": 3.0,
             "ciUpper": 3.3,
@@ -2783,7 +2783,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.2,
             "ciLower": 3.1,
             "ciUpper": 3.3,
@@ -2792,7 +2792,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.6,
             "ciLower": 3.5,
             "ciUpper": 3.7,
@@ -2801,7 +2801,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.9,
             "ciLower": 3.8,
             "ciUpper": 4.0,
@@ -2810,7 +2810,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.3,
             "ciUpper": 4.5,
@@ -2902,7 +2902,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.2,
             "ciLower": 3.1,
             "ciUpper": 3.4,
@@ -2911,7 +2911,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.3,
             "ciLower": 3.2,
             "ciUpper": 3.4,
@@ -2920,7 +2920,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.5,
             "ciLower": 3.4,
             "ciUpper": 3.6,
@@ -2929,7 +2929,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.7,
             "ciLower": 3.5,
             "ciUpper": 3.8,
@@ -2938,7 +2938,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.7,
             "ciLower": 3.5,
             "ciUpper": 3.8,
@@ -2947,7 +2947,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.6,
             "ciLower": 3.4,
             "ciUpper": 3.7,
@@ -2956,7 +2956,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.8,
             "ciLower": 3.7,
             "ciUpper": 3.9,
@@ -2965,7 +2965,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.9,
             "ciUpper": 4.2,
@@ -2974,7 +2974,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.8,
             "ciLower": 3.7,
             "ciUpper": 4.0,
@@ -2983,7 +2983,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.1,
             "ciLower": 3.0,
             "ciUpper": 3.3,
@@ -2992,7 +2992,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.1,
             "ciLower": 3.0,
             "ciUpper": 3.2,
@@ -3001,7 +3001,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.4,
             "ciLower": 3.2,
             "ciUpper": 3.5,
@@ -3010,7 +3010,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.6,
             "ciLower": 3.4,
             "ciUpper": 3.7,
@@ -3019,7 +3019,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.7,
             "ciLower": 3.5,
             "ciUpper": 3.8,
@@ -3028,7 +3028,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.6,
             "ciLower": 3.5,
             "ciUpper": 3.8,
@@ -3037,7 +3037,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.2,
             "ciLower": 4.0,
             "ciUpper": 4.3,
@@ -3046,7 +3046,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.3,
             "ciUpper": 4.6,
@@ -3055,7 +3055,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.3,
             "ciUpper": 4.6,
@@ -3627,7 +3627,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 19.5,
             "ciLower": 19.1,
             "ciUpper": 20.0,
@@ -3636,7 +3636,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 20.4,
             "ciLower": 19.9,
             "ciUpper": 20.8,
@@ -3645,7 +3645,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 20.1,
             "ciLower": 19.6,
             "ciUpper": 20.5,
@@ -3654,7 +3654,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 19.1,
             "ciLower": 18.6,
             "ciUpper": 19.5,
@@ -3663,7 +3663,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 15.2,
             "ciLower": 14.7,
             "ciUpper": 15.7,
@@ -3672,7 +3672,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 6.5,
             "ciLower": 6.2,
             "ciUpper": 6.8,
@@ -3681,7 +3681,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 5.0,
             "ciLower": 4.8,
             "ciUpper": 5.2,
@@ -3690,7 +3690,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.3,
             "ciUpper": 4.7,
@@ -3699,7 +3699,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.2,
             "ciLower": 4.1,
             "ciUpper": 4.4,
@@ -3708,7 +3708,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.9,
             "ciLower": 2.8,
             "ciUpper": 3.0,
@@ -3800,7 +3800,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 15.2,
             "ciLower": 14.7,
             "ciUpper": 15.7,
@@ -3809,7 +3809,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 13.5,
             "ciLower": 13.1,
             "ciUpper": 14.0,
@@ -3818,7 +3818,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 14.5,
             "ciLower": 14.1,
             "ciUpper": 14.9,
@@ -3827,7 +3827,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 14.9,
             "ciLower": 14.4,
             "ciUpper": 15.3,
@@ -3836,7 +3836,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 14.9,
             "ciLower": 14.5,
             "ciUpper": 15.3,
@@ -3845,7 +3845,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 15.2,
             "ciLower": 0.0,
             "ciUpper": 15.6,
@@ -3854,7 +3854,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 16.3,
             "ciLower": 15.8,
             "ciUpper": 16.7,
@@ -3863,7 +3863,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 16.7,
             "ciLower": 16.2,
             "ciUpper": 17.1,
@@ -3872,7 +3872,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 16.7,
             "ciLower": 16.3,
             "ciUpper": 17.1,
@@ -3881,7 +3881,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 6.5,
             "ciLower": 6.2,
             "ciUpper": 6.8,
@@ -3890,7 +3890,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 5.1,
             "ciLower": 4.8,
             "ciUpper": 5.4,
@@ -3899,7 +3899,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.1,
@@ -3908,7 +3908,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.2,
             "ciUpper": 4.8,
@@ -3917,7 +3917,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.2,
             "ciUpper": 4.8,
@@ -3926,7 +3926,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.6,
@@ -3935,7 +3935,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.1,
             "ciLower": 3.9,
             "ciUpper": 4.3,
@@ -3944,7 +3944,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.4,
             "ciLower": 3.2,
             "ciUpper": 3.6,
@@ -3953,7 +3953,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.4,
             "ciLower": 2.2,
             "ciUpper": 2.6,
@@ -4101,7 +4101,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 70.0,
             "ciLower": 68.7,
             "ciUpper": 71.3,
@@ -4110,7 +4110,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 73.7,
             "ciLower": 72.8,
             "ciUpper": 74.6,
@@ -4119,7 +4119,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 76.8,
             "ciLower": 75.9,
             "ciUpper": 77.6,
@@ -4128,7 +4128,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 78.8,
             "ciLower": 78.0,
             "ciUpper": 79.6,
@@ -4137,7 +4137,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 85.2,
             "ciLower": 84.5,
             "ciUpper": 85.8,
@@ -4391,7 +4391,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 70.0,
             "ciLower": 68.7,
             "ciUpper": 71.3,
@@ -4400,7 +4400,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 72.6,
             "ciLower": 71.3,
             "ciUpper": 73.8,
@@ -4409,7 +4409,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 74.8,
             "ciLower": 73.6,
             "ciUpper": 76.1,
@@ -4418,7 +4418,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 76.8,
             "ciLower": 75.6,
             "ciUpper": 78.0,
@@ -4427,7 +4427,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 76.8,
             "ciLower": 75.6,
             "ciUpper": 78.0,
@@ -4436,7 +4436,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 77.6,
             "ciLower": 76.5,
             "ciUpper": 78.8,
@@ -4445,7 +4445,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 79.9,
             "ciLower": 78.8,
             "ciUpper": 80.9,
@@ -4454,7 +4454,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 82.9,
             "ciLower": 82.0,
             "ciUpper": 83.9,
@@ -4463,7 +4463,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 87.5,
             "ciLower": 86.7,
             "ciUpper": 88.4,
@@ -4523,7 +4523,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.9,
             "ciLower": 3.7,
             "ciUpper": 4.2,
@@ -4532,7 +4532,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.3,
@@ -4541,7 +4541,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.6,
             "ciUpper": 2.8,
@@ -4550,7 +4550,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.6,
@@ -4559,7 +4559,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 4.7,
             "ciLower": 4.5,
             "ciUpper": 4.9,
@@ -4568,7 +4568,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.6,
             "ciLower": 4.3,
             "ciUpper": 4.9,
@@ -4577,7 +4577,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.7,
             "ciLower": 3.6,
             "ciUpper": 3.9,
@@ -4586,7 +4586,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.3,
@@ -4595,7 +4595,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 2.9,
             "ciLower": 2.8,
             "ciUpper": 3.1,
@@ -4604,7 +4604,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.3,
             "ciUpper": 4.7,
@@ -4696,7 +4696,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.9,
             "ciLower": 3.7,
             "ciUpper": 4.2,
@@ -4705,7 +4705,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.1,
             "ciLower": 2.9,
             "ciUpper": 3.3,
@@ -4714,7 +4714,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.4,
@@ -4723,7 +4723,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.6,
             "ciUpper": 3.0,
@@ -4732,7 +4732,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.6,
             "ciLower": 2.4,
             "ciUpper": 2.8,
@@ -4741,7 +4741,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -4750,7 +4750,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -4759,7 +4759,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 4.3,
             "ciLower": 4.0,
             "ciUpper": 4.5,
@@ -4768,7 +4768,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 5.1,
             "ciLower": 4.9,
             "ciUpper": 5.4,
@@ -4777,7 +4777,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.6,
             "ciLower": 4.3,
             "ciUpper": 4.9,
@@ -4786,7 +4786,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.8,
             "ciLower": 3.5,
             "ciUpper": 4.0,
@@ -4795,7 +4795,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.7,
             "ciLower": 3.5,
             "ciUpper": 3.9,
@@ -4804,7 +4804,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.4,
@@ -4813,7 +4813,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.1,
             "ciLower": 2.9,
             "ciUpper": 3.4,
@@ -4822,7 +4822,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.0,
             "ciLower": 2.8,
             "ciUpper": 3.2,
@@ -4831,7 +4831,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.1,
@@ -4840,7 +4840,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.4,
@@ -4849,7 +4849,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.1,
@@ -4997,7 +4997,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 56.2,
             "ciLower": 53.3,
             "ciUpper": 59.0,
@@ -5006,7 +5006,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 56.2,
             "ciLower": 54.1,
             "ciUpper": 58.3,
@@ -5015,7 +5015,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 57.1,
             "ciLower": 54.8,
             "ciUpper": 59.4,
@@ -5024,7 +5024,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.8,
             "ciLower": 53.5,
             "ciUpper": 58.1,
@@ -5033,7 +5033,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 71.0,
             "ciLower": 69.4,
             "ciUpper": 72.5,
@@ -5287,7 +5287,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 56.2,
             "ciLower": 53.3,
             "ciUpper": 59.0,
@@ -5296,7 +5296,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.9,
             "ciLower": 51.9,
             "ciUpper": 57.9,
@@ -5305,7 +5305,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 57.4,
             "ciLower": 54.5,
             "ciUpper": 60.4,
@@ -5314,7 +5314,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 60.0,
             "ciLower": 56.8,
             "ciUpper": 63.2,
@@ -5323,7 +5323,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.3,
             "ciLower": 51.0,
             "ciUpper": 57.6,
@@ -5332,7 +5332,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.7,
             "ciLower": 52.5,
             "ciUpper": 58.9,
@@ -5341,7 +5341,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 55.9,
             "ciLower": 52.7,
             "ciUpper": 59.1,
@@ -5350,7 +5350,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 70.0,
             "ciLower": 67.7,
             "ciUpper": 72.3,
@@ -5359,7 +5359,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 71.8,
             "ciLower": 69.7,
             "ciUpper": 73.9,
@@ -5419,7 +5419,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 15.5,
             "ciLower": 15.1,
             "ciUpper": 16.0,
@@ -5428,7 +5428,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 14.2,
             "ciLower": 13.9,
             "ciUpper": 14.5,
@@ -5437,7 +5437,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 14.8,
             "ciLower": 14.5,
             "ciUpper": 15.1,
@@ -5446,7 +5446,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 15.6,
             "ciLower": 15.3,
             "ciUpper": 15.9,
@@ -5455,7 +5455,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 16.8,
             "ciLower": 16.5,
             "ciUpper": 17.1,
@@ -5464,7 +5464,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.3,
             "ciLower": 9.9,
             "ciUpper": 10.7,
@@ -5473,7 +5473,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 11.2,
             "ciLower": 10.9,
             "ciUpper": 11.4,
@@ -5482,7 +5482,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.4,
             "ciLower": 10.1,
             "ciUpper": 10.7,
@@ -5491,7 +5491,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.6,
             "ciLower": 10.4,
             "ciUpper": 10.9,
@@ -5500,7 +5500,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 11.3,
             "ciLower": 11.1,
             "ciUpper": 11.6,
@@ -5592,7 +5592,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 15.5,
             "ciLower": 15.1,
             "ciUpper": 16.0,
@@ -5601,7 +5601,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 13.7,
             "ciLower": 13.2,
             "ciUpper": 14.1,
@@ -5610,7 +5610,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 14.8,
             "ciLower": 14.3,
             "ciUpper": 15.2,
@@ -5619,7 +5619,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 14.8,
             "ciLower": 14.3,
             "ciUpper": 15.2,
@@ -5628,7 +5628,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 14.8,
             "ciLower": 14.4,
             "ciUpper": 15.2,
@@ -5637,7 +5637,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 15.0,
             "ciLower": 14.6,
             "ciUpper": 15.4,
@@ -5646,7 +5646,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 16.200000000000003,
             "ciLower": 15.8,
             "ciUpper": 16.6,
@@ -5655,7 +5655,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 16.7,
             "ciLower": 16.2,
             "ciUpper": 17.1,
@@ -5664,7 +5664,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 16.9,
             "ciLower": 16.5,
             "ciUpper": 17.3,
@@ -5673,7 +5673,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.3,
             "ciLower": 9.9,
             "ciUpper": 10.7,
@@ -5682,7 +5682,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 11.2,
             "ciLower": 10.8,
             "ciUpper": 11.5,
@@ -5691,7 +5691,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 11.2,
             "ciLower": 10.8,
             "ciUpper": 11.6,
@@ -5700,7 +5700,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.6,
             "ciLower": 10.2,
             "ciUpper": 10.9,
@@ -5709,7 +5709,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.3,
             "ciLower": 9.9,
             "ciUpper": 10.7,
@@ -5718,7 +5718,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.7,
             "ciLower": 10.3,
             "ciUpper": 11.1,
@@ -5727,7 +5727,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 10.6,
             "ciLower": 10.2,
             "ciUpper": 10.9,
@@ -5736,7 +5736,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 11.0,
             "ciLower": 10.6,
             "ciUpper": 11.3,
@@ -5745,7 +5745,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 11.7,
             "ciLower": 11.4,
             "ciUpper": 12.1,
@@ -6315,7 +6315,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.2,
             "ciLower": 2.0,
             "ciUpper": 2.4,
@@ -6324,7 +6324,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.2,
             "ciLower": 2.1,
             "ciUpper": 2.3,
@@ -6333,7 +6333,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.5,
             "ciLower": 2.4,
             "ciUpper": 2.7,
@@ -6342,7 +6342,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.3,
@@ -6351,7 +6351,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.9,
             "ciUpper": 4.2,
@@ -6360,7 +6360,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 1.7,
             "ciLower": 1.5,
             "ciUpper": 1.8,
@@ -6369,7 +6369,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 1.8,
             "ciLower": 1.7,
             "ciUpper": 1.9,
@@ -6378,7 +6378,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.0,
             "ciLower": 1.9,
             "ciUpper": 2.1,
@@ -6387,7 +6387,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.1,
             "ciLower": 2.0,
             "ciUpper": 2.2,
@@ -6396,7 +6396,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.4,
             "ciLower": 2.3,
             "ciUpper": 2.6,
@@ -6488,7 +6488,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.2,
             "ciLower": 2.0,
             "ciUpper": 2.4,
@@ -6497,7 +6497,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.1,
             "ciLower": 1.9,
             "ciUpper": 2.2,
@@ -6506,7 +6506,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.3,
             "ciLower": 2.1,
             "ciUpper": 2.5,
@@ -6515,7 +6515,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -6524,7 +6524,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.6,
             "ciLower": 2.4,
             "ciUpper": 2.8,
@@ -6533,7 +6533,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.1,
             "ciLower": 2.9,
             "ciUpper": 3.3,
@@ -6542,7 +6542,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.3,
             "ciLower": 3.1,
             "ciUpper": 3.5,
@@ -6551,7 +6551,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.3,
@@ -6560,7 +6560,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.8,
             "ciUpper": 4.2,
@@ -6569,7 +6569,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 1.7,
             "ciLower": 1.5,
             "ciUpper": 1.8,
@@ -6578,7 +6578,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 1.7,
             "ciLower": 1.6,
             "ciUpper": 1.9,
@@ -6587,7 +6587,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 1.8,
             "ciLower": 1.7,
             "ciUpper": 2.0,
@@ -6596,7 +6596,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.0,
             "ciLower": 1.8,
             "ciUpper": 2.2,
@@ -6605,7 +6605,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.0,
             "ciLower": 1.8,
             "ciUpper": 2.2,
@@ -6614,7 +6614,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.0,
             "ciLower": 1.8,
             "ciUpper": 2.2,
@@ -6623,7 +6623,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.2,
             "ciLower": 2.0,
             "ciUpper": 2.4,
@@ -6632,7 +6632,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.6,
@@ -6641,7 +6641,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 2.4,
             "ciLower": 2.2,
             "ciUpper": 2.6,
@@ -7213,7 +7213,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.9,
             "ciLower": 10.5,
             "ciUpper": 11.3,
@@ -7222,7 +7222,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.2,
             "ciLower": 9.9,
             "ciUpper": 10.6,
@@ -7231,7 +7231,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.5,
             "ciLower": 9.2,
             "ciUpper": 9.9,
@@ -7240,7 +7240,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.0,
             "ciLower": 8.7,
             "ciUpper": 9.4,
@@ -7249,7 +7249,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.5,
             "ciLower": 6.2,
             "ciUpper": 6.8,
@@ -7258,7 +7258,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.7,
@@ -7267,7 +7267,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.1,
             "ciLower": 3.9,
             "ciUpper": 4.3,
@@ -7276,7 +7276,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.8,
             "ciLower": 4.6,
             "ciUpper": 5.0,
@@ -7285,7 +7285,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.5,
             "ciLower": 3.4,
             "ciUpper": 3.7,
@@ -7294,7 +7294,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.6,
             "ciUpper": 2.9,
@@ -7386,7 +7386,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.5,
             "ciLower": 6.2,
             "ciUpper": 6.8,
@@ -7395,7 +7395,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.7,
             "ciLower": 6.4,
             "ciUpper": 7.0,
@@ -7404,7 +7404,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.2,
             "ciLower": 6.8,
             "ciUpper": 7.5,
@@ -7413,7 +7413,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 8.4,
             "ciLower": 8.1,
             "ciUpper": 8.8,
@@ -7422,7 +7422,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 8.0,
             "ciLower": 7.6,
             "ciUpper": 8.3,
@@ -7431,7 +7431,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.0,
             "ciLower": 6.7,
             "ciUpper": 7.4,
@@ -7440,7 +7440,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.1,
             "ciLower": 6.7,
             "ciUpper": 7.4,
@@ -7449,7 +7449,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.7,
             "ciLower": 6.4,
             "ciUpper": 7.0,
@@ -7458,7 +7458,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.3,
             "ciLower": 6.0,
             "ciUpper": 6.6,
@@ -7467,7 +7467,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.7,
@@ -7476,7 +7476,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.9,
             "ciLower": 3.7,
             "ciUpper": 4.2,
@@ -7485,7 +7485,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.2,
             "ciLower": 4.0,
             "ciUpper": 4.5,
@@ -7494,7 +7494,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.8,
             "ciLower": 4.6,
             "ciUpper": 5.1,
@@ -7503,7 +7503,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.8,
             "ciLower": 4.5,
             "ciUpper": 5.1,
@@ -7512,7 +7512,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.9,
             "ciLower": 3.6,
             "ciUpper": 4.1,
@@ -7521,7 +7521,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.4,
@@ -7530,7 +7530,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.1,
@@ -7539,7 +7539,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.9,
@@ -7687,7 +7687,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 59.5,
             "ciLower": 57.4,
             "ciUpper": 61.6,
@@ -7696,7 +7696,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 62.9,
             "ciLower": 61.6,
             "ciUpper": 64.3,
@@ -7705,7 +7705,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 63.0,
             "ciLower": 61.8,
             "ciUpper": 64.2,
@@ -7714,7 +7714,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 66.6,
             "ciLower": 65.3,
             "ciUpper": 68.0,
@@ -7723,7 +7723,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 70.1,
             "ciLower": 68.7,
             "ciUpper": 71.4,
@@ -7977,7 +7977,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 59.5,
             "ciLower": 57.4,
             "ciUpper": 61.6,
@@ -7986,7 +7986,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 63.0,
             "ciLower": 61.0,
             "ciUpper": 65.0,
@@ -7995,7 +7995,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 62.9,
             "ciLower": 61.0,
             "ciUpper": 64.8,
@@ -8004,7 +8004,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 63.6,
             "ciLower": 61.9,
             "ciUpper": 65.3,
@@ -8013,7 +8013,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 62.4,
             "ciLower": 60.6,
             "ciUpper": 64.2,
@@ -8022,7 +8022,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 64.5,
             "ciLower": 62.6,
             "ciUpper": 66.4,
@@ -8031,7 +8031,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 68.9,
             "ciLower": 67.0,
             "ciUpper": 70.7,
@@ -8040,7 +8040,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 70.0,
             "ciLower": 68.1,
             "ciUpper": 71.9,
@@ -8049,7 +8049,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 70.2,
             "ciLower": 68.2,
             "ciUpper": 72.1,
@@ -8109,7 +8109,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 1.9,
             "ciLower": 1.7,
             "ciUpper": 2.0,
@@ -8118,7 +8118,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.2,
             "ciLower": 2.1,
             "ciUpper": 2.3,
@@ -8127,7 +8127,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.6,
             "ciUpper": 2.9,
@@ -8136,7 +8136,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.8,
@@ -8145,7 +8145,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.8,
@@ -8154,7 +8154,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -8163,7 +8163,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.6,
             "ciUpper": 3.0,
@@ -8172,7 +8172,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.4,
             "ciUpper": 3.7,
@@ -8181,7 +8181,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.3,
@@ -8190,7 +8190,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.0,
             "ciLower": 2.9,
             "ciUpper": 3.2,
@@ -8282,7 +8282,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 1.9,
             "ciLower": 1.7,
             "ciUpper": 2.0,
@@ -8291,7 +8291,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.0,
             "ciLower": 1.8,
             "ciUpper": 2.2,
@@ -8300,7 +8300,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.4,
             "ciLower": 2.2,
             "ciUpper": 2.6,
@@ -8309,7 +8309,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.0,
@@ -8318,7 +8318,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.9,
@@ -8327,7 +8327,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.6,
             "ciLower": 2.4,
             "ciUpper": 2.8,
@@ -8336,7 +8336,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.9,
@@ -8345,7 +8345,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.6,
             "ciLower": 2.4,
             "ciUpper": 2.8,
@@ -8354,7 +8354,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.5,
             "ciUpper": 2.9,
@@ -8363,7 +8363,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -8372,7 +8372,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -8381,7 +8381,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.1,
             "ciLower": 2.9,
             "ciUpper": 3.3,
@@ -8390,7 +8390,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.5,
             "ciLower": 3.3,
             "ciUpper": 3.8,
@@ -8399,7 +8399,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.3,
             "ciUpper": 3.8,
@@ -8408,7 +8408,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 3.0,
             "ciUpper": 3.4,
@@ -8417,7 +8417,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.2,
             "ciLower": 2.9,
             "ciUpper": 3.4,
@@ -8426,7 +8426,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.0,
             "ciLower": 2.8,
             "ciUpper": 3.2,
@@ -8435,7 +8435,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.1,
             "ciLower": 2.9,
             "ciUpper": 3.3,
@@ -8583,7 +8583,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 61.0,
             "ciLower": 57.0,
             "ciUpper": 65.0,
@@ -8592,7 +8592,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 63.4,
             "ciLower": 60.9,
             "ciUpper": 65.9,
@@ -8601,7 +8601,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 62.4,
             "ciLower": 60.2,
             "ciUpper": 64.6,
@@ -8610,7 +8610,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 67.8,
             "ciLower": 65.4,
             "ciUpper": 69.7,
@@ -8619,7 +8619,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 69.7,
             "ciLower": 67.6,
             "ciUpper": 71.8,
@@ -8873,7 +8873,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 61.0,
             "ciLower": 57.0,
             "ciUpper": 65.0,
@@ -8882,7 +8882,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 64.7,
             "ciLower": 61.0,
             "ciUpper": 68.3,
@@ -8891,7 +8891,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 62.4,
             "ciLower": 59.1,
             "ciUpper": 65.7,
@@ -8900,7 +8900,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 63.5,
             "ciLower": 60.4,
             "ciUpper": 66.5,
@@ -8909,7 +8909,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 61.4,
             "ciLower": 58.2,
             "ciUpper": 64.5,
@@ -8918,7 +8918,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 65.9,
             "ciLower": 62.8,
             "ciUpper": 69.0,
@@ -8927,7 +8927,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 69.2,
             "ciLower": 66.1,
             "ciUpper": 72.2,
@@ -8936,7 +8936,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 70.8,
             "ciLower": 67.7,
             "ciUpper": 73.8,
@@ -8945,7 +8945,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 68.7,
             "ciLower": 65.7,
             "ciUpper": 71.7,
@@ -9005,7 +9005,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.3,
@@ -9014,7 +9014,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.2,
             "ciUpper": 4.6,
@@ -9023,7 +9023,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 5.1,
             "ciLower": 4.9,
             "ciUpper": 5.3,
@@ -9032,7 +9032,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.2,
             "ciUpper": 4.6,
@@ -9041,7 +9041,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.2,
             "ciLower": 4.0,
             "ciUpper": 4.3,
@@ -9050,7 +9050,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.4,
             "ciLower": 7.0,
             "ciUpper": 7.7,
@@ -9059,7 +9059,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.3,
             "ciLower": 8.0,
             "ciUpper": 8.5,
@@ -9068,7 +9068,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.7,
             "ciLower": 7.4,
             "ciUpper": 7.9,
@@ -9077,7 +9077,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.8,
             "ciLower": 7.6,
             "ciUpper": 8.1,
@@ -9086,7 +9086,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.6,
             "ciLower": 8.4,
             "ciUpper": 8.9,
@@ -9178,7 +9178,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.3,
@@ -9187,7 +9187,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.199999999999999,
             "ciLower": 3.9,
             "ciUpper": 4.5,
@@ -9196,7 +9196,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.700000000000001,
             "ciLower": 4.4,
             "ciUpper": 4.9,
@@ -9205,7 +9205,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 5.199999999999999,
             "ciLower": 4.9,
             "ciUpper": 5.5,
@@ -9214,7 +9214,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 5.0,
             "ciLower": 4.7,
             "ciUpper": 5.3,
@@ -9223,7 +9223,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.2,
             "ciUpper": 4.7,
@@ -9232,7 +9232,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.6,
@@ -9241,7 +9241,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.1,
             "ciLower": 3.9,
             "ciUpper": 4.4,
@@ -9250,7 +9250,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 4.200000000000001,
             "ciLower": 3.9,
             "ciUpper": 4.4,
@@ -9259,7 +9259,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.4,
             "ciLower": 7.0,
             "ciUpper": 7.7,
@@ -9268,7 +9268,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.4,
             "ciLower": 8.0,
             "ciUpper": 8.7,
@@ -9277,7 +9277,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.2,
             "ciLower": 7.9,
             "ciUpper": 8.6,
@@ -9286,7 +9286,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.9,
             "ciLower": 7.6,
             "ciUpper": 8.3,
@@ -9295,7 +9295,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.4,
             "ciLower": 7.1,
             "ciUpper": 7.8,
@@ -9304,7 +9304,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.6,
             "ciLower": 7.3,
             "ciUpper": 8.0,
@@ -9313,7 +9313,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.0,
             "ciLower": 7.7,
             "ciUpper": 8.4,
@@ -9322,7 +9322,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.5,
             "ciLower": 8.2,
             "ciUpper": 8.9,
@@ -9331,7 +9331,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.7,
             "ciLower": 8.3,
             "ciUpper": 9.1,
@@ -9901,7 +9901,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.8,
             "ciLower": 3.5,
             "ciUpper": 4.1,
@@ -9910,7 +9910,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.8,
             "ciUpper": 4.2,
@@ -9919,7 +9919,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.7,
             "ciLower": 4.5,
             "ciUpper": 4.9,
@@ -9928,7 +9928,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.3,
             "ciLower": 4.1,
             "ciUpper": 4.5,
@@ -9937,7 +9937,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.9,
             "ciLower": 3.7,
             "ciUpper": 4.0,
@@ -9946,7 +9946,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.2,
@@ -9955,7 +9955,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.9,
             "ciLower": 3.8,
             "ciUpper": 4.1,
@@ -9964,7 +9964,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.2,
             "ciUpper": 4.6,
@@ -9973,7 +9973,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.1,
             "ciLower": 4.9,
             "ciUpper": 5.3,
@@ -9982,7 +9982,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.6,
             "ciLower": 5.4,
             "ciUpper": 5.8,
@@ -10074,7 +10074,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.8,
             "ciLower": 3.5,
             "ciUpper": 4.1,
@@ -10083,7 +10083,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.9,
             "ciLower": 3.6,
             "ciUpper": 4.1,
@@ -10092,7 +10092,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.3,
@@ -10101,7 +10101,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.2,
@@ -10110,7 +10110,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.5,
             "ciLower": 4.3,
             "ciUpper": 4.8,
@@ -10119,7 +10119,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.5,
@@ -10128,7 +10128,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.6,
@@ -10137,7 +10137,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.3,
@@ -10146,7 +10146,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 3.7,
             "ciLower": 3.4,
             "ciUpper": 3.9,
@@ -10155,7 +10155,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.2,
@@ -10164,7 +10164,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 3.9,
             "ciLower": 3.6,
             "ciUpper": 4.1,
@@ -10173,7 +10173,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.0,
             "ciLower": 3.8,
             "ciUpper": 4.3,
@@ -10182,7 +10182,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.7,
@@ -10191,7 +10191,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.2,
             "ciUpper": 4.7,
@@ -10200,7 +10200,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.6,
             "ciLower": 4.4,
             "ciUpper": 4.9,
@@ -10209,7 +10209,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.5,
             "ciLower": 5.2,
             "ciUpper": 5.8,
@@ -10218,7 +10218,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.7,
             "ciLower": 5.4,
             "ciUpper": 6.0,
@@ -10227,7 +10227,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.5,
             "ciLower": 5.3,
             "ciUpper": 5.8,
@@ -10799,7 +10799,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.2,
             "ciLower": 9.7,
             "ciUpper": 10.7,
@@ -10808,7 +10808,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.8,
             "ciLower": 9.3,
             "ciUpper": 10.2,
@@ -10817,7 +10817,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.7,
             "ciLower": 9.2,
             "ciUpper": 10.1,
@@ -10826,7 +10826,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 8.5,
             "ciLower": 8.0,
             "ciUpper": 8.9,
@@ -10835,7 +10835,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.0,
             "ciLower": 6.5,
             "ciUpper": 7.4,
@@ -10844,7 +10844,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.6,
             "ciLower": 4.2,
             "ciUpper": 5.0,
@@ -10853,7 +10853,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.2,
@@ -10862,7 +10862,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.3,
             "ciLower": 4.1,
             "ciUpper": 4.6,
@@ -10871,7 +10871,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.3,
@@ -10880,7 +10880,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.9,
             "ciLower": 2.8,
             "ciUpper": 3.1,
@@ -10972,7 +10972,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.0,
             "ciLower": 6.5,
             "ciUpper": 7.4,
@@ -10981,7 +10981,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.1,
             "ciLower": 6.6,
             "ciUpper": 7.5,
@@ -10990,7 +10990,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.2,
             "ciLower": 6.7,
             "ciUpper": 7.6,
@@ -10999,7 +10999,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.4,
             "ciLower": 6.0,
             "ciUpper": 6.8,
@@ -11008,7 +11008,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.8,
             "ciLower": 6.4,
             "ciUpper": 7.3,
@@ -11017,7 +11017,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 5.9,
             "ciLower": 5.5,
             "ciUpper": 6.2,
@@ -11026,7 +11026,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 5.9,
             "ciLower": 5.5,
             "ciUpper": 6.3,
@@ -11035,7 +11035,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 6.3,
             "ciLower": 5.9,
             "ciUpper": 6.7,
@@ -11044,7 +11044,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 5.9,
             "ciLower": 5.5,
             "ciUpper": 6.3,
@@ -11053,7 +11053,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.6,
             "ciLower": 4.2,
             "ciUpper": 5.0,
@@ -11062,7 +11062,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 5.0,
             "ciLower": 4.7,
             "ciUpper": 5.4,
@@ -11071,7 +11071,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.8,
             "ciLower": 4.4,
             "ciUpper": 5.1,
@@ -11080,7 +11080,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.6,
@@ -11089,7 +11089,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -11098,7 +11098,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 4.3,
             "ciLower": 4.0,
             "ciUpper": 4.6,
@@ -11107,7 +11107,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.9,
             "ciLower": 3.5,
             "ciUpper": 4.2,
@@ -11116,7 +11116,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 3.3,
             "ciLower": 3.0,
             "ciUpper": 3.6,
@@ -11125,7 +11125,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.6,
             "ciLower": 2.3,
             "ciUpper": 2.8,
@@ -11273,7 +11273,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 60.4,
             "ciLower": 57.8,
             "ciUpper": 62.9,
@@ -11282,7 +11282,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 59.3,
             "ciLower": 57.6,
             "ciUpper": 60.9,
@@ -11291,7 +11291,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 60.5,
             "ciLower": 58.8,
             "ciUpper": 62.3,
@@ -11300,7 +11300,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 59.1,
             "ciLower": 57.3,
             "ciUpper": 60.9,
@@ -11309,7 +11309,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 67.5,
             "ciLower": 65.7,
             "ciUpper": 69.2,
@@ -11563,7 +11563,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 60.4,
             "ciLower": 57.8,
             "ciUpper": 62.9,
@@ -11572,7 +11572,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 58.4,
             "ciLower": 56.1,
             "ciUpper": 60.8,
@@ -11581,7 +11581,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 60.2,
             "ciLower": 57.8,
             "ciUpper": 62.5,
@@ -11590,7 +11590,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 60.3,
             "ciLower": 57.8,
             "ciUpper": 62.8,
@@ -11599,7 +11599,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 60.8,
             "ciLower": 58.3,
             "ciUpper": 63.3,
@@ -11608,7 +11608,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 57.7,
             "ciLower": 55.1,
             "ciUpper": 60.2,
@@ -11617,7 +11617,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 60.5,
             "ciLower": 58.0,
             "ciUpper": 63.1,
@@ -11626,7 +11626,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 65.7,
             "ciLower": 63.3,
             "ciUpper": 68.1,
@@ -11635,7 +11635,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 69.6,
             "ciLower": 67.0,
             "ciUpper": 72.2,
@@ -11695,7 +11695,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.0,
             "ciLower": 2.7,
             "ciUpper": 3.3,
@@ -11704,7 +11704,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.6,
             "ciUpper": 3.0,
@@ -11713,7 +11713,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.4,
             "ciLower": 2.2,
             "ciUpper": 2.6,
@@ -11722,7 +11722,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.3,
             "ciUpper": 2.7,
@@ -11731,7 +11731,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.0,
@@ -11740,7 +11740,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.7,
             "ciLower": 4.3,
             "ciUpper": 5.1,
@@ -11749,7 +11749,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.2,
             "ciUpper": 4.7,
@@ -11758,7 +11758,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.2,
@@ -11767,7 +11767,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.1,
             "ciLower": 3.9,
             "ciUpper": 4.4,
@@ -11776,7 +11776,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.1,
             "ciLower": 3.9,
             "ciUpper": 4.4,
@@ -11868,7 +11868,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 3.0,
             "ciLower": 2.7,
             "ciUpper": 3.3,
@@ -11877,7 +11877,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.1,
@@ -11886,7 +11886,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.0,
@@ -11895,7 +11895,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.4,
             "ciLower": 2.1,
             "ciUpper": 2.6,
@@ -11904,7 +11904,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.5,
             "ciLower": 2.2,
             "ciUpper": 2.7,
@@ -11913,7 +11913,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.3,
             "ciLower": 2.0,
             "ciUpper": 2.5,
@@ -11922,7 +11922,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.4,
             "ciUpper": 3.0,
@@ -11931,7 +11931,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.2,
@@ -11940,7 +11940,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 2.8,
             "ciLower": 2.5,
             "ciUpper": 3.1,
@@ -11949,7 +11949,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.7,
             "ciLower": 4.3,
             "ciUpper": 5.1,
@@ -11958,7 +11958,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.5,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -11967,7 +11967,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -11976,7 +11976,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.3,
@@ -11985,7 +11985,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.0,
             "ciLower": 3.6,
             "ciUpper": 4.3,
@@ -11994,7 +11994,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.3,
@@ -12003,7 +12003,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.3,
             "ciLower": 3.9,
             "ciUpper": 4.6,
@@ -12012,7 +12012,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.6,
@@ -12021,7 +12021,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 4.0,
             "ciLower": 3.7,
             "ciUpper": 4.4,
@@ -12169,7 +12169,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 53.9,
             "ciLower": 50.1,
             "ciUpper": 57.7,
@@ -12178,7 +12178,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 53.2,
             "ciLower": 50.6,
             "ciUpper": 55.8,
@@ -12187,7 +12187,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 50.0,
             "ciLower": 47.2,
             "ciUpper": 52.9,
@@ -12196,7 +12196,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 49.4,
             "ciLower": 46.7,
             "ciUpper": 52.0,
@@ -12205,7 +12205,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.3,
             "ciLower": 51.7,
             "ciUpper": 56.9,
@@ -12459,7 +12459,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 53.9,
             "ciLower": 50.1,
             "ciUpper": 57.7,
@@ -12468,7 +12468,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 52.5,
             "ciLower": 48.8,
             "ciUpper": 56.2,
@@ -12477,7 +12477,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 53.9,
             "ciLower": 50.2,
             "ciUpper": 57.7,
@@ -12486,7 +12486,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 49.2,
             "ciLower": 45.1,
             "ciUpper": 53.2,
@@ -12495,7 +12495,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 50.9,
             "ciLower": 46.9,
             "ciUpper": 55.0,
@@ -12504,7 +12504,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 47.3,
             "ciLower": 43.4,
             "ciUpper": 51.1,
@@ -12513,7 +12513,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 51.3,
             "ciLower": 47.6,
             "ciUpper": 55.0,
@@ -12522,7 +12522,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 53.7,
             "ciLower": 50.2,
             "ciUpper": 57.3,
@@ -12531,7 +12531,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 54.9,
             "ciLower": 51.2,
             "ciUpper": 58.6,
@@ -12591,7 +12591,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.8,
             "ciLower": 3.4,
             "ciUpper": 4.1,
@@ -12600,7 +12600,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.4,
             "ciLower": 3.2,
             "ciUpper": 3.6,
@@ -12609,7 +12609,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.3,
             "ciLower": 3.1,
             "ciUpper": 3.5,
@@ -12618,7 +12618,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 2.9,
             "ciLower": 2.7,
             "ciUpper": 3.1,
@@ -12627,7 +12627,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.4,
             "ciLower": 3.2,
             "ciUpper": 3.6,
@@ -12636,7 +12636,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 5.6,
             "ciLower": 5.2,
             "ciUpper": 6.0,
@@ -12645,7 +12645,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 5.7,
             "ciLower": 5.4,
             "ciUpper": 5.9,
@@ -12654,7 +12654,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 6.2,
             "ciLower": 5.9,
             "ciUpper": 6.5,
@@ -12663,7 +12663,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 6.6,
             "ciLower": 6.3,
             "ciUpper": 0.0,
@@ -12672,7 +12672,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.9,
             "ciLower": 7.6,
             "ciUpper": 8.2,
@@ -12764,7 +12764,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.7,
             "ciLower": 3.4,
             "ciUpper": 4.1,
@@ -12773,7 +12773,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.5,
             "ciLower": 3.2,
             "ciUpper": 3.8,
@@ -12782,7 +12782,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.2,
             "ciLower": 2.9,
             "ciUpper": 3.5,
@@ -12791,7 +12791,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.1,
             "ciLower": 2.8,
             "ciUpper": 3.4,
@@ -12800,7 +12800,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.4,
             "ciLower": 3.1,
             "ciUpper": 3.7,
@@ -12809,7 +12809,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 2.9,
             "ciLower": 2.6,
             "ciUpper": 3.1,
@@ -12818,7 +12818,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.0,
             "ciLower": 2.7,
             "ciUpper": 3.2,
@@ -12827,7 +12827,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.6,
             "ciLower": 3.3,
             "ciUpper": 3.9,
@@ -12836,7 +12836,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 3.1,
             "ciLower": 2.8,
             "ciUpper": 3.4,
@@ -12845,7 +12845,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 5.6,
             "ciLower": 5.2,
             "ciUpper": 6.0,
@@ -12854,7 +12854,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 5.3,
             "ciLower": 5.0,
             "ciUpper": 5.7,
@@ -12863,7 +12863,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 6.0,
             "ciLower": 5.6,
             "ciUpper": 6.4,
@@ -12872,7 +12872,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 6.1,
             "ciLower": 5.7,
             "ciUpper": 6.5,
@@ -12881,7 +12881,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 6.2,
             "ciLower": 5.8,
             "ciUpper": 6.7,
@@ -12890,7 +12890,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 6.5,
             "ciLower": 6.1,
             "ciUpper": 6.9,
@@ -12899,7 +12899,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 6.7,
             "ciLower": 6.3,
             "ciUpper": 7.2,
@@ -12908,7 +12908,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 7.7,
             "ciLower": 7.3,
             "ciUpper": 8.2,
@@ -12917,7 +12917,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 8.1,
             "ciLower": 7.7,
             "ciUpper": 8.6,
@@ -13487,7 +13487,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.6,
             "ciLower": 4.2,
             "ciUpper": 4.9,
@@ -13496,7 +13496,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 5.1,
             "ciLower": 4.8,
             "ciUpper": 5.3,
@@ -13505,7 +13505,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.7,
             "ciLower": 4.4,
             "ciUpper": 4.9,
@@ -13514,7 +13514,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.3,
             "ciLower": 4.1,
             "ciUpper": 4.5,
@@ -13523,7 +13523,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.6,
@@ -13532,7 +13532,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.5,
@@ -13541,7 +13541,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.2,
             "ciUpper": 4.7,
@@ -13550,7 +13550,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.8,
             "ciLower": 4.5,
             "ciUpper": 5.0,
@@ -13559,7 +13559,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.1,
@@ -13568,7 +13568,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.9,
             "ciLower": 5.6,
             "ciUpper": 6.2,
@@ -13660,7 +13660,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.6,
             "ciLower": 4.2,
             "ciUpper": 4.9,
@@ -13669,7 +13669,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.9,
             "ciLower": 4.5,
             "ciUpper": 5.2,
@@ -13678,7 +13678,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 5.2,
             "ciLower": 4.9,
             "ciUpper": 5.6,
@@ -13687,7 +13687,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.5,
             "ciLower": 4.2,
             "ciUpper": 4.9,
@@ -13696,7 +13696,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.8,
             "ciLower": 4.4,
             "ciUpper": 5.1,
@@ -13705,7 +13705,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.2,
             "ciLower": 3.9,
             "ciUpper": 4.5,
@@ -13714,7 +13714,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.7,
@@ -13723,7 +13723,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.4,
             "ciLower": 4.1,
             "ciUpper": 4.8,
@@ -13732,7 +13732,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 4.3,
             "ciLower": 4.0,
             "ciUpper": 4.6,
@@ -13741,7 +13741,7 @@
           },
           {
             "period": "Q4 2022",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.5,
@@ -13750,7 +13750,7 @@
           },
           {
             "period": "Q1 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.1,
             "ciLower": 3.8,
             "ciUpper": 4.5,
@@ -13759,7 +13759,7 @@
           },
           {
             "period": "Q2 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.7,
             "ciLower": 4.3,
             "ciUpper": 5.1,
@@ -13768,7 +13768,7 @@
           },
           {
             "period": "Q3 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.6,
             "ciLower": 4.3,
             "ciUpper": 5.0,
@@ -13777,7 +13777,7 @@
           },
           {
             "period": "Q4 2023",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.9,
             "ciLower": 4.6,
             "ciUpper": 5.3,
@@ -13786,7 +13786,7 @@
           },
           {
             "period": "Q1 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.5,
             "ciLower": 4.2,
             "ciUpper": 4.8,
@@ -13795,7 +13795,7 @@
           },
           {
             "period": "Q2 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.3,
             "ciLower": 4.9,
             "ciUpper": 5.6,
@@ -13804,7 +13804,7 @@
           },
           {
             "period": "Q3 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.7,
             "ciLower": 5.3,
             "ciUpper": 6.0,
@@ -13813,7 +13813,7 @@
           },
           {
             "period": "Q4 2024",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 6.1,
             "ciLower": 5.8,
             "ciUpper": 6.5,
@@ -14385,7 +14385,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 10.2,
             "ciLower": 9.7,
             "ciUpper": 10.7,
@@ -14394,7 +14394,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.8,
             "ciLower": 9.3,
             "ciUpper": 10.2,
@@ -14403,7 +14403,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 9.7,
             "ciLower": 9.2,
             "ciUpper": 10.1,
@@ -14412,7 +14412,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 8.5,
             "ciLower": 8.0,
             "ciUpper": 8.9,
@@ -14421,7 +14421,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl with Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 7.0,
             "ciLower": 6.5,
             "ciUpper": 7.4,
@@ -14430,7 +14430,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.6,
             "ciLower": 2.1,
             "ciUpper": 3.1,
@@ -14439,7 +14439,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.4,
             "ciLower": 2.1,
             "ciUpper": 2.7,
@@ -14448,7 +14448,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 2.3,
             "ciLower": 2.0,
             "ciUpper": 2.6,
@@ -14457,7 +14457,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 1.7,
             "ciLower": 1.4,
             "ciUpper": 1.9,
@@ -14466,7 +14466,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl without Stimulants",
+            "drug_name": "Fentanyl without cocaine or methamphetamine",
             "percentage": 1.7,
             "ciLower": 1.5,
             "ciUpper": 2.0,
@@ -14614,7 +14614,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 51.7,
             "ciLower": 44.8,
             "ciUpper": 58.6,
@@ -14623,7 +14623,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 51.7,
             "ciLower": 46.9,
             "ciUpper": 56.5,
@@ -14632,7 +14632,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 46.4,
             "ciLower": 41.3,
             "ciUpper": 51.5,
@@ -14641,7 +14641,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 55.4,
             "ciLower": 50.4,
             "ciUpper": 60.5,
@@ -14650,7 +14650,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Fentanyl and Stimulants",
+            "drug_name": "Fentanyl with cocaine or methamphetamine",
             "percentage": 56.2,
             "ciLower": 50.9,
             "ciUpper": 61.5,
@@ -14710,7 +14710,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 0.6,
             "ciLower": 0.3,
             "ciUpper": 0.8,
@@ -14719,7 +14719,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 0.7,
             "ciLower": 0.5,
             "ciUpper": 0.9,
@@ -14728,7 +14728,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 0.6,
             "ciLower": 0.5,
             "ciUpper": 0.8,
@@ -14737,7 +14737,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 0.6,
             "ciLower": 0.5,
             "ciUpper": 0.8,
@@ -14746,7 +14746,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin with Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 0.6,
             "ciLower": 0.5,
             "ciUpper": 0.8,
@@ -14755,7 +14755,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 2.7,
             "ciLower": 2.2,
             "ciUpper": 3.3,
@@ -14764,7 +14764,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.2,
             "ciUpper": 4.0,
@@ -14773,7 +14773,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.8,
             "ciLower": 3.4,
             "ciUpper": 4.2,
@@ -14782,7 +14782,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.6,
             "ciLower": 3.3,
             "ciUpper": 4.0,
@@ -14791,7 +14791,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin without Stimulants",
+            "drug_name": "Heroin without cocaine or methamphetamine",
             "percentage": 3.5,
             "ciLower": 3.1,
             "ciUpper": 3.9,
@@ -14939,7 +14939,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 16.0,
             "ciLower": 9.1,
             "ciUpper": 23.0,
@@ -14948,7 +14948,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 13.9,
             "ciLower": 10.1,
             "ciUpper": 17.8,
@@ -14957,7 +14957,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 13.5,
             "ciLower": 9.8,
             "ciUpper": 17.2,
@@ -14966,7 +14966,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 12.4,
             "ciLower": 9.0,
             "ciUpper": 15.8,
@@ -14975,7 +14975,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Heroin and Stimulants",
+            "drug_name": "Heroin with cocaine or methamphetamine",
             "percentage": 13.9,
             "ciLower": 10.1,
             "ciUpper": 17.7,
@@ -15035,7 +15035,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 1.5,
             "ciLower": 1.1,
             "ciUpper": 1.8,
@@ -15044,7 +15044,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 1.2,
             "ciLower": 1.0,
             "ciUpper": 1.4,
@@ -15053,7 +15053,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 0.8,
             "ciLower": 0.6,
             "ciUpper": 0.9,
@@ -15062,7 +15062,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 1.0,
             "ciLower": 0.8,
             "ciUpper": 1.2,
@@ -15071,7 +15071,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine with Opioids",
+            "drug_name": "Methamphetamine with fentanyl or heroin",
             "percentage": 1.0,
             "ciLower": 0.8,
             "ciUpper": 1.3,
@@ -15080,7 +15080,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 2.8,
             "ciLower": 2.2,
             "ciUpper": 3.3,
@@ -15089,7 +15089,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 2.0,
             "ciLower": 1.7,
             "ciUpper": 2.3,
@@ -15098,7 +15098,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 2.5,
             "ciLower": 2.2,
             "ciUpper": 2.9,
@@ -15107,7 +15107,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 2.4,
             "ciLower": 2.1,
             "ciUpper": 2.7,
@@ -15116,7 +15116,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Methamphetamine without Opioids",
+            "drug_name": "Methamphetamine without fentanyl or heroin",
             "percentage": 2.6,
             "ciLower": 2.2,
             "ciUpper": 2.9,
@@ -15360,7 +15360,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.0,
             "ciLower": 1.5,
             "ciUpper": 2.4,
@@ -15369,7 +15369,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.1,
             "ciLower": 1.8,
             "ciUpper": 2.5,
@@ -15378,7 +15378,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 1.7,
             "ciLower": 1.5,
             "ciUpper": 2.0,
@@ -15387,7 +15387,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 1.8,
             "ciLower": 1.5,
             "ciUpper": 2.0,
@@ -15396,7 +15396,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine with Opioids",
+            "drug_name": "Cocaine with fentanyl or heroin",
             "percentage": 2.0,
             "ciLower": 1.7,
             "ciUpper": 2.3,
@@ -15405,7 +15405,7 @@
           },
           {
             "period": "2022 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.5,
             "ciLower": 3.9,
             "ciUpper": 5.2,
@@ -15414,7 +15414,7 @@
           },
           {
             "period": "2023 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 4.5,
             "ciLower": 4.0,
             "ciUpper": 4.9,
@@ -15423,7 +15423,7 @@
           },
           {
             "period": "2023 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.4,
             "ciLower": 4.9,
             "ciUpper": 5.9,
@@ -15432,7 +15432,7 @@
           },
           {
             "period": "2024 Jan-Jun",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 5.5,
             "ciLower": 5.0,
             "ciUpper": 5.9,
@@ -15441,7 +15441,7 @@
           },
           {
             "period": "2024 Jul-Dec",
-            "drug_name": "Cocaine without Opioids",
+            "drug_name": "Cocaine without fentanyl or heroin",
             "percentage": 6.0,
             "ciLower": 5.5,
             "ciUpper": 6.5,
