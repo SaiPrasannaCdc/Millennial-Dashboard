@@ -143,7 +143,7 @@ if (data === undefined || data?.length == 0)
     });
   
     const yScale = scaleLinear({
-      domain: [0, Math.max(...dataSet.flatMap(d => d.values.map(v => parseFloat(v.percentage))))],
+      domain: [0, Math.max(...dataSet.flatMap(d => d.values.map(v => parseFloat(v.percentage)))) * 1.1],
       range: [adjustedHeight, 0],
       nice: true,
   });
@@ -292,26 +292,201 @@ if (data === undefined || data?.length == 0)
             // Render labels with overlap prevention for each x position
             return Object.keys(labelsByPosition).map(xPos => {
               const pointsAtPosition = labelsByPosition[xPos];
-              const adjustedPositions = UtilityFunctions.calculateLabelPositions(
-                pointsAtPosition, 
-                yScale, 
-                20, // label height
-                3   // minimum gap between labels
-              );
+              
+              if (pointsAtPosition.length === 0) return null;
+              
+              // Sort points by percentage value (ascending - lowest to highest)
+              const sortedPoints = pointsAtPosition
+                .sort((a, b) => a.percentage - b.percentage);
+
+              const adjustedPositions = [];
+              const labelHeight = 16; 
+              const horizontalSpacing = 30; // Distance between horizontally offset labels
+              
+              // Define chart bounds
+              const chartTop = 15;
+              const chartBottom = adjustedHeight - 15;
+
+              // Calculate positions with horizontal and vertical offsets
+              sortedPoints.forEach((point, idx) => {
+                const dataPointY = yScale(point.percentage);
+                let labelX = point.x;
+                let labelY;
+                
+                // Position labels based on clear rules:
+                // 1. Highest - always above
+                // 2. Lowest - always below  
+                // 3. 2nd highest - below if closer to highest, above if closer to 3rd
+                // 4. 3rd highest - below if it's the lowest, otherwise depends on distances
+                
+                const totalPoints = sortedPoints.length;
+                const rankFromHighest = totalPoints - idx; // 1 = highest, 2 = second highest, etc.
+                
+                // Check if top 3 points are too close together (skip 2nd highest label if so)
+                let skipSecondHighest = false;
+                if (totalPoints >= 3 && rankFromHighest === 2) {
+                  const highestValue = sortedPoints[totalPoints - 1].percentage;
+                  const secondHighestValue = sortedPoints[totalPoints - 2].percentage;
+                  const thirdHighestValue = sortedPoints[totalPoints - 3].percentage;
+                  
+                  const distanceHighestToSecond = highestValue - secondHighestValue;
+                  const distanceSecondToThird = secondHighestValue - thirdHighestValue;
+                  
+                  // Skip 2nd highest label only if both distances are very small (less than 0.5% each)
+                  skipSecondHighest = distanceHighestToSecond < 0.5 && distanceSecondToThird < 0.5;
+                }
+                
+                // Skip rendering this label if it's the 2nd highest and points are too close
+                if (skipSecondHighest) {
+                  return; // Don't add this label to adjustedPositions
+                }
+                
+                let shouldPositionBelow = false;
+                
+                if (rankFromHighest === 1) {
+                  // Highest point - always above
+                  shouldPositionBelow = false;
+                } else if (idx === 0) {
+                  // Lowest point - always below
+                  shouldPositionBelow = true;
+                } else if (rankFromHighest === 2 && totalPoints >= 3) {
+                  // 2nd highest - compare distances
+                  const highestValue = sortedPoints[totalPoints - 1].percentage;
+                  const secondHighestValue = sortedPoints[totalPoints - 2].percentage;
+                  const thirdHighestValue = sortedPoints[totalPoints - 3].percentage;
+                  
+                  const distanceToHighest = highestValue - secondHighestValue;
+                  const distanceToThird = secondHighestValue - thirdHighestValue;
+                  
+                  // If closer to highest, go below; if closer to 3rd, go above
+                  shouldPositionBelow = distanceToHighest < distanceToThird;
+                } else if (rankFromHighest === 3) {
+                  // 3rd highest
+                  if (idx === 0) {
+                    // If 3rd is also lowest, always below
+                    shouldPositionBelow = true;
+                  } else if (totalPoints >= 4) {
+                    // Compare distances to 2nd and 4th (if exists)
+                    const secondHighestValue = sortedPoints[totalPoints - 2].percentage;
+                    const thirdHighestValue = sortedPoints[totalPoints - 3].percentage;
+                    const fourthHighestValue = sortedPoints[totalPoints - 4].percentage;
+                    
+                    const distanceToSecond = secondHighestValue - thirdHighestValue;
+                    const distanceToFourth = thirdHighestValue - fourthHighestValue;
+                    
+                    // If distance to 2nd is GREATER than distance to 4th, go above; if SMALLER, go below
+                    shouldPositionBelow = distanceToSecond < distanceToFourth;
+                  } else {
+                    // Only 3 points total, go above
+                    shouldPositionBelow = false;
+                  }
+                } else {
+                  // 4th and beyond - always below
+                  shouldPositionBelow = true;
+                }
+                
+                if (shouldPositionBelow) {
+                  // Position labels below data points
+                  let belowOffset = 12;
+                  
+                  // For multiple points going below, stack them with very minimal offsets
+                  if (rankFromHighest === 2 && shouldPositionBelow) {
+                    belowOffset = 12; // 2nd highest gets first below position when below
+                  } else if (rankFromHighest === 3 && shouldPositionBelow) {
+                    belowOffset = 12 + 10; // 3rd highest gets second below position when below
+                  } else {
+                    belowOffset = 12 + 18; // 4th and beyond get further below positions - small gap
+                  }
+                  
+                  labelY = dataPointY + belowOffset;
+                  
+                  // Ensure we don't go below chart bounds
+                  if (labelY > chartBottom) {
+                    labelY = chartBottom;
+                  }
+                } else {
+                  // Position labels above data points
+                  let aboveOffset = 12;
+                  
+                  // For multiple points going above, stack them with very minimal offsets
+                  if (rankFromHighest === 1) {
+                    aboveOffset = 12; // Highest gets first above position - very close to point
+                  } else if (rankFromHighest === 2 && !shouldPositionBelow) {
+                    aboveOffset = 12 + 10; // 2nd highest gets second above position when close to 3rd
+                  } else if (rankFromHighest === 3) {
+                    aboveOffset = 12 + 10; // 3rd highest gets second above position - very small gap
+                  }
+                  
+                  labelY = dataPointY - aboveOffset;
+                  
+                  // Ensure we don't go above chart bounds
+                  if (labelY < chartTop) {
+                    labelY = chartTop;
+                  }
+                }
+
+                // Horizontal spacing for points that might need it
+                if (totalPoints > 2) {
+                  // Apply horizontal spacing only when we have multiple points at similar vertical levels
+                  const needsHorizontalSpacing = 
+                    (!shouldPositionBelow && (rankFromHighest === 2 || rankFromHighest === 3)) || // 2nd or 3rd highest above
+                    (shouldPositionBelow && (rankFromHighest === 2 || (rankFromHighest === 3 && idx === 0))); // 2nd highest or 3rd-as-lowest below
+                  
+                  if (needsHorizontalSpacing) {
+                    // Slight horizontal offset to avoid crowding
+                    if (rankFromHighest === 2) {
+                      labelX = point.x - 15; // 2nd highest slightly left
+                    } else if (rankFromHighest === 3) {
+                      labelX = point.x + 15; // 3rd highest slightly right
+                    }
+                  }
+                }
+
+                // Ensure label doesn't go outside horizontal chart bounds
+                const maxX = adjustedWidth - 25;
+                const minX = 25;
+                labelX = Math.max(minX, Math.min(maxX, labelX));
+
+                adjustedPositions.push({
+                  x: labelX,
+                  y: labelY,
+                  value: point.percentage.toFixed(1),
+                  color: point.color,
+                  originalX: point.x,
+                  originalY: dataPointY,
+                  rankFromHighest: rankFromHighest,
+                  positionedBelow: shouldPositionBelow
+                });
+              });
 
               return (
                 <Group key={`labels-${xPos}`}>
                   {adjustedPositions.map((pos, idx) => (
-                    <text
-                      key={`label-${xPos}-${idx}`}
-                      x={pos.x}
-                      y={pos.y}
-                      fontSize={12}
-                      textAnchor="middle"
-                      fill="#333"
-                    >
-                      {pos.value}%
-                    </text>
+                    <Fragment key={`label-${xPos}-${idx}`}>
+                      {/* Add connecting line from data point to label when moved significantly */}
+                      {(Math.abs(pos.x - pos.originalX) > 10 || Math.abs(pos.y - pos.originalY) > 30) && (
+                        <line
+                          x1={pos.originalX}
+                          y1={pos.originalY}
+                          x2={pos.x}
+                          y2={pos.y}
+                          stroke="#666"
+                          strokeWidth={0.7}
+                          strokeDasharray="2,2"
+                          opacity={0.6}
+                        />
+                      )}
+                      <text
+                        x={pos.x}
+                        y={pos.y + 4}
+                        fontSize={12}
+                        textAnchor="middle"
+                        fill="#333"
+                        fontWeight="600"
+                      >
+                        {pos.value}%
+                      </text>
+                    </Fragment>
                   ))}
                 </Group>
               );
