@@ -328,8 +328,8 @@ function LineChart(params) {
             <Fragment key={index}>
               {lineData.values.map((d, i) => {
                 const percentage = parseFloat(d.percentage);
-                const lowerCI = (percentage - 0.5).toFixed(1);
-                const upperCI = (percentage + 0.5).toFixed(1);
+                const lowerCI = (d.ciLower).toFixed(1);
+                const upperCI = (d.ciUpper).toFixed(1);
                 const n = lineData.values.length;
                 const dNext = i === n - 1 ? {} :  lineData.values[i+1] || {}
                 const percentageN = parseFloat(dNext.percentage);
