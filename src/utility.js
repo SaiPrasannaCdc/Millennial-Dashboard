@@ -4,101 +4,101 @@ import ReactTooltip from 'react-tooltip';
 import { Circle } from '@visx/shape';
 
 const firstChartQuarterlyInfo = {
-  'National_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'National_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'National_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'National_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'National_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'National_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'National_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'National_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 
-  'West_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'West_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'West_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'West_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'West_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'West_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'West_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'West_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 
-  'MidWest_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'MidWest_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'MidWest_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'MidWest_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'MidWest_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'MidWest_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'MidWest_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'MidWest_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 
-  'South_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA', 
-  'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'South_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9', 
+  'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 }
 
 const secondChartQuarterlyInfo = {
-  'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
-  'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
+  'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 
-  'West_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
-  'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'West_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
+  'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 
-  'MidWest_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
-  'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'MidWest_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
+  'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 
-  'South_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0C6F96,#671AAA,#A378E8,#0B3345',
-  'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'South_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0E6F97,#663795,#9179B5,#2B4836',
+  'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 }
 
 const firstChartHalfYearlyInfo = {
-  'National_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'National_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'National_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'National_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'National_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'National_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'National_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'National_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 
-  'West_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'West_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'West_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'West_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'West_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'West_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'West_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'West_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 
-  'MidWest_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'MidWest_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'MidWest_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'MidWest_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'MidWest_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'MidWest_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'MidWest_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'MidWest_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 
-  'South_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7',
+  'South_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
   
-  'North_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#294891,#0B3345,#0E96CC',
-  'North_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0C6F96,#245056,#6AADBA',
-  'North_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#671AAA,#50164A,#9E4EBA',
-  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#A378E8,#A02B93,#DDB3F7'
+  'North_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
+  'North_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'North_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7'
 }
 
 const secondChartHalfYearlyInfo = {
-  'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#A378E8,#671AAA,#0C6F96,#0B3345',
-  'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
+  'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 
-  'West_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0C6F96,#671AAA,#A378E8,#0B3345',
-  'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'West_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0E6F97,#663795,#9179B5,#2B4836',
+  'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 
-  'MidWest_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0C6F96,#671AAA,#0B3345,#A378E8',
-  'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'MidWest_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0E6F97,#663795,#2B4836,#9179B5',
+  'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 
-  'South_Fentanyl': 'Heroin,Methamphetamine,Cocaine,Fentanyl with cocaine or methamphetamine|#0C6F96,#A378E8,#671AAA,#0B3345',
-  'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA',
+  'South_Fentanyl': 'Heroin,Methamphetamine,Cocaine,Fentanyl with cocaine or methamphetamine|#0E6F97,#9179B5,#663795,#2B4836',
+  'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
 
-  'North_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0C6F96,#671AAA,#0B3345,#A378E8',
-  'North_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#294891,#671AAA,#A378E8,#245056',
-  'North_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#294891,#0C6F96,#000C77,#A378E8',
-  'North_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#294891,#0C6F96,#000C77,#671AAA'
+  'North_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0E6F97,#663795,#2B4836,#9179B5',
+  'North_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
+  'North_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
+  'North_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795'
 }
 
 const drugNodeInfo = {
