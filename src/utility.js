@@ -26,25 +26,26 @@ const firstChartQuarterlyInfo = {
 }
 
 const secondChartQuarterlyInfo = {
-  'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
-  'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'National_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'National_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'National_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'National_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 
-  'West_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
-  'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'West_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'West_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'West_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'West_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 
-  'MidWest_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
-  'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'MidWest_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'MidWest_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'MidWest_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'MidWest_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 
-  'South_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0E6F97,#663795,#9179B5,#2B4836',
-  'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'South_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'South_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'South_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'South_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
+
 }
 
 const firstChartHalfYearlyInfo = {
@@ -75,30 +76,30 @@ const firstChartHalfYearlyInfo = {
 }
 
 const secondChartHalfYearlyInfo = {
-  'National_Fentanyl': 'Methamphetamine,Cocaine,Heroin,Fentanyl with cocaine or methamphetamine|#9179B5,#663795,#0E6F97,#2B4836',
-  'National_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'National_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'National_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'National_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'National_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'National_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'National_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 
-  'West_Fentanyl': 'Heroin,Cocaine,Methamphetamine,Fentanyl with cocaine or methamphetamine|#0E6F97,#663795,#9179B5,#2B4836',
-  'West_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'West_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'West_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'West_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'West_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'West_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'West_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 
-  'MidWest_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0E6F97,#663795,#2B4836,#9179B5',
-  'MidWest_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'MidWest_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'MidWest_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'MidWest_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'MidWest_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'MidWest_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'MidWest_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 
-  'South_Fentanyl': 'Heroin,Methamphetamine,Cocaine,Fentanyl with cocaine or methamphetamine|#0E6F97,#9179B5,#663795,#2B4836',
-  'South_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'South_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'South_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795',
+  'South_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'South_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'South_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'South_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 
-  'North_Fentanyl': 'Heroin,Cocaine,Fentanyl with cocaine or methamphetamine,Methamphetamine|#0E6F97,#663795,#2B4836,#9179B5',
-  'North_Heroin': 'Fentanyl,Cocaine,Methamphetamine,Heroin with cocaine or methamphetamine|#1C1570,#663795,#9179B5,#255056',
-  'North_Cocaine': 'Fentanyl,Heroin,OpioidsC,Methamphetamine|#1C1570,#0E6F97,#000C77,#9179B5',
-  'North_Methamphetamine': 'Fentanyl,Heroin,OpioidsM,Cocaine|#1C1570,#0E6F97,#000C77,#663795'
+  'North_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#2B4836,#663795,#9179B5,#0E6F97',
+  'North_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'North_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#000C77,#1C1570,#0E6F97,#9179B5',
+  'North_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#000C77,#1C1570,#0E6F97,#663795',
 }
 
 const drugNodeInfo = {
@@ -335,6 +336,14 @@ export const UtilityFunctions = {
     return legendInfo[drug] == '' || legendInfo[drug] == null ? drug : legendInfo[drug];
   },
 
+  formatText: (drugLabel, chartNum) => {
+    if (chartNum == 1)
+      return drugLabel;
+    else{
+      return drugLabel.replace('Opioids','Fentanyl or heroin').replace('Fentanyl with cocaine or methamphetamine','Cocaine or methamphetamine').replace('Heroin with cocaine or methamphetamine','Cocaine or methamphetamine')
+    }
+  },
+
   getHeading: (chartNum, drug, region, period) => {
 
     var heading = '';
@@ -366,16 +375,16 @@ export const UtilityFunctions = {
       
         switch (drug) {
           case 'Fentanyl':
-            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Heroin':
-            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Cocaine':
-            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Methamphetamine':
-            heading = 'How often do people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           default:
             break;
@@ -385,16 +394,16 @@ export const UtilityFunctions = {
     {
         switch (drug) {
           case 'Fentanyl':
-            heading = 'How often do people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or heroin: Millennium Health, ' + rgnFinal + ' ' + prd;  
+            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or heroin: Millennium Health, ' + rgnFinal + ' ' + prd;  
             break;
           case 'Heroin':
-            heading = 'How often do people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
+            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
             break;
           case 'Cocaine':
-            heading = 'How often do people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for methamphetamine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd; 
+            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for methamphetamine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd; 
             break;
           case 'Methamphetamine':
-            heading = 'How often do people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
+            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
             break;
           default:
             break;
@@ -407,7 +416,7 @@ export const UtilityFunctions = {
     return posstivityLabeleInfo[drug] == '' || posstivityLabeleInfo[drug] == null ? drug : posstivityLabeleInfo[drug];
   },
 
-  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels) => {
+  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedPeriod) => {
     return (
       <Fragment>
         <Fragment>
@@ -427,7 +436,7 @@ export const UtilityFunctions = {
                           background: #ededed;
                         ">
                           <div style="margin-top: 8px;">
-                            When <b>% Chg</b> is on, hover over the data point for the 5 most recent quarters to view percent change from the same quarter in the previous year and the previous quarter.
+                            When <b>% Chg</b> is on, ` + (selectedPeriod == 'Quarterly' ? 'hover over the data point for the 5 most recent quarters to view percent change from the same quarter in the previous year and the previous quarter.' : 'hover over the data points for the 3 most recent 6-month time periods to view precent change from the same 6-month period in the previous year and the previous 6-month period.') + `
                           </div>
                         </div>
                       `;
@@ -538,33 +547,34 @@ export const UtilityFunctions = {
             </div>
           </div>
     
-          <div style={{
-            background: '#4d194d', 
-            color: '#fff',
-            borderRadius: '24px',
-            padding: '14px 24px',
-            margin: '24px 0 0 0',
-            fontWeight: 700,
-            fontSize: '15px',
-            maxWidth: '1200px',
-            boxShadow: 'none', 
-            border: 'none',
-            lineHeight: 1.2,
-            display: 'block',
-            fontFamily: 'Barlow, Arial, sans-serif',
-            letterSpacing: '0.01em',
-          }}>
-            {keyFinding ? (
-              <>
-                <span style={{ fontWeight: 700 }}>Key finding:</span> {currentDrug} positivity {keyFinding.direction} <span style={{fontWeight:800}}>{keyFinding.absChange}%</span> from <span style={{fontWeight:800}}>{keyFinding.prev}%</span> in {keyFinding.prevLabel} to <span style={{fontWeight:800}}>{keyFinding.last}%</span> in {keyFinding.lastLabel}. This may indicate {keyFinding.direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to {currentDrug} among people with substance use disorders.
-              </>
-            ) : (
-              <>
-                <span style={{ fontWeight: 700 }}>Key finding:</span> Not enough data to calculate change.
-              </>
-            )}
-          </div>
-    
+          {selectedRegion == 'National' && selectedPeriod == 'Quarterly' &&
+            <div style={{
+              background: '#4d194d', 
+              color: '#fff',
+              borderRadius: '24px',
+              padding: '14px 24px',
+              margin: '24px 0 0 0',
+              fontWeight: 700,
+              fontSize: '15px',
+              maxWidth: '1200px',
+              boxShadow: 'none', 
+              border: 'none',
+              lineHeight: 1.2,
+              display: 'block',
+              fontFamily: 'Barlow, Arial, sans-serif',
+              letterSpacing: '0.01em',
+            }}>
+              {keyFinding ? (
+                <>
+                  <span style={{ fontWeight: 700 }}>Key finding:</span> {currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1).toLowerCase()} positivity {keyFinding.direction} <span style={{fontWeight:800}}>{keyFinding.absChange}%</span> from <span style={{fontWeight:800}}>{keyFinding.prev}%</span> in {keyFinding.prevLabel} to <span style={{fontWeight:800}}>{keyFinding.last}%</span> in {keyFinding.lastLabel}. This may indicate {keyFinding.direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to {currentDrug} among people with substance use disorders.
+                </>
+              ) : (
+                <>
+                  <span style={{ fontWeight: 700 }}>Key finding:</span> Not enough data to calculate change.
+                </>
+              )}
+            </div>
+          }
     
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '10px' }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', marginTop: '18px' }}>
@@ -590,6 +600,7 @@ export const UtilityFunctions = {
                 </label>
               </div>
             </div>
+            {chartNum == 2 && <span style={{ fontSize: '13px', fontWeight: 'bold', marginRight: '20px' }}>Other drugs detected among specimens positive for {currentDrug.toLowerCase()}</span>}
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '10px', marginBottom: '20px' }}>
               {drugsToShow?.map((drug, idx) => (
                 <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
@@ -634,7 +645,7 @@ export const UtilityFunctions = {
                       />
                     )}
                   </span>
-                  <span style={{ fontSize: '14px', color: '#222' }}>{drug.replace('Opioids','Fentanyl or heroin')}</span>
+                  <span style={{ fontSize: '14px', color: '#222' }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
                 </label>
               ))}
             </div>
