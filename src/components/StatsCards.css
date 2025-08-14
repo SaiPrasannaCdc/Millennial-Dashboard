@@ -5,13 +5,12 @@
     padding: 20px;
     background-color: #ffffff; /* Match the background color */
     width: 99%; /* Ensure the container takes full width */
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
 }
 
 .stats-card {
     flex: 1 1 auto; /* Allow the cards to grow */
     width:60%; /* Set a larger width for the boxes */
-    height: 150px; /* Decrease the height of the boxes */
+    height: 190px; /* Decrease the height of the boxes */
     display: flex; /* Use flexbox for two-column layout */
     align-items: flex-start; /* Align content to the top */
     border: 1px solid #e0e0e0; /* Light gray border */
@@ -75,4 +74,14 @@
     margin-top: 0.2em; /* Add slight spacing between lines */
 }
 
+.containerImg {
+  overflow: hidden; /* Hides content exceeding the div's dimensions */
+}
+
+.containerImg img {
+  width: 100%; /* Image takes up 100% of the div's width */
+  height: 100%; /* Image takes up 100% of the div's height */
+  object-fit: cover; /* Scales the image to cover the container while maintaining aspect ratio, potentially cropping parts */
+  /* Alternatively, use object-fit: contain; to ensure the entire image is visible, potentially leaving empty space */
+}
 

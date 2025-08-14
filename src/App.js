@@ -15,6 +15,7 @@ function App() {
   const [selectedPeriod, setSelectedPeriod] = useState('Quarterly');
   const [selectedRegion, setSelectedRegion] = useState('National');
   const [selectedDrug, setSelectedDrug] = useState('fentanyl');
+  
   const [jsonData, setJsonData] = useState([]);
   const [chartOneData, setChartOneDataInState] = useState([]);
   const [chartTwoData, setChartTwoDataInState] = useState([]);
@@ -181,13 +182,13 @@ function App() {
         onDrugChange={setSelectedDrug}
       />
 
-      <StatsCards />
+      <StatsCards rgn={selectedRegion} />
 
       {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1)}
-      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne)}
+      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedPeriod)}
       {lineChartOneMemo}
       {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2)}
-      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo)}
+      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedPeriod)}
       {lineChartTwoMemo}
 
     </div>
