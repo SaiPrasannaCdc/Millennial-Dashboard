@@ -14,7 +14,7 @@ const StatsCards = (rgn) => {
                 <div className="stats-card-number">129.9</div>
                 <div className="stats-card-content">
                     <p className="title">Overall</p>
-                    <p>Rate<sup>1</sup> of ED visits for nonfatal all drug overdose in <strong>2023</strong></p>
+                    <p>Rate<sup>1</sup> of ED visits for nonfatal all drug overdose in <strong>2023</strong></p> 
                 </div>
             </div>
             <div className="stats-card">
