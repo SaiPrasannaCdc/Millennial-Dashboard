@@ -21,7 +21,7 @@ const firstChartQuarterlyInfo = {
 
   'South_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
   'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
-  'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9', 
+  'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
   'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 }
 
@@ -68,7 +68,7 @@ const firstChartHalfYearlyInfo = {
   'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
   'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
   'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
-  
+
   'North_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#2B4836,#356ECC',
   'North_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
   'North_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
@@ -167,13 +167,12 @@ export const UtilityFunctions = {
   getDrugData: (data, region, mdrug, pos, periodKey, drugs) => {
 
     const arr = data?.[region]?.[mdrug]?.[pos]?.[periodKey] || [];
-    if (periodKey == 'HalfYearly')
-    { 
+    if (periodKey == 'HalfYearly') {
       return drugs.map(name => ({
-        label: name.replace('OpioidsC','Opioids').replace('OpioidsM','Opioids'), //SKV TODO
+        label: name.replace('OpioidsC', 'Opioids').replace('OpioidsM', 'Opioids'), //SKV TODO
         data: arr.filter(d => (d.drug_name === name)).map(d => ({
-          drug: name.replace('OpioidsC','Opioids').replace('OpioidsM','Opioids'), //SKV TODO
-          period:  (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0,4), 
+          drug: name.replace('OpioidsC', 'Opioids').replace('OpioidsM', 'Opioids'), //SKV TODO
+          period: (d.period || d.smon_yr)?.substring(5) + ' ' + (d.period || d.smon_yr).substring(0, 4),
           percentage: parseFloat(d.percentage),
           ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
           ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
@@ -183,13 +182,12 @@ export const UtilityFunctions = {
         }))
       })).filter(line => line.data.length > 0);
     }
-    else
-    {
+    else {
       return drugs.map(name => ({
         label: name,
         data: arr.filter(d => (d.drug_name === name)).map(d => ({
           drug: name,
-          quarter:  d.period || d.smon_yr, 
+          quarter: d.period || d.smon_yr,
           percentage: parseFloat(d.percentage),
           ciLower: parseFloat(d['ciLower'] ?? d['CI lower'] ?? d['CI_lower'] ?? d.ciLower),
           ciUpper: parseFloat(d['ciUpper'] ?? d['CI upper'] ?? d['CI_upper'] ?? d.ciUpper),
@@ -215,44 +213,42 @@ export const UtilityFunctions = {
     var coPos = chartNum == 1 ? 'Positivity' : 'CoPositive';
 
     //var coPos = (UtilityFunctions.getCoPositiveExceptions(region, mdrug, periodKey, drug) ? 'CoPositive' : UtilityFunctions.getPositivity(drug)) //SKV TODO
-    var drugNm = drug.replace('OpioidsC','Opioids').replace('OpioidsM','Opioids'); //SKV TODO
+    var drugNm = drug.replace('OpioidsC', 'Opioids').replace('OpioidsM', 'Opioids'); //SKV TODO
     const arr = data?.[region]?.[mainDrug]?.[coPos]?.[periodKey] || [];
     const drgRecs = arr.filter(d => (d.drug_name == drugNm));
-    if (periodKey == 'HalfYearly')
-    { 
+    if (periodKey == 'HalfYearly') {
       return drgRecs.map(drg => ({
-          drug: drugNm,
-          period:  (drg.period || drg.smon_yr)?.substring(5) + ' ' + (drg.period || drg.smon_yr).substring(0,4), 
-          percentage: parseFloat(drg.percentage).toFixed(1),
-          ciLower: parseFloat(drg['ciLower'] ?? drg['CI lower'] ?? drg['CI_lower'] ?? drg.ciLower),
-          ciUpper: parseFloat(drg['ciUpper'] ?? drg['CI upper'] ?? drg['CI_upper'] ?? drg.ciUpper),
-          annual: drg.Annual || drg['Yr_change'] || drg.yr_change || '',
-          periodChange: drg.Period || drg.periodChange || '',
-          yearlyChange: drg.yr_change || '',
-        }));
+        drug: drugNm,
+        period: (drg.period || drg.smon_yr)?.substring(5) + ' ' + (drg.period || drg.smon_yr).substring(0, 4),
+        percentage: parseFloat(drg.percentage).toFixed(1),
+        ciLower: parseFloat(drg['ciLower'] ?? drg['CI lower'] ?? drg['CI_lower'] ?? drg.ciLower),
+        ciUpper: parseFloat(drg['ciUpper'] ?? drg['CI upper'] ?? drg['CI_upper'] ?? drg.ciUpper),
+        annual: drg.Annual || drg['Yr_change'] || drg.yr_change || '',
+        periodChange: drg.Period || drg.periodChange || '',
+        yearlyChange: drg.yr_change || '',
+      }));
     }
-    else
-    {
+    else {
       return drgRecs.map(drg => ({
-          drug: drugNm,
-          quarter:  drg.period || drg.smon_yr, 
-          percentage: parseFloat(drg.percentage).toFixed(1),
-          ciLower: parseFloat(drg['ciLower'] ?? drg['CI lower'] ?? drg['CI_lower'] ?? drg.ciLower),
-          ciUpper: parseFloat(drg['ciUpper'] ?? drg['CI upper'] ?? drg['CI_upper'] ?? drg.ciUpper),
-          annual: drg.Annual || drg['Yr_change'] || drg.yr_change || '',
-          periodChange: drg.Period || drg.periodChange || '',
-          yearlyChange: drg.yr_change || '',
-        }));
+        drug: drugNm,
+        quarter: drg.period || drg.smon_yr,
+        percentage: parseFloat(drg.percentage).toFixed(1),
+        ciLower: parseFloat(drg['ciLower'] ?? drg['CI lower'] ?? drg['CI_lower'] ?? drg.ciLower),
+        ciUpper: parseFloat(drg['ciUpper'] ?? drg['CI upper'] ?? drg['CI_upper'] ?? drg.ciUpper),
+        annual: drg.Annual || drg['Yr_change'] || drg.yr_change || '',
+        periodChange: drg.Period || drg.periodChange || '',
+        yearlyChange: drg.yr_change || '',
+      }));
     }
   },
 
   getDrugsDataNew: (data, region, periodKey, mainDrug, drugs, chartNum) => {
 
     var drugsDataSet = [];
-    drugs.forEach(function(drug, index) {
+    drugs.forEach(function (drug, index) {
       var drugsData = {};
       let vals = UtilityFunctions.getDrugDataNew(data, region, periodKey, mainDrug, drug, chartNum);
-      drugsData['name'] = drug.replace('OpioidsC','Opioids').replace('OpioidsM','Opioids'); //SKV TODO
+      drugsData['name'] = drug.replace('OpioidsC', 'Opioids').replace('OpioidsM', 'Opioids'); //SKV TODO
       drugsData['values'] = vals;
       drugsDataSet.push(drugsData);
     });
@@ -260,7 +256,7 @@ export const UtilityFunctions = {
   },
 
   getChartOneData: (data, region, mdrug, periodKey) => {
-    var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase(); 
+    var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase();
     var mainDrug = mdrug.charAt(0).toUpperCase() + mdrug.slice(1);
     var drugsStr = periodKey == 'Quarterly' ? firstChartQuarterlyInfo[mainReg + '_' + mainDrug] : firstChartHalfYearlyInfo[mainReg + '_' + mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
@@ -277,8 +273,8 @@ export const UtilityFunctions = {
     return chartData;
   },
 
-   getChartTwoData: (data, region, mdrug, periodKey) => {
-    var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase(); 
+  getChartTwoData: (data, region, mdrug, periodKey) => {
+    var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase();
     var mainDrug = mdrug.charAt(0).toUpperCase() + mdrug.slice(1);
     var drugsStr = periodKey == 'Quarterly' ? secondChartQuarterlyInfo[mainReg + '_' + mainDrug] : secondChartHalfYearlyInfo[mainReg + '_' + mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
@@ -294,11 +290,10 @@ export const UtilityFunctions = {
 
     return chartData;
   },
-  
+
   getDrugsToShow: (data) => {
     var drugs = [];
-    for (var i=0; i<data.length;i++)
-    {
+    for (var i = 0; i < data.length; i++) {
       if (!drugs.includes(data[i].name))
         drugs.push(data[i].name);
     }
@@ -309,15 +304,13 @@ export const UtilityFunctions = {
     var lineClrs = {};
     var key = region + '_' + currentDrug;
     var val = '';
-    if (chartNum == 1)
-    {
+    if (chartNum == 1) {
       if (periodKey == 'HalfYearly')
         val = firstChartHalfYearlyInfo[key];
       else if (periodKey == 'Quarterly')
         val = firstChartQuarterlyInfo[key];
     }
-    else if (chartNum == 2)
-    {
+    else if (chartNum == 2) {
       if (periodKey == 'HalfYearly')
         val = secondChartHalfYearlyInfo[key];
       else if (periodKey == 'Quarterly')
@@ -325,8 +318,8 @@ export const UtilityFunctions = {
     }
     var clrs = val?.split('|')[1].split(',');
     var drgs = val?.split('|')[0].split(',');
-    for(var i=0;i<drgs.length;i++)
-      lineClrs[drgs[i].replace('OpioidsC','Opioids').replace('OpioidsM','Opioids')] = clrs[i]; //SKV TODO
+    for (var i = 0; i < drgs.length; i++)
+      lineClrs[drgs[i].replace('OpioidsC', 'Opioids').replace('OpioidsM', 'Opioids')] = clrs[i]; //SKV TODO
 
     return lineClrs;
 
@@ -339,8 +332,8 @@ export const UtilityFunctions = {
   formatText: (drugLabel, chartNum) => {
     if (chartNum == 1)
       return drugLabel;
-    else{
-      return drugLabel.replace('Opioids','Fentanyl or heroin').replace('Fentanyl with cocaine or methamphetamine','Cocaine or methamphetamine').replace('Heroin with cocaine or methamphetamine','Cocaine or methamphetamine')
+    else {
+      return drugLabel.replace('Opioids', 'Fentanyl or heroin').replace('Fentanyl with cocaine or methamphetamine', 'Cocaine or methamphetamine').replace('Heroin with cocaine or methamphetamine', 'Cocaine or methamphetamine')
     }
   },
 
@@ -351,63 +344,61 @@ export const UtilityFunctions = {
     var prd = (period == 'HalfYearly' ? 'July to December 2022 – July to December 2024' : 'Q4 2022 - Q4 2024');
 
     switch (region) {
-          case 'National':
-            rgnFinal = 'United States'; 
-            break;
-          case 'MIDWEST':
-            rgnFinal = 'Midwest Census Region';
-            break;
-          case 'WEST':
-            rgnFinal = 'Western Census Region';
-            break;
-          case 'SOUTH':
-            rgnFinal = 'Southern Census Region';
-            break;
-          case 'NORTH':
-            rgnFinal = 'Northeast Census Region';
-            break;
-          default:
-            break;
-        }
-
-    if (chartNum == 1)
-    {
-      
-        switch (drug) {
-          case 'Fentanyl':
-            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
-            break;
-          case 'Heroin':
-            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
-            break;
-          case 'Cocaine':
-            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
-            break;
-          case 'Methamphetamine':
-            heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd; 
-            break;
-          default:
-            break;
-        }
+      case 'National':
+        rgnFinal = 'United States';
+        break;
+      case 'MIDWEST':
+        rgnFinal = 'Midwest Census Region';
+        break;
+      case 'WEST':
+        rgnFinal = 'Western Census Region';
+        break;
+      case 'SOUTH':
+        rgnFinal = 'Southern Census Region';
+        break;
+      case 'NORTH':
+        rgnFinal = 'Northeast Census Region';
+        break;
+      default:
+        break;
     }
-    else if (chartNum == 2)
-    {
-        switch (drug) {
-          case 'Fentanyl':
-            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or heroin: Millennium Health, ' + rgnFinal + ' ' + prd;  
-            break;
-          case 'Heroin':
-            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
-            break;
-          case 'Cocaine':
-            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for methamphetamine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd; 
-            break;
-          case 'Methamphetamine':
-            heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;  
-            break;
-          default:
-            break;
-        }
+
+    if (chartNum == 1) {
+
+      switch (drug) {
+        case 'Fentanyl':
+          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        case 'Heroin':
+          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        case 'Cocaine':
+          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        case 'Methamphetamine':
+          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        default:
+          break;
+      }
+    }
+    else if (chartNum == 2) {
+      switch (drug) {
+        case 'Fentanyl':
+          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or heroin: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        case 'Heroin':
+          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        case 'Cocaine':
+          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for methamphetamine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        case 'Methamphetamine':
+          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;
+          break;
+        default:
+          break;
+      }
     }
     return heading;
   },
@@ -420,10 +411,10 @@ export const UtilityFunctions = {
     return (
       <Fragment>
         <Fragment>
-          <div className="toggle-container" key={{ctlName}} style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
-                  <div className="toggle-wrapper" style={{ position: 'relative' }}>
-                    {(() => {
-                      const percentChgTooltip = `
+          <div className="toggle-container" key={{ ctlName }} style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
+            <div className="toggle-wrapper" style={{ position: 'relative' }}>
+              {(() => {
+                const percentChgTooltip = `
                         <div style="
                           text-align: center;
                           padding: 16px 12px;
@@ -440,48 +431,48 @@ export const UtilityFunctions = {
                           </div>
                         </div>
                       `;
-                      return (
-                        <>
-                          <label
-                            className="toggle-switch"
-                            data-tip={percentChgTooltip}
-                            data-for="percentChangeTooltip"
-                            style={{ cursor: 'pointer' }}
-                          >
-                            <input
-                              type="checkbox"
-                              checked={showPercentChange}
-                              onChange={() => setShowPercentChange(!showPercentChange)}
-                            />
-                            <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
-                          </label>
-                          <span
-                            className="toggle-label"
-                            style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
-                            data-tip={percentChgTooltip}
-                            data-for="percentChangeTooltip"
-                          >
-                            % Chg {showPercentChange ? 'On' : 'Off'}
-                          </span>
-                          <ReactTooltip
-                            id="percentChangeTooltip"
-                            place="top"
-                            effect="solid"
-                            backgroundColor="#ededed"
-                            border={true}
-                            borderColor="#bbb"
-                            className="simple-tooltip"
-                            html={true}
-                            textColor="#222"
-                          />
-                        </>
-                      );
-                    })()}
-                  </div>
-          
-                  <div className="toggle-wrapper" style={{ position: 'relative' }}>
-                    {(() => {
-                      const labelTooltip = `
+                return (
+                  <>
+                    <label
+                      className="toggle-switch"
+                      data-tip={percentChgTooltip}
+                      data-for="percentChangeTooltip"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={showPercentChange}
+                        onChange={() => setShowPercentChange(!showPercentChange)}
+                      />
+                      <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
+                    </label>
+                    <span
+                      className="toggle-label"
+                      style={{ color: showPercentChange ? '#fff' : '#333', cursor: 'pointer' }}
+                      data-tip={percentChgTooltip}
+                      data-for="percentChangeTooltip"
+                    >
+                      % Chg {showPercentChange ? 'On' : 'Off'}
+                    </span>
+                    <ReactTooltip
+                      id="percentChangeTooltip"
+                      place="top"
+                      effect="solid"
+                      backgroundColor="#ededed"
+                      border={true}
+                      borderColor="#bbb"
+                      className="simple-tooltip"
+                      html={true}
+                      textColor="#222"
+                    />
+                  </>
+                );
+              })()}
+            </div>
+
+            <div className="toggle-wrapper" style={{ position: 'relative' }}>
+              {(() => {
+                const labelTooltip = `
                         <div style="
                           text-align: center;
                           padding: 16px 12px;
@@ -498,8 +489,8 @@ export const UtilityFunctions = {
                           </div>
                         </div>
                       `;
-                      return (
-                        <>
+                return (
+                  <>
                     <label className="toggle-switch" data-tip={labelTooltip} data-for="labelTooltip" style={{ cursor: 'pointer' }}>
                       <input
                         type="checkbox"
@@ -510,20 +501,20 @@ export const UtilityFunctions = {
                     </label>
                     <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333', cursor: 'pointer' }} data-tip={labelTooltip} data-for="labelTooltip">Labels {showLabels ? 'On' : 'Off'}</span>
                     <ReactTooltip
-                            id="labelTooltip"
-                            place="top"
-                            effect="solid"
-                            backgroundColor="#ededed"
-                            border={true}
-                            borderColor="#bbb"
-                            className="simple-tooltip"
-                            html={true}
-                            textColor="#222"
-                            />
-                            </>
-                      );
-                    })()}
-                  </div>
+                      id="labelTooltip"
+                      place="top"
+                      effect="solid"
+                      backgroundColor="#ededed"
+                      border={true}
+                      borderColor="#bbb"
+                      className="simple-tooltip"
+                      html={true}
+                      textColor="#222"
+                    />
+                  </>
+                );
+              })()}
+            </div>
           </div>
         </Fragment>
       </Fragment>
@@ -536,123 +527,160 @@ export const UtilityFunctions = {
         <Fragment>
           <div style={{ fontFamily: 'Arial, sans-serif' }}>
             <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
-            <div style={{ textAlign: 'center' }}>
-              <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff', padding: '5px' }}>
-                {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}
-                
-              </h3>
-              <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
-                
-              </p>
-            </div>
-          </div>
-    
-          {selectedRegion == 'National' && selectedPeriod == 'Quarterly' &&
-            <div style={{
-              background: '#4d194d', 
-              color: '#fff',
-              borderRadius: '24px',
-              padding: '14px 24px',
-              margin: '24px 0 0 0',
-              fontWeight: 700,
-              fontSize: '15px',
-              maxWidth: '1200px',
-              boxShadow: 'none', 
-              border: 'none',
-              lineHeight: 1.2,
-              display: 'block',
-              fontFamily: 'Barlow, Arial, sans-serif',
-              letterSpacing: '0.01em',
-            }}>
-              {keyFinding ? (
-                <>
-                  <span style={{ fontWeight: 700 }}>Key finding:</span> {currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1).toLowerCase()} positivity {keyFinding.direction} <span style={{fontWeight:800}}>{keyFinding.absChange}%</span> from <span style={{fontWeight:800}}>{keyFinding.prev}%</span> in {keyFinding.prevLabel} to <span style={{fontWeight:800}}>{keyFinding.last}%</span> in {keyFinding.lastLabel}. This may indicate {keyFinding.direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to {currentDrug} among people with substance use disorders.
-                </>
-              ) : (
-                <>
-                  <span style={{ fontWeight: 700 }}>Key finding:</span> Not enough data to calculate change.
-                </>
-              )}
-            </div>
-          }
-    
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', marginTop: '18px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '15px' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                  <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === drugsToShow?.length ? '#222' : undefined }}
-                    checked={selectedLines.length === drugsToShow?.length && drugsToShow?.every(line => selectedLines.includes(line))}
-                    onChange={() => {
-                        setSelectedLines(drugsToShow.map(line => line));
-                    }}
-                  />
-                  <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Select All</span>
-                </label>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                  <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
-                    checked={selectedLines?.length === 0}
-                    onChange={() => {
-                      setSelectedLines([]);
-                    }}
-                  />
-                  <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>
-                </label>
+              <div style={{ textAlign: 'center' }}>
+                <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff', padding: '5px' }}>
+                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}
+
+                </h3>
+                <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
+
+                </p>
               </div>
             </div>
-            {chartNum == 2 && <span style={{ fontSize: '13px', fontWeight: 'bold', marginRight: '20px' }}>Other drugs detected among specimens positive for {currentDrug.toLowerCase()}</span>}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '10px', marginBottom: '20px' }}>
-              {drugsToShow?.map((drug, idx) => (
-                <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
-                  <input
-                    type="checkbox"
-                    checked={selectedLines?.includes(drug)}
-                    onChange={() => {
-                      if (selectedLines?.includes(drug)) {
-                        setSelectedLines(selectedLines?.filter(line => line !== drug));
-                      } else {
-                        setSelectedLines([...selectedLines, drug]);
-                      }
-                    }}
-                    style={{ display: 'none' }}
-                  />
-                  <span
-                    style={{
-                      display: 'inline-block',
-                      width: 16,
-                      height: 16,
-                      borderRadius: '50%',
-                      border: `2px solid #888`,
-                      background: '#fff',
-                      marginRight: 2,
-                      position: 'relative',
-                      transition: 'background 0.2s, border 0.2s',
-                    }}
-                  >
-                    {(selectedLines?.includes(drug)) && (
-                      <span
-                        style={{
-                          display: 'block',
-                          width: 10,
-                          height: 10,
-                          borderRadius: '50%',
-                          background: lineColors[drug],
-                          position: 'absolute',
-                          top: '50%',
-                          left: '50%',
-                          transform: 'translate(-50%, -50%)',
-                        }}
-                      />
-                    )}
-                  </span>
-                  <span style={{ fontSize: '14px', color: '#222' }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
-                </label>
-              ))}
+
+            {selectedRegion == 'National' && selectedPeriod == 'Quarterly' &&
+              <div style={{
+                background: '#4d194d',
+                color: '#fff',
+                borderRadius: '24px',
+                padding: '14px 24px',
+                margin: '24px 0 0 0',
+                fontWeight: 700,
+                fontSize: '15px',
+                maxWidth: '1200px',
+                boxShadow: 'none',
+                border: 'none',
+                lineHeight: 1.2,
+                display: 'block',
+                fontFamily: 'Barlow, Arial, sans-serif',
+                letterSpacing: '0.01em',
+              }}>
+                {keyFinding ? (
+                  <>
+                    <span style={{ fontWeight: 700 }}>Key finding:</span> {currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1).toLowerCase()} positivity {keyFinding.direction} <span style={{ fontWeight: 800 }}>{keyFinding.absChange}%</span> from <span style={{ fontWeight: 800 }}>{keyFinding.prev}%</span> in {keyFinding.prevLabel} to <span style={{ fontWeight: 800 }}>{keyFinding.last}%</span> in {keyFinding.lastLabel}. This may indicate {keyFinding.direction === 'decreased' ? 'decreased exposure' : 'increased exposure'} to {currentDrug} among people with substance use disorders.
+                  </>
+                ) : (
+                  <>
+                    <span style={{ fontWeight: 700 }}>Key finding:</span> Not enough data to calculate change.
+                  </>
+                )}
+              </div>
+            }
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', marginTop: '18px' }}>
+                <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '15px' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === drugsToShow?.length ? '#222' : undefined }}
+                      checked={selectedLines.length === drugsToShow?.length && drugsToShow?.every(line => selectedLines.includes(line))}
+                      onChange={() => {
+                        setSelectedLines(drugsToShow.map(line => line));
+                      }}
+                    />
+                    <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Select All</span>
+                  </label>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
+                      checked={selectedLines?.length === 0}
+                      onChange={() => {
+                        setSelectedLines([]);
+                      }}
+                    />
+                    <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>
+                  </label>
+                </div>
+              </div>
+              {chartNum == 2 && <span style={{ fontSize: '13px', fontWeight: 'bold', marginRight: '20px' }}>Other drugs detected among specimens positive for {currentDrug.toLowerCase()}</span>}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '10px', marginBottom: '20px' }}>
+                {drugsToShow?.map((drug, idx) => (
+                  <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                    <input
+                      type="checkbox"
+                      checked={selectedLines?.includes(drug)}
+                      onChange={() => {
+                        if (selectedLines?.includes(drug)) {
+                          setSelectedLines(selectedLines?.filter(line => line !== drug));
+                        } else {
+                          setSelectedLines([...selectedLines, drug]);
+                        }
+                      }}
+                      style={{ display: 'none' }}
+                    />
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        width: 16,
+                        height: 16,
+                        borderRadius: '50%',
+                        border: `2px solid #888`,
+                        background: '#fff',
+                        marginRight: 2,
+                        position: 'relative',
+                        transition: 'background 0.2s, border 0.2s',
+                      }}
+                    >
+                      {(selectedLines?.includes(drug)) && (
+                        <span
+                          style={{
+                            display: 'block',
+                            width: 10,
+                            height: 10,
+                            borderRadius: '50%',
+                            background: lineColors[drug],
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                          }}
+                        />
+                      )}
+                    </span>
+                    <span style={{ fontSize: '14px', color: '#222' }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
         </Fragment>
       </Fragment>
     )
+  },
+
+  calculateLabelPositions: (dataPoints, yScale, labelHeight = 20, minGap = 5) => {
+    // Sort points by their y position (percentage value)
+    const sortedPoints = dataPoints
+      .map((point, index) => ({
+        ...point,
+        originalIndex: index,
+        yPos: yScale(parseFloat(point.percentage)),
+        preferredY: yScale(parseFloat(point.percentage)) - 14 // Default label position
+      }))
+      .sort((a, b) => a.yPos - b.yPos);
+
+    // Adjust positions to avoid overlaps
+    const adjustedPositions = [];
+    let lastLabelBottom = -Infinity;
+
+    sortedPoints.forEach(point => {
+      let labelY = point.preferredY;
+      const labelTop = labelY - labelHeight / 2;
+      const labelBottom = labelY + labelHeight / 2;
+
+      // If this label would overlap with the previous one, push it down
+      if (labelTop < lastLabelBottom + minGap) {
+        labelY = lastLabelBottom + minGap + labelHeight / 2;
+      }
+
+      adjustedPositions[point.originalIndex] = {
+        x: point.x,
+        y: labelY,
+        value: point.percentage
+      };
+
+      lastLabelBottom = labelY + labelHeight / 2;
+    });
+
+    return adjustedPositions;
   },
 }
