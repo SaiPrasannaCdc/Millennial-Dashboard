@@ -292,9 +292,9 @@ function LineChart(params) {
             fontWeight="600"
             style={{ letterSpacing: '0.01em' }}
           >
-            {chartNum == 1 ? '% of people with substance use disorder' : '% of specimens testing positive for ' + currentDrug.toLowerCase()}
+            {chartNum == 1 ? '% of specimens testing positive for ' +  currentDrug.toLowerCase() : '% of specimens with drug(s) detected among '}
             <tspan x={-adjustedHeight / 2} dy={15}>
-              with drug(s) detected
+             {chartNum == 1 ? 'with drug(s) detected'  : currentDrug.toLowerCase() + ' positive specimens'}
             </tspan>
           </text>
           <AxisLeft

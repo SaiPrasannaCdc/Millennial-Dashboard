@@ -143,9 +143,9 @@ const CoPositiveInfo = {
 }
 
 const legendInfo = {
-  'Fentanyl with cocaine or methamphetamine': 'Fentanyl with cocaine or methamphetamine',
+  'Fentanyl with cocaine or methamphetamine': 'Cocaine or methamphetamine',
   'Fentanyl without cocaine or methamphetamine': 'Fentanyl without cocaine or methamphetamine',
-  'Heroin with cocaine or methamphetamine': 'Heroin with cocaine or methamphetamine',
+  'Heroin with cocaine or methamphetamine': 'Cocaine or methamphetamine',
   'Heroin without cocaine or methamphetamine': 'Heroin without cocaine or methamphetamine',
   'Heroin': 'Any Heroin',
   'Cocaine with fentanyl or heroin': 'Cocaine with heroin or fentanyl',

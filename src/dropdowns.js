@@ -8,7 +8,7 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
         <div className="dropdown-container">
             {/* Region Dropdown */}
             <div className="dropdown">
-                <label htmlFor="region">Region:</label>
+                <label htmlFor="region">Select a Region:</label>
                 <select
                     id="region"
                     name="region"
@@ -25,7 +25,7 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
 
             {/* Drug Dropdown */}
             <div className="dropdown">
-                <label htmlFor="drug">Drug:</label>
+                <label htmlFor="drug">Select a Drug:</label>
                 <select id="drug" name="drug" value={selectedDrug} onChange={(e) => onDrugChange(e.target.value)}>
                     <option value="fentanyl">Fentanyl</option>
                     <option value="heroin">Heroin</option>
@@ -36,7 +36,7 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
 
             {/* Period Dropdown */}
             <div className="dropdown">
-                <label htmlFor="period">Period:</label>
+                <label htmlFor="period">Select a Time Frame:</label>
                 <select
                     id="period"
                     name="period"
