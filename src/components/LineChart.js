@@ -294,7 +294,7 @@ function LineChart(params) {
           >
             {chartNum == 1 ? '% of specimens testing positive for ' +  currentDrug.toLowerCase() : '% of specimens with drug(s) detected among '}
             <tspan x={-adjustedHeight / 2} dy={15}>
-             {chartNum == 1 ? 'with drug(s) detected'  : currentDrug.toLowerCase() + ' positive specimens'}
+             {chartNum == 1 ? 'or ' + currentDrug.toLowerCase() + ' drug combinations'  : currentDrug.toLowerCase() + ' positive specimens'}
             </tspan>
           </text>
           <AxisLeft
