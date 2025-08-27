@@ -14,19 +14,28 @@ function StatsCards(params) {
                 <div className="containerImg"><img src={dataUrl + '/data/' + rgn + '.png'}/></div>
            </div>
             <div className="stats-card">
-                <div className="stats-card-number">{UtilityFunctions.getNoOfTests(data, rgn, tframe)}<br></br>Tests</div>
-                
-                <div className="stats-card-content">
-                    <p className="title"># of urine drug tests conducted by Millennium Health<br></br><br></br><br></br><br></br><br></br></p>
-                    <p className="smallFont">{UtilityFunctions.getTimeStamp(data, rgn, tframe)}</p> 
-                </div>
+                <table>
+                    <tr>
+                        <td><div className="stats-card-number">{UtilityFunctions.getNoOfTests(data, rgn, tframe)}<br></br>Tests</div></td>
+                        <td class="alignTop"><div className="stats-card-content"><p className="title"># of urine drug tests conducted by Millennium Health</p></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'><p className="smallFont">{UtilityFunctions.getTimeStamp(data, rgn, tframe)}</p></td>
+                    </tr>
+                </table>
+
             </div>
             <div className="stats-card">
-                <div className="stats-card-number">{UtilityFunctions.getNoOfStates(data, rgn, tframe)}<br></br>States</div>
-                <div className="stats-card-content">
-                    <p className="title">Conducted more than 1000 tests<br></br><br></br><br></br><br></br><br></br><br></br></p>
-                    <p className="smallFont">{UtilityFunctions.getTimeStamp(data, rgn, tframe)}</p>
-                </div>
+                <table>
+                    <tr>
+                        <td><div className="stats-card-number">{UtilityFunctions.getNoOfStates(data, rgn, tframe)}<br></br>States</div></td>
+                        <td class="alignTop"><div className="stats-card-content"><p className="title">Conducted more than 1000 tests</p></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'><p className="smallFont">{UtilityFunctions.getTimeStamp(data, rgn, tframe)}</p></td>
+                    </tr>
+                </table>
+
             </div>
         </div>
     );

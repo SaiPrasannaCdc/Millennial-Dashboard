@@ -30,6 +30,7 @@
     margin-top: -0px; /* Move the number slightly up */
 }
 
+
 .stats-card-content {
     text-align: left; /* Align text to the left */
     font-size: 0.85em; /* Updated font size for text */
@@ -87,5 +88,12 @@
 
 .smallFont {
     font-size: 12px!important;
+    font-style: italic;
+    text-align: right;
+    font-weight: bold;
+}
+
+.alignTop {
+    vertical-align: top!important;
 }
 
