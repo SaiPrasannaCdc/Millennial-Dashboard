@@ -85,3 +85,7 @@
   /* Alternatively, use object-fit: contain; to ensure the entire image is visible, potentially leaving empty space */
 }
 
+.smallFont {
+    font-size: 12px!important;
+}
+

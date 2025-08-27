@@ -17,6 +17,7 @@ function App() {
   const [selectedDrug, setSelectedDrug] = useState('fentanyl');
   
   const [jsonData, setJsonData] = useState([]);
+  const [calloutsData, setCalloutsData] = useState([]);
   const [chartOneData, setChartOneDataInState] = useState([]);
   const [chartTwoData, setChartTwoDataInState] = useState([]);
 
@@ -125,6 +126,12 @@ function App() {
     </>,
     [chartTwoData, selectedLinesTwo, showLabelsTwo, showPercentChangeTwo, drugsLineColorsTwo, width]);
 
+    const callOutsMemo = useMemo(() =>
+    <>
+      <StatsCards data={calloutsData} rgn={selectedRegion} tframe={selectedPeriod} />
+    </>,
+    [calloutsData, selectedPeriod, selectedRegion, width]);
+
   const setChartOneData = (data) => {
     if (data[0] != null && data[0][0].values.length > 0) {
       setChartOneDataInState(data);
@@ -151,6 +158,12 @@ function App() {
       setJsonData(data);
     });
 
+    fetch(dataUrl + '/data/Millenial-Callouts.json')
+      .then(res => res.json())
+      .then(data => {
+      setCalloutsData(data);
+    });
+
   }, []);
 
   useEffect(() => {
@@ -168,6 +181,10 @@ function App() {
     return loading;
   }
 
+  if (calloutsData == null || (calloutsData != null && calloutsData?.length == 0)) {
+    return loading;
+  }
+
   return (
     <div
       className={`App${dimensions.width < viewportCutoffSmall ? ' small-vp' : ''}${dimensions.width < viewportCutoffMedium ? ' medium-vp' : ''}${accessible ? ' accessible' : ''}`}
@@ -182,8 +199,8 @@ function App() {
         onDrugChange={setSelectedDrug}
       />
 
-      <StatsCards rgn={selectedRegion} />
-
+      {callOutsMemo}
+      
       {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1)}
       {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedPeriod)}
       {lineChartOneMemo}
