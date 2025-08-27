@@ -683,4 +683,22 @@ export const UtilityFunctions = {
 
     return adjustedPositions;
   },
+
+  getNoOfTests: (data, region, tframe) => {
+
+    return data[region][tframe].noOfTests;
+
+  },
+
+  getNoOfStates: (data, region, tframe) => {
+    
+    return data[region][tframe].noOfStates;
+
+  },
+
+  getTimeStamp: (data, region, tframe) => {
+    
+    return data[region][tframe].timeStamp;
+
+  },
 }

@@ -30,6 +30,7 @@
     margin-top: -0px; /* Move the number slightly up */
 }
 
+
 .stats-card-content {
     text-align: left; /* Align text to the left */
     font-size: 0.85em; /* Updated font size for text */
@@ -83,5 +84,16 @@
   height: 100%; /* Image takes up 100% of the div's height */
   object-fit: cover; /* Scales the image to cover the container while maintaining aspect ratio, potentially cropping parts */
   /* Alternatively, use object-fit: contain; to ensure the entire image is visible, potentially leaving empty space */
+}
+
+.smallFont {
+    font-size: 12px!important;
+    font-style: italic;
+    text-align: right;
+    font-weight: bold;
+}
+
+.alignTop {
+    vertical-align: top!important;
 }
 
