@@ -9,7 +9,7 @@ import { UtilityFunctions } from './utility';
 function App() {
   const viewportCutoffSmall = 550;
   const viewportCutoffMedium = 800;
-  const chartHeight = 450;
+  const chartHeight = 460;
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const accessible = false;
   const [selectedPeriod, setSelectedPeriod] = useState('Quarterly');
