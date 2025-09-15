@@ -357,14 +357,20 @@ function LineChart(params) {
                       <Circle
                         cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                         cy={yScale(percentage)}
-                        r={4}
+                        r={4.5}
                         fill={lineColors[d.drug]}
+                      />
+                      <Circle 
+                        cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                        cy={yScale(percentage)}
+                        r={10} 
+                        fill="transparent"
                         data-tip={`<div style='text-align: left;'>
                             <strong>${xAccessor(d)}</strong><br/>
                             ${UtilityFunctions.getPositivityLabel(d.drug)}: ${percentage}%<br/>
                             Confidence interval: ${lowerCI}% - ${upperCI}%
                           </div>`}
-                      />
+                        />
                       {(!showLabel && (i == n - 1)) && (
                         <Group>
                           <line
