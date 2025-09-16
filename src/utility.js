@@ -231,7 +231,7 @@ export const UtilityFunctions = {
     else {
       return drgRecs.map(drg => ({
         drug: drugNm,
-        quarter: drg.period || drg.smon_yr,
+        quarter: drg.period.replace('Q1','Jan-Mar').replace('Q2','Apr-Jun').replace('Q3','Jul-Sep').replace('Q4','Oct-Dec') || drg.smon_yr,
         percentage: parseFloat(drg.percentage).toFixed(1),
         ciLower: parseFloat(drg['ciLower'] ?? drg['CI lower'] ?? drg['CI_lower'] ?? drg.ciLower),
         ciUpper: parseFloat(drg['ciUpper'] ?? drg['CI upper'] ?? drg['CI_upper'] ?? drg.ciUpper),
@@ -331,9 +331,9 @@ export const UtilityFunctions = {
 
   formatText: (drugLabel, chartNum) => {
     if (chartNum == 1)
-      return drugLabel;
+      return UtilityFunctions.getLegend(drugLabel);
     else {
-      return drugLabel.replace('Opioids', 'Fentanyl or heroin').replace('Fentanyl with cocaine or methamphetamine', 'Cocaine or methamphetamine').replace('Heroin with cocaine or methamphetamine', 'Cocaine or methamphetamine')
+      return UtilityFunctions.getLegend(drugLabel.replace('Opioids', 'Fentanyl or heroin').replace('Fentanyl with cocaine or methamphetamine', 'Cocaine or methamphetamine').replace('Heroin with cocaine or methamphetamine', 'Cocaine or methamphetamine'));
     }
   },
 
@@ -701,4 +701,21 @@ export const UtilityFunctions = {
     return data[region][tframe].timeStamp;
 
   },
+
+   calculateYScaleDomain: (data, selectedDrugs)=> {
+
+    var percVals = [];
+    for (var i=0;i<data.length;i++)
+    {
+      for (var j=0;j<data[i].values.length;j++)
+      {
+        if (selectedDrugs.includes(data[i].name))
+          percVals.push(data[i].values[j].percentage)
+      }
+    }
+
+    percVals.sort((a, b) => b - a);
+
+    return percVals[0];
+  }, 
 }

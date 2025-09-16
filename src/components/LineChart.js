@@ -16,7 +16,7 @@ function LineChart(params) {
 
   const dataSet = data;
 
-  const margin = { top: 60, right: 30, bottom: 50, left: 95 };
+  const margin = { top: 60, right: 30, bottom: 60, left: 95 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
@@ -123,6 +123,9 @@ function LineChart(params) {
   dataSet.forEach(line => line.values.forEach(d => allPeriodsSet.add(period === 'Quarterly' ? d.quarter : formatHalfYearLabel(d.period))));
   const allPeriodsArr = Array.from(allPeriodsSet);
 
+  const tmpyScaleDomainPeriod = UtilityFunctions.calculateYScaleDomain(dataSet, selectedDrugs);
+  const yScaleDomainPeriod = (tmpyScaleDomainPeriod == -1 ? 1 : (tmpyScaleDomainPeriod * 1.2));
+
   const xDomain = allPeriodsArr;
   const xAccessor = period === 'Quarterly'
     ? d => d.quarter
@@ -135,7 +138,7 @@ function LineChart(params) {
   });
 
   const yScale = scaleLinear({
-    domain: [0, Math.max(...dataSet.flatMap(d => d.values.map(v => parseFloat(v.percentage))))*1.1],
+    domain: [0, yScaleDomainPeriod == 0 ? 0.8 : yScaleDomainPeriod],
     range: [adjustedHeight, 0],
     nice: true,
   });
@@ -250,6 +253,16 @@ function LineChart(params) {
     }
   }
 
+  const CustomTickComponent = ({ x, y, formattedValue }) => {
+    const [line1, line2] = formattedValue.split(' ');
+    return (
+      <text x={x} y={y} fontSize={16} textAnchor="middle">
+        <tspan x={x} dy="0.5em">{line1}</tspan>
+        <tspan x={x} dy="1.3em">{line2}</tspan>
+      </text>
+    );
+};
+
   useEffect(() => {
     adjustCrowdedLabels();
     adjustLinesForLabels();
@@ -314,12 +327,7 @@ function LineChart(params) {
           <AxisBottom
             top={adjustedHeight}
             scale={xScale}
-            tickFormat={value => value}
-            tickLabelProps={() => ({
-              fontSize: 16,
-              textAnchor: 'middle',
-              dy: 10,
-            })}
+            tickComponent={CustomTickComponent}
           />
 
           {dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
@@ -349,14 +357,20 @@ function LineChart(params) {
                       <Circle
                         cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                         cy={yScale(percentage)}
-                        r={4}
+                        r={4.5}
                         fill={lineColors[d.drug]}
+                      />
+                      <Circle 
+                        cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
+                        cy={yScale(percentage)}
+                        r={10} 
+                        fill="transparent"
                         data-tip={`<div style='text-align: left;'>
                             <strong>${xAccessor(d)}</strong><br/>
                             ${UtilityFunctions.getPositivityLabel(d.drug)}: ${percentage}%<br/>
                             Confidence interval: ${lowerCI}% - ${upperCI}%
                           </div>`}
-                      />
+                        />
                       {(!showLabel && (i == n - 1)) && (
                         <Group>
                           <line
@@ -373,6 +387,7 @@ function LineChart(params) {
                             x={xScale(xAccessor(d)) + xScale.bandwidth() / 2 + 42}
                             y={yScale(percentage.toFixed(1))}
                             fontSize={12}
+                            fontWeight="600"
                             textAnchor="middle"
                             alignmentBaseline="middle"
                             fill="#333"
