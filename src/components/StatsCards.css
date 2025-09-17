@@ -7,9 +7,36 @@
     width: 99%; /* Ensure the container takes full width */
 }
 
+.stats-cards-container-SVP {
+    display: grid;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 5px;
+    background-color: #ffffff; /* Match the background color */
+    width: 99%; /* Ensure the container takes full width */
+}
+
 .stats-card {
     flex: 1 1 auto; /* Allow the cards to grow */
     width:60%; /* Set a larger width for the boxes */
+    height: 190px; /* Decrease the height of the boxes */
+    display: flex; /* Use flexbox for two-column layout */
+    align-items: flex-start; /* Align content to the top */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-left: 5px solid rgb(50, 93, 125); /* Updated left border color */
+    border-radius: 8px;
+    padding: 15px; /* Adjust padding for better spacing */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.stats-card-SVP {
+    flex: 1 1 auto; /* Allow the cards to grow */
+    width:98%; /* Set a larger width for the boxes */
     height: 190px; /* Decrease the height of the boxes */
     display: flex; /* Use flexbox for two-column layout */
     align-items: flex-start; /* Align content to the top */
@@ -40,6 +67,15 @@
 .stats-card-content .title {
     font-size: 1em; /* Updated font size for titles */
     font-weight: 700; /* Bold font weight */
+    line-height: 1.1; /* Adjusted line height */
+    margin: 0 0 0.1em; /* Reduced bottom margin */
+    text-align: left; /* Align text to the left */
+    color: rgb(50, 93, 125); /* Updated title color */
+}
+
+.stats-card-content .reg {
+    font-size: 1em; /* Updated font size for titles */
+    font-weight: 450; /* Bold font weight */
     line-height: 1.1; /* Adjusted line height */
     margin: 0 0 0.1em; /* Reduced bottom margin */
     text-align: left; /* Align text to the left */

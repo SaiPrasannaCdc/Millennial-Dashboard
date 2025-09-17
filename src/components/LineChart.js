@@ -12,11 +12,11 @@ import './ToggleSwitch.css';
 
 function LineChart(params) {
 
-  const { data, region, currentDrug, period, width, height, selectedDrugs, showLabels, showPercentChange, lineColors, onData, chartNum } = params;
+  const { data, region, currentDrug, period, width, height, selectedDrugs, showLabels, showPercentChange, lineColors, onData, chartNum, isSmallViewPort } = params;
 
   const dataSet = data;
 
-  const margin = { top: 60, right: 30, bottom: 60, left: 95 };
+  const margin = { top: 60, right: !isSmallViewPort ? 30 : 50, bottom: !isSmallViewPort ? 60 : 105, left: 105 };
   const adjustedWidth = width - margin.left - margin.right;
   const adjustedHeight = height - margin.top - margin.bottom;
 
@@ -55,6 +55,13 @@ function LineChart(params) {
     return null;
   };
 
+  const getPrevPeriodPeriod = (lineData, i, offset = 1) => {
+    if (i - offset >= 0) {
+      return period == 'Quarterly' ? lineData.values[i - offset].quarter : lineData.values[i - offset].period;
+    }
+    return null;
+  };
+
   const renderChangeIndicators = () => {
 
     return dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => {
@@ -62,8 +69,10 @@ function LineChart(params) {
         if (i === 0) return null;
 
         const prevPeriod = getPrevPeriodValue(lineData, i, 1);
+        const prevPeriodPeriod = getPrevPeriodPeriod(lineData, i, 1);
         const yearlyOffset = period === 'Quarterly' ? 4 : 2;
         const prevYear = getPrevPeriodValue(lineData, i, yearlyOffset);
+        const prevYearPeriod = getPrevPeriodPeriod(lineData, i, yearlyOffset);
         const curr = parseFloat(d.percentage);
 
         const yearlyChange = prevYear !== null ? ((curr - prevYear) / prevYear) * 100 : null;
@@ -89,25 +98,38 @@ function LineChart(params) {
               onMouseLeave={(e) => {
                 ReactTooltip.hide(e.target);
               }}
+              style={{ cursor: 'pointer' }}
+            />
+            <Circle
+              cx={xPosition}
+              cy={yPosition}
+              r={10}
+              fill='transparent'
+              onMouseEnter={(e) => {
+                ReactTooltip.show(e.target);
+              }}
+              onMouseLeave={(e) => {
+                ReactTooltip.hide(e.target);
+              }}
               data-tip={`<div style='text-align: left; padding: 0;'>
                   ${showYearlyIndicator ? `<div style='display: flex; align-items: center; margin-bottom: 10px;'>
-                    <svg width='20' height='20' style='margin-right: 10px;'>
+                    <svg width='${!isSmallViewPort ? 20 : 50}' height='20' style='margin-right: 10px;'>
                       <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${yearlyChange !== null && yearlyChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
                     </svg>
                     <div>
                       <strong>Yearly Change</strong><br/>
                       ${yearlyChange !== null ? Number(yearlyChange).toFixed(1) : 'N/A'}% (${yearlyChange !== null && yearlyChange > 0 ? 'Increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})<br/>
-                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
+                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% in ${prevYearPeriod} to ${curr.toFixed(1)}% in ${xLabel} 
                     </div>
                   </div>` : ''}
                   <div style='display: flex; align-items: center;'>
-                    <svg width='20' height='20' style='margin-right: 10px;'>
+                    <svg width='${!isSmallViewPort ? 20 : 50}' height='20' style='margin-right: 10px;'>
                       <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${periodChange !== null && periodChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${periodChange !== null && periodChange > 0 ? 0 : 180}, 10, 10)' />
                     </svg>
                     <div>
                       <strong>${period === 'Quarterly' ? 'Quarterly' : '6 Month'} Change</strong><br/>
                       ${periodChange !== null ? Number(periodChange).toFixed(1) : 'N/A'}% (${periodChange !== null && periodChange > 0 ? 'Increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})<br/>
-                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${periodChange !== null && periodChange > 0 ? 'increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% to ${curr.toFixed(1)}% in ${xLabel}
+                      ${UtilityFunctions.getPositivityLabel(d.drug)} ${periodChange !== null && periodChange > 0 ? 'increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% in ${prevPeriodPeriod} to ${curr.toFixed(1)}% in ${xLabel} 
                     </div>
                   </div>
                 </div>`}
@@ -287,7 +309,7 @@ function LineChart(params) {
     };
   }
 
-  onData(keyFinding);
+onData(keyFinding);
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
@@ -324,11 +346,23 @@ function LineChart(params) {
               letterSpacing: '0.01em',
             })}
           />
+          {!isSmallViewPort && 
           <AxisBottom
             top={adjustedHeight}
             scale={xScale}
             tickComponent={CustomTickComponent}
           />
+          }
+          {isSmallViewPort && 
+          <AxisBottom
+            top={adjustedHeight}
+            scale={xScale}
+            tickLabelProps={(value) => ({
+              fontSize: !isSmallViewPort ? 16 : 12,
+              angle: (isSmallViewPort ? 90 : 0),
+            })}
+          />
+          }
 
           {dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
             <Fragment key={index}>
@@ -357,7 +391,7 @@ function LineChart(params) {
                       <Circle
                         cx={xScale(xAccessor(d)) + xScale.bandwidth() / 2}
                         cy={yScale(percentage)}
-                        r={4.5}
+                        r={4}
                         fill={lineColors[d.drug]}
                       />
                       <Circle 
@@ -368,7 +402,7 @@ function LineChart(params) {
                         data-tip={`<div style='text-align: left;'>
                             <strong>${xAccessor(d)}</strong><br/>
                             ${UtilityFunctions.getPositivityLabel(d.drug)}: ${percentage}%<br/>
-                            Confidence interval: ${lowerCI}% - ${upperCI}%
+                            95% Confidence interval: ${lowerCI}% - ${upperCI}%
                           </div>`}
                         />
                       {(!showLabel && (i == n - 1)) && (
@@ -647,12 +681,28 @@ function LineChart(params) {
       </svg>
 
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', marginBottom: '20px' }}>
-        {dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
+        {!isSmallViewPort && dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
             <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[lineData.name] }}></div>
             <span style={{ fontSize: '16px', color: '#333' }}>{UtilityFunctions.getLegend(lineData.name)}</span>
           </div>
         ))}
+        {isSmallViewPort && 
+        <table>
+          {
+            dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
+              <tr>
+                <td>
+                    <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
+                    <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[lineData.name] }}></div>
+                    <span style={{ fontSize: '16px', color: '#333' }}>{UtilityFunctions.getLegend(lineData.name)}</span>
+                    </div>
+                </td>
+              </tr>
+            ))
+          }
+        </table>
+        }
       </div>
 
       <ReactTooltip

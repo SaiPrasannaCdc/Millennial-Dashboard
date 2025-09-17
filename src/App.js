@@ -5,6 +5,7 @@ import StatsCards from './components/StatsCards';
 import debounce from 'lodash.debounce';
 import LineChart from './components/LineChart';
 import { UtilityFunctions } from './utility';
+import './styles.scss';
 
 function App() {
   const viewportCutoffSmall = 550;
@@ -38,7 +39,7 @@ function App() {
 
   const [width, setWidth] = useState(1100);
 
-  const isSmallViewport = width < 500;
+  const isSmallViewPort = width < viewportCutoffSmall;
 
   const lineChartRef = useRef();
 
@@ -59,6 +60,45 @@ function App() {
       resizeObserver.observe(node);
     } // eslint-disable-next-line
   }, []);
+
+  const getFootNotes = () => {
+
+    if (!isSmallViewPort) {
+      return (
+            <div>
+              <table style={{ width: '100%' }}>
+                <tr style={{ textAlign: 'left'}}>
+                  <td style={{ width: '10%' }}></td>
+                  <td style={{ width: '95%' }}><small><i><sup>*</sup>
+                    {selectedPeriod == 'Quarterly' ? 'Changes in drug(s) positivity across a quarter or a year may not be statistically significant. Where 95% confidence intervals for drug positivity between two quarters do not overlap, the quarters are statistically different.' : 'Changes in drug(s) positivity across a 6-month period or a year may not be statistically significant. Where the 95% confidence intervals for drug positivity between two 6-month periods do not overlap, the time periods are statistically different.'}
+                  </i></small></td>
+                </tr>
+                <tr style={{ textAlign: 'left'}}>
+                  <td style={{ width: '10%' }}></td>
+                  <td style={{ width: '95%' }}><small><i><sup>†</sup>{'Scale of the figure may change based on the data selected'}</i></small></td>
+                </tr>
+              </table>
+            </div>
+      )
+    }
+    else
+    {
+      return (
+       <div>
+              <table style={{ width: '100%' }}>
+                <tr style={{ textAlign: 'left'}}>
+                  <td style={{ width: '100%' }}><small><i><sup>*</sup>
+                    {selectedPeriod == 'Quarterly' ? 'Changes in drug(s) positivity across a quarter or a year may not be statistically significant. Where 95% confidence intervals for drug positivity between two quarters do not overlap, the quarters are statistically different.' : 'Changes in drug(s) positivity across a 6-month period or a year may not be statistically significant. Where the 95% confidence intervals for drug positivity between two 6-month periods do not overlap, the time periods are statistically different.'}
+                  </i></small></td>
+                </tr>
+                <tr style={{ textAlign: 'left'}}>
+                  <td style={{ width: '100%' }}><small><i><sup>†</sup>{'Scale of the figure may change based on the data selected'}</i></small></td>
+                </tr>
+              </table>
+            </div>
+      )
+    }
+  }
 
   const handleDataOne = (forKeyFinding) => {
     setDataFromChartOne(forKeyFinding);
@@ -88,6 +128,7 @@ function App() {
                   lineColors={drugsLineColorsOne}
                   onData={handleDataOne}
                   chartNum={1}
+                  isSmallViewPort={isSmallViewPort}
               />
               </div>
             </div>
@@ -117,6 +158,7 @@ function App() {
                   lineColors={drugsLineColorsTwo}
                   onData={handleDataTwo}
                   chartNum={2}
+                  isSmallViewPort={isSmallViewPort}
               />
               </div>
             </div>
@@ -128,7 +170,7 @@ function App() {
 
     const callOutsMemo = useMemo(() =>
     <>
-      <StatsCards data={calloutsData} rgn={selectedRegion} tframe={selectedPeriod} />
+      <StatsCards data={calloutsData} rgn={selectedRegion} tframe={selectedPeriod} isSmallViewPort={isSmallViewPort}/>
     </>,
     [calloutsData, selectedPeriod, selectedRegion, width]);
 
@@ -171,7 +213,7 @@ function App() {
     setChartOneData(UtilityFunctions.getChartOneData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
     setChartTwoData(UtilityFunctions.getChartTwoData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
 
-  }, [selectedRegion, selectedDrug, selectedPeriod, jsonData]);
+  }, [selectedRegion, selectedDrug, selectedPeriod, jsonData, isSmallViewPort]);
 
   const loading = <div className="loading-container">
       <div className="loading-spinner"></div>
@@ -197,16 +239,19 @@ function App() {
         onRegionChange={setSelectedRegion}
         selectedDrug={selectedDrug}
         onDrugChange={setSelectedDrug}
+        isSmallViewPort={isSmallViewPort}
       />
 
       {callOutsMemo}
       
-      {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1)}
-      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedPeriod)}
+      {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1, isSmallViewPort)}
+      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedPeriod, isSmallViewPort)}
       {lineChartOneMemo}
-      {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2)}
-      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedPeriod)}
+      {getFootNotes()}
+      {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2, isSmallViewPort)}
+      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedPeriod, isSmallViewPort)}
       {lineChartTwoMemo}
+      {getFootNotes()}
 
     </div>
   );
