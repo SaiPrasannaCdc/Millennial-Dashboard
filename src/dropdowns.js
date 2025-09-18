@@ -43,7 +43,7 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
                     value={selectedPeriod}
                     onChange={(e) => onPeriodChange(e.target.value)}
                 >
-                    <option value="Quarterly" disabled={selectedRegion == 'NORTH' ? true : false}>Quarterly</option>
+                    <option value="Quarterly">Quarterly</option>
                     <option value="HalfYearly">6 Months</option>
                 </select>
             </div>

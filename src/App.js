@@ -184,7 +184,7 @@ function App() {
   }
 
   const setChartTwoData = (data) => {
-    if (data != null && data[0][0].values.length > 0) {
+    if (data[0] != null && data[0][0].values.length > 0) {
       setChartTwoDataInState(data);
       setChartDrugsTwo(data[1]);
       setSelectedLinesTwo(data[1]);

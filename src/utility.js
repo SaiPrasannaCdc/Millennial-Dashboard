@@ -23,29 +23,11 @@ const firstChartQuarterlyInfo = {
   'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
   'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
   'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
-}
 
-const secondChartQuarterlyInfo = {
-  'National_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'National_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'National_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'National_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
-  'West_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'West_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'West_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'West_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
-  'MidWest_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'MidWest_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'MidWest_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'MidWest_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
-  'South_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'South_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'South_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'South_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
+  'North_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#f04b53,#356ECC',
+  'North_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'North_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 }
 
 const firstChartHalfYearlyInfo = {
@@ -72,7 +54,34 @@ const firstChartHalfYearlyInfo = {
   'North_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#f04b53,#356ECC',
   'North_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
   'North_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
-  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7'
+  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
+}
+
+const secondChartQuarterlyInfo = {
+  'National_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'National_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'National_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'National_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'West_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'West_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'West_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'West_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'MidWest_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'MidWest_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'MidWest_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'MidWest_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'South_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'South_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'South_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'South_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'North_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'North_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'North_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'North_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
 }
 
 const secondChartHalfYearlyInfo = {
@@ -272,14 +281,27 @@ export const UtilityFunctions = {
   },
 
   getChartOneData: (data, region, mdrug, periodKey, isSVP) => {
+
     var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase();
     var mainDrug = mdrug.charAt(0).toUpperCase() + mdrug.slice(1);
     var drugsStr = periodKey == 'Quarterly' ? firstChartQuarterlyInfo[mainReg + '_' + mainDrug] : firstChartHalfYearlyInfo[mainReg + '_' + mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
 
-    const drugsData = UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 1);
+    const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 1) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 1);
     const drugsToShow = UtilityFunctions.getDrugsToShow(drugsData);
     const lineColors = UtilityFunctions.getLineColors(1, mainReg, periodKey, mainDrug);
+
+    //temp workaround 
+    if (region == 'NORTH' && periodKey == 'Quarterly')
+    {
+      for(var x=0;x<drugsData.length;x++) {
+        for(var y=0;y<drugsData[x].values.length;y++) {
+          drugsData[x].values[y].ciLower = -1;
+          drugsData[x].values[y].ciUpper = -1;
+          drugsData[x].values[y].percentage = -1;
+        }
+      }
+    }
 
     var chartData = [];
     chartData.push(drugsData);
@@ -290,14 +312,27 @@ export const UtilityFunctions = {
   },
 
   getChartTwoData: (data, region, mdrug, periodKey) => {
+    
     var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase();
     var mainDrug = mdrug.charAt(0).toUpperCase() + mdrug.slice(1);
     var drugsStr = periodKey == 'Quarterly' ? secondChartQuarterlyInfo[mainReg + '_' + mainDrug] : secondChartHalfYearlyInfo[mainReg + '_' + mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
 
-    const drugsData = UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 2);
+    const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 2) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 2);
     const drugsToShow = UtilityFunctions.getDrugsToShow(drugsData);
     const lineColors = UtilityFunctions.getLineColors(2, mainReg, periodKey, mainDrug);
+
+    //temp workaround
+    if (region == 'NORTH' && periodKey == 'Quarterly')
+    {
+      for(var x=0;x<drugsData.length;x++) {
+        for(var y=0;y<drugsData[x].values.length;y++) {
+          drugsData[x].values[y].ciLower = -1;
+          drugsData[x].values[y].ciUpper = -1;
+          drugsData[x].values[y].percentage = -1;
+        }
+      }
+    }
 
     var chartData = [];
     chartData.push(drugsData);
