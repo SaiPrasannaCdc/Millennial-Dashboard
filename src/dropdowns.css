@@ -11,7 +11,7 @@
     flex-direction: column;
     width: 20%;
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .dropdownSVP {
@@ -19,15 +19,15 @@
     flex-direction: column;
     width: 100%;
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .dropdown label {
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 select {
     padding: 5px;
-    font-size: 14px;
+    font-size: 15px;
 }

@@ -50,7 +50,6 @@
 
 .stats-card-number {
     font-size: 2em; /* Updated font size for numbers */
-    color: #005b96; /* Blue color for numbers */
     font-weight: normal; /* Remove bold styling */
     margin-right: 20px; /* Add spacing between number and text */
     flex-shrink: 0; /* Prevent the number from shrinking */
@@ -70,7 +69,6 @@
     line-height: 1.1; /* Adjusted line height */
     margin: 0 0 0.1em; /* Reduced bottom margin */
     text-align: left; /* Align text to the left */
-    color: rgb(50, 93, 125); /* Updated title color */
 }
 
 .stats-card-content .reg {
@@ -79,7 +77,6 @@
     line-height: 1.1; /* Adjusted line height */
     margin: 0 0 0.1em; /* Reduced bottom margin */
     text-align: left; /* Align text to the left */
-    color: rgb(50, 93, 125); /* Updated title color */
 }
 
 .stats-card-content p {

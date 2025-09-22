@@ -402,7 +402,7 @@ onData(keyFinding);
                         data-tip={`<div style='text-align: left;'>
                             <strong>${xAccessor(d)}</strong><br/>
                             ${UtilityFunctions.getPositivityLabel(d.drug)}: ${percentage}%<br/>
-                            95% Confidence interval: ${lowerCI}% - ${upperCI}%
+                            95% confidence interval: ${lowerCI}% - ${upperCI}%
                           </div>`}
                         />
                       {(!showLabel && (i == n - 1)) && (
@@ -447,6 +447,11 @@ onData(keyFinding);
               })}
             </Fragment>
           ))}
+
+          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'Data surpressed due to low number positive tests' : 'CDC will add data for the three lines in the next data download'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/3} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'Data surpressed' : 'CDC will add data'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/3} y={(height/4) + 20} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'due to low number' : 'for the three lines in'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/3} y={(height/4) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'positive tests' : 'the next data download'}</text>}
 
           {/* Render labels separately to avoid overlapping */}
           {showLabels && (() => {
@@ -684,7 +689,7 @@ onData(keyFinding);
         {!isSmallViewPort && dataSet.filter(ds => selectedDrugs?.includes(ds.name)).map((lineData, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
             <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[lineData.name] }}></div>
-            <span style={{ fontSize: '16px', color: '#333' }}>{UtilityFunctions.getLegend(lineData.name)}</span>
+            <span style={{ fontSize: '1rem', fontWeight: '400', color: '#333' }}>{UtilityFunctions.getLegend(lineData.name)}</span>
           </div>
         ))}
         {isSmallViewPort && 
@@ -695,7 +700,7 @@ onData(keyFinding);
                 <td>
                     <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
                     <div style={{ width: '30px', height: '2px', backgroundColor: lineColors[lineData.name] }}></div>
-                    <span style={{ fontSize: '16px', color: '#333' }}>{UtilityFunctions.getLegend(lineData.name)}</span>
+                    <span style={{ fontSize: '1rem', fontWeight: '400', color: '#333' }}>{UtilityFunctions.getLegend(lineData.name)}</span>
                     </div>
                 </td>
               </tr>

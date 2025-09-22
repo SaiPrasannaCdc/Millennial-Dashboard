@@ -439,16 +439,16 @@ export const UtilityFunctions = {
 
       switch (drug) {
         case 'Fentanyl':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -457,16 +457,16 @@ export const UtilityFunctions = {
     else if (chartNum == 2) {
       switch (drug) {
         case 'Fentanyl':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests and also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests and also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = rgnFinal + ': ' + 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -479,7 +479,7 @@ export const UtilityFunctions = {
     return posstivityLabeleInfo[drug] == '' || posstivityLabeleInfo[drug] == null ? drug : posstivityLabeleInfo[drug];
   },
 
-  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedPeriod, isSVP) => {
+  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedRegion, selectedPeriod, isSVP) => {
     return (
       <Fragment>
         <Fragment>
@@ -515,6 +515,7 @@ export const UtilityFunctions = {
                         type="checkbox"
                         checked={showPercentChange}
                         onChange={() => setShowPercentChange(!showPercentChange)}
+                        disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       />
                       <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
                     </label>
@@ -568,6 +569,7 @@ export const UtilityFunctions = {
                         type="checkbox"
                         checked={showLabels}
                         onChange={() => setShowLabels(!showLabels)}
+                        disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       />
                       <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
                     </label>
@@ -600,7 +602,7 @@ export const UtilityFunctions = {
           <div style={{ fontFamily: 'Arial, sans-serif' }}>
               <div style={{ 'backgroundColor': drugOptions[currentDrug].color}}>
                 <h2 className="data-bite-header">
-                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}{selectedPeriod == 'Quarterly' ? <sup>*,†</sup> : ''}
+                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}{<sup>*,†</sup>}{'"'}
                 </h2>
                 <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
 
@@ -639,7 +641,7 @@ export const UtilityFunctions = {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '10px' }}>
               {!isSVP && 
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', marginTop: '18px' }}>
-                <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
+                <span style={{ fontSize: '15px', fontWeight: '700', marginRight: '20px' }}>Make a selection to change the line graph</span>
                 
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '15px' }}>
                   <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
@@ -648,17 +650,19 @@ export const UtilityFunctions = {
                       onChange={() => {
                         setSelectedLines(drugsToShow.map(line => line));
                       }}
+                       disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                     />
-                    <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Select All</span>
+                    <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Select All</span>
                   </label>
                   <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                     <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
-                      checked={selectedLines?.length === 0}
+                      checked={selectedLines?.length === 0 || (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH')}
                       onChange={() => {
                         setSelectedLines([]);
                       }}
+                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                     />
-                    <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>
+                    <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Clear All</span>
                   </label>
                 </div>
               </div>
@@ -679,19 +683,21 @@ export const UtilityFunctions = {
                             onChange={() => {
                               setSelectedLines(drugsToShow.map(line => line));
                             }}
+                             disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                           />
-                          <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Select All</span>
+                          <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Select All</span>
                           </label>
                       </td>
                       <td>
                         <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                           <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
-                            checked={selectedLines?.length === 0}
+                            checked={selectedLines?.length === 0 || (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH')}
                             onChange={() => {
                               setSelectedLines([]);
                             }}
+                             disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                           />
-                          <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>
+                          <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Clear All</span>
                         </label>
                       </td>
                     </tr>
@@ -706,7 +712,7 @@ export const UtilityFunctions = {
                   <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
-                      checked={selectedLines?.includes(drug)}
+                      checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false: selectedLines?.includes(drug)}
                       onChange={() => {
                         if (selectedLines?.includes(drug)) {
                           setSelectedLines(selectedLines?.filter(line => line !== drug));
@@ -714,6 +720,7 @@ export const UtilityFunctions = {
                           setSelectedLines([...selectedLines, drug]);
                         }
                       }}
+                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       style={{ display: 'none' }}
                     />
                     <span
@@ -736,7 +743,7 @@ export const UtilityFunctions = {
                             width: 10,
                             height: 10,
                             borderRadius: '50%',
-                            background: lineColors[drug],
+                            background: (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '' : lineColors[drug],
                             position: 'absolute',
                             top: '50%',
                             left: '50%',
@@ -745,7 +752,7 @@ export const UtilityFunctions = {
                         />
                       )}
                     </span>
-                    <span style={{ fontSize: '14px', color: '#222' }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
+                    <span style={{ color: '#222', fontSize: '1rem', fontWeight: 400}}>{UtilityFunctions.formatText(drug, chartNum)}</span>
                   </label>
                 ))}
                 {isSVP && 
@@ -756,7 +763,7 @@ export const UtilityFunctions = {
                   <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
-                      checked={selectedLines?.includes(drug)}
+                      checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false: selectedLines?.includes(drug)}
                       onChange={() => {
                         if (selectedLines?.includes(drug)) {
                           setSelectedLines(selectedLines?.filter(line => line !== drug));
@@ -764,6 +771,7 @@ export const UtilityFunctions = {
                           setSelectedLines([...selectedLines, drug]);
                         }
                       }}
+                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       style={{ display: 'none' }}
                     />
                     <span
@@ -786,7 +794,7 @@ export const UtilityFunctions = {
                             width: 10,
                             height: 10,
                             borderRadius: '50%',
-                            background: lineColors[drug],
+                            background: (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '' : lineColors[drug],
                             position: 'absolute',
                             top: '50%',
                             left: '50%',
@@ -795,7 +803,7 @@ export const UtilityFunctions = {
                         />
                       )}
                     </span>
-                    <span style={{ fontSize: '14px', color: '#222' }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
+                    <span style={{ color: '#222', fontSize: '1rem', fontWeight: 400 }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
                   </label>
                   </td>
                   </tr>

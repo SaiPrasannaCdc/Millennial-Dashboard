@@ -8,6 +8,22 @@ import { UtilityFunctions } from './utility';
 import './styles.scss';
 
 function App() {
+
+  const drugOptions = {
+    'fentanyl': {
+      'color': '#1C1570',
+    },
+    'heroin': {
+      'color': '#0E6F97',
+    },
+    'cocaine': {
+      'color': '#663795',
+    },
+    'methamphetamine': {
+      'color': '#9179B5',
+
+    }
+  }
   const viewportCutoffSmall = 550;
   const viewportCutoffMedium = 800;
   const chartHeight = 460;
@@ -170,9 +186,9 @@ function App() {
 
     const callOutsMemo = useMemo(() =>
     <>
-      <StatsCards data={calloutsData} rgn={selectedRegion} tframe={selectedPeriod} isSmallViewPort={isSmallViewPort}/>
+      <StatsCards data={calloutsData} rgn={selectedRegion} tframe={selectedPeriod} isSmallViewPort={isSmallViewPort} drugClr={drugOptions[selectedDrug].color}/>
     </>,
-    [calloutsData, selectedPeriod, selectedRegion, width]);
+    [calloutsData, selectedPeriod, selectedRegion, width, selectedDrug]);
 
   const setChartOneData = (data) => {
     if (data[0] != null && data[0][0].values.length > 0) {
@@ -245,11 +261,11 @@ function App() {
       {callOutsMemo}
       
       {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1, isSmallViewPort)}
-      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedPeriod, isSmallViewPort)}
+      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedRegion, selectedPeriod, isSmallViewPort)}
       {lineChartOneMemo}
       {getFootNotes()}
       {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2, isSmallViewPort)}
-      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedPeriod, isSmallViewPort)}
+      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedRegion, selectedPeriod, isSmallViewPort)}
       {lineChartTwoMemo}
       {getFootNotes()}
 
