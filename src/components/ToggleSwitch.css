@@ -16,7 +16,7 @@
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 120px;
+  width: 140px;
   height: 30px;
 }
 
@@ -58,7 +58,8 @@ input:checked + .slider.label-toggle {
 }
 
 input:checked + .slider:before {
-  transform: translateX(96px); /* Adjusted to move the slider knob to the end */
+
+  transform: translateX(116px); /* Adjusted to move the slider knob to the end */
 }
 
 .toggle-label {
@@ -66,7 +67,7 @@ input:checked + .slider:before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 12px;
+  font-size: 14px;
   color: white;
   font-weight: bold;
   pointer-events: none;

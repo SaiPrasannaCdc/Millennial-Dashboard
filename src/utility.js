@@ -23,29 +23,11 @@ const firstChartQuarterlyInfo = {
   'South_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
   'South_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
   'South_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
-}
 
-const secondChartQuarterlyInfo = {
-  'National_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'National_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'National_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'National_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
-  'West_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'West_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'West_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'West_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
-  'MidWest_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'MidWest_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'MidWest_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'MidWest_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
-  'South_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
-  'South_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
-  'South_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
-  'South_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
-
+  'North_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#f04b53,#356ECC',
+  'North_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
+  'North_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
+  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
 }
 
 const firstChartHalfYearlyInfo = {
@@ -72,7 +54,34 @@ const firstChartHalfYearlyInfo = {
   'North_Fentanyl': 'Fentanyl,Fentanyl with cocaine or methamphetamine,Fentanyl without cocaine or methamphetamine|#1C1570,#f04b53,#356ECC',
   'North_Heroin': 'Heroin,Heroin with cocaine or methamphetamine,Heroin without cocaine or methamphetamine|#0E6F97,#255056,#69ADBA',
   'North_Cocaine': 'Cocaine,Cocaine with fentanyl or heroin,Cocaine without fentanyl or heroin|#663795,#501649,#9D4EB9',
-  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7'
+  'North_Methamphetamine': 'Methamphetamine,Methamphetamine with fentanyl or heroin,Methamphetamine without fentanyl or heroin|#9179B5,#A32E63,#DCB3F7',
+}
+
+const secondChartQuarterlyInfo = {
+  'National_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'National_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'National_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'National_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'West_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'West_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'West_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'West_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'MidWest_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'MidWest_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'MidWest_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'MidWest_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'South_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'South_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'South_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'South_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
+
+  'North_Fentanyl': 'Fentanyl with cocaine or methamphetamine,Cocaine,Methamphetamine,Heroin|#f04b53,#663795,#9179B5,#0E6F97',
+  'North_Heroin': 'Heroin with cocaine or methamphetamine,Cocaine,Methamphetamine,Fentanyl|#255056,#663795,#9179B5,#1C1570',
+  'North_Cocaine': 'OpioidsC,Fentanyl,Heroin,Methamphetamine|#F09F34,#1C1570,#0E6F97,#9179B5',
+  'North_Methamphetamine': 'OpioidsM,Fentanyl,Heroin,Cocaine|#F09F34,#1C1570,#0E6F97,#663795',
 }
 
 const secondChartHalfYearlyInfo = {
@@ -156,6 +165,22 @@ const legendInfo = {
   'Methamphetamine without fentanyl or heroin': 'Methamphetamine without heroin or fentanyl',
   'Methamphetamine': 'Any Methamphetamine',
   'Fentanyl': 'Any Fentanyl',
+}
+
+const drugOptions = {
+  'fentanyl': {
+    'color': '#1C1570',
+  },
+  'heroin': {
+    'color': '#0E6F97',
+  },
+  'cocaine': {
+    'color': '#663795',
+  },
+  'methamphetamine': {
+    'color': '#9179B5',
+
+  }
 }
 
 export const UtilityFunctions = {
@@ -255,15 +280,28 @@ export const UtilityFunctions = {
     return drugsDataSet;
   },
 
-  getChartOneData: (data, region, mdrug, periodKey) => {
+  getChartOneData: (data, region, mdrug, periodKey, isSVP) => {
+
     var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase();
     var mainDrug = mdrug.charAt(0).toUpperCase() + mdrug.slice(1);
     var drugsStr = periodKey == 'Quarterly' ? firstChartQuarterlyInfo[mainReg + '_' + mainDrug] : firstChartHalfYearlyInfo[mainReg + '_' + mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
 
-    const drugsData = UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 1);
+    const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 1) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 1);
     const drugsToShow = UtilityFunctions.getDrugsToShow(drugsData);
     const lineColors = UtilityFunctions.getLineColors(1, mainReg, periodKey, mainDrug);
+
+    //temp workaround 
+    if (region == 'NORTH' && periodKey == 'Quarterly')
+    {
+      for(var x=0;x<drugsData.length;x++) {
+        for(var y=0;y<drugsData[x].values.length;y++) {
+          drugsData[x].values[y].ciLower = -1;
+          drugsData[x].values[y].ciUpper = -1;
+          drugsData[x].values[y].percentage = -1;
+        }
+      }
+    }
 
     var chartData = [];
     chartData.push(drugsData);
@@ -274,14 +312,27 @@ export const UtilityFunctions = {
   },
 
   getChartTwoData: (data, region, mdrug, periodKey) => {
+    
     var mainReg = region == 'MIDWEST' ? 'MidWest' : region.charAt(0).toUpperCase() + region.slice(1).toLowerCase();
     var mainDrug = mdrug.charAt(0).toUpperCase() + mdrug.slice(1);
     var drugsStr = periodKey == 'Quarterly' ? secondChartQuarterlyInfo[mainReg + '_' + mainDrug] : secondChartHalfYearlyInfo[mainReg + '_' + mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
 
-    const drugsData = UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 2);
+    const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 2) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 2);
     const drugsToShow = UtilityFunctions.getDrugsToShow(drugsData);
     const lineColors = UtilityFunctions.getLineColors(2, mainReg, periodKey, mainDrug);
+
+    //temp workaround
+    if (region == 'NORTH' && periodKey == 'Quarterly')
+    {
+      for(var x=0;x<drugsData.length;x++) {
+        for(var y=0;y<drugsData[x].values.length;y++) {
+          drugsData[x].values[y].ciLower = -1;
+          drugsData[x].values[y].ciUpper = -1;
+          drugsData[x].values[y].percentage = -1;
+        }
+      }
+    }
 
     var chartData = [];
     chartData.push(drugsData);
@@ -341,11 +392,12 @@ export const UtilityFunctions = {
 
     var heading = '';
     var rgnFinal = '';
-    var prd = (period == 'HalfYearly' ? 'July to December 2022 – July to December 2024' : 'Q4 2022 - Q4 2024');
+    var rgnShort = '';
+    var prd = (period == 'HalfYearly' ? 'July 2022 – December 2024' : 'October 2022 – December 2024');
 
     switch (region) {
       case 'National':
-        rgnFinal = 'United States';
+        rgnFinal = 'National';
         break;
       case 'MIDWEST':
         rgnFinal = 'Midwest Census Region';
@@ -363,20 +415,40 @@ export const UtilityFunctions = {
         break;
     }
 
+    switch (region) {
+      case 'National':
+        rgnShort = 'National';
+        break;
+      case 'MIDWEST':
+        rgnShort = 'Midwest';
+        break;
+      case 'WEST':
+        rgnShort = 'West';
+        break;
+      case 'SOUTH':
+        rgnShort = 'South';
+        break;
+      case 'NORTH':
+        rgnShort = 'Northeast';
+        break;
+      default:
+        break;
+    }
+
     if (chartNum == 1) {
 
       switch (drug) {
         case 'Fentanyl':
-          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = 'How often do specimens from people with a substance use disorder test positive for ' + drug.toLowerCase() + ' on urine drug tests: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -385,16 +457,16 @@ export const UtilityFunctions = {
     else if (chartNum == 2) {
       switch (drug) {
         case 'Fentanyl':
-          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or heroin: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests and also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for methamphetamine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = 'How often do specimens from people with a substance use disorder who test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, heroin, or fentanyl: Millennium Health, ' + rgnFinal + ' ' + prd;
+          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -407,7 +479,7 @@ export const UtilityFunctions = {
     return posstivityLabeleInfo[drug] == '' || posstivityLabeleInfo[drug] == null ? drug : posstivityLabeleInfo[drug];
   },
 
-  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedPeriod) => {
+  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedRegion, selectedPeriod, isSVP) => {
     return (
       <Fragment>
         <Fragment>
@@ -443,6 +515,7 @@ export const UtilityFunctions = {
                         type="checkbox"
                         checked={showPercentChange}
                         onChange={() => setShowPercentChange(!showPercentChange)}
+                        disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       />
                       <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
                     </label>
@@ -496,6 +569,7 @@ export const UtilityFunctions = {
                         type="checkbox"
                         checked={showLabels}
                         onChange={() => setShowLabels(!showLabels)}
+                        disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       />
                       <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
                     </label>
@@ -521,24 +595,21 @@ export const UtilityFunctions = {
     )
   },
 
-  getDrugControls: (ctlName, currentDrug, keyFinding, setSelectedLines, selectedLines, drugsToShow, lineColors, selectedRegion, selectedPeriod, chartNum) => {
+  getDrugControls: (ctlName, currentDrug, keyFinding, setSelectedLines, selectedLines, drugsToShow, lineColors, selectedRegion, selectedPeriod, chartNum, isSVP) => {
     return (
       <Fragment>
         <Fragment>
           <div style={{ fontFamily: 'Arial, sans-serif' }}>
-            <div style={{ backgroundColor: '#002b36', color: '#ffffff', padding: '10px 0' }}>
-              <div style={{ textAlign: 'center' }}>
-                <h3 style={{ margin: 0, fontSize: '18px', color: '#ffffff', padding: '5px' }}>
-                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}
-
-                </h3>
+              <div style={{ 'backgroundColor': drugOptions[currentDrug].color}}>
+                <h2 className="data-bite-header">
+                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}{<sup>*,†</sup>}{'"'}
+                </h2>
                 <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
 
                 </p>
               </div>
-            </div>
 
-            {selectedRegion == 'National' && selectedPeriod == 'Quarterly' &&
+            {/* {selectedRegion == 'National' && selectedPeriod == 'Quarterly' &&
               <div style={{
                 background: '#4d194d',
                 color: '#fff',
@@ -565,11 +636,13 @@ export const UtilityFunctions = {
                   </>
                 )}
               </div>
-            }
+            } */}
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '10px' }}>
+              {!isSVP && 
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', marginTop: '18px' }}>
-                <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
+                <span style={{ fontSize: '15px', fontWeight: '700', marginRight: '20px' }}>Make a selection to change the line graph</span>
+                
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '15px' }}>
                   <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                     <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === drugsToShow?.length ? '#222' : undefined }}
@@ -577,27 +650,69 @@ export const UtilityFunctions = {
                       onChange={() => {
                         setSelectedLines(drugsToShow.map(line => line));
                       }}
+                       disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                     />
-                    <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Select All</span>
+                    <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Select All</span>
                   </label>
                   <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                     <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
-                      checked={selectedLines?.length === 0}
+                      checked={selectedLines?.length === 0 || (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH')}
                       onChange={() => {
                         setSelectedLines([]);
                       }}
+                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                     />
-                    <span style={{ fontSize: '14px', color: '#222', fontWeight: 400 }}>Clear All</span>
+                    <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Clear All</span>
                   </label>
                 </div>
               </div>
+              }
+              {isSVP && 
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '15px' }}>
+                  <table>
+                    <tr>
+                      <td colspan='2'>
+                        <span style={{ fontSize: '14px', fontWeight: 'bold', marginRight: '20px' }}>Make a selection to change the line graph</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                          <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === drugsToShow?.length ? '#222' : undefined }}
+                            checked={selectedLines.length === drugsToShow?.length && drugsToShow?.every(line => selectedLines.includes(line))}
+                            onChange={() => {
+                              setSelectedLines(drugsToShow.map(line => line));
+                            }}
+                             disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                          />
+                          <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Select All</span>
+                          </label>
+                      </td>
+                      <td>
+                        <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                          <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
+                            checked={selectedLines?.length === 0 || (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH')}
+                            onChange={() => {
+                              setSelectedLines([]);
+                            }}
+                             disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                          />
+                          <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Clear All</span>
+                        </label>
+                      </td>
+                    </tr>
+                  </table>
+                 </div>
+                }
+              {isSVP && <br></br>}
               {chartNum == 2 && <span style={{ fontSize: '13px', fontWeight: 'bold', marginRight: '20px' }}>Other drugs detected among specimens positive for {currentDrug.toLowerCase()}</span>}
+              {isSVP && <br></br>}
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '10px', marginBottom: '20px' }}>
-                {drugsToShow?.map((drug, idx) => (
+                {!isSVP && drugsToShow?.map((drug, idx) => (
                   <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
-                      checked={selectedLines?.includes(drug)}
+                      checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false: selectedLines?.includes(drug)}
                       onChange={() => {
                         if (selectedLines?.includes(drug)) {
                           setSelectedLines(selectedLines?.filter(line => line !== drug));
@@ -605,6 +720,7 @@ export const UtilityFunctions = {
                           setSelectedLines([...selectedLines, drug]);
                         }
                       }}
+                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       style={{ display: 'none' }}
                     />
                     <span
@@ -627,7 +743,7 @@ export const UtilityFunctions = {
                             width: 10,
                             height: 10,
                             borderRadius: '50%',
-                            background: lineColors[drug],
+                            background: (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '' : lineColors[drug],
                             position: 'absolute',
                             top: '50%',
                             left: '50%',
@@ -636,9 +752,64 @@ export const UtilityFunctions = {
                         />
                       )}
                     </span>
-                    <span style={{ fontSize: '14px', color: '#222' }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
+                    <span style={{ color: '#222', fontSize: '1rem', fontWeight: 400}}>{UtilityFunctions.formatText(drug, chartNum)}</span>
                   </label>
                 ))}
+                {isSVP && 
+                <table>
+                  {drugsToShow?.map((drug, idx) => (
+                  <tr>
+                    <td>
+                  <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                    <input
+                      type="checkbox"
+                      checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false: selectedLines?.includes(drug)}
+                      onChange={() => {
+                        if (selectedLines?.includes(drug)) {
+                          setSelectedLines(selectedLines?.filter(line => line !== drug));
+                        } else {
+                          setSelectedLines([...selectedLines, drug]);
+                        }
+                      }}
+                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                      style={{ display: 'none' }}
+                    />
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        width: 16,
+                        height: 16,
+                        borderRadius: '50%',
+                        border: `2px solid #888`,
+                        background: '#fff',
+                        marginRight: 2,
+                        position: 'relative',
+                        transition: 'background 0.2s, border 0.2s',
+                      }}
+                    >
+                      {(selectedLines?.includes(drug)) && (
+                        <span
+                          style={{
+                            display: 'block',
+                            width: 10,
+                            height: 10,
+                            borderRadius: '50%',
+                            background: (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '' : lineColors[drug],
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                          }}
+                        />
+                      )}
+                    </span>
+                    <span style={{ color: '#222', fontSize: '1rem', fontWeight: 400 }}>{UtilityFunctions.formatText(drug, chartNum)}</span>
+                  </label>
+                  </td>
+                  </tr>
+                ))}
+                </table>
+                }
               </div>
             </div>
           </div>
