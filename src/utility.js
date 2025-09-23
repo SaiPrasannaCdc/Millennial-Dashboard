@@ -439,16 +439,16 @@ export const UtilityFunctions = {
 
       switch (drug) {
         case 'Fentanyl':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -457,16 +457,16 @@ export const UtilityFunctions = {
     else if (chartNum == 2) {
       switch (drug) {
         case 'Fentanyl':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests and also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests and also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = rgnFinal + ': ' + '"Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -513,11 +513,11 @@ export const UtilityFunctions = {
                     >
                       <input
                         type="checkbox"
-                        checked={showPercentChange}
+                        checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false : showPercentChange}
                         onChange={() => setShowPercentChange(!showPercentChange)}
                         disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       />
-                      <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? '#002b36' : '#ccc' }}></span>
+                      <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? ((selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '#ccc' : '#002b36') : '#ccc' }}></span>
                     </label>
                     <span
                       className="toggle-label"
@@ -567,11 +567,11 @@ export const UtilityFunctions = {
                     <label className="toggle-switch" data-tip={labelTooltip} data-for="labelTooltip" style={{ cursor: 'pointer' }}>
                       <input
                         type="checkbox"
-                        checked={showLabels}
+                        checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false : showLabels}
                         onChange={() => setShowLabels(!showLabels)}
                         disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
                       />
-                      <span className="slider label-toggle" style={{ backgroundColor: showLabels ? '#002b36' : '#ccc' }}></span>
+                      <span className="slider label-toggle" style={{ backgroundColor: showLabels ? ((selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '#ccc' : '#002b36') : '#ccc' }}></span>
                     </label>
                     <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333', cursor: 'pointer' }} data-tip={labelTooltip} data-for="labelTooltip">Labels {showLabels ? 'On' : 'Off'}</span>
                     <ReactTooltip
@@ -602,7 +602,7 @@ export const UtilityFunctions = {
           <div style={{ fontFamily: 'Arial, sans-serif' }}>
               <div style={{ 'backgroundColor': drugOptions[currentDrug].color}}>
                 <h2 className="data-bite-header">
-                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}{<sup>*,†</sup>}{'"'}
+                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}{<sup>*,†</sup>}
                 </h2>
                 <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
 
