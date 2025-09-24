@@ -448,10 +448,10 @@ onData(keyFinding);
             </Fragment>
           ))}
 
-          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'Data surpressed due to low number positive tests' : 'CDC will add data for the three lines in the next data download'}</text>}
+          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'Data surpressed due to low number of positive tests' : 'CDC will add data for the three lines in the next data download'}</text>}
           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/3} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'Data surpressed' : 'CDC will add data'}</text>}
           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/3} y={(height/4) + 20} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'due to low number' : 'for the three lines in'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/3} y={(height/4) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'positive tests' : 'the next data download'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH') && <text width={width} x={width/3} y={(height/4) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{chartNum == 2 ? 'of positive tests' : 'the next data download'}</text>}
 
           {/* Render labels separately to avoid overlapping */}
           {showLabels && (() => {
