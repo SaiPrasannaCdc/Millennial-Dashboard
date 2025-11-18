@@ -50,8 +50,8 @@ namespace ExcelToJsonConverter
             // Set EPPlus license context
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-            string excelFilePath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\MillennialData.xlsx"; // Change this to your Excel file path
-            string outputJsonPath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\output.json";
+            string excelFilePath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Nov-25-Data.xlsx"; // Change this to your Excel file path
+            string outputJsonPath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Nov-25-Data-18.json";
 
             if (args.Length > 0)
                 excelFilePath = args[0];
@@ -154,7 +154,9 @@ namespace ExcelToJsonConverter
 
                     // Separate Positivity and CoPositive data
                     var positivityData = drugGroup.Where(row => row.Positivity == "Positivity").ToList();
-                    var coPositiveData = drugGroup.Where(row => row.Positivity == "CoPositive").ToList();
+                    var coPositiveData = drugGroup.Where(row => row.Positivity == "CoPositivity").ToList();
+
+        
 
                     // Process Positivity data
                     if (positivityData.Any())
