@@ -14,7 +14,10 @@ function LineChart(params) {
 
   const { data, region, currentDrug, period, width, height, selectedDrugs, showLabels, showPercentChange, lineColors, onData, chartNum, isSmallViewPort } = params;
 
-  const dataSet = data;
+  const dataSet = data?.map(d => ({
+    ...d,
+    values: d.values.slice(-8)
+  }));
 
   const margin = { top: 60, right: !isSmallViewPort ? 30 : 50, bottom: !isSmallViewPort ? 60 : 105, left: 105 };
   const adjustedWidth = width - margin.left - margin.right;

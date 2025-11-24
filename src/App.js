@@ -200,11 +200,18 @@ function App() {
   }
 
   const setChartTwoData = (data) => {
-    if (data[0] != null && data[0][0].values.length > 0) {
+    if (data[0] != null && data[0][0]?.values.length > 0) 
+    {
       setChartTwoDataInState(data);
       setChartDrugsTwo(data[1]);
       setSelectedLinesTwo(data[1]);
       setDrugsLineColorsTwo(data[2]);
+    }
+    else {
+      setChartTwoDataInState([]);
+      setChartDrugsTwo([]);
+      setSelectedLinesTwo([]);
+      setDrugsLineColorsTwo([]);
     }
   }
   
@@ -225,10 +232,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-
-    setChartOneData(UtilityFunctions.getChartOneData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
-    setChartTwoData(UtilityFunctions.getChartTwoData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
-
+    if(jsonData && Object.keys(jsonData).length > 0) {
+      setChartOneData(UtilityFunctions.getChartOneData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
+      setChartTwoData(UtilityFunctions.getChartTwoData(jsonData, selectedRegion, selectedDrug, selectedPeriod));
+    }
   }, [selectedRegion, selectedDrug, selectedPeriod, jsonData, isSmallViewPort]);
 
   const loading = <div className="loading-container">
@@ -259,15 +266,24 @@ function App() {
       />
 
       {callOutsMemo}
-      
-      {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1, isSmallViewPort)}
-      {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedRegion, selectedPeriod, isSmallViewPort)}
-      {lineChartOneMemo}
-      {getFootNotes()}
-      {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2, isSmallViewPort)}
-      {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedRegion, selectedPeriod, isSmallViewPort)}
-      {lineChartTwoMemo}
-      {getFootNotes()}
+      {
+        chartDrugsOne && 
+        <>
+          {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1, isSmallViewPort)}
+          {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedRegion, selectedPeriod, isSmallViewPort)}
+          {lineChartOneMemo}
+          {getFootNotes()}
+        </>
+      } 
+      {
+        chartDrugsTwo && 
+        <>
+          {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2, isSmallViewPort)}
+          {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedRegion, selectedPeriod, isSmallViewPort)}
+          {lineChartTwoMemo}
+          {getFootNotes()}
+        </>
+      }
 
     </div>
   );
