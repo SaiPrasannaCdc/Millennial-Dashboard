@@ -299,21 +299,24 @@ export const UtilityFunctions = {
     var drugsStr = periodKey == 'Quarterly' ? firstChartQuarterlyInfo[mainReg + '_' + mainDrug] : firstChartHalfYearlyInfo[mainReg + '_' + mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
 
-    const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 1) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 1);
+    //const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 1) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 1);
+    const drugsData = UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 1);
+    
+
     const drugsToShow = UtilityFunctions.getDrugsToShow(drugsData);
     const lineColors = UtilityFunctions.getLineColors(1, mainReg, periodKey, mainDrug);
 
     //temp workaround 
-    if (region == 'NORTH' && periodKey == 'Quarterly')
-    {
-      for(var x=0;x<drugsData.length;x++) {
-        for(var y=0;y<drugsData[x].values.length;y++) {
-          drugsData[x].values[y].ciLower = -1;
-          drugsData[x].values[y].ciUpper = -1;
-          drugsData[x].values[y].percentage = -1;
-        }
-      }
-    }
+    // if (region == 'NORTH' && periodKey == 'Quarterly')
+    // {
+    //   for(var x=0;x<drugsData.length;x++) {
+    //     for(var y=0;y<drugsData[x].values.length;y++) {
+    //       drugsData[x].values[y].ciLower = -1;
+    //       drugsData[x].values[y].ciUpper = -1;
+    //       drugsData[x].values[y].percentage = -1;
+    //     }
+    //   }
+    // }
 
     var chartData = [];
     chartData.push(drugsData);
@@ -330,7 +333,9 @@ export const UtilityFunctions = {
     var drugsStr = periodKey == 'Quarterly' ? secondChartQuarterlyInfo[mainDrug] : secondChartHalfYearlyInfo[mainDrug];
     var drugs = drugsStr?.split('|')[0].split(',');
 
-    const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 2) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 2);
+    //const drugsData = (region == 'NORTH' && periodKey == 'Quarterly') ? UtilityFunctions.getDrugsDataNew(data, 'South', periodKey, mainDrug, drugs, 2) : UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 2);
+    const drugsData = UtilityFunctions.getDrugsDataNew(data, mainReg, periodKey, mainDrug, drugs, 2);
+    
     const drugsToShow = UtilityFunctions.getDrugsToShow(drugsData);
     const lineColors = UtilityFunctions.getLineColors(2, mainReg, periodKey, mainDrug);
 
