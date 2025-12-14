@@ -497,7 +497,7 @@ export const UtilityFunctions = {
     return posstivityLabeleInfo[drug] == '' || posstivityLabeleInfo[drug] == null ? drug : posstivityLabeleInfo[drug];
   },
 
-  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedRegion, selectedPeriod, isSVP) => {
+  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedRegion, selectedPeriod, isSVP, chartNum) => {
     return (
       <Fragment>
         <Fragment>
@@ -531,11 +531,11 @@ export const UtilityFunctions = {
                     >
                       <input
                         type="checkbox"
-                        checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false : showPercentChange}
+                        checked={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? false : showPercentChange}
                         onChange={() => setShowPercentChange(!showPercentChange)}
-                        disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                        disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                       />
-                      <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? ((selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '#ccc' : '#002b36') : '#ccc' }}></span>
+                      <span className="slider percent-toggle" style={{ backgroundColor: showPercentChange ? (UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? '#ccc' : '#002b36') : '#ccc' }}></span>
                     </label>
                     <span
                       className="toggle-label"
@@ -585,11 +585,11 @@ export const UtilityFunctions = {
                     <label className="toggle-switch" data-tip={labelTooltip} data-for="labelTooltip" style={{ cursor: 'pointer' }}>
                       <input
                         type="checkbox"
-                        checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false : showLabels}
+                        checked={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? false : showLabels}
                         onChange={() => setShowLabels(!showLabels)}
-                        disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                        disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                       />
-                      <span className="slider label-toggle" style={{ backgroundColor: showLabels ? ((selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '#ccc' : '#002b36') : '#ccc' }}></span>
+                      <span className="slider label-toggle" style={{ backgroundColor: showLabels ? (UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? '#ccc' : '#002b36') : '#ccc' }}></span>
                     </label>
                     <span className="toggle-label" style={{ color: showLabels ? '#fff' : '#333', cursor: 'pointer' }} data-tip={labelTooltip} data-for="labelTooltip">Labels {showLabels ? 'On' : 'Off'}</span>
                     <ReactTooltip
@@ -611,6 +611,11 @@ export const UtilityFunctions = {
         </Fragment>
       </Fragment>
     )
+  },
+
+  isControlDisabled: (chartNum, selectedPeriod, selectedRegion) => {
+
+    return selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH' && chartNum == 2; 
   },
 
   getDrugControls: (ctlName, currentDrug, keyFinding, setSelectedLines, selectedLines, drugsToShow, lineColors, selectedRegion, selectedPeriod, chartNum, isSVP) => {
@@ -668,17 +673,17 @@ export const UtilityFunctions = {
                       onChange={() => {
                         setSelectedLines(drugsToShow.map(line => line));
                       }}
-                       disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                      disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                     />
                     <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Select All</span>
                   </label>
                   <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                     <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
-                      checked={selectedLines?.length === 0 || (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH')}
+                      checked={selectedLines?.length === 0 || UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                       onChange={() => {
                         setSelectedLines([]);
                       }}
-                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                      disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                     />
                     <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Clear All</span>
                   </label>
@@ -701,7 +706,7 @@ export const UtilityFunctions = {
                             onChange={() => {
                               setSelectedLines(drugsToShow.map(line => line));
                             }}
-                             disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                             disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                           />
                           <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Select All</span>
                           </label>
@@ -709,11 +714,11 @@ export const UtilityFunctions = {
                       <td>
                         <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                           <input type="radio" name={'select-clear-drug' + ctlName} style={{ accentColor: selectedLines?.length === 0 ? '#222' : undefined }}
-                            checked={selectedLines?.length === 0 || (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH')}
+                            checked={selectedLines?.length === 0 || UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                             onChange={() => {
                               setSelectedLines([]);
                             }}
-                             disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                             disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                           />
                           <span style={{ fontSize: '1rem', color: '#222', fontWeight: 400 }}>Clear All</span>
                         </label>
@@ -730,7 +735,7 @@ export const UtilityFunctions = {
                   <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
-                      checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false: selectedLines?.includes(drug)}
+                      checked={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? false: selectedLines?.includes(drug)}
                       onChange={() => {
                         if (selectedLines?.includes(drug)) {
                           setSelectedLines(selectedLines?.filter(line => line !== drug));
@@ -738,7 +743,7 @@ export const UtilityFunctions = {
                           setSelectedLines([...selectedLines, drug]);
                         }
                       }}
-                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                      disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                       style={{ display: 'none' }}
                     />
                     <span
@@ -752,6 +757,7 @@ export const UtilityFunctions = {
                         marginRight: 2,
                         position: 'relative',
                         transition: 'background 0.2s, border 0.2s',
+                        opacity: UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? 0.2 : 1,
                       }}
                     >
                       {(selectedLines?.includes(drug)) && (
@@ -761,7 +767,7 @@ export const UtilityFunctions = {
                             width: 10,
                             height: 10,
                             borderRadius: '50%',
-                            background: (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '' : lineColors[drug],
+                            background: UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? '' : lineColors[drug],
                             position: 'absolute',
                             top: '50%',
                             left: '50%',
@@ -781,7 +787,7 @@ export const UtilityFunctions = {
                   <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
-                      checked={(selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? false: selectedLines?.includes(drug)}
+                      checked={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? false: selectedLines?.includes(drug)}
                       onChange={() => {
                         if (selectedLines?.includes(drug)) {
                           setSelectedLines(selectedLines?.filter(line => line !== drug));
@@ -789,7 +795,7 @@ export const UtilityFunctions = {
                           setSelectedLines([...selectedLines, drug]);
                         }
                       }}
-                      disabled={selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH'}
+                      disabled={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion)}
                       style={{ display: 'none' }}
                     />
                     <span
@@ -812,7 +818,7 @@ export const UtilityFunctions = {
                             width: 10,
                             height: 10,
                             borderRadius: '50%',
-                            background: (selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH') ? '' : lineColors[drug],
+                            background: UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? '' : lineColors[drug],
                             position: 'absolute',
                             top: '50%',
                             left: '50%',

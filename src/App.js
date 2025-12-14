@@ -270,7 +270,7 @@ function App() {
         chartDrugsOne && 
         <>
           {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1, isSmallViewPort)}
-          {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedRegion, selectedPeriod, isSmallViewPort)}
+          {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedRegion, selectedPeriod, isSmallViewPort, 1)}
           {lineChartOneMemo}
           {getFootNotes()}
         </>
@@ -279,7 +279,7 @@ function App() {
         chartDrugsTwo && 
         <>
           {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2, isSmallViewPort)}
-          {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedRegion, selectedPeriod, isSmallViewPort)}
+          {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedRegion, selectedPeriod, isSmallViewPort, 2)}
           {lineChartTwoMemo}
           {getFootNotes()}
         </>
