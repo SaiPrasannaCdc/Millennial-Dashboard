@@ -411,7 +411,7 @@ export const UtilityFunctions = {
     var heading = '';
     var rgnFinal = '';
     var rgnShort = '';
-    var prd = (period == 'HalfYearly' ? 'July 2022 – December 2024' : 'October 2023 – December 2025');
+    var prd = (period == 'HalfYearly' ? 'July 2023 – December 2025' : 'October 2023 – December 2025');
 
     switch (region) {
       case 'National':
