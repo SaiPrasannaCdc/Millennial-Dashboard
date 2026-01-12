@@ -55,7 +55,7 @@ function App() {
 
   const [width, setWidth] = useState(1100);
 
-  const isSmallViewPort = width < viewportCutoffSmall;
+  const isSmallViewPort = width < viewportCutoffSmall || width <= 820;
 
   const lineChartRef = useRef();
 
@@ -85,13 +85,13 @@ function App() {
               <table style={{ width: '100%' }}>
                 <tr style={{ textAlign: 'left'}}>
                   <td style={{ width: '10%' }}></td>
-                  <td style={{ width: '95%' }}><small><i><sup>*</sup>
-                    {selectedPeriod == 'Quarterly' ? 'Changes in drug(s) positivity across a quarter or a year may not be statistically significant. Where 95% confidence intervals for drug positivity between two quarters do not overlap, the quarters are statistically different.' : 'Changes in drug(s) positivity across a 6-month period or a year may not be statistically significant. Where the 95% confidence intervals for drug positivity between two 6-month periods do not overlap, the time periods are statistically different.'}
+                  <td style={{ width: '95%' }}><small><i>
+                    {selectedPeriod == 'Quarterly' ? '* Changes in drug(s) positivity across a quarter or a year may not be statistically significant. Where 95% confidence intervals for drug positivity between two quarters do not overlap, the quarters are statistically different.' : '* Changes in drug(s) positivity across a 6-month period or a year may not be statistically significant. Where the 95% confidence intervals for drug positivity between two 6-month periods do not overlap, the time periods are statistically different.'}
                   </i></small></td>
                 </tr>
                 <tr style={{ textAlign: 'left'}}>
                   <td style={{ width: '10%' }}></td>
-                  <td style={{ width: '95%' }}><small><i><sup>†</sup>{'Scale of the figure may change based on the data selected'}</i></small></td>
+                  <td style={{ width: '95%' }}><small><i>{'† Scale of the figure may change based on the data selected'}</i></small></td>
                 </tr>
               </table>
             </div>

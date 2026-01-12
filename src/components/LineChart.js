@@ -451,10 +451,12 @@ onData(keyFinding);
             </Fragment>
           ))}
 
-          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data surpressed due to low number of positive tests'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data surpressed'}</text>}
+          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data suppressed due to low number of positive tests. Select the time frame of  “6 Months” to see trends.'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data suppressed'}</text>}
           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 20} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'due to low number'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'of positive tests'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'of positive tests.'}</text>}
+           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4 + 60} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Select the time frame of'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 80} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'“6 Months” to see trends.'}</text>}
 
           {/* Render labels separately to avoid overlapping */}
           {showLabels && (() => {
@@ -655,7 +657,7 @@ onData(keyFinding);
                   {adjustedPositions.map((pos, idx) => (
                     <Fragment key={`label-${xPos}-${idx}`}>
                       {/* Add connecting line from data point to label when moved significantly */}
-                      {(Math.abs(pos.x - pos.originalX) > 10 || Math.abs(pos.y - pos.originalY) > 30) && (
+                      {(Math.abs(pos.x - pos.originalX) > 10 || Math.abs(pos.y - pos.originalY) > 30) && pos.value != -1.0 && (
                         <line
                           x1={pos.originalX}
                           y1={pos.originalY}
