@@ -38,10 +38,10 @@ namespace ExcelToJsonConverter
     {
         private static readonly Dictionary<string, string> RegionMapping = new()
         {
-            { "U.S. Total", "National" },
+            { "U.S. TOTAL", "National" },
             { "SOUTH", "South" },
             { "WEST", "West" },
-            { "NORTH", "North" },
+            { "NORTHEAST", "North" },
             { "MIDWEST", "MidWest" }
         };
 
@@ -50,8 +50,8 @@ namespace ExcelToJsonConverter
             // Set EPPlus license context
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-            string excelFilePath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Nov-25-Data.xlsx"; // Change this to your Excel file path
-            string outputJsonPath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Nov-25-Data-18.json";
+            string excelFilePath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Data_Millennium_Health_1_10_2026_prep.xlsx"; // Change this to your Excel file path
+            string outputJsonPath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Data_Millennium_Health_1_10_2026_4.json";
 
             if (args.Length > 0)
                 excelFilePath = args[0];
@@ -138,7 +138,7 @@ namespace ExcelToJsonConverter
                 .Where(row => !string.IsNullOrEmpty(row.USRegion) && !string.IsNullOrEmpty(row.Drug))
                 .GroupBy(row => new
                 {
-                    Region = RegionMapping.ContainsKey(row.USRegion) ? RegionMapping[row.USRegion] : row.USRegion,
+                    Region = RegionMapping.ContainsKey(row.USRegion.ToUpper()) ? RegionMapping[row.USRegion.ToUpper()] : row.USRegion,
                     Drug = row.Drug
                 });
 
