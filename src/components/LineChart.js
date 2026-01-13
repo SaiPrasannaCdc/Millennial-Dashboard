@@ -16,7 +16,7 @@ function LineChart(params) {
 
   const dataSet = data?.map(d => ({
     ...d,
-    values: d.values.slice(-8)
+    values: d.values
   }));
 
   const margin = { top: 60, right: !isSmallViewPort ? 30 : 50, bottom: !isSmallViewPort ? 60 : 105, left: 105 };
