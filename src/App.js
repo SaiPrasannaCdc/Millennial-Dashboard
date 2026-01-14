@@ -84,15 +84,17 @@ function App() {
             <div>
               <table style={{ width: '100%' }}>
                 <tr style={{ textAlign: 'left'}}>
-                  <td style={{ width: '10%' }}></td>
+                  {!accessible && <td style={{ width: '10%' }}></td>}
                   <td style={{ width: '95%' }}><small><i>
                     {selectedPeriod == 'Quarterly' ? '* Changes in drug(s) positivity across a quarter or a year may not be statistically significant. Where 95% confidence intervals for drug positivity between two quarters do not overlap, the quarters are statistically different.' : '* Changes in drug(s) positivity across a 6-month period or a year may not be statistically significant. Where the 95% confidence intervals for drug positivity between two 6-month periods do not overlap, the time periods are statistically different.'}
                   </i></small></td>
                 </tr>
+                {!accessible &&
                 <tr style={{ textAlign: 'left'}}>
                   <td style={{ width: '10%' }}></td>
                   <td style={{ width: '95%' }}><small><i>{'† Scale of the figure may change based on the data selected'}</i></small></td>
                 </tr>
+                }
               </table>
             </div>
       )
@@ -107,9 +109,11 @@ function App() {
                     {selectedPeriod == 'Quarterly' ? 'Changes in drug(s) positivity across a quarter or a year may not be statistically significant. Where 95% confidence intervals for drug positivity between two quarters do not overlap, the quarters are statistically different.' : 'Changes in drug(s) positivity across a 6-month period or a year may not be statistically significant. Where the 95% confidence intervals for drug positivity between two 6-month periods do not overlap, the time periods are statistically different.'}
                   </i></small></td>
                 </tr>
+                {!accessible &&
                 <tr style={{ textAlign: 'left'}}>
                   <td style={{ width: '100%' }}><small><i><sup>†</sup>{'Scale of the figure may change based on the data selected'}</i></small></td>
                 </tr>
+                }   
               </table>
             </div>
       )
@@ -145,6 +149,7 @@ function App() {
                   onData={handleDataOne}
                   chartNum={1}
                   isSmallViewPort={isSmallViewPort}
+                  accessible={accessible}
               />
               </div>
             </div>
@@ -175,6 +180,7 @@ function App() {
                   onData={handleDataTwo}
                   chartNum={2}
                   isSmallViewPort={isSmallViewPort}
+                  accessible={accessible}
               />
               </div>
             </div>
@@ -269,8 +275,8 @@ function App() {
       {
         chartDrugsOne && 
         <>
-          {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1, isSmallViewPort)}
-          {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedRegion, selectedPeriod, isSmallViewPort, 1)}
+          {UtilityFunctions.getDrugControls('LineChartDrugsOne', selectedDrug, kfInfoFromChartOne, setSelectedLinesOne, selectedLinesOne, chartDrugsOne, drugsLineColorsOne, selectedRegion, selectedPeriod, 1, isSmallViewPort, accessible)}
+          {UtilityFunctions.getToggleControls('LineChartToggleOne', setShowPercentChangeOne, setShowLabelsOne, showPercentChangeOne, showLabelsOne, selectedRegion, selectedPeriod, isSmallViewPort, accessible, selectedLinesOne, 1)}
           {lineChartOneMemo}
           {getFootNotes()}
         </>
@@ -278,8 +284,8 @@ function App() {
       {
         chartDrugsTwo && 
         <>
-          {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2, isSmallViewPort)}
-          {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedRegion, selectedPeriod, isSmallViewPort, 2)}
+          {UtilityFunctions.getDrugControls('LineChartDrugsTwo', selectedDrug, kfInfoFromChartTwo, setSelectedLinesTwo, selectedLinesTwo, chartDrugsTwo, drugsLineColorsTwo, selectedRegion, selectedPeriod, 2, isSmallViewPort, accessible)}
+          {UtilityFunctions.getToggleControls('LineChartToggleTwo', setShowPercentChangeTwo, setShowLabelsTwo, showPercentChangeTwo, showLabelsTwo, selectedRegion, selectedPeriod, isSmallViewPort, accessible, selectedLinesTwo, 2)}
           {lineChartTwoMemo}
           {getFootNotes()}
         </>
