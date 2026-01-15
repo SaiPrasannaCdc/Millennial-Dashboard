@@ -75,7 +75,7 @@ export const AccessibilityFunctions = {
           perc = drugrec.values[x].percentage;
           ciUpp = drugrec.values[x].ciUpper;
           ciLow = drugrec.values[x].ciLower;
-          return UtilityFunctions.getPositivityLabel(drug) + ': ' + perc + '\n' + '95% confidence interval: ' + ciLow + '% - ' + ciUpp + '%';
+          return UtilityFunctions.getPositivityLabel(drug) + ': ' + perc + '</br>' + '95% confidence interval: ' + ciLow + '% - ' + ciUpp + '%';
         }
       }
     }
@@ -87,7 +87,7 @@ export const AccessibilityFunctions = {
           perc = drugrec.values[x].percentage;
           ciUpp = drugrec.values[x].ciUpper;
           ciLow = drugrec.values[x].ciLower;
-          return UtilityFunctions.getPositivityLabel(drug) + ': ' + perc + '\n' + '95% confidence interval: ' + ciLow + '% - ' + ciUpp + '%';
+          return UtilityFunctions.getPositivityLabel(drug) + ': ' + perc + '</br>' + '95% confidence interval: ' + ciLow + '% - ' + ciUpp + '%';
         }
       }
     }
@@ -111,7 +111,7 @@ export const AccessibilityFunctions = {
 
       const showYearlyIndicator = index >= yearlyOffset;
 
-      return `${showYearlyIndicator ? `Yearly Change: ${yearlyChange !== null ? Number(yearlyChange).toFixed(1) : 'N/A'}% (${yearlyChange !== null && yearlyChange > 0 ? 'Increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})\n    ${UtilityFunctions.getPositivityLabel(drug)} ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} \n    from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% in ${prevYearPeriod} to ${curr.toFixed(1)}% in ${xLabel}` : ''}\n${timePeriod === 'Quarterly' ? 'Quarterly' : '6 Month'} Change: ${periodChange !== null ? Number(periodChange).toFixed(1) : 'N/A'}% (${periodChange !== null && periodChange > 0 ? 'Increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})\n    ${UtilityFunctions.getPositivityLabel(drug)} ${periodChange !== null && periodChange > 0 ? 'increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} \n    from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% in ${prevPeriodPeriod} to ${curr.toFixed(1)}% in ${xLabel}`;
+      return `${showYearlyIndicator ? `<strong>Yearly Change:</strong> ${yearlyChange !== null ? Number(yearlyChange).toFixed(1) : 'N/A'}% (${yearlyChange !== null && yearlyChange > 0 ? 'Increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})</br>    ${UtilityFunctions.getPositivityLabel(drug)} ${yearlyChange !== null && yearlyChange > 0 ? 'increased' : (Number(yearlyChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevYear !== null ? prevYear.toFixed(1) : 'N/A'}% in ${prevYearPeriod} to ${curr.toFixed(1)}% in ${xLabel}` : ''}</br><strong>${timePeriod === 'Quarterly' ? 'Quarterly' : '6 Month'} Change:</strong> ${periodChange !== null ? Number(periodChange).toFixed(1) : 'N/A'}% (${periodChange !== null && periodChange > 0 ? 'Increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'No Change' : 'Decreased')})</br>    ${UtilityFunctions.getPositivityLabel(drug)} ${periodChange !== null && periodChange > 0 ? 'increased' : (Number(periodChange).toFixed(1) == 0.0 ? 'no change' : 'decreased')} from ${prevPeriod !== null ? prevPeriod.toFixed(1) : 'N/A'}% in ${prevPeriodPeriod} to ${curr.toFixed(1)}% in ${xLabel}`;
   },
 
   generateLineChartData : (dataSet, selectedDrugs, period) => {

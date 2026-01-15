@@ -1,8 +1,16 @@
+import { useEffect } from 'react';
+import ReactTooltip from 'react-tooltip';
 import './DataTable508.css';
+import { Group } from '@visx/group';
+
 
 function DataTable508(params) {
 
   const { data, dataTip1, dataTip2,  highlight, xAxisKey, colSpan, isSmallViewport, noSort, chartNum, currentDrug, showPercentChange, suppressed, extraClasses, caption, hdr, colSpan2, supScript, years, width, customBackground } = params;
+
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  });
 
   if (data == null || data === undefined || Object.keys(data).length == 0)
     return;
@@ -95,6 +103,8 @@ function DataTable508(params) {
     return ret;
   }
 
+  
+
   return (
     <>
       <div style={{'width': width * 0.985}} className={`table-container-MY${customBackground ? ' custom-background' : ' non-custom-background'} ${extraClasses}`} tabIndex="0">
@@ -121,7 +131,7 @@ function DataTable508(params) {
                   <th key={`th-${rowKey}-${rowIndex}`} scope="row">{labelOverrides[rowKey] || rowKey.split('_')[0]}</th>
                   {[data].map((d, i) => 
                     Object.keys(d[keys[0]]).map((colKey, colIndex) => (
-                      <td class={colIndex == 0 ? "custom-tooltip-first bgYellow" : "custom-tooltip bgYellow"} data-title={showPercentChange ? getTooltip(dataTip2, rowKey, colKey) : getTooltip(dataTip1, rowKey, colKey)} key={`td-${d[rowKey][colKey]}-${rowIndex}-${colIndex}`}>{cleanUp(d[rowKey][colKey], rowKey, colKey)}</td>
+                      <td key={`td-${d[rowKey][colKey]}-${rowIndex}-${colIndex}`}><svg style={{position: 'inherit', right: '0', top: '0'}} width={'auto'} height={20}><Group><rect x={0} y={0} width={'73%'} height={20} style={{outline: 'none', backgroundColor: 'yellow'}} fill='transparent'></rect><text x={'95%'} y={'75%'} width={'12%'} height={16} text-anchor="end" fontSize={18} stroke={'#1C1D1F'} fill={'#1C1D1F'} data-tip={showPercentChange ? getTooltip(dataTip2, rowKey, colKey) : getTooltip(dataTip1, rowKey, colKey)}>{cleanUp(d[rowKey][colKey], rowKey, colKey)}</text></Group></svg></td>
                     ))
                   )}
                 </tr>
@@ -129,12 +139,16 @@ function DataTable508(params) {
             )}
           </tbody>
         </table>
+        
         }
         { suppressed &&
           <div>Data suppressed due to low number of positive tests. Select “6 Months” Time Frame to view available data</div>
         }
+        
       </div>
+      <ReactTooltip html={true} type="light" arrowColor="rgba(0,0,0,0)" className="tooltip" textColor="#222" border={true}/>
     </>
+    
   );
 }
 
