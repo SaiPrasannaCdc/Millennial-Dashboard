@@ -2,7 +2,7 @@ import './DataTable508.css';
 
 function DataTable508(params) {
 
-  const { data, dataTip1, dataTip2,  highlight, xAxisKey, caption, customBackground, extraClasses, years, width, colSpan, colSpan2, hdr, supScript, noSort, chartNum, currentDrug, showPercentChange, suppressed } = params;
+  const { data, dataTip1, dataTip2,  highlight, xAxisKey, colSpan, isSmallViewport, noSort, chartNum, currentDrug, showPercentChange, suppressed, extraClasses, caption, hdr, colSpan2, supScript, years, width, customBackground } = params;
 
   if (data == null || data === undefined || Object.keys(data).length == 0)
     return;
@@ -99,7 +99,7 @@ function DataTable508(params) {
     <>
       <div style={{'width': width * 0.985}} className={`table-container-MY${customBackground ? ' custom-background' : ' non-custom-background'} ${extraClasses}`} tabIndex="0">
         {!suppressed && colSpan > 0 &&
-        <table>
+        <table >
           <caption>{caption}</caption>
           <thead>
             <tr>
@@ -121,7 +121,7 @@ function DataTable508(params) {
                   <th key={`th-${rowKey}-${rowIndex}`} scope="row">{labelOverrides[rowKey] || rowKey.split('_')[0]}</th>
                   {[data].map((d, i) => 
                     Object.keys(d[keys[0]]).map((colKey, colIndex) => (
-                      <td class="custom-tooltip bgYellow" data-title={showPercentChange ? getTooltip(dataTip2, rowKey, colKey) : getTooltip(dataTip1, rowKey, colKey)} key={`td-${d[rowKey][colKey]}-${rowIndex}-${colIndex}`}>{cleanUp(d[rowKey][colKey], rowKey, colKey)}</td>
+                      <td class={colIndex == 0 ? "custom-tooltip-first bgYellow" : "custom-tooltip bgYellow"} data-title={showPercentChange ? getTooltip(dataTip2, rowKey, colKey) : getTooltip(dataTip1, rowKey, colKey)} key={`td-${d[rowKey][colKey]}-${rowIndex}-${colIndex}`}>{cleanUp(d[rowKey][colKey], rowKey, colKey)}</td>
                     ))
                   )}
                 </tr>

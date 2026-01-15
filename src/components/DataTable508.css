@@ -16,13 +16,14 @@
 .table-container-MY table th,
 .table-container-MY table td {
     padding: 0.25em 1em;
-    white-space: pre;
+    white-space: nowrap;
     text-align: right;
 }
 
 .table-container-MY thead th:first-child,
 .table-container-MY tbody th:first-child {
     text-align: left;
+    position: sticky;
 }
 
 .table-container-MY thead th,
@@ -41,7 +42,7 @@
     max-width: 165px;
     min-width: 125px;
     word-break: break-word;
-    white-space: normal;
+    white-space: nowrap;
 }
 
 .table-container-MY table tr.highlight th {
@@ -95,8 +96,7 @@
 
 .App.small-vp .table-container-MY table tbody th,
 .App.small-vp .table-container-MY table thead th:first-child {
-    max-width: 165px;
-    white-space: normal;
+    white-space: nowrap;
 }
 
 .centerAlign
@@ -121,7 +121,7 @@ thead::after {
 }
 
 th {
-    white-space: normal!important; /* Allows text to wrap */
+    white-space: nowrap!important; 
 }
 
 .custom-tooltip {
@@ -133,9 +133,9 @@ th {
 /* The actual tooltip content (hidden by default) */
 .custom-tooltip::after {
     content: attr(data-title); /* Uses the content of the data-title attribute */
-    position: relative;
-
-    
+    position: absolute;
+    bottom: 100%; /* Position above the element */
+    left: -15%!important;
     transform: translateX(-50%); /* Centers the tooltip horizontally */
     
     /* Styling properties */
@@ -160,30 +160,45 @@ th {
     opacity: 1;
 }
 
-.bgYellow:hover {
-    font-weight: bold;
+.custom-tooltip-first {
+    position: relative; /* Required for absolute positioning of the tooltip text */
+    cursor: help; /* Optional: changes cursor to indicate interactivity */
+    white-space: pre-wrap!important;
+    z-index: 10000;
 }
 
-/* Force tooltip to stay within viewport bounds */
-@media (max-width: 550px) {
-    .custom-tooltip {
-        max-width: calc(100vw - 20px) !important;
-        white-space: normal !important;
-        word-wrap: break-word !important;
-        word-break: break-word !important;
-        left: 10px !important;
-        right: 10px !important;
-        transform: none !important;
-    }
+/* The actual tooltip content (hidden by default) */
+.custom-tooltip-first::after {
+    content: attr(data-title); /* Uses the content of the data-title attribute */
+    position: absolute;
+    bottom: 100%; /* Position above the element */
+    left: 30%!important;
+    transform: translateX(-50%); /* Centers the tooltip horizontally */
     
-    /* Adjust tooltip arrow positioning for mobile */
-    .custom-tooltip.place-top:after {
-        left: 50% !important;
-        margin-left: -6px !important;
-    }
+    /* Styling properties */
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: pre!important;
     
-    .custom-tooltip.place-bottom:after {
-        left: 50% !important;
-        margin-left: -6px !important;
-    }
+    /* Hide the element visually and with opacity */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 10;
+    text-align: left;
 }
+
+/* Show the tooltip when hovering over the container */
+.custom-tooltip-first:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.bgYellow:hover {
+    font-weight: bold;
+    font-size: 1.025rem;
+}
+
