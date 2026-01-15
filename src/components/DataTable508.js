@@ -142,7 +142,7 @@ function DataTable508(params) {
         
         }
         { suppressed &&
-          <div>Data suppressed due to low number of positive tests. Select “6 Months” Time Frame to view available data</div>
+          <div>Data not reported due to low number of positive tests. Select “6 Months” Time Frame to view available data.</div>
         }
         
       </div>
