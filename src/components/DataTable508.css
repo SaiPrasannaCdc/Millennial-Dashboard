@@ -23,7 +23,6 @@
 .table-container-MY thead th:first-child,
 .table-container-MY tbody th:first-child {
     text-align: left;
-    position: sticky;
 }
 
 .table-container-MY thead th,
