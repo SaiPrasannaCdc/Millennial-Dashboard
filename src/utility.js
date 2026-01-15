@@ -497,8 +497,8 @@ export const UtilityFunctions = {
     return posstivityLabeleInfo[drug] == '' || posstivityLabeleInfo[drug] == null ? drug : posstivityLabeleInfo[drug];
   },
 
-  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedRegion, selectedPeriod, isSVP, chartNum) => {
-    return (
+  getToggleControls: (ctlName, setShowPercentChange, setShowLabels, showPercentChange, showLabels, selectedRegion, selectedPeriod, isSVP, accessible, selectedLines, chartNum) => {
+    return (selectedLines.length > 0 &&
       <Fragment>
         <Fragment>
           <div className="toggle-container" key={{ ctlName }} style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
@@ -561,6 +561,7 @@ export const UtilityFunctions = {
               })()}
             </div>
 
+            {!accessible &&
             <div className="toggle-wrapper" style={{ position: 'relative' }}>
               {(() => {
                 const labelTooltip = `
@@ -607,6 +608,7 @@ export const UtilityFunctions = {
                 );
               })()}
             </div>
+            }
           </div>
         </Fragment>
       </Fragment>
@@ -618,14 +620,14 @@ export const UtilityFunctions = {
     return selectedPeriod == 'Quarterly' && selectedRegion == 'NORTH' && chartNum == 2; 
   },
 
-  getDrugControls: (ctlName, currentDrug, keyFinding, setSelectedLines, selectedLines, drugsToShow, lineColors, selectedRegion, selectedPeriod, chartNum, isSVP) => {
+  getDrugControls: (ctlName, currentDrug, keyFinding, setSelectedLines, selectedLines, drugsToShow, lineColors, selectedRegion, selectedPeriod, chartNum, isSVP, accessible) => {
     return (
       <Fragment>
         <Fragment>
           <div style={{ fontFamily: 'Arial, sans-serif' }}>
               <div style={{ 'backgroundColor': drugOptions[currentDrug].color}}>
                 <h2 className="data-bite-header">
-                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}{<sup>*,†</sup>}
+                  {UtilityFunctions.getHeading(chartNum, currentDrug.charAt(0).toUpperCase() + currentDrug.slice(1), selectedRegion, selectedPeriod)}{accessible ? <sup>*</sup> : <sup>*,†</sup>}
                 </h2>
                 <p style={{ margin: 0, fontSize: '14px', color: '#ffffff' }}>
 

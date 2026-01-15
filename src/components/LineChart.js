@@ -4,15 +4,17 @@ import { Text } from '@visx/text';
 import { Circle } from '@visx/shape';
 import { AxisLeft, AxisBottom } from '@visx/axis';
 import { scaleLinear, scaleBand } from '@visx/scale';
-import { UtilityFunctions } from '../utility'
+import { UtilityFunctions } from '../utility';
+import { AccessibilityFunctions } from '../accessibility';
 import ReactDOMServer from 'react-dom/server';
 import ReactTooltip from 'react-tooltip';
 import './ToggleSwitch.css';
+import DataTable508 from './DataTable508';
 
 
 function LineChart(params) {
 
-  const { data, region, currentDrug, period, width, height, selectedDrugs, showLabels, showPercentChange, lineColors, onData, chartNum, isSmallViewPort } = params;
+  const { data, region, currentDrug, period, width, height, selectedDrugs, showLabels, showPercentChange, lineColors, onData, chartNum, isSmallViewPort, accessible } = params;
 
   const dataSet = data?.map(d => ({
     ...d,
@@ -117,7 +119,7 @@ function LineChart(params) {
               data-tip={`<div style='text-align: left; padding: 0;'>
                   ${showYearlyIndicator ? `<div style='display: flex; align-items: center; margin-bottom: 10px;'>
                     <svg width='${!isSmallViewPort ? 20 : 50}' height='20' style='margin-right: 10px;'>
-                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${yearlyChange !== null && yearlyChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
+                      <polygon points='${Number(yearlyChange).toFixed(1) == 0.0 ? '' : '10,0 20,10 15,10 15,20 5,20 5,10 0,10'}' fill='${yearlyChange !== null && yearlyChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${yearlyChange !== null && yearlyChange > 0 ? 0 : 180}, 10, 10)' />
                     </svg>
                     <div>
                       <strong>Yearly Change</strong><br/>
@@ -127,7 +129,7 @@ function LineChart(params) {
                   </div>` : ''}
                   <div style='display: flex; align-items: center;'>
                     <svg width='${!isSmallViewPort ? 20 : 50}' height='20' style='margin-right: 10px;'>
-                      <polygon points='10,0 20,10 15,10 15,20 5,20 5,10 0,10' fill='${periodChange !== null && periodChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${periodChange !== null && periodChange > 0 ? 0 : 180}, 10, 10)' />
+                      <polygon points='${Number(periodChange).toFixed(1) == 0.0 ? '' : '10,0 20,10 15,10 15,20 5,20 5,10 0,10'}' '' fill='${periodChange !== null && periodChange > 0 ? '#6a0dad' : '#0073e6'}' transform='rotate(${periodChange !== null && periodChange > 0 ? 0 : 180}, 10, 10)' />
                     </svg>
                     <div>
                       <strong>${period === 'Quarterly' ? 'Quarterly' : '6 Month'} Change</strong><br/>
@@ -314,7 +316,43 @@ function LineChart(params) {
 
 onData(keyFinding);
 
-  return (
+return (
+<>
+{accessible ? (
+        <>
+        <DataTable508
+          data={AccessibilityFunctions.generateLineChartData(dataSet, selectedDrugs, period)}
+          dataTip1={AccessibilityFunctions.generateToolTipData(dataSet, selectedDrugs, period, 1)}
+          dataTip2={AccessibilityFunctions.generateToolTipData(dataSet, selectedDrugs, period, 2)}
+          labelOverrides={{
+            'Fentanyl with cocaine or methamphetamine': 'Cocaine or methamphetamine',
+            'Fentanyl without cocaine or methamphetamine': 'Fentanyl without cocaine or methamphetamine',
+            'Heroin with cocaine or methamphetamine': 'Cocaine or methamphetamine',
+            'Heroin without cocaine or methamphetamine': 'Heroin without cocaine or methamphetamine',
+            'Heroin': 'Any Heroin',
+            'Cocaine with fentanyl or heroin': 'Cocaine with heroin or fentanyl',
+            'Cocaine without fentanyl or heroin': 'Cocaine without heroin or fentanyl',
+            'Cocaine': 'Any Cocaine',
+            'Methamphetamine with fentanyl or heroin': 'Methamphetamine with heroin or fentanyl',
+            'Methamphetamine without fentanyl or heroin': 'Methamphetamine without heroin or fentanyl',
+            'Methamphetamine': 'Any Methamphetamine',
+            'Fentanyl': 'Any Fentanyl'
+          }}
+          xAxisKey={period}
+          transforms={{
+            rate: num => UtilityFunctions.toFixed(num)
+          }}
+          width={width}
+          colSpan={selectedDrugs.length}
+          isSmallViewport={specs['isSmallViewport']}
+          noSort={true}
+          chartNum={chartNum}
+          currentDrug={currentDrug}
+          showPercentChange={showPercentChange}
+          suppressed={region == 'NORTH' && chartNum == 2 && period == 'Quarterly' ? true : false}
+        />
+        </>        
+      ) : (
     <div style={{ fontFamily: 'Arial, sans-serif' }}>
 
       <svg width={width} height={height}>
@@ -451,8 +489,8 @@ onData(keyFinding);
             </Fragment>
           ))}
 
-          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data suppressed due to low number of positive tests. Select “6 Months” Time Frame to view available data'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data suppressed'}</text>}
+          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data not reported due to low number of positive tests. Select “6 Months” Time Frame to view available data.'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data not reported'}</text>}
           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 20} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'due to low number'}</text>}
           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'of positive tests.'}</text>}
            {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4 + 60} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Select “6 Months”'}</text>}
@@ -725,8 +763,9 @@ onData(keyFinding);
         textColor="#222"
       />
     </div>
-  );
-
+  )}
+</>
+)
 }
 
 export default LineChart
