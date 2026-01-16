@@ -8,7 +8,7 @@
       "HalfYearly": {
         "noOfTests": "685,659",
         "noOfStates": "37",
-        "timeStamp": "June 2023 - December 2025"
+        "timeStamp": "July 2023 - December 2025"
       }
   },
     "NORTH": {
@@ -20,7 +20,7 @@
       "HalfYearly": {
         "noOfTests": "46,319",
         "noOfStates": "4",
-        "timeStamp": "June 2023 - December 2025"
+        "timeStamp": "July 2023 - December 2025"
       }
   },
   "MIDWEST": {
@@ -32,7 +32,7 @@
       "HalfYearly": {
         "noOfTests": "230,010",
         "noOfStates": "10",
-        "timeStamp": "June 2023 - December 2025"
+        "timeStamp": "July 2023 - December 2025"
       }
   },
   "SOUTH": {
@@ -44,7 +44,7 @@
       "HalfYearly": {
         "noOfTests": "141,851",
         "noOfStates": "14",
-        "timeStamp": "June 2023 - December 2025"
+        "timeStamp": "July 2023 - December 2025"
       }
   },
   "WEST": {
@@ -56,7 +56,7 @@
       "HalfYearly": {
         "noOfTests": "267,539",
         "noOfStates": "9",
-        "timeStamp": "June 2023 - December 2025"
+        "timeStamp": "July 2023 - December 2025"
       }
   }
 }
