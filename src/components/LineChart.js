@@ -489,13 +489,18 @@ return (
             </Fragment>
           ))}
 
-          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data not reported due to low number of positive tests. Select “6 Months” Time Frame to view available data.'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data not reported'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 20} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'due to low number'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'of positive tests.'}</text>}
-           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4 + 60} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Select “6 Months”'}</text>}
-                      {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/4 + 80} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Time Frame to view'}</text>}
-          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/4) + 100} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'available data.'}</text>}
+          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data suppressed due to low number of positive tests.'}</text>}
+          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4 + 20} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data not reported due to low number of positive tests.'}</text>}
+          {(!isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/2.2} y={height/4 + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Select “6 Months” Time Frame to view available data.'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/5} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data suppressed'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/5) + 20} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'due to low number'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/5) + 40} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'of positive tests.'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/5 + 60} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Data not reported'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/5) + 80} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'due to low number'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/5) + 100} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'of positive tests.'}</text>}
+           {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/5 + 120} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Select “6 Months”'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={height/5 + 140} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'Time Frame to view'}</text>}
+          {(isSmallViewPort && period == 'Quarterly' && region == 'NORTH' && chartNum == 2) && <text width={width} x={width/3} y={(height/5) + 160} textAnchor="middle" style={{fill: '#000000', fontWeight: 'bold'}}>{'available data.'}</text>}
 
           {/* Render labels separately to avoid overlapping */}
           {showLabels && (() => {
