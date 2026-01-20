@@ -131,7 +131,7 @@ function DataTable508(params) {
                   <th key={`th-${rowKey}-${rowIndex}`} scope="row">{labelOverrides[rowKey] || rowKey.split('_')[0]}</th>
                   {[data].map((d, i) => 
                     Object.keys(d[keys[0]]).map((colKey, colIndex) => (
-                      <td key={`td-${d[rowKey][colKey]}-${rowIndex}-${colIndex}`}><svg style={{position: 'inherit', right: '0', top: '0'}} width={'auto'} height={20}><Group><rect x={0} y={0} width={'73%'} height={20} style={{outline: 'none', backgroundColor: 'yellow'}} fill='transparent'></rect><text x={'95%'} y={'75%'} width={'12%'} height={16} text-anchor="end" fontSize={18} stroke={'#1C1D1F'} fill={'#1C1D1F'} data-tip={showPercentChange ? getTooltip(dataTip2, rowKey, colKey) : getTooltip(dataTip1, rowKey, colKey)}>{cleanUp(d[rowKey][colKey], rowKey, colKey)}</text></Group></svg></td>
+                      <td key={`td-${d[rowKey][colKey]}-${rowIndex}-${colIndex}`}><svg style={{position: 'inherit', right: '0', top: '0'}} width={'auto'} height={20}><Group><rect x={0} y={0} width={'73%'} height={20} style={{outline: 'none', backgroundColor: 'yellow'}} fill='transparent'></rect><text x={'95%'} y={'75%'} width={'12%'} height={16} text-anchor="end" fontSize={18} stroke={'#1C1D1F'} fill={'#1C1D1F'} data-tip={showPercentChange ? (rowIndex == 0 ? getTooltip(dataTip1, rowKey, colKey) : getTooltip(dataTip2, rowKey, colKey)) : getTooltip(dataTip1, rowKey, colKey)}>{cleanUp(d[rowKey][colKey], rowKey, colKey)}</text></Group></svg></td>
                     ))
                   )}
                 </tr>
@@ -142,7 +142,10 @@ function DataTable508(params) {
         
         }
         { suppressed &&
-          <div>Data not reported due to low number of positive tests. Select “6 Months” Time Frame to view available data.</div>
+          <div style={{'width': width * 0.985}} className={'wrapText'}>
+            <div>Data suppressed due to low number of positive tests. Data not reported due to low number of positive tests. Select “6 Months” Time Frame to view available data.</div>
+          </div>
+          
         }
         
       </div>

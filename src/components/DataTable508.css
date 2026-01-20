@@ -168,3 +168,8 @@ th {
         max-width: 100% !important;
     }
 }
+
+.wrapText {
+    white-space: wrap!important;
+    font-weight: bold;
+}
