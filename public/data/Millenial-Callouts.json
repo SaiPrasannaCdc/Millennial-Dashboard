@@ -1,60 +1,60 @@
 {
   "National": {
     "Quarterly": {
-        "noOfTests": "615,307",
+        "noOfTests": "661,378",
         "noOfStates": "35",
         "timeStamp": "October 2023 - December 2025"
       },
       "HalfYearly": {
-        "noOfTests": "685,659",
+        "noOfTests": "725,975",
         "noOfStates": "37",
         "timeStamp": "July 2023 - December 2025"
       }
   },
     "NORTH": {
       "Quarterly": {
-        "noOfTests": "NA",
+        "noOfTests": "38,973",
         "noOfStates": "NA",
         "timeStamp": "October 2023 - December 2025"
       },
       "HalfYearly": {
-        "noOfTests": "46,319",
+        "noOfTests": "43,123",
         "noOfStates": "4",
         "timeStamp": "July 2023 - December 2025"
       }
   },
   "MIDWEST": {
       "Quarterly": {
-        "noOfTests": "206,751",
+        "noOfTests": "217,502",
         "noOfStates": "9",
         "timeStamp": "October 2023 - December 2025"
       },
       "HalfYearly": {
-        "noOfTests": "230,010",
+        "noOfTests": "240,148",
         "noOfStates": "10",
         "timeStamp": "July 2023 - December 2025"
       }
   },
   "SOUTH": {
       "Quarterly": {
-        "noOfTests": "127,298",
+        "noOfTests": "133,275",
         "noOfStates": "13",
         "timeStamp": "October 2023 - December 2025"
       },
       "HalfYearly": {
-        "noOfTests": "141,851",
+        "noOfTests": "146,626",
         "noOfStates": "14",
         "timeStamp": "July 2023 - December 2025"
       }
   },
   "WEST": {
       "Quarterly": {
-        "noOfTests": "239,821",
+        "noOfTests": "271,628",
         "noOfStates": "13",
         "timeStamp": "October 2023 - December 2025"
       },
       "HalfYearly": {
-        "noOfTests": "267,539",
+        "noOfTests": "296,078",
         "noOfStates": "9",
         "timeStamp": "July 2023 - December 2025"
       }
