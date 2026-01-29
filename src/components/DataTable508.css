@@ -53,14 +53,14 @@
     border-right: 3px solid rgb(113, 33, 119);
 }
 
-.table-container-MY table tbody th,
+/* .table-container-MY table tbody th,
 .table-container-MY table thead th:first-child {
     position: -webkit-sticky;
     position: sticky;
     left: 0;
     top: 0;
     background-color: white;
-}
+} */
 
 .noSticky{
     position:inherit!important;
