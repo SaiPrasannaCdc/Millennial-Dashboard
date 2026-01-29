@@ -59,6 +59,8 @@ function DataTable508(params) {
 
     if(!key) return 'Jurisdiction';
 
+    key = key.replace('HalfYearly', '6 months');
+
     let words = [];
 
     let start = 0;
@@ -128,7 +130,7 @@ function DataTable508(params) {
           <tbody>
             {!isArray && keys.map((rowKey, rowIndex) => (
                 <tr key={`tr-${rowKey}-${rowIndex}`} className={rowKey === highlight ? 'highlight' : ''}>
-                  <th key={`th-${rowKey}-${rowIndex}`} scope="row">{labelOverrides[rowKey] || rowKey.split('_')[0]}</th>
+                  <th className={'keepSticky'} key={`th-${rowKey}-${rowIndex}`} scope="row">{labelOverrides[rowKey] || rowKey.split('_')[0]}</th>
                   {[data].map((d, i) => 
                     Object.keys(d[keys[0]]).map((colKey, colIndex) => (
                       <td key={`td-${d[rowKey][colKey]}-${rowIndex}-${colIndex}`}><svg style={{position: 'inherit', right: '0', top: '0'}} width={'auto'} height={20}><Group><rect x={0} y={0} width={'73%'} height={20} style={{outline: 'none', backgroundColor: 'yellow'}} fill='transparent'></rect><text x={'95%'} y={'75%'} width={'12%'} height={16} text-anchor="end" fontSize={18} stroke={'#1C1D1F'} fill={'#1C1D1F'} data-tip={showPercentChange ? (rowIndex == 0 ? getTooltip(dataTip1, rowKey, colKey) : getTooltip(dataTip2, rowKey, colKey)) : getTooltip(dataTip1, rowKey, colKey)}>{cleanUp(d[rowKey][colKey], rowKey, colKey)}</text></Group></svg></td>

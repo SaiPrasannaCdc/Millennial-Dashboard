@@ -9,7 +9,7 @@
 
 .table-container-MY table {
     min-width: calc(100% - 5px);
-    border-collapse: collapse;
+    border-collapse: separate;
     border-spacing: 0;
 }
 
@@ -35,13 +35,6 @@
     border-bottom: 1px solid black;
     border-right: 1px solid black;
     border-left: 1px solid black;
-}
-
-.table-container-MY.demographics-table table thead th {
-    max-width: 165px;
-    min-width: 125px;
-    word-break: break-word;
-    white-space: nowrap;
 }
 
 .table-container-MY table tr.highlight th {

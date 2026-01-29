@@ -786,7 +786,7 @@ export const UtilityFunctions = {
                   {drugsToShow?.map((drug, idx) => (
                   <tr>
                     <td>
-                  <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                  <label key={drug} style={{ display: 'flex', alignItems: 'top', gap: '5px', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
                       checked={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? false: selectedLines?.includes(drug)}
@@ -809,6 +809,7 @@ export const UtilityFunctions = {
                         border: `2px solid #888`,
                         background: '#fff',
                         marginRight: 2,
+                        marginTop: 5,
                         position: 'relative',
                         transition: 'background 0.2s, border 0.2s',
                       }}
