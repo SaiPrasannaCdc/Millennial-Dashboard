@@ -17,7 +17,7 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
                     value={selectedRegion}
                     onChange={(e) => onRegionChange(e.target.value)}
                 >
-                    <option value="National">National</option>
+                    <option value="National">Overall</option>
                     <option value="NORTH">Northeast Census Region</option>
                     <option value="MIDWEST">Midwest Census Region</option>
                     <option value="SOUTH">Southern Census Region</option>
@@ -66,7 +66,7 @@ const Dropdowns = ({ selectedPeriod, onPeriodChange, selectedRegion, onRegionCha
                                 value={selectedRegion}
                                 onChange={(e) => onRegionChange(e.target.value)}
                             >
-                                <option value="National">National</option>
+                                <option value="National">Overall</option>
                                 <option value="NORTH">Northeast Census Region</option>
                                 <option value="MIDWEST">Midwest Census Region</option>
                                 <option value="SOUTH">Southern Census Region</option>
