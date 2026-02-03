@@ -415,7 +415,7 @@ export const UtilityFunctions = {
 
     switch (region) {
       case 'National':
-        rgnFinal = 'National';
+        rgnFinal = 'Overall';
         break;
       case 'MIDWEST':
         rgnFinal = 'Midwest Census Region';
@@ -435,7 +435,7 @@ export const UtilityFunctions = {
 
     switch (region) {
       case 'National':
-        rgnShort = 'National';
+        rgnShort = 'Overall';
         break;
       case 'MIDWEST':
         rgnShort = 'Midwest';
@@ -475,16 +475,16 @@ export const UtilityFunctions = {
     else if (chartNum == 2) {
       switch (drug) {
         case 'Fentanyl':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests and also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -786,7 +786,7 @@ export const UtilityFunctions = {
                   {drugsToShow?.map((drug, idx) => (
                   <tr>
                     <td>
-                  <label key={drug} style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                  <label key={drug} style={{ display: 'flex', alignItems: 'top', gap: '5px', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
                       checked={UtilityFunctions.isControlDisabled(chartNum, selectedPeriod, selectedRegion) ? false: selectedLines?.includes(drug)}
@@ -809,6 +809,7 @@ export const UtilityFunctions = {
                         border: `2px solid #888`,
                         background: '#fff',
                         marginRight: 2,
+                        marginTop: 5,
                         position: 'relative',
                         transition: 'background 0.2s, border 0.2s',
                       }}

@@ -29,7 +29,7 @@ function StatsCards(params) {
             <div className={isSmallViewPort ?"stats-card-SVP" : "stats-card"}>
                 <table>
                     <tr>
-                        <td class="alignTop"><div className="stats-card-content"><p className="reg" style={{'color': drugClr}}><strong>{rgn == 'National' ? 'Data are not nationally representative ' : 'Caution: '}</strong>{rgn == 'National' ? 'because this is a convenient sample. 50 states and District of Columbia submitted varying # of urine drug tests to Millennium Health.' : <strong>Results cannot be compared across regions because the types of patients tested vary across regions.</strong>}</p></div></td>
+                        <td class="alignTop"><div className="stats-card-content"><p className="reg" style={{'color': drugClr}}><strong>{rgn == 'National' ? 'Data are not nationally representative ' : 'Caution: '}</strong>{rgn == 'National' ? 'because this dashboard uses a convenience sample. 50 states and District of Columbia submitted varying # of urine drug tests to Millennium Health.' : <strong>Results cannot be compared across regions because the types of patients tested vary across regions.</strong>}</p></div></td>
                     </tr>
                 </table>
             </div>
