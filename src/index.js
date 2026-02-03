@@ -9,7 +9,7 @@ const root = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
     <App 
-      accessible={root.getAttribute('data-accessible') === 'true'}
+      accessible={ root.getAttribute('data-accessible') == 'true'}
     />
   </React.StrictMode>,
   root

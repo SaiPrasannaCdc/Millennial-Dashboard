@@ -7,7 +7,9 @@ import LineChart from './components/LineChart';
 import { UtilityFunctions } from './utility';
 import './styles.scss';
 
-function App() {
+function App(params) {
+
+  const { accessible } = params;
 
   const drugOptions = {
     'fentanyl': {
@@ -28,7 +30,6 @@ function App() {
   const viewportCutoffMedium = 800;
   const chartHeight = 460;
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const accessible = false;
   const [selectedPeriod, setSelectedPeriod] = useState('Quarterly');
   const [selectedRegion, setSelectedRegion] = useState('National');
   const [selectedDrug, setSelectedDrug] = useState('fentanyl');
