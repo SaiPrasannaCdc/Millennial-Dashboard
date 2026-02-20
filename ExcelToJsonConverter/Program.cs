@@ -50,8 +50,8 @@ namespace ExcelToJsonConverter
             // Set EPPlus license context
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-            string excelFilePath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Data_Millennium_Health_1_10_2026_prep.xlsx"; // Change this to your Excel file path
-            string outputJsonPath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Data_Millennium_Health_1_10_2026_4.json";
+            string excelFilePath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Millennium_health_download_20260127_clean.xlsx"; // Change this to your Excel file path
+            string outputJsonPath = "C:\\SourceCode\\github\\Millennial-Dashboard\\ExcelToJsonConverter\\data\\Millennium_health_download_20260127_clean.json";
 
             if (args.Length > 0)
                 excelFilePath = args[0];
