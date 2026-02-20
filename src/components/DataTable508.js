@@ -78,7 +78,7 @@ function DataTable508(params) {
   };
 
   const getHeader = () => {
-    var txt = chartNum == 1 ? '% of specimens testing positive for ' +  currentDrug.toLowerCase() + ' or ' + currentDrug.toLowerCase() + ' drug combinations' : '% of specimens with drug(s) detected among ' + currentDrug.toLowerCase() + ' positive specimens';
+    var txt = chartNum == 1 ? '% of urine specimens testing positive for ' +  currentDrug.toLowerCase() + ' or ' + currentDrug.toLowerCase() + ' drug combinations' : '% of urine specimens with drug(s) detected among ' + currentDrug.toLowerCase() + ' positive urine specimens';
     return txt;
   }
 

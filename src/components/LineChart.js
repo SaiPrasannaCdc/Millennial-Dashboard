@@ -368,9 +368,9 @@ return (
             fontWeight="600"
             style={{ letterSpacing: '0.01em' }}
           >
-            {chartNum == 1 ? '% of specimens testing positive for ' +  currentDrug.toLowerCase() : '% of specimens with drug(s) detected among '}
+            {chartNum == 1 ? '% of urine specimens testing positive for ' +  currentDrug.toLowerCase() : '% of urine specimens with drug(s) detected among '}
             <tspan x={-adjustedHeight / 2} dy={15}>
-             {chartNum == 1 ? 'or ' + currentDrug.toLowerCase() + ' drug combinations'  : currentDrug.toLowerCase() + ' positive specimens'}
+             {chartNum == 1 ? 'or ' + currentDrug.toLowerCase() + ' drug combinations'  : currentDrug.toLowerCase() + ' positive urine specimens'}
             </tspan>
           </text>
           <AxisLeft

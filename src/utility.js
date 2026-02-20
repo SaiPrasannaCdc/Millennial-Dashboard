@@ -457,16 +457,16 @@ export const UtilityFunctions = {
 
       switch (drug) {
         case 'Fentanyl':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -475,16 +475,16 @@ export const UtilityFunctions = {
     else if (chartNum == 2) {
       switch (drug) {
         case 'Fentanyl':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for cocaine, methamphetamine, or heroin: ' + rgnShort + ', ' + prd;
           break;
         case 'Heroin':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for cocaine, methamphetamine, or fentanyl: ' + rgnShort + ', ' + prd;
           break;
         case 'Cocaine':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for fentanyl, heroin, or methamphetamine: ' + rgnShort + ', ' + prd;
           break;
         case 'Methamphetamine':
-          heading = 'Percentage of specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
+          heading = 'Percentage of urine specimens from people with a substance use disorder that test positive for ' + drug.toLowerCase() + ' on urine drug tests that also test positive for fentanyl, heroin, or cocaine: ' + rgnShort + ', ' + prd;
           break;
         default:
           break;
@@ -730,7 +730,7 @@ export const UtilityFunctions = {
                  </div>
                 }
               {isSVP && <br></br>}
-              {chartNum == 2 && <span style={{ fontSize: '13px', fontWeight: 'bold', marginRight: '20px' }}>Other drugs detected among specimens positive for {currentDrug.toLowerCase()}</span>}
+              {chartNum == 2 && <span style={{ fontSize: '13px', fontWeight: 'bold', marginRight: '20px' }}>Other drugs detected among urine specimens positive for {currentDrug.toLowerCase()}</span>}
               {isSVP && <br></br>}
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '10px', marginBottom: '20px' }}>
                 {!isSVP && drugsToShow?.map((drug, idx) => (
